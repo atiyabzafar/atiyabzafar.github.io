@@ -1,4 +1,4 @@
-# Examining Disease Prevention Measures within Heterogeneous Communities and Studying Effect of Migration and lockdowns
+## Examining Disease Prevention Measures within Heterogeneous Communities and Studying Effect of Migration and lockdowns
 
 [Link to the Presentation for the project](atiyabzafar.github.io/documents/Final-covidBUSTERS.pdf)
 
