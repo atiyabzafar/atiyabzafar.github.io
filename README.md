@@ -10,7 +10,7 @@ Our Agent based model consists of
   * Removed/Recovered (Green Dots) 
 * Each infected agent can infect the susceptible neighbours if there exists an S-I link in the corresponding graph within a proximity radius.
 
-*!!The Followsing Simulations go along with the pdf linked above to the presentation!!*
+*!!The Following Simulations go along with the pdf linked above to the presentation!!*
 
 ### The effective Ring spread 
 
