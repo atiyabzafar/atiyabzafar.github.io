@@ -1,5 +1,7 @@
 # Some Results for Agent Based model
 
+[Link to the Presentation for the project](atiyabzafar.github.io/documents/Final-covidBUSTERS.pdf)
+
 Our Agent based model consists of 
 * In our model agents move randomly 
 * Each agent can either be 
