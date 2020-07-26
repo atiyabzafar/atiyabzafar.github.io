@@ -5,6 +5,17 @@ d3.select('h1').style('color','blue')
 d3.select('body').append('p')
 .text('First Paragraph');
 
+
+  var svg = d3.select("svg"),
+      width = +svg.attr("width"),
+      height = +svg.attr("height");
+
+  var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+  var simulation = d3.forceSimulation()
+      .force("link", d3.forceLink().id(function(d) { return d.name; }))
+      .force("charge", d3.forceManyBody())
+      .force("center", d3.forceCenter(width / 2, height / 2));
 d3.json("https://atiyabzafar.github.io/js/data.json", function(error, data) {
     if (error) throw error;
     
@@ -17,15 +28,7 @@ d3.json("https://atiyabzafar.github.io/js/data.json", function(error, data) {
 chart = {
   const links = data.links.map(d => Object.create(d));
   const nodes = data.nodes.map(d => Object.create(d));
-
-  const simulation = d3.forceSimulation(nodes)
-      .force("link", d3.forceLink(links).id(d => d.id))
-      .force("charge", d3.forceManyBody())
-      .force("center", d3.forceCenter(width / 2, height / 2));
-
-  const svg = d3.create("svg")
-      .attr("viewBox", [0, 0, width, height]);
-
+    
   const link = svg.append("g")
       .attr("stroke", "#999")
       .attr("stroke-opacity", 0.6)
@@ -63,13 +66,7 @@ chart = {
 
   return svg.node();
 }
-
-height = 600
-
-color = {
-  const scale = d3.scaleOrdinal(d3.schemeCategory10);
-  return d => scale(d.group);
-}
+        }
 
 drag = simulation => {
   
