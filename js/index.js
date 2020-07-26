@@ -21,7 +21,7 @@ if (error) throw error;
 
 graph.links = graph.links.map(function(ele) {
   return {
-	source: ele.source, target: ele.dest
+	source: ele.source, target: ele.target
   }
 });
 
