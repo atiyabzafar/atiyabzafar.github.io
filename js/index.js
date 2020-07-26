@@ -37,6 +37,7 @@ var link = svg.append("g")
   .selectAll("line")
   .data(graph.links)
   .enter().append("line")
+.attr("marker-end", "url(#arrowhead)");
 
 var node = svg.append("g")
 	.attr("class", "nodes")
