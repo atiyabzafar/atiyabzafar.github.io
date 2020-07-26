@@ -16,7 +16,7 @@ var simulation = d3.forceSimulation()
   .force("charge", d3.forceManyBody())
   .force("center", d3.forceCenter(width / 2, height / 2));
 
-d3.json("data.json", function(error, graph) {
+d3.json("https://atiyabzafar.github.io/js/data.json", function(error, graph) {
 if (error) throw error;
 
 graph.links = graph.links.map(function(ele) {
