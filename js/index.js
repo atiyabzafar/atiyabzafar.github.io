@@ -6,7 +6,7 @@ d3.select('body').append('p')
 .text('First Paragraph');
 
 
-data=(https://github.com/atiyabzafar/atiyabzafar.github.io/blob/master/js/data.json).json()
+data=(https://atiyabzafar.github.io/js/data.json).json()
 
 chart = {
   const links = data.links.map(d => Object.create(d));
