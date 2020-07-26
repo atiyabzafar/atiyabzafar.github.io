@@ -5,8 +5,14 @@ d3.select('h1').style('color','blue')
 d3.select('body').append('p')
 .text('First Paragraph');
 
-
-data=(https://atiyabzafar.github.io/js/data.json).json()
+d3.json("https://atiyabzafar.github.io/js/data.json", function(error, graph) {
+    if (error) throw error;
+    
+    graph.links = graph.links.map(function(ele) {
+      return {
+        source: ele.source, target: ele.target
+      }
+    });
 
 chart = {
   const links = data.links.map(d => Object.create(d));
