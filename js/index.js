@@ -27,18 +27,20 @@ d3.json("https://atiyabzafar.github.io/js/data.json", function(error, data) {
     });
     
   const link = svg.append("g")
+      .attr("class", "links")
       .attr("stroke", "#999")
       .attr("stroke-opacity", 0.6)
     .selectAll("line")
-    .data(links)
+    .data(data.links)
     .join("line")
       .attr("stroke-width", d => Math.sqrt(d.value));
 
   const node = svg.append("g")
+      .attr("class", "nodes")
       .attr("stroke", "#fff")
       .attr("stroke-width", 1.5)
     .selectAll("circle")
-    .data(nodes)
+    .data(data.nodes)
     .join("circle")
       .attr("r", 5)
       .attr("fill", color)
