@@ -8,7 +8,7 @@ d3.select('body').append('p')
 var svg = d3.select("svg"),
   width = +svg.attr("width"),
   height = +svg.attr("height");
-
+/*
 svg.append('defs').append('marker')
 	.attrs({'id':'arrowhead',
     'viewBox':'-0 -5 10 10',
@@ -22,7 +22,7 @@ svg.append('defs').append('marker')
 	.attr('d', 'M 0,-5 L 10 ,0 L 0,5')
 	.attr('fill', '#999')
 	.style('stroke','none');
-
+*/
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 var simulation = d3.forceSimulation()
@@ -37,7 +37,7 @@ var link = svg.append("g")
   .selectAll("line")
   .data(graph.links)
   .enter().append("line")
-	.attr("marker-end", "url(#arrowhead)");
+//	.attr("marker-end", "url(#arrowhead)");
 
 var node = svg.append("g")
 	.attr("class", "nodes")
