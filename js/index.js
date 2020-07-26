@@ -5,10 +5,10 @@ d3.select('h1').style('color','blue')
 d3.select('body').append('p')
 .text('First Paragraph');
 
-d3.json("https://atiyabzafar.github.io/js/data.json", function(error, graph) {
+d3.json("https://atiyabzafar.github.io/js/data.json", function(error, data) {
     if (error) throw error;
     
-    graph.links = graph.links.map(function(ele) {
+    data.links = data.links.map(function(ele) {
       return {
         source: ele.source, target: ele.target
       }
