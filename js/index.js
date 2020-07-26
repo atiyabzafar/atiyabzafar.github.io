@@ -47,8 +47,8 @@ d3.json("https://atiyabzafar.github.io/js/data.json", function(error, data) {
       .call(drag(simulation));
 
   node.append("title")
-      .text(d => d.id);
-
+      .text(function(d) { return d.name; });
+  
   simulation.on("tick", () => {
     link
         .attr("x1", d => d.source.x)
