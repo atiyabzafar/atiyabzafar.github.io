@@ -17,13 +17,6 @@ var simulation = d3.forceSimulation()
   .force("center", d3.forceCenter(width / 2, height / 2));
 
 d3.json("https://atiyabzafar.github.io/js/data.json", function(error, graph) {
-if (error) throw error;
-
-graph.links = graph.links.map(function(ele) {
-  return {
-	source: ele.source, target: ele.target
-  }
-});
 
 var link = svg.append("g")
 	.attr("class", "links")
