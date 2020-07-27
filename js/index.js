@@ -8,7 +8,7 @@ d3.select('body').append('p')
 var svg = d3.select("svg"),
   width = +svg.attr("width"),
   height = +svg.attr("height");
-
+var node_radius=5
 // build the arrow.
 svg.append("svg:defs").selectAll("marker")
     .data(["end"])      // Different link/path types can be defined here
@@ -26,8 +26,8 @@ svg.append("svg:defs").selectAll("marker")
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 var simulation = d3.forceSimulation()
-  .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(50).strength(1))
-  .force("charge", d3.forceManyBody().strength(-30))
+  .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(40).strength(1))
+  .force("charge", d3.forceManyBody().strength(-300))
   .force("center", d3.forceCenter(width / 2, height / 2));
 
 d3.json("data.json", function(error, graph) {
@@ -47,7 +47,7 @@ var node = svg.append("g")
   .enter().append("g")
 
 var circles = node.append("circle")
-	.attr("r", 7)
+	.attr("r", node_radius)
 	.attr("fill", function(d) { return color(d.id); })
 	.call(d3.drag()
 		.on("start", dragstarted)
