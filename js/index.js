@@ -9,6 +9,20 @@ var svg = d3.select("svg"),
   width = +svg.attr("width"),
   height = +svg.attr("height");
 
+// build the arrow.
+svg.append("svg:defs").selectAll("marker")
+    .data(["end"])      // Different link/path types can be defined here
+  .enter().append("svg:marker")    // This section adds in the arrows
+    .attr("id", String)
+    .attr("viewBox", "0 -5 10 10")
+    .attr("refX", 15)
+    .attr("refY", -1.5)
+    .attr("markerWidth", 6)
+    .attr("markerHeight", 6)
+    .attr("orient", "auto")
+  .append("svg:path")
+    .attr("d", "M0,-5L10,0L0,5");
+
 var color = d3.scaleOrdinal(d3.schemeCategory20);
 
 var simulation = d3.forceSimulation()
@@ -17,12 +31,14 @@ var simulation = d3.forceSimulation()
   .force("center", d3.forceCenter(width / 2, height / 2));
 
 d3.json("data.json", function(error, graph) {
-
+	
 var link = svg.append("g")
 	.attr("class", "links")
   .selectAll("line")
   .data(graph.links)
   .enter().append("line")
+	.attr("marker-end", "url(#end)");
+
 
 var node = svg.append("g")
 	.attr("class", "nodes")
