@@ -9,6 +9,8 @@ var svg = d3.select("svg"),
   width = +svg.attr("width"),
   height = +svg.attr("height");
 
+svg.call(d3.zoom().on('zoom', zoomed));
+
 var node_radius=6
 
 // build the arrow.
@@ -134,4 +136,8 @@ function dragended(d) {
 if (!d3.event.active) simulation.alphaTarget(0);
 d.fx = null;
 d.fy = null;
+}
+// Zooming function translates the size of the svg container.
+function zoomed() {
+	  container.attr("transform", "translate(" + d3.event.transform.x + ", " + d3.event.transform.y + ") scale(" + d3.event.transform.k + ")");
 }
