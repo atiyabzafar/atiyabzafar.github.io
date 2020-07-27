@@ -8,7 +8,9 @@ d3.select('body').append('p')
 var svg = d3.select("svg"),
   width = +svg.attr("width"),
   height = +svg.attr("height");
-var node_radius=5
+
+var node_radius=6
+
 // build the arrow.
 svg.append("svg:defs").selectAll("marker")
     .data(["end"])      // Different link/path types can be defined here
