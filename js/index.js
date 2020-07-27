@@ -86,6 +86,35 @@ function ticked() {
 		return "translate(" + d.x + "," + d.y + ")";
 	  })
 }
+/*invalidation.then(() => simulation.stop());
+
+  return Object.assign(svg.node(), {
+    update({nodes, links}) {
+
+      // Make a shallow copy to protect against mutation, while
+      // recycling old nodes to preserve position and velocity.
+      const old = new Map(node.data().map(d => [d.id, d]));
+      nodes = nodes.map(d => Object.assign(old.get(d.id) || {}, d));
+      links = links.map(d => Object.assign({}, d));
+
+      node = node
+        .data(nodes, d => d.id)
+        .join(enter => enter.append("circle")
+          .attr("r", 5)
+          .call(drag(simulation))
+          .call(node => node.append("title").text(d => d.id)));
+
+      link = link
+        .data(links, d => [d.source, d.target])
+        .join("line");
+
+      simulation.nodes(nodes);
+      simulation.force("link").links(links);
+      simulation.alpha(1).restart().tick();
+      ticked(); // render now!
+    }
+  });
+*/
 });
 
 function dragstarted(d) {
