@@ -3,7 +3,7 @@ $(document).ready( function() {
   var w, h, fill;
   w = $("#page").width();
   h = 450;
-  fill = d3.scale.category20();
+  //fill = d3.scale.category20();
 
   var vis = d3.select("#chart")
     .append("svg:svg")
