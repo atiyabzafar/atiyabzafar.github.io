@@ -91,6 +91,12 @@ for (i = 2; i < 12; i++) {
       .attr("transform", function(d) {
       return "translate(" + d.x + "," + d.y + ")";
       })
+	  
+ var link = vis.selectAll("line.link")
+ 	link.exit().remove();
+ var node = vis.selectAll("circle.node")
+ 	node.exit().remove();
+.duration(500)
   }
   /*invalidation.then(() => simulation.stop());
 
