@@ -32,7 +32,7 @@ var GRAPH = [];
 
 function loadJson() {
     $.getJSON('data.json', function (data) {
-        GRAPH = data;
+        GRAPH = data.nodes;
     });
  };
 loadJson();
