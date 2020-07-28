@@ -31,9 +31,8 @@ svg.append("svg:defs").selectAll("marker")
 var GRAPH = [];
 
 function loadJson() {
-    $.getJSON('data.json', function (data) {
-        GRAPH = data.nodes;
-    });
+    obj= $.getJSON('data.json');
+    GRAPH=obj.responseJSON.nodes;
  };
 loadJson();
 console.log(GRAPH)
