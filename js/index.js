@@ -35,8 +35,8 @@ var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))
     .force("charge", d3.forceManyBody().strength(-10))
     .force("center", d3.forceCenter(width / 2, height / 2));
-var i;
-for (i = 2; i < 12; i++) {
+var i=2;
+//for (i = 2; i < 12; i++) {
 
   d3.json("jsons/data"+i+".json", function(error, graph) {
 
@@ -122,12 +122,7 @@ for (i = 2; i < 12; i++) {
     });
   */
   });
- var link = svg.selectAll("line.link")
- 	link.exit().remove();
- var node = svg.selectAll("circle.node")
- 	node.exit().remove();
-.duration(500)
-}//for loop ends
+//}//for loop ends
 function dragstarted(d) {
 if (!d3.event.active) simulation.alphaTarget(0.3).restart();
 d.fx = d.x;
