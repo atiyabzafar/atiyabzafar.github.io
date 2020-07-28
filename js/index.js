@@ -33,13 +33,7 @@ var GRAPH = [];
 function loadJson() {
     $.getJSON('data.json', function (data) {
         GRAPH = data;
-    }).error(function(){
-            console.log('error: json not loaded');
-        })
-	.done(function() {
-		console.log("JSON loaded!");
-		
-	});
+    });
  };
 loadJson();
 console.log(GRAPH)
