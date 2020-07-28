@@ -9,7 +9,7 @@ var svg = d3.select("svg"),
   width = +svg.attr("width"),
   height = +svg.attr("height");
 
-svg.call(d3.zoom().on('zoom', zoomed));
+//svg.call(d3.zoom().on('zoom', zoomed));
 
 var node_radius=6
 
