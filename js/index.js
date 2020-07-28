@@ -27,7 +27,22 @@ svg.append("svg:defs").selectAll("marker")
   .append("svg:path")
     .attr("d", "M0,-5L10,0L0,5");
 
-var color = d3.scaleOrdinal(d3.schemeCategory20);
+//var color = d3.scaleOrdinal(d3.schemeCategory20);
+var GRAPH = [];
+
+function loadJson() {
+    $.getJSON('data.json', function (data) {
+        GRAPH = data;
+    }).error(function(){
+            console.log('error: json not loaded');
+        })
+	.done(function() {
+		console.log("JSON loaded!");
+		
+	});
+ };
+loadJson();
+console.log(GRAPH)
 
 var simulation = d3.forceSimulation()
   //.force("link", d3.forceLink().id(function(d) { return d.id; }).distance(100).strength(1))
@@ -35,7 +50,7 @@ var simulation = d3.forceSimulation()
     .force("link", d3.forceLink().id(function(d) { return d.id; }))
     .force("charge", d3.forceManyBody())
     .force("center", d3.forceCenter(width / 2, height / 2));
-
+/*
 //d3.json("data.json", function(error, graph) {
 d3.json("https://atiyabzafar.github.io/js/data.json", function(error, graph) {	
 var link = svg.append("g")
@@ -90,35 +105,7 @@ function ticked() {
 		return "translate(" + d.x + "," + d.y + ")";
 	  })
 }
-/*invalidation.then(() => simulation.stop());
 
-  return Object.assign(svg.node(), {
-    update({nodes, links}) {
-
-      // Make a shallow copy to protect against mutation, while
-      // recycling old nodes to preserve position and velocity.
-      const old = new Map(node.data().map(d => [d.id, d]));
-      nodes = nodes.map(d => Object.assign(old.get(d.id) || {}, d));
-      links = links.map(d => Object.assign({}, d));
-
-      node = node
-        .data(nodes, d => d.id)
-        .join(enter => enter.append("circle")
-          .attr("r", 5)
-          .call(drag(simulation))
-          .call(node => node.append("title").text(d => d.id)));
-
-      link = link
-        .data(links, d => [d.source, d.target])
-        .join("line");
-
-      simulation.nodes(nodes);
-      simulation.force("link").links(links);
-      simulation.alpha(1).restart().tick();
-      ticked(); // render now!
-    }
-  });
-*/
 });
 
 function dragstarted(d) {
@@ -141,3 +128,4 @@ d.fy = null;
 function zoomed() {
 	  container.attr("transform", "translate(" + d3.event.transform.x + ", " + d3.event.transform.y + ") scale(" + d3.event.transform.k + ")");
 }
+*/
