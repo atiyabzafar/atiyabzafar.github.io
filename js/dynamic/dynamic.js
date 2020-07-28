@@ -53,7 +53,8 @@ $(document).ready( function() {
       .attr("cx", function(d) { return d.x; })
       .attr("cy", function(d) { return d.y; })
       .attr("r", 5)
-      .style("fill","red")
+      //.style("fill","red")
+      .attr("fill","red")
       .call(force.drag);
 
     node.append("svg:title")
