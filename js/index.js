@@ -122,9 +122,9 @@ for (i = 2; i < 12; i++) {
     });
   */
   });
- var link = vis.selectAll("line.link")
+ var link = svg.selectAll("line.link")
  	link.exit().remove();
- var node = vis.selectAll("circle.node")
+ var node = svg.selectAll("circle.node")
  	node.exit().remove();
 .duration(500)
 }//for loop ends
