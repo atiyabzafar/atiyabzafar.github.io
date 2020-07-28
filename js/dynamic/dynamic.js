@@ -36,7 +36,7 @@ $(document).ready( function() {
     link.exit().remove();
 
     link.attr("class", "link")
-      .style("stroke-width", function(d) { return Math.sqrt(d.value); })
+      //.style("stroke-width", function(d) { return Math.sqrt(d.value); })
       .attr("x1", function(d) { return d.source.x; })
       .attr("y1", function(d) { return d.source.y; })
       .attr("x2", function(d) { return d.target.x; })
@@ -57,7 +57,7 @@ $(document).ready( function() {
       .call(force.drag);
 
     node.append("svg:title")
-      .text(function(d) { return d.name; });
+      .text(function(d) { return d.id; });
 
     vis.style("opacity", 1e-6)
       .transition()
