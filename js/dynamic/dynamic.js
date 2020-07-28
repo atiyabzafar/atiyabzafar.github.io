@@ -13,7 +13,7 @@ $(document).ready( function() {
   var plot = function(thing) {
     console.log('Plotting ' + thing);
 
-    d3.json("https://atiyabzafar.github.io/js/jsons/data" + thing + ".json", function(json) {
+    d3.json("https://atiyabzafar.github.io/js/jsons/data"+thing+".json", function(json) {
 
       // Debug what's coming in as JSON
       console.log(json);
