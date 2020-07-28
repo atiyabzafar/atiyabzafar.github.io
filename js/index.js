@@ -29,13 +29,23 @@ svg.append("svg:defs").selectAll("marker")
 
 //var color = d3.scaleOrdinal(d3.schemeCategory20);
 var GRAPH = [];
+var NODES=[]
+var LINKS=[]
 
+$.getJSON( "data.json", function( data){
+  GRAPH = data;
+  console.log(GRAPH);
+  NODES=GRAPH.nodes;
+  LINKS=GRAPH.links
+});
+/*
 function loadJson() {
     obj= $.getJSON('data.json');
     GRAPH=obj.responseJSON.nodes;
  };
 loadJson();
 console.log(GRAPH)
+*/
 
 var simulation = d3.forceSimulation()
   //.force("link", d3.forceLink().id(function(d) { return d.id; }).distance(100).strength(1))
