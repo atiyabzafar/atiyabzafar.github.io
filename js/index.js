@@ -13,6 +13,33 @@ var svg = d3.select("svg"),
 
 var node_radius=7
 
+// build the arrow.
+svg.append("svg:defs").selectAll("marker")
+    .data(["end"])      // Different link/path types can be defined here
+  .enter().append("svg:marker")    // This section adds in the arrows
+    .attr("id", String)
+    .attr("viewBox", "0 -5 10 10")
+    .attr("refX", 20)
+    .attr("refY", 0)
+    .attr("markerWidth", 6)
+    .attr("markerHeight", 6)
+    .attr("orient", "auto")
+  .append("svg:path")
+    .attr("d", "M0,-5L10,0L0,5");
+
+//var color = d3.scaleOrdinal(d3.schemeCategory20);
+var GRAPH = [];
+var NODES=[]
+var LINKS=[]
+
+var simulation = d3.forceSimulation()
+  //.force("link", d3.forceLink().id(function(d) { return d.id; }).distance(100).strength(1))
+  //.force("charge", d3.forceManyBody().strength(-50))
+    .force("link", d3.forceLink().id(function(d) { return d.id; }))
+    .force("charge", d3.forceManyBody().strength(-5))
+    .force("center", d3.forceCenter(width / 2, height / 2));
+
+
 filearr=["jsons/data1.json","jsons/data1.json","jsons/data1.json"]
 
 filearr.forEach(function (file, i) {
@@ -95,31 +122,7 @@ oReq.open("GET", "jsons/data1.json");
 oReq.send();
 
 
-// build the arrow.
-svg.append("svg:defs").selectAll("marker")
-    .data(["end"])      // Different link/path types can be defined here
-  .enter().append("svg:marker")    // This section adds in the arrows
-    .attr("id", String)
-    .attr("viewBox", "0 -5 10 10")
-    .attr("refX", 20)
-    .attr("refY", 0)
-    .attr("markerWidth", 6)
-    .attr("markerHeight", 6)
-    .attr("orient", "auto")
-  .append("svg:path")
-    .attr("d", "M0,-5L10,0L0,5");
 
-//var color = d3.scaleOrdinal(d3.schemeCategory20);
-var GRAPH = [];
-var NODES=[]
-var LINKS=[]
-
-var simulation = d3.forceSimulation()
-  //.force("link", d3.forceLink().id(function(d) { return d.id; }).distance(100).strength(1))
-  //.force("charge", d3.forceManyBody().strength(-50))
-    .force("link", d3.forceLink().id(function(d) { return d.id; }))
-    .force("charge", d3.forceManyBody().strength(-5))
-    .force("center", d3.forceCenter(width / 2, height / 2));
 
 $.getJSON( "jsons/data2.json", function( data){
   GRAPH = data;
