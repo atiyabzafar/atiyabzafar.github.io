@@ -95,8 +95,8 @@ $.getJSON( "jsons/data2.json", function( data){
 
 	  node
 		  .attr("transform", function(d) {
-			//return "translate(" + d.x + "," + d.y + ")";
-		  	return0	"translate(${d.x},${d.y})";
+			return "translate(" + d.x + "," + d.y + ")";
+		  	//return0	"translate(${d.x},${d.y})";
 		  })
 	}
 /*
