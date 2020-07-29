@@ -26,7 +26,65 @@ oReq.send();
 });
 
 function doStuff(json){
-    console.log(json);
+    GRAPH = json;
+  console.log(GRAPH);
+  //NODES=GRAPH.nodes;
+  //LINKS=GRAPH.links
+  console.log(GRAPH.nodes)
+	
+	var link = svg.append("g")
+		.attr("class", "links")
+	  .selectAll("line")
+	  .data(GRAPH.links)
+	  .enter().append("line")
+		.attr("marker-end", "url(#end)");
+
+
+	var node = svg.append("g")
+		.attr("class", "nodes")
+	  .selectAll("g")
+	  .data(GRAPH.nodes)
+	  .enter().append("g")
+
+	var circles = node.append("circle")
+		.attr("r", node_radius)
+		//.attr("fill", function(d) { return color(d.id); })
+		.attr("fill","red")
+		.call(d3.drag()
+			.on("start", dragstarted)
+			.on("drag", dragged)
+			.on("end", dragended));
+
+	var lables = node.append("text")
+		.text(function(d) {
+		  return d.id; 
+		})
+		.attr('x', 6)
+		.attr('y', 3);
+
+	node.append("title")
+		.text(function(d) { return d.id; });
+
+	simulation
+		.nodes(GRAPH.nodes)
+		.on("tick", ticked);
+
+	simulation.force("link")
+		.links(GRAPH.links);
+
+	function ticked() {
+	  link
+		  .attr("x1", function(d) { return d.source.x; })
+		  .attr("y1", function(d) { return d.source.y; })
+		  .attr("x2", function(d) { return d.target.x; })
+		  .attr("y2", function(d) { return d.target.y; });
+
+	  node
+		  .attr("transform", function(d) {
+			return "translate(" + d.x + "," + d.y + ")";
+		  	//return0	"translate(${d.x},${d.y})";
+		  })
+	}
 }
 /*
 var oReq = new XMLHttpRequest();
