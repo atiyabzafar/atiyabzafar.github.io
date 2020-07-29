@@ -86,7 +86,7 @@ $.getJSON( "jsons/data2.json", function( data){
 	simulation.force("link")
 		.links(GRAPH.links);
 
-	function ticked() {
+/*	function ticked() {
 	  link
 		  .attr("x1", function(d) { return d.source.x; })
 		  .attr("y1", function(d) { return d.source.y; })
@@ -97,7 +97,28 @@ $.getJSON( "jsons/data2.json", function( data){
 		  .attr("transform", function(d) {
 			return "translate(" + d.x + "," + d.y + ")";
 		  })
-	}
+	}*/
+
+function ticked() {
+
+  link.attr('d', (d) => {
+    const deltaX = d.target.x - d.source.x;
+    const deltaY = d.target.y - d.source.y;
+    const dist = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+    const normX = deltaX / dist;
+    const normY = deltaY / dist;
+    const sourcePadding = d.left ? 17 : 12;
+    const targetPadding = d.right ? 17 : 12;
+    const sourceX = d.source.x + (sourcePadding * normX);
+    const sourceY = d.source.y + (sourcePadding * normY);
+    const targetX = d.target.x - (targetPadding * normX);
+    const targetY = d.target.y - (targetPadding * normY);
+
+    return `M${sourceX},${sourceY}L${targetX},${targetY}`;
+  });
+
+  node.attr('transform', (d) => `translate(${d.x},${d.y})`);
+}
 });
 
 //console.log(GRAPH);
