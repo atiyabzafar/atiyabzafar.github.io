@@ -42,62 +42,61 @@ var simulation = d3.forceSimulation()
 $.getJSON( "data.json", function( data){
   GRAPH = data;
   console.log(GRAPH);
-  NODES=GRAPH.nodes;
-  LINKS=GRAPH.links
-  console.log(NODES)
+  //NODES=GRAPH.nodes;
+  //LINKS=GRAPH.links
+  console.log(GRAPH.nodes)
+	
+	var link = svg.append("g")
+		.attr("class", "links")
+	  .selectAll("line")
+	  .data(GRAPH.links)
+	  .enter().append("line")
+		.attr("marker-end", "url(#end)");
 
-	node = svg.selectAll(".node");
-	link = svg.selectAll(".link");
 
-	node = node.data(NODES);
+	var node = svg.append("g")
+		.attr("class", "nodes")
+	  .selectAll("g")
+	  .data(GRAPH.nodes)
+	  .enter().append("g")
 
-	node.enter().insert("circle")
-			.attr("class", "node")
-			.attr("id", function(d,i) { return "node-"+i;})
-			.attr("r", node_radius)
-			.append("svg:title")
-			.text(function(d,i){return i;});	
+	var circles = node.append("circle")
+		.attr("r", node_radius)
+		//.attr("fill", function(d) { return color(d.id); })
+		.attr("fill","red")
+		.call(d3.drag()
+			.on("start", dragstarted)
+			.on("drag", dragged)
+			.on("end", dragended));
 
-	link = link.data(links);
-
-	link.enter().insert("line", ".node")
-//        .moveToBack()
-			.attr("class", "link")
-			.attr({
-				"class":"arrow",
-				"marker-end":"url(#arrowtip)"
-			});
-
-	link.exit()
-			.remove();
-
-	force.start();
 	var lables = node.append("text")
 		.text(function(d) {
-			return d.id; 
+		  return d.id; 
 		})
 		.attr('x', 6)
 		.attr('y', 3);
 
+	node.append("title")
+		.text(function(d) { return d.id; });
 
 	simulation
-		.nodes(NODES)
+		.nodes(GRAPH.nodes)
 		.on("tick", ticked);
 
 	simulation.force("link")
-		.links(LINKS);
+		.links(GRAPH.links);
 
 	function ticked() {
-		link
-			.attr("x1", function(d) { return d.source.x; })
-			.attr("y1", function(d) { return d.source.y; })
-			.attr("x2", function(d) { return d.target.x; })
-			.attr("y2", function(d) { return d.target.y; });
+	  link
+		  .attr("x1", function(d) { return d.source.x; })
+		  .attr("y1", function(d) { return d.source.y; })
+		  .attr("x2", function(d) { return d.target.x; })
+		  .attr("y2", function(d) { return d.target.y; });
 
-		node
-			.attr("transform", function(d) {
+	  node
+		  .attr("transform", function(d) {
 			return "translate(" + d.x + "," + d.y + ")";
-			})
+		  })
 	}
 });
 
