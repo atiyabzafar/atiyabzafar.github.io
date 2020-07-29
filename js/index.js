@@ -37,6 +37,7 @@ $.getJSON( "data.json", function( data){
   console.log(GRAPH);
   NODES=GRAPH.nodes;
   LINKS=GRAPH.links
+  console.log(NODES)
 });
 
 console.log(GRAPH);
