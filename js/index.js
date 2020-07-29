@@ -98,6 +98,7 @@ $.getJSON( "data.json", function( data){
 			.attr("transform", function(d) {
 			return "translate(" + d.x + "," + d.y + ")";
 			})
+	}
 });
 
 //console.log(GRAPH);
