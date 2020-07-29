@@ -32,17 +32,77 @@ var GRAPH = [];
 var NODES=[]
 var LINKS=[]
 
+var simulation = d3.forceSimulation()
+  //.force("link", d3.forceLink().id(function(d) { return d.id; }).distance(100).strength(1))
+  //.force("charge", d3.forceManyBody().strength(-50))
+    .force("link", d3.forceLink().id(function(d) { return d.id; }))
+    .force("charge", d3.forceManyBody())
+    .force("center", d3.forceCenter(width / 2, height / 2));
+
 $.getJSON( "data.json", function( data){
   GRAPH = data;
   console.log(GRAPH);
   NODES=GRAPH.nodes;
   LINKS=GRAPH.links
   console.log(NODES)
+
+	node = svg.selectAll(".node");
+	link = svg.selectAll(".link");
+
+	node = node.data(NODES);
+
+	node.enter().insert("circle")
+			.attr("class", "node")
+			.attr("id", function(d,i) { return "node-"+i;})
+			.attr("r", node_radius)
+			.append("svg:title")
+			.text(function(d,i){return i;});	
+
+	link = link.data(links);
+
+	link.enter().insert("line", ".node")
+//        .moveToBack()
+			.attr("class", "link")
+			.attr({
+				"class":"arrow",
+				"marker-end":"url(#arrowtip)"
+			});
+
+	link.exit()
+			.remove();
+
+	force.start();
+	var lables = node.append("text")
+		.text(function(d) {
+			return d.id; 
+		})
+		.attr('x', 6)
+		.attr('y', 3);
+
+
+	simulation
+		.nodes(NODES)
+		.on("tick", ticked);
+
+	simulation.force("link")
+		.links(LINKS);
+
+	function ticked() {
+		link
+			.attr("x1", function(d) { return d.source.x; })
+			.attr("y1", function(d) { return d.source.y; })
+			.attr("x2", function(d) { return d.target.x; })
+			.attr("y2", function(d) { return d.target.y; });
+
+		node
+			.attr("transform", function(d) {
+			return "translate(" + d.x + "," + d.y + ")";
+			})
 });
 
-console.log(GRAPH);
-console.log(NODES)
-console.log(LINKS)
+//console.log(GRAPH);
+//console.log(NODES)
+//console.log(LINKS)
 /*
 function loadJson() {
     obj= $.getJSON('data.json');
@@ -52,12 +112,7 @@ loadJson();
 console.log(GRAPH)
 */
 
-var simulation = d3.forceSimulation()
-  //.force("link", d3.forceLink().id(function(d) { return d.id; }).distance(100).strength(1))
-  //.force("charge", d3.forceManyBody().strength(-50))
-    .force("link", d3.forceLink().id(function(d) { return d.id; }))
-    .force("charge", d3.forceManyBody())
-    .force("center", d3.forceCenter(width / 2, height / 2));
+
 /*
 //d3.json("data.json", function(error, graph) {
 d3.json("https://atiyabzafar.github.io/js/data.json", function(error, graph) {	
