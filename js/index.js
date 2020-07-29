@@ -38,6 +38,9 @@ $.getJSON( "data.json", function( data){
   NODES=GRAPH.nodes;
   LINKS=GRAPH.links
 });
+
+console.log(NODES)
+console.log(LINKS)
 /*
 function loadJson() {
     obj= $.getJSON('data.json');
