@@ -171,6 +171,13 @@ function ticked() {
 
 });
 
+
+// Zooming function translates the size of the svg container.
+function zoomed() {
+	  container.attr("transform", "translate(" + d3.event.transform.x + ", " + d3.event.transform.y + ") scale(" + d3.event.transform.k + ")");
+}
+*/
+
 function dragstarted(d) {
 if (!d3.event.active) simulation.alphaTarget(0.3).restart();
 d.fx = d.x;
@@ -187,8 +194,3 @@ if (!d3.event.active) simulation.alphaTarget(0);
 d.fx = null;
 d.fy = null;
 }
-// Zooming function translates the size of the svg container.
-function zoomed() {
-	  container.attr("transform", "translate(" + d3.event.transform.x + ", " + d3.event.transform.y + ") scale(" + d3.event.transform.k + ")");
-}
-*/
