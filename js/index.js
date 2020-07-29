@@ -86,7 +86,7 @@ $.getJSON( "jsons/data2.json", function( data){
 	simulation.force("link")
 		.links(GRAPH.links);
 
-/*	function ticked() {
+	function ticked() {
 	  link
 		  .attr("x1", function(d) { return d.source.x; })
 		  .attr("y1", function(d) { return d.source.y; })
@@ -95,10 +95,11 @@ $.getJSON( "jsons/data2.json", function( data){
 
 	  node
 		  .attr("transform", function(d) {
-			return "translate(" + d.x + "," + d.y + ")";
+			//return "translate(" + d.x + "," + d.y + ")";
+		  	return0	"translate(${d.x},${d.y})";
 		  })
-	}*/
-
+	}
+/*
 function ticked() {
 
   link.attr('d', (d) => {
@@ -118,7 +119,7 @@ function ticked() {
   });
 
   node.attr('transform', (d) => `translate(${d.x},${d.y})`);
-}
+}*/
 });
 
 //console.log(GRAPH);
