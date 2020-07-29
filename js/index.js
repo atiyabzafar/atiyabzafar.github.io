@@ -13,6 +13,30 @@ var svg = d3.select("svg"),
 
 var node_radius=7
 
+filearr=["jsons/data1.json","jsons/data1.json","jsons/data1.json"]
+
+filearr.forEach(function (file, i) {
+	
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", function(){
+    doStuff(JSON.parse(this.responseText));
+});
+oReq.open("GET", file);
+oReq.send();
+});
+
+function doStuff(json){
+    console.log(json);
+}
+/*
+var oReq = new XMLHttpRequest();
+oReq.addEventListener("load", function(){
+    doStuff(JSON.parse(this.responseText));
+});
+oReq.open("GET", "jsons/data1.json");
+oReq.send();
+
+
 // build the arrow.
 svg.append("svg:defs").selectAll("marker")
     .data(["end"])      // Different link/path types can be defined here
@@ -99,6 +123,8 @@ $.getJSON( "jsons/data2.json", function( data){
 		  	//return0	"translate(${d.x},${d.y})";
 		  })
 	}
+	
+	/*
 /*
 function ticked() {
 
