@@ -146,7 +146,7 @@ function ticked() {
 
   node.attr('transform', (d) => `translate(${d.x},${d.y})`);
 }*/
-});
+//});
 
 //console.log(GRAPH);
 //console.log(NODES)
