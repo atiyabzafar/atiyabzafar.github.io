@@ -4,6 +4,11 @@ d3.select('h1').style('color','blue')
 
 d3.select('body').append('p')
 .text('First Paragraph');
+
+
+// Call zoom for svg container.
+svg.call(d3.zoom().on('zoom', zoomed));
+
 /*
 // A slider that removes nodes below the input threshold.
     var slider = d3.select('slider').append('p').append('center').text('Select graph updates: ').style('font-size', '60%');  
@@ -316,6 +321,8 @@ function zoomed() {
 }
 */
 
+// Zooming function translates the size of the svg container.
+
 function dragstarted(d) {
 if (!d3.event.active) simulation.alphaTarget(0.3).restart();
 d.fx = d.x;
@@ -331,4 +338,8 @@ function dragended(d) {
 if (!d3.event.active) simulation.alphaTarget(0);
 d.fx = null;
 d.fy = null;
+}
+
+function zoomed() {
+	  container.attr("transform", "translate(" + d3.event.transform.x + ", " + d3.event.transform.y + ") scale(" + d3.event.transform.k + ")");
 }
