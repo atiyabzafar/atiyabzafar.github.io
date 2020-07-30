@@ -4,7 +4,7 @@ d3.select('h1').style('color','blue')
 
 d3.select('body').append('p')
 .text('First Paragraph');
-
+/*
 // A slider that removes nodes below the input threshold.
     var slider = d3.select('slider').append('p').append('center').text('Select graph updates: ').style('font-size', '60%');  
   // Centered new name and font-size and centered slider
@@ -16,7 +16,12 @@ d3.select('body').append('p')
         .attr('type', 'range')
         .attr('min', 1) // changed minimum
         .attr('max', 8)
-        .attr('value', 1) // changed default value to minimum
+        .attr('value', 1) // changed default value to minimum*/
+// Listen to the slider?
+d3.select("#mySlider").on("change", function(d){
+  selectedValue = this.value
+  get_data(selectedValue)
+})
 
 var svg = d3.select("svg"),
   width = +svg.attr("width"),
@@ -55,7 +60,7 @@ var simulation = d3.forceSimulation()
 
 filearr=["jsons/data1.json","jsons/data1.json","jsons/data1.json"]
 
-filearr.forEach(function (file, i) {
+/*filearr.forEach(function (file, i) {
 	
 var oReq = new XMLHttpRequest();
 oReq.addEventListener("load", function(){
@@ -63,7 +68,17 @@ oReq.addEventListener("load", function(){
 });
 oReq.open("GET", file);
 oReq.send();
-});
+});*/
+
+function get_data(value){
+	file="jsons/data"+value+".json"
+	var oReq = new XMLHttpRequest();
+	oReq.addEventListener("load", function(){
+    		doStuff(JSON.parse(this.responseText));
+	});
+	oReq.open("GET", file);
+	oReq.send();
+}
 
 function doStuff(json){
     GRAPH = json;
