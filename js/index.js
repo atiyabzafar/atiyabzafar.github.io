@@ -71,6 +71,7 @@ oReq.send();
 });*/
 
 function get_data(value){
+        d3.selectAll("svg > *").remove();
 	file="jsons/data"+value+".json"
 	var oReq = new XMLHttpRequest();
 	oReq.addEventListener("load", function(){
