@@ -6,9 +6,6 @@ d3.select('body').append('p')
 .text('First Paragraph');
 
 
-// Call zoom for svg container.
-svg.call(d3.zoom().on('zoom', zoomed));
-
 /*
 // A slider that removes nodes below the input threshold.
     var slider = d3.select('slider').append('p').append('center').text('Select graph updates: ').style('font-size', '60%');  
@@ -33,6 +30,9 @@ var svg = d3.select("svg"),
   height = +svg.attr("height");
 
 //svg.call(d3.zoom().on('zoom', zoomed));
+
+// Call zoom for svg container.
+svg.call(d3.zoom().on('zoom', zoomed));
 
 var node_radius=7
 
