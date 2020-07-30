@@ -5,6 +5,19 @@ d3.select('h1').style('color','blue')
 d3.select('body').append('p')
 .text('First Paragraph');
 
+/ A slider that removes nodes below the input threshold.
+    var slider = d3.select('slider').append('p').append('center').text('Select graph updates: ').style('font-size', '60%');  
+  // Centered new name and font-size and centered slider
+    slider.append('label')
+        .attr('for', 'threshold')
+        .text('1').style('font-weight', 'bold') // changed minimum
+        .style('font-size', '120%'); // bolded and resized 
+    slider.append('input')
+        .attr('type', 'range')
+        .attr('min', 1) // changed minimum
+        .attr('max', 8)
+        .attr('value', 1) // changed default value to minimum
+
 var svg = d3.select("svg"),
   width = +svg.attr("width"),
   height = +svg.attr("height");
