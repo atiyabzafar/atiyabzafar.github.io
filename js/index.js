@@ -92,7 +92,7 @@ function doStuff(json){
   //NODES=GRAPH.nodes;
   //LINKS=GRAPH.links
   console.log(GRAPH.nodes)
-	
+	var container = svg.append('g');
 	var link = svg.append("g")
 		.attr("class", "links")
 	  .selectAll("line")
