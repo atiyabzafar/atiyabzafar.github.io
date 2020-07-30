@@ -5,7 +5,7 @@ d3.select('h1').style('color','blue')
 d3.select('body').append('p')
 .text('First Paragraph');
 
-/ A slider that removes nodes below the input threshold.
+// A slider that removes nodes below the input threshold.
     var slider = d3.select('slider').append('p').append('center').text('Select graph updates: ').style('font-size', '60%');  
   // Centered new name and font-size and centered slider
     slider.append('label')
