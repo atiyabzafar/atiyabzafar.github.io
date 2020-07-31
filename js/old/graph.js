@@ -2,15 +2,17 @@ d3.select('h1').style('color','blue')
 .attr('id','heading')
 .text('D3 Graphing trial!');
 
-d3.select('body').append('p')
-.text('First Paragraph');
+d3.select('body')
+.attr("width", "100%")
+.attr("height", "100%")
+.call(d3.zoom().on("zoom", function () {
+  svg.attr("transform", d3.event.transform)
+   }))
 
 var svg = d3.select("svg"),
   width = +svg.attr("width"),
   height = +svg.attr("height")
-  .call(d3.zoom().on("zoom", function () {
-              svg.attr("transform", d3.event.transform)
-      }))
+
 var node_radius=6
 
 // build the arrow.
@@ -135,6 +137,12 @@ if (!d3.event.active) simulation.alphaTarget(0);
 d.fx = null;
 d.fy = null;
 }
+
+
+d3.select('body').append('p')
+.text('First Paragraph');
+
+
 // Zooming function translates the size of the svg container.
 //function zoomed() {
 //	  container.attr("transform", "translate(" + d3.event.transform.x + ", " + d3.event.transform.y + ") scale(" + d3.event.transform.k + ")");
