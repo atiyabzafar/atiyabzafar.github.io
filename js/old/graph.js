@@ -1,6 +1,6 @@
 d3.select('h1').style('color','blue')
 .attr('id','heading')
-.text('D3 Graphing trial!');
+.text('D3 Graphing trial for Graph Evolution!');
 
 d3.select('body')
 .attr("width", "100%")
@@ -140,7 +140,9 @@ d.fy = null;
 
 
 d3.select('body').append('p')
-.text('First Paragraph');
+.text('This shows an interactive simulation for a network. Each node is linked by an attractive force along the edges. Also there is present a many body repulsive force acting between nodes.\
+      You can zoom in via double click/mouse wheel. Nodes can be dragged around but it causes the nodes to move away as the many body repulsion gets disturbed. The canvas(region behind the nodes can be dragged along as well. \
+      This will move the whole graph.');
 
 
 // Zooming function translates the size of the svg container.
