@@ -195,7 +195,7 @@ function main() {
 		while(t<=tf){
 			for(i=0;i<N;i++)
 			{
-				if(x_check[i]==True)
+				if(x_check[i]==true)
 				{
 					xx=evec[i];
 					k1=h*func(Matrix,evec,t,xx,i);
