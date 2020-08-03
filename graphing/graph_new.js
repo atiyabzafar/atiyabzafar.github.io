@@ -205,8 +205,8 @@ function main() {
 					xxn=xx+(k1+2.0*(k2+k3)+k4)/6.0;
 					err=np.fabs(xxn-xx)/xx;
 					evec[i]=xxn;
-					if(err<=1e-6):
-						x_check[i]=true;
+					if(err<=1e-6){
+						x_check[i]=true;}
 				}	
 			}
 			t=t+h;
