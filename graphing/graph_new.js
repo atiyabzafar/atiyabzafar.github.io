@@ -316,6 +316,8 @@ function main() {
 			for (j=0;j<N;j++)
 			{
 				MAT[i][j]=Matrix[i][j]
+			}
+		}
 		const ans = math.eigs(MAT);
 		var i;
 		for (i=0;i<ans.length;i++)
