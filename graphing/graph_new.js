@@ -282,7 +282,7 @@ function main() {
 		}
 		//printf ("\n");
 		var l;
-		for (int l=N -1;l>N-c -1;l --)
+		for (l=N -1;l>N-c -1;l --)
 		{
 			veci = chain_vec[l].id;
 			//printf (" SAVE :%d\t l = %d\t",veci ,l);
