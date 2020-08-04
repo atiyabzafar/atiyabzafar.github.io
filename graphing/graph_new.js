@@ -310,7 +310,8 @@ function main() {
 	
 	function get_evals()
 	{
-		var MAT=math.zeros(N,N);
+		
+		/*var MAT=math.zeros(N,N);
 		var i,j;
 		for(i=0;i<N;i++){
 			for (j=0;j<N;j++)
@@ -318,10 +319,13 @@ function main() {
 				MAT.valueOf()[i][j]=Matrix[i][j]
 			}
 		}
-		const ans = math.eigs(MAT);
+		math.import(numeric, { wrap: true, silent: true })
+		*/
+		var ans = numeric.eig(Matrix);
+//using numeric library to get eig={lambda: {x:[],y:[]} E:{x:[[],[],..\],y:[[][][]..]}}
 		var i;
 		for (i=0;i<ans.length;i++)
-			evals[i]=ans.values[i];
+			evals[i]=ans.lambda.x[i];
 	}
 	
 	function tick() {
