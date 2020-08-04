@@ -303,7 +303,7 @@ function main() {
 		{
 			veci = chain_vec[l].id;
 			//printf (" SAVE :%d\t l = %d\t",veci ,l);
-			evec[ veci ]=1.0/(( double )(c));
+			evec[ veci ]=1.0/(c);
 		}
 	}
 	
