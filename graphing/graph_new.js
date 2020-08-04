@@ -3,7 +3,7 @@ function main() {
 
 	var N = 40; // number of nodes
 	var m = 0.5; // average in-degree
-	var rate = 100;//=500;
+	var rate = 10;//=500
 	var p = m/(N-1);
 	var longestchain ;
 	var width = 800,
@@ -24,8 +24,24 @@ function main() {
 	var svg = d3.select("#simulation").append("svg")
 		.attr("width", width)
 		.attr("height", height);
-		
-		svg.append("svg:defs").selectAll("marker")
+	
+	var defs = svg.append("defs")
+
+		defs.append("marker")
+  				.attr({
+  					"id":"arrowtip",
+  					"viewBox":"0 -5 10 10",
+  					"refX":20,
+  					"refY":0,
+  					"markerWidth":4,
+  					"markerHeight":4,
+  					"orient":"auto"
+  				})
+  				.append("path")
+  					.attr("d", "M0,-5L10,0L0,5")
+  					.attr("class","arrowHead");
+
+/*		svg.append("svg:defs").selectAll("marker")
 		.data(["end"])      // Different link/path types can be defined here
 		.enter().append("svg:marker")    // This section adds in the arrows
 		.attr("id", String)
@@ -37,7 +53,7 @@ function main() {
 		.attr("orient", "auto")
 		.append("svg:path")
 		.attr("d", "M0,-5L10,0L0,5");
-	
+	*/
 	init();
 	restart();
 	timer = setInterval(evolve, rate);
@@ -297,7 +313,7 @@ function main() {
 		const ans = math.eigs(Matrix);
 		var i;
 		for (i=0;i<ans.length;i++)
-			evals[i]=ans[i];
+			evals[i]=ans.values[i];
 	}
 	
 	function tick() {
