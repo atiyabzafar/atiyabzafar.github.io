@@ -3,7 +3,7 @@ function main() {
 
 	var N = 40; // number of nodes
 	var m = 0.5; // average in-degree
-	var rate = 500;
+	var rate = 100;//=500;
 	var p = m/(N-1);
 	var longestchain ;
 	var width = 800,
@@ -110,6 +110,7 @@ function main() {
 	}//init ends
 
 	function	evolve() {
+		console.log(Matrix);
 		get_evals();
 		evals.sort();
 		var pfe=evals[evals.length-1];
