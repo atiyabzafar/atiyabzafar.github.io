@@ -3,7 +3,7 @@ function main() {
 
 	var N = 40; // number of nodes
 	var m = 0.5; // average in-degree
-	var rate = 10;//=500;
+	var rate = 500;
 	var p = m/(N-1);
 	var longestchain ;
 	var width = 800,
@@ -315,7 +315,7 @@ function main() {
 		for(i=0;i<N;i++){
 			for (j=0;j<N;j++)
 			{
-				MAT[i][j]=Matrix[i][j]
+				MAT.valueOf()[i][j]=Matrix[i][j]
 			}
 		}
 		const ans = math.eigs(MAT);
