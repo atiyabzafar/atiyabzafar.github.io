@@ -5,7 +5,7 @@ function main() {
 	var m = 0.5; // average in-degree
 	var rate = 500;
 	var p = m/(N-1);
-	var longestchain ;
+	var longestchain=-1 ;
 	var width = 800,
 		height = 800,
 		node_radius = 3;
@@ -127,7 +127,7 @@ function main() {
 	}//init ends
 
 	function	evolve() {
-		console.log(Matrix);
+		//console.log(Matrix);
 		get_evals();
 		evals.sort();
 		var pfe=evals[evals.length-1];
@@ -160,7 +160,7 @@ function main() {
 		
 		vector=vector.splice(0,count+1)
 		var hit_node = vector[Math.floor(Math.random()*vector.length)].id;
-		
+		console.log(hit_node);
 		var i=0,
 			n_links=links.length;
 		do{
@@ -280,6 +280,7 @@ function main() {
 
 		while (i<N)
 		{
+			longestchain=-1;
 			longest_chain (i);
 			chain_vec.push({id:i, val:chain[i]});
 			i++;
