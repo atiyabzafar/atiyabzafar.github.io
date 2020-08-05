@@ -180,10 +180,12 @@ function main() {
 			{
 				if(Math.random()<p)
 				{
+					links.push({source:hit_node,target:i});
 					Matrix[i][hit_node]=1
 				}
 				if(Math.random()<p)
 				{
+					links.push({source:i,target:hit_node});
 					Matrix[hit_node][i]=1
 				}
 			}
