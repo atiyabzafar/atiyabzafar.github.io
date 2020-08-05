@@ -121,7 +121,8 @@ function main() {
 		.attr("r", node_radius)
 		.append("svg:title")
 		.text(function(d,i){return i;});
-
+        node.on("mouseover", mouseovernode)
+        .on("mouseout", mouseoutnode);
 
 	}//init ends
 
@@ -299,7 +300,7 @@ function main() {
 		}
 		for (i=0;i<N;i++)
 		{
-			evec[i]=0.0;
+			evec[i ]=0.0;
 		}
 		//printf ("\n");
 		var l;
@@ -497,4 +498,36 @@ function main() {
 
 	force.start();
 	}
+	/////******************/////
+  /////******************/////
+  function mouseovernode() {
+  /////******************/////
+    var id = d3.select(this).datum().idx;
+
+    d3.select("#bar-" + id)
+        .style("stroke", "black");
+        //.attr("fill-opacity", "1.0");
+
+    d3.select(this).transition()
+        .duration(400)
+        .attr("r", 10);
+  }
+
+  /////******************/////
+  /////******************/////
+  function mouseoutnode() {
+  /////******************/////
+    var id = d3.select(this).datum().idx;
+
+    d3.select("#bar-"+id)
+        .style("stroke", "white");
+        //.attr("fill-opacity", "0.8");
+
+    d3.select(this).transition()
+        .duration(400)
+        .attr("r", node_radius);
+  }
+
+  /////******************/////
+  /////******************/////
 }	
