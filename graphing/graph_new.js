@@ -443,7 +443,7 @@ function main() {
 		for(i=0;i<Matrix.length;i++)
 		{
 			for(j=0;j<Matrix.length;j++)
-			M.push(Mat[i][j]);
+			M.push(Matrix[i][j]);
 		}
 		
 		/*var MAT=math.zeros(N,N);
