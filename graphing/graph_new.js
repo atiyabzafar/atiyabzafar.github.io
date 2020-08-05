@@ -187,6 +187,10 @@ function main() {
 				}
 			}
 		}
+		for(i=0;i<N;i++)
+		{
+			evec[i]=evec[i]+Math.random()*0.1;
+		}
 		restart();
 	}//evolve ends
 	
@@ -295,7 +299,7 @@ function main() {
 		}
 		for (i=0;i<N;i++)
 		{
-			evec[i ]=0.0;
+			evec[i]=0.0;
 		}
 		//printf ("\n");
 		var l;
@@ -443,7 +447,7 @@ function main() {
 		for(i=0;i<Matrix.length;i++)
 		{
 			for(j=0;j<Matrix.length;j++)
-			M.push(Matrix[i][j]);
+			M.push(Mat[i][j]);
 		}
 		
 		/*var MAT=math.zeros(N,N);
