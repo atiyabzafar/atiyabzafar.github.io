@@ -127,7 +127,7 @@ function main() {
 		get_evals();
 		evals.sort();
 		var pfe=evals[evals.length-1];
-		console.log(pfe)
+		console.log(evals)
 		var l2=evals[evals.length-2];
 		if (pfe!=0)
 		{
@@ -161,7 +161,7 @@ function main() {
 		var i=0,
 			n_links=links.length;
 		do{
-			if(links.length>0 && (links[i].source.id == hit_node || links[i].target.id == hit_node))
+			if(links.length>0 && (links[i].source == hit_node || links[i].target == hit_node))
 			{
 				links.splice(i,1);	//remove one element at the ith index
 				i--;
