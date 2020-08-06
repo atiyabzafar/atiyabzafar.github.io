@@ -128,7 +128,7 @@ function main() {
 		evals.sort();
 		var pfe=evals[evals.length-1];
 		console.log(evals)
-		console.lof(pfe)
+		console.log(pfe)
 		console.log(Matrix)
 		var l2=evals[evals.length-2];
 		if (pfe!=0)
