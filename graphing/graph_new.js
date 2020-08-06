@@ -3,7 +3,7 @@ function main() {
 
 	var N = 40; // number of nodes
 	var m = 0.5; // average in-degree
-	var rate = 500;
+	var rate = 1000;
 	var p = m/(N-1);
 	var longestchain=-1 ;
 	var width = 800,
@@ -33,8 +33,8 @@ function main() {
   					"viewBox":"0 -5 10 10",
   					"refX":20,
   					"refY":0,
-  					"markerWidth":4,
-  					"markerHeight":4,
+  					"markerWidth":3,
+  					"markerHeight":3,
   					"orient":"auto"
   				})
   				.append("path")
@@ -81,11 +81,7 @@ function main() {
     for (i=0; i<N; i++) {
       x = Math.random() * width;
       y = Math.random() * height;
-      init_nodes.push({
-        id: i,
-        x: x,
-        y: y
-      })
+      init_nodes.push({id: i,x: x,y: y})
     }
 
 	// Defining the link by populating the matrix 
@@ -93,7 +89,7 @@ function main() {
 	for (i=0; i<N ; i++) {
 		for (j=0; j<N;j++) {
 		if(i!=j && Math.random()<p)	{
-			Matrix[j][i]=1;
+			Matrix[j][i]=1;	//i----->j
 			links.push({source: i, target: j});
 			}
 		}
@@ -126,11 +122,12 @@ function main() {
 
 	}//init ends
 
-	function	evolve() {
+	function evolve() {
 		//console.log(Matrix);
 		get_evals();
 		evals.sort();
 		var pfe=evals[evals.length-1];
+		console.log(pfe)
 		var l2=evals[evals.length-2];
 		if (pfe!=0)
 		{
@@ -160,7 +157,7 @@ function main() {
 		
 		vector=vector.splice(0,count+1)
 		var hit_node = vector[Math.floor(Math.random()*vector.length)].id;
-		console.log(hit_node);
+		//console.log(hit_node);
 		var i=0,
 			n_links=links.length;
 		do{
@@ -233,7 +230,7 @@ function main() {
 		while(t<=tf){
 			for(i=0;i<N;i++)
 			{
-				if(x_check[i]==true)
+				if(x_check[i]==false)
 				{
 					xx=evec[i];
 					k1=h*func(Matrix,evec,t,xx,i);
