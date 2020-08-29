@@ -127,6 +127,8 @@ function main() {
 		get_evals();
 		evals.sort();
 		var pfe=evals[evals.length-1];
+		d3.select("#eigval")
+		      .text(pfe.toFixed(3));
 		console.log(evals)
 		console.log(pfe)
 		console.log(Matrix)
