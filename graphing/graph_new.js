@@ -468,7 +468,8 @@ function main() {
 		var ans = numeric.eig(Matrix);
 //using numeric library to get eig={lambda: {x:[],y:[]} E:{x:[[],[],..\],y:[[][][]..]}}
 		var i;*/
-		eig=eigenvalues(M);
+		//eig=eigenvalues(M);
+		eig=math.complex(M,Matrix.length,1e-7,'number');
 		for (i=0;i<eig.length;i++)
 			evals[i]=eig[i];
 	}
