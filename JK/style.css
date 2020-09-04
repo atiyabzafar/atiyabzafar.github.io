@@ -1,0 +1,37 @@
+#simulation {
+  float: left;
+  /* width: 600px;
+  height: 400px; */
+  background-color: #000;
+  border: 2px solid white;
+  margin: 4px;
+}
+.node {
+  fill: #f99;
+  stroke:#fff;
+}
+
+.cursor {
+  fill: none;
+  stroke: brown;
+  pointer-events: none;
+}
+
+.link {
+  stroke: #999;
+}
+
+.arrow{
+		stroke-width:2;
+		stroke:#999;
+}
+
+.arrowHead{
+		stroke-width:4;
+		stroke:#f00;
+    fill:#f00;
+}
+#arrowtip{
+		stroke-width:4;
+		stroke-dasharray:0;
+}
