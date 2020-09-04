@@ -2,13 +2,13 @@
   float: left;
   /* width: 600px;
   height: 400px; */
-  background-color: #000;
+  background-color: #dff;
   border: 2px solid white;
   margin: 4px;
 }
 .node {
-  fill: #f99;
-  stroke:#fff;
+  fill: #008;
+  stroke:#000;
 }
 
 .cursor {
@@ -28,8 +28,8 @@
 
 .arrowHead{
 		stroke-width:4;
-		stroke:#f00;
-    fill:#f00;
+		stroke:#de0;
+    fill:#de0;
 }
 #arrowtip{
 		stroke-width:4;
