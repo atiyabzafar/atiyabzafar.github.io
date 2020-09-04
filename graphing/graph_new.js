@@ -469,7 +469,7 @@ function main() {
 //using numeric library to get eig={lambda: {x:[],y:[]} E:{x:[[],[],..\],y:[[][][]..]}}
 		var i;*/
 		//eig=eigenvalues(M);
-		eig=math.complex(M,Matrix.length,1e-7,'number');
+		eig=math.eigs(M);
 		for (i=0;i<eig.length;i++)
 			evals[i]=eig[i];
 	}
