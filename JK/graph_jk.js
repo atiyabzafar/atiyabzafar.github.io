@@ -397,7 +397,9 @@ function eig_powerIteration ( A , u0) {
 			u[i]=v[i]/lambda;
 		    }
 		}
-		else{u.fill(0.0);
+		else {
+			u.fill(0.0);
+		}
             //u = mulScalarVector(1/ lambda, u);				
         }
         return { "val" : lambda, "vec" : u};
