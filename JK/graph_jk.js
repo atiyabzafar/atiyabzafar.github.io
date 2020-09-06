@@ -392,9 +392,12 @@ function eig_powerIteration ( A , u0) {
             }
             //u = mulMatrixVector(A, u) ;
             lambda = norm_vector(v);
-            for(let i=0;i<n;i++){
-                u[i]=v[i]/lambda
-            }
+		if(lambda>1e-6){
+		    for(let i=0;i<n;i++){
+			u[i]=v[i]/lambda;
+		    }
+		}
+		else{u.fill(0.0);
             //u = mulScalarVector(1/ lambda, u);				
         }
         return { "val" : lambda, "vec" : u};
