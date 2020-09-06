@@ -1,0 +1,21 @@
+<html>
+<head>
+<meta charset="UTF-8">
+<!script src="http://mlweb.loria.fr/ml.js"> </script>
+<script>
+function myLALOLabScript() {
+
+X = rand(30,30) ;
+A =mul( X,transpose(X)) ;
+E = eig(A, true) ;
+norm(sub(mul(mul(E.U , diag(E.V) ),transpose( E.U)), A)) ;
+laloprint( X, LALOLibOutput); 
+}
+</script>
+</head>
+
+<body onload="myLALOLabScript();">
+
+<div style='font-size: 80%;' title='LALOLib output' id='LALOLibOutput'></div>
+</body>
+</html>
