@@ -242,7 +242,7 @@ function main() {
 					k3=h*func(Matrix,evec,t+h*0.5,xx+0.5*k2,i);
 					k4=h*func(Matrix,evec,t+h,xx+k3,i);
 					xxn=xx+(k1+2.0*(k2+k3)+k4)/6.0;
-					err=np.fabs(xxn-xx)/xx;
+					err=Math.abs(xxn-xx)/xx;
 					evec[i]=xxn;
 					if(err<=1e-6){
 						x_check[i]=true;}
@@ -319,11 +319,11 @@ function main() {
 	function get_evals()
 	{
 		var u0= new Array(N);
-	  u0 = u0.fill(1./N);			//start with a uniform vector
+	 	 u0 = u0.fill(1./N);			//start with a uniform vector
 		eig=eig_powerIteration(Matrix,u0);
-		for (i=0;i<eig.length;i++)
+		for (i=0;i<N;i++)
 			evals[i]=0;
-    evals[0]=eig.val
+   		 evals[0]=eig.val
 	}
   
 	function initialise_matrix(N){
