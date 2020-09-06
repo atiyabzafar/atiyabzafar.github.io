@@ -129,9 +129,9 @@ function main() {
 		var pfe=evals[evals.length-1];
 		d3.select("#eigval")
 		      .text(pfe.toFixed(3));
-		console.log(evals)
+		//console.log(evals)
 		console.log(pfe)
-		console.log(Matrix)
+		//console.log(Matrix)
 		var l2=evals[evals.length-2];
 		if (pfe!=0)
 		{
@@ -320,10 +320,12 @@ function main() {
 	{
 		var u0= new Array(N);
 	 	 u0 = u0.fill(1./N);			//start with a uniform vector
-		eig=eig_powerIteration(Matrix,u0);
+		var E;
+		E=eig_powerIteration(Matrix,u0);
 		for (i=0;i<N;i++)
 			evals[i]=0;
-   		 evals[0]=eig.val
+   		 evals[0]=E.val
+		console.log(E.val)
 	}
   
 	function initialise_matrix(N){
