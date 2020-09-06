@@ -130,7 +130,7 @@ function main() {
 		d3.select("#eigval")
 		      .text(pfe.toFixed(3));
 		//console.log(evals)
-		console.log(pfe)
+		//console.log(pfe)
 		//console.log(Matrix)
 		var l2=evals[evals.length-2];
 		if (pfe!=0)
@@ -138,13 +138,14 @@ function main() {
 			find_evec();
 		}
 		else{
+			console.log("case when pfe=0")
 			degen_evec();
 		}
 		var vector=[]
 		for(i=0; i<evec.length; i++) {
 		vector.push({id:i, val:evec[i]});
 		}
-		
+		console.log(evec)
 		vector = vector.sort(function(a, b){return a.val - b.val});
 		//sorted eigen vector
 		
