@@ -557,3 +557,28 @@ function eig_powerIteration ( A , u0) {
         }
         return(B)
     }
+
+    function eigen_decomp(A){
+        var vals,vec,L1,L2,degenerate;
+        var eig1=eig_powerIteration(A);
+        var H=ToHessenberg(A);
+        var eig_QR=QR_H(H);
+        const n=A.length;
+        vals=new Array(n);
+        vec=eig1.vec;
+        vals={
+            "real":eig_QR.real,"imaginary":eig_QR.imaginary 
+        }
+        var Reval=[];
+        for (i=0;i<n;i++){
+            if ( Math.abs(vals.imaginary[i]) < 1e-7)
+                Reval.push(vals.real[i])
+        }
+        Reval.sort();
+        L1=Reval[Reval.length-1]
+        L2=Reval[Reval.length-2]
+        if(Math.abs(L1-L2)<1e-7)
+            degenerate=true;
+        return { "reval":Reval , "L1":L1, "L2":L2,"vec":vec,"degeneracy": degenerate };
+
+    }
