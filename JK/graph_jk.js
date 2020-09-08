@@ -3,7 +3,8 @@ function main() {
 
 	var N = 40; // number of nodes
 	var m = 0.5; // average in-degree
-	var rate = 1000;
+	//var rate = 1000;
+	var rate=2000;
 	var p = m/(N-1);
 	var longestchain=-1 ;
 	var width = 800,
