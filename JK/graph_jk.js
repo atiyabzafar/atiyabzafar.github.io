@@ -128,6 +128,9 @@ function main() {
 		//console.log(Matrix);
 		//get_evals();
 		eig=eigen_decomp(Matrix);
+		console.log(eig.L1);
+		console.log(eig.L2);
+		console.log(eig.vec);
 		//evals.sort();
 		//var pfe=evals[evals.length-1];
 		var pfe= eig.L1
@@ -150,7 +153,9 @@ function main() {
 		for(i=0; i<evec.length; i++) {
 		vector.push({id:i, val:evec[i]});
 		}
-		console.log(evec)
+		//
+		//console.log(evec)
+		//
 		vector = vector.sort(function(a, b){return a.val - b.val});
 		//sorted eigen vector
 		
