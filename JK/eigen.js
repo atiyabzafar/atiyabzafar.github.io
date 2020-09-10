@@ -560,8 +560,9 @@ function eig_powerIteration ( A , u0) {
 
     function eigen_decomp(A){
         var vals,vec,L1,L2,degenerate;
-        var eig1=eig_powerIteration(A);
-        var H=ToHessenberg(A);
+	var Acopy=copy_matrix(A);
+        var eig1=eig_powerIteration(Acopy);
+        var H=ToHessenberg(Acopy);
         var eig_QR=QR_H(H);
         const n=A.length;
         vals=new Array(n);
