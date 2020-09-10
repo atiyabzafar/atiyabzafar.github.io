@@ -4,7 +4,8 @@ function main() {
 	var N = 40; // number of nodes
 	var m = 0.5; // average in-degree
 	//var rate = 1000;
-	var rate=2000;
+	//var rate=2000;
+	var rate = 5000;		//5 seconds because rk4 taking too much time and process.
 	var p = m/(N-1);
 	var longestchain=-1 ;
 	var width = 800,
