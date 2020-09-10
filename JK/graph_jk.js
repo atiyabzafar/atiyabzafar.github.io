@@ -138,7 +138,7 @@ function main() {
 		//console.log(Matrix)
 		//var l2=evals[evals.length-2];
 		var l2=eig.L2
-		if (Math.abs(L1)>1e-7)
+		if (Math.abs(pfe)>1e-7)
 		{
 			find_evec();
 		}
