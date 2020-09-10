@@ -125,16 +125,19 @@ function main() {
 
 	function evolve() {
 		//console.log(Matrix);
-		get_evals();
-		evals.sort();
-		var pfe=evals[evals.length-1];
+		//get_evals();
+		eig=eigen_decomp(AA);
+		//evals.sort();
+		//var pfe=evals[evals.length-1];
+		var pfe= eig.L1
 		d3.select("#eigval")
 		      .text(pfe.toFixed(3));
 		//console.log(evals)
 		//console.log(pfe)
 		//console.log(Matrix)
-		var l2=evals[evals.length-2];
-		if (pfe!=0)
+		//var l2=evals[evals.length-2];
+		var l2=eig.L2
+		if (Math.abs(L1)>1e-7)
 		{
 			find_evec();
 		}
