@@ -127,7 +127,7 @@ function main() {
 	function evolve() {
 		//console.log(Matrix);
 		//get_evals();
-		eig=eigen_decomp(AA);
+		eig=eigen_decomp(Matrix);
 		//evals.sort();
 		//var pfe=evals[evals.length-1];
 		var pfe= eig.L1
