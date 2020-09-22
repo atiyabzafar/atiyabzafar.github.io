@@ -5,7 +5,7 @@ function main() {
 	var m = 0.5; // average in-degree
 	//var rate = 1000;
 	//var rate=2000;
-	var rate = 5000;		//5 seconds because rk4 taking too much time and process.
+	var rate = 2000;		//5 seconds because rk4 taking too much time and process.
 	var p = m/(N-1);
 	var longestchain=-1 ;
 	var width = 800,
@@ -23,7 +23,11 @@ function main() {
 	
 	var chain = new Array(N);
 	chain = chain.fill(0);
+
 	var svg = d3.select("#simulation").append("svg")
+		.call(d3.behavior.zoom().on("zoom", function () {
+			svg.attr("transform", "translate(" + d3.event.translate + ")" + " scale(" + d3.event.scale + ")")
+		}))
 		.attr("width", width)
 		.attr("height", height);
 	
@@ -59,7 +63,70 @@ function main() {
 	init();
 	restart();
 	timer = setInterval(evolve, rate);
-	
+
+	//copied
+	var margin_eigvect = {top: 20, right: 20, bottom: 20, left: 50};
+	var width_eigvect = width- margin_eigvect.left - margin_eigvect.right;
+	var height_eigvect = Math.floor(width/4)- margin_eigvect.top - margin_eigvect.bottom;
+
+var svg_eigvect = d3.select("#bar")
+    .style("width", width+"px")
+    .style("height", Math.floor(width/4)+"px")
+    .append("svg")
+      .attr("width", width)
+      .attr("height", Math.floor(width/4));
+
+var g_eigvect = svg_eigvect.append("g")
+        .attr("transform", "translate(" + margin_eigvect.left + "," + margin_eigvect.top + ")");
+
+var x_eigvect = d3.scale.ordinal().rangeRoundBands([0, width_eigvect],0.1),
+    y_eigvect = d3.scale.linear().rangeRound([height_eigvect, 0]);
+
+    x_eigvect.domain(evec.map(function(d,i) { return i; }));
+//    y_eigvect.domain([0, d3.max(bars)]);
+    y_eigvect.domain([0, 1]);
+
+    g_eigvect.selectAll(".bar")
+          .data(evec)
+          .enter().append("rect")
+            .attr("class", "bar")
+            .attr("id", function(d,i) { return "bar-"+i;})
+            .attr("x", function(d,i) { return x_eigvect(i); })
+            .style("fill", "steelblue")
+            .attr("y", function(d) { return y_eigvect(d); })
+            .attr("width", x_eigvect.rangeBand())
+            .attr("height", function(d) { return height_eigvect - y_eigvect(d); });
+
+//// now the axes
+    g_eigvect.append("g")
+            .attr("class", "axis axis--x")
+            .attr("transform", "translate(0," + y_eigvect(0) + ")")
+            .call(d3.svg.axis().scale(x_eigvect).orient("bottom").ticks(10,",.0f"));
+              //d3.axisBottom(x_eigvect).ticks(10,",.0f"));
+
+    //g_eigvect.append("text")
+    //        .attr("id", "label--x")
+    //        .attr("transform", "translate(" + (width_eigvect-15) + "," + (height_eigvect-5) + ")")
+    //        .text("Index");
+
+    g_eigvect.append("g")
+            .attr("class", "axis axis--y")
+            .attr("transform", "translate("+ x_eigvect(0) +","+ y_eigvect(1) + ")")
+            .call(d3.svg.axis().scale(y_eigvect).orient("left"));
+            //  d3.axisLeft(y_eigvect).ticks(10,",.2f"));
+
+    //g_eigvect.append("text")
+    //        .attr("id", "label--y")
+    //        .attr("transform", "translate(" + (-25) + "," + (height_eigvect/2+50) + ")rotate(-90)")
+    //        .text("eigenvector component");
+
+    g_eigvect.append("text")
+            .attr("id", "title--eigvect")
+            .attr("transform", "translate(" + (Math.floor(width_eigvect/2)) + ", -2)")
+            .text("Perron-Frobenius eigenvector");
+
+
+
 	//
 	function init(){
 	//
@@ -97,6 +164,17 @@ function main() {
 		}
 	}
 	
+	//
+	// DEBUGGING
+	//
+	//console.log(links)
+
+	/*Matrix[27][28]=1;
+	Matrix[28][27]=1;
+	links.push({source:27,target:28});
+	links.push({source:28,target:27});
+	*/
+
 	force = d3.layout.force()
 		.size([width, height])
 		.nodes(init_nodes)
@@ -120,7 +198,18 @@ function main() {
 		.append("svg:title")
 		.text(function(d,i){return i;});
         node.on("mouseover", mouseovernode)
-        .on("mouseout", mouseoutnode);
+		.on("mouseout", mouseoutnode)
+		.on("drag_start",drag_start)
+		.on("drag_drag",drag_drag)
+		.on("drag_end",drag_end);
+
+		
+		/*var drag_handler = d3.behavior.drag()
+			.on("start", drag_start)
+			.on("drag", drag_drag)
+			.on("end", drag_end);	
+	
+		drag_handler(node);*/
 
 	}//init ends
 
@@ -128,41 +217,81 @@ function main() {
 		//console.log(Matrix);
 		//get_evals();
 		eig=eigen_decomp(Matrix);
-		console.log(eig.L1);
-		console.log(eig.L2);
-		console.log(eig.vec);
+		//console.log(eig.L1);
+		//console.log(eig.L2);
+		//console.log(eig.vec);
 		//evals.sort();
 		//var pfe=evals[evals.length-1];
 		var pfe= eig.L1
 		d3.select("#eigval")
 		      .text(pfe.toFixed(3));
-		//console.log(evals)
-		//console.log(pfe)
-		//console.log(Matrix)
-		//var l2=evals[evals.length-2];
 		var l2=eig.L2
 		if (Math.abs(pfe)>1e-7)
 		{
 			find_evec();
+			rate=2000;
+/*			evec=eig.vec;
+			var sum_vec=math.sum(evec);
+			for(let i=0;i<evec.length;i++){
+				evec[i]=evec[i]/sum_vec;
+			}*/
 		}
 		else{
 			console.log("case when pfe=0")
-			degen_evec();
+			rate=500;
+			zero_evec();
+
 		}
+		
+		var maxscale = d3.max(evec);
+		if(maxscale>0) {
+		  y_eigvect.domain([0, maxscale]);
+		} else {
+		  maxscale = 1;
+		}
+		d3.select(".axis--y")
+		  .attr("transform", "translate("+ x_eigvect(0) +","+ y_eigvect(maxscale) + ")")
+		  .call(d3.svg.axis().scale(y_eigvect).orient("left"));
+	
+		g_eigvect.selectAll(".bar")
+			.data(evec)
+			.transition()
+			.duration(0.7*rate)
+		  		.attr("y", function(d) { return y_eigvect(d); })
+		  		.attr("height", function(d) { return height_eigvect - y_eigvect(d); });
+		
+		d3.select('#pfevec')
+				.text((math.max(evec)).toFixed(3))
+
+		var minevec=math.min(evec)
+
 		var vector=[]
 		for(i=0; i<evec.length; i++) {
 		vector.push({id:i, val:evec[i]});
 		}
-		//
+		var min_ind=[];
+
+		for(let i=0;i<N;i++){
+			if( Math.abs(vector[i].val-minevec)<1e-7){
+				min_ind.push(vector[i].id);
+			}
+		}
+		console.log(min_ind);
+		d3.select('#minevec')
+				.text(minevec.toFixed(3)+" occuring "+min_ind.length+" times.")
+
+
 		//console.log(evec)
+
+		//console.log(math.sum(evec));
 		//
-		vector = vector.sort(function(a, b){return a.val - b.val});
+		/*vector = vector.sort(function(a, b){return a.val - b.val});
 		//sorted eigen vector
 		
 		var chk=false,
 			count=0;
 		do{
-			if( (vector[count+1].val-vector[count].val) <1e-6){//no. of nodes with minimum pop is more!
+			if( (vector[count+1].val-vector[count].val) <1e-7){//no. of nodes with minimum pop is more!
 				count=count+1;
 			}
 			else{
@@ -171,18 +300,40 @@ function main() {
 		}while(chk==false);
 		
 		vector=vector.splice(0,count+1)
-		var hit_node = vector[Math.floor(Math.random()*vector.length)].id;
+
+		var hit_node = vector[Math.floor(Math.random()*vector.length)].id;*/
+
 		//console.log(hit_node);
+		var hit_node= min_ind[Math.floor(Math.random()*min_ind.length)]
 		var i=0,
 			n_links=links.length;
+/*
+		for(i=0;i<n_links;i++){
+			if(links.length>0){
+				if(links[i].source == hit_node)
+				{
+					links.splice(i,1);	//remove one element at the ith index
+					Matrix[links[i].target][links[i].source]=0
+				}
+				if(links[i].source == hit_node)
+				{
+					links.splice(i,1);	//remove one element at the ith index
+					Matrix[links[i].target][links[i].source]=0
+				}
+			}
+		}*/
+		//hit_node=27
+		console.log(links)
 		do{
-			if(links.length>0 && (links[i].source == hit_node || links[i].target == hit_node))
+			if(links.length>0 && (links[i].source.id == hit_node || links[i].target.id == hit_node))
 			{
 				links.splice(i,1);	//remove one element at the ith index
 				i--;
 			}
 			i++;
 		}while(i<n_links);
+
+		console.log(links)
 		
 		for(i=0;i<N;i++)
 		{
@@ -202,6 +353,9 @@ function main() {
 				}
 			}
 		}
+
+		//console.log(links)
+		
 		for(i=0;i<N;i++)
 		{
 			evec[i]=evec[i]+Math.random()*0.1;
@@ -230,18 +384,19 @@ function main() {
 	function find_evec()
 	{	
 		var x_check= new Array(N)
-		var tf=300,
+		var tf=100,
 			ti=0,
 			i=0,
 			t=ti,
 			xx=0,
 			xxn=0,
 			h=0.05;
-		for ( i=0;i < x_check.length;i++){
+		//console.log(evec)
+		for ( i=0;i < N ;i++){
 			x_check[i]=false;
-			evec[i] = 1.0/Math.random();
+			evec[i] = Math.random();
 		}	
-		
+		//console.log(evec)
 		while(t<=tf){
 			for(i=0;i<N;i++)
 			{
@@ -255,7 +410,7 @@ function main() {
 					xxn=xx+(k1+2.0*(k2+k3)+k4)/6.0;
 					err=Math.abs(xxn-xx)/xx;
 					evec[i]=xxn;
-					if(err<=1e-6){
+					if(err<=1e-7){
 						x_check[i]=true;}
 				}	
 			}
@@ -279,29 +434,31 @@ function main() {
 				}
 			}
 		}
-		chain [i]= plen ;
+		chain[i]= plen ;
 		if( longestchain < plen )
 			longestchain = plen ;
 		return(plen)
 	}
 	
-	function degen_evec(){
-		var i=0;
+	function zero_evec(){
 		longestchain = -1;
 		var chain_vec =[]
-
+		var i=0;
 		while (i<N)
 		{
 			longestchain=-1;
-			longest_chain (i);
+			longest_chain(i);
 			chain_vec.push({id:i, val:chain[i]});
 			i++;
 		}
+		console.log(chain_vec)
+
 		chain_vec=chain_vec.sort(function (a,b){return a.val-b.val});
 	
 		var c=1,
 			k=0;
 		var temp = chain_vec[N -1].val;	//value for the longest chain
+		console.log(temp);
 		for (k=N -2;k >=0;k --)
 		{
 			if( chain_vec[k].val!= temp )
@@ -313,10 +470,11 @@ function main() {
 				c++;
 			}
 		}
-		for (i=0;i<N;i++)
+		for (let i=0;i<N;i++)
 		{
-			evec[i ]=0.0;
+			evec[i]=0.0;
 		}
+		//console.log(evec)
 		//printf ("\n");
 		var l;
 		for (l=N -1;l>N-c -1;l --)
@@ -327,94 +485,6 @@ function main() {
 		}
 	}
 
-	function get_evals()
-	{
-		var u0= new Array(N);
-	 	 u0 = u0.fill(1./N);			//start with a uniform vector
-		var E;
-		E=eig_powerIteration(Matrix,u0);
-		for (i=0;i<N;i++)
-			evals[i]=0;
-   		 evals[0]=E.val
-		console.log(E.val)
-	}
-  
-	function initialise_matrix(N){
-    	//Initialising  NxN zero matrix
-	
-	Matrix = new Array(N);
-    for( i=0; i< Matrix.length; i++) {
-      Matrix[i] = new Array(N);
-      for( j=0; j< Matrix.length; j++) {
-        Matrix[i][j] = 0;
-      }
-    }
-    return Matrix;
-}
-function copy_matrix(A){
-    var i,j;
-    const n=A.length;
-    var D=initialise_matrix(n) ;
-    for(i=0;i<n;i++){
-        for(j=0;j<n;j++){
-            D[i][j]=A[i][j];
-        }
-    }
-    return(D)
-}
-
-function norm_vector(v){
-    var sum=0;
-    for(let i=0;i<v.length;i++){
-        sum=sum+v[i]*v[i]
-    }
-    return(Math.sqrt(sum))
-}
-
-function eig_powerIteration ( A , u0) {
-    // Compute the largest eigenvalue and eigenvector with the power method
-        const maxIters = 1000;
-        var k;
-        const n = A.length;
-        var sum;
-
-        // init with a random u or an initial guess u0
-        var u;
-        if ( typeof(u0) == "undefined")
-            u = randn(n);
-        else
-            u = u0;
-        var norm;
-        norm=norm_vector(u)
-        for (let i=0;i<n;i++){
-            u[i]/norm;
-        }
-        var lambda = 1;
-        var v = new Array(N);
-    	v = v.fill(0);	
-        for ( k=0; k< maxIters; k++) {		
-            // Apply the iteration : u = Au / norm(Au)
-            for(let i=0;i<n;i++){
-                sum=0
-                for (let j=0;j<n;j++){
-                   sum=sum+A[i][j]*u[j];
-                }
-                v[i]=sum
-            }
-            //u = mulMatrixVector(A, u) ;
-            lambda = norm_vector(v);
-		if(lambda>1e-6){
-		    for(let i=0;i<n;i++){
-			u[i]=v[i]/lambda;
-		    }
-		}
-		else {
-			u.fill(0.0);
-		}
-            //u = mulScalarVector(1/ lambda, u);				
-        }
-        return { "val" : lambda, "vec" : u};
-    }
 	function tick() {
   
 	link.attr("x1", function(d) { return d.source.x; })
@@ -440,8 +510,11 @@ function eig_powerIteration ( A , u0) {
 		});
 
 	link.exit()
-		.remove();
-
+		.remove();	
+		//
+		// DEBUGGING
+		//
+		//console.log(links);
 	force.start();
 	}
 	/////******************/////
@@ -455,7 +528,8 @@ function eig_powerIteration ( A , u0) {
         //.attr("fill-opacity", "1.0");
 
     d3.select(this).transition()
-        .duration(400)
+		.duration(400)
+		.attr("fill", "orange")
         .attr("r", 10);
   }
 
@@ -476,4 +550,27 @@ function eig_powerIteration ( A , u0) {
 
   /////******************/////
   /////******************/////
+
+  //Drag functions 
+//d is the node 
+function drag_start(d) {
+	if (!d3.event.active) simulation.alphaTarget(0.3).restart();
+	   d.fx = d.x;
+	   d.fy = d.y;
+   }
+   
+   //make sure you can't drag the circle outside the box
+   function drag_drag(d) {
+	 d.fx = d3.event.x;
+	 d.fy = d3.event.y;
+   }
+   
+   function drag_end(d) {
+	 if (!d3.event.active) simulation.alphaTarget(0);
+	 d.fx = null;
+	 d.fy = null;
+   }
+
 }	
+
+

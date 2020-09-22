@@ -6,6 +6,14 @@
   border: 2px solid white;
   margin: 4px;
 }
+
+#bar {
+  background-color: #def;
+  border: 2px solid white;
+  margin: 4px;
+  clear: both;
+}
+
 .node {
   fill: #008;
   stroke:#000;

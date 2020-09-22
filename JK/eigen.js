@@ -66,7 +66,7 @@ function norm_vector(v){
 
 function eig_powerIteration ( A , u0) {
     // Compute the largest eigenvalue and eigenvector with the power method
-        const maxIters = 1000;
+        const maxIters = 2000;
         var k;
         const n = A.length;
         var sum;
@@ -560,7 +560,7 @@ function eig_powerIteration ( A , u0) {
 
     function eigen_decomp(A){
         var vals,vec,L1,L2,degenerate;
-	var Acopy=copy_matrix(A);
+	    var Acopy=copy_matrix(A);
         var eig1=eig_powerIteration(Acopy);
         var H=ToHessenberg(Acopy);
         var eig_QR=QR_H(H);
