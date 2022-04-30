@@ -4,7 +4,7 @@ Add here global page variables to use throughout your website.
 
 @def website_title = "Atiyab's Blog"
 @def website_descr = "journey through physics"
-@def website_url = "https://atiyabzafar.github.io/MyBlog"
+@def website_url = "https://atiyabzafar.github.io/"
 @def mintoclevel = 2
 @def author = "Atiyab Zafar"
 
