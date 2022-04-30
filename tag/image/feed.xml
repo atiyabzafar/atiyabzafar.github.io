@@ -11,12 +11,12 @@
     <title>
       <![CDATA[  Atiyab&#39;s Blog  ]]>
     </title>
-    <link> https://atiyabzafar.github.io/MyBlog </link>
+    <link> https://atiyabzafar.github.io/ </link>
     <description>
       <![CDATA[  journey through physics  ]]>
     </description>
     <atom:link
-      href="https://atiyabzafar.github.io/MyBlog/feed.xml"
+      href="https://atiyabzafar.github.io/feed.xml"
       rel="self"
       type="application/rss+xml" />
 
