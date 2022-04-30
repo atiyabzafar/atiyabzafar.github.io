@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{if hasmath}} {{insert head_katex.html }}   {{end}}
+  {{if hascode}} {{insert head_highlight.html }}   {{end}}
+
+  {{insert style.html}}
+
+  {{isdef title}} <title>{{fill title}}</title>  {{end}}
+  <!---title>Atiyab's Blog</title>--->
+  <meta property="og:title" content="Atiyab's Blog" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:description" content="{{description}}" />
+  <meta property="og:site_name" content="Atiyab's Blog" />
+
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+<!---{{insert nav.html}}--->
+{{insert header.html}}
+<main class="page-content" aria-label="Content">
+  <div class="wrapper">
+
+    {{ispage index.html}}
+    <div class="home">
+    {{end}}
+
+    <!-- {{isnotpage index.html}}
+    <article class="post">
+      <header class="post-header">
+        <h3 class="post-title">{{title}}</h3>
+      </header>
+      <div class="post-content">
+    {{end}}-->
+    
+<!-- Content appended here -->
