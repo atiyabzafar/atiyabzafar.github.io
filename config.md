@@ -2,11 +2,12 @@
 Add here global page variables to use throughout your website.
 -->
 
-@def website_title = "Atiyab's Blog"
-@def website_descr = "journey through physics"
+@def title = "Atiyab's Blog"
+@def description = "journey through physics"
 @def website_url = "https://atiyabzafar.github.io/"
 @def mintoclevel = 2
 @def author = "Atiyab Zafar"
+@def hasplotly = false
 
 +++
 author = "Atiyab Zafar"
