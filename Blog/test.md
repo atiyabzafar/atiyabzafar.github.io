@@ -22,9 +22,6 @@ fdplotly(json(plt)) # hide
 ### Using `\fig{...}` (recommended)
 
 
-Now you might use `\fig{...}` to insert graph [just like normal](/syntax/markdown/#inserting_a_figure). This also work fine with `Plots.jl` and `PlotlyBase.jl`.
-
-**Note**: `\fig{...}` will call the JavaScript function `PlotlyJS_json` defined [above](#pre-requisites). You might customize the behavior by modifying the JavaScript. Also make sure `@def hasplotly = true` is properly set.
 
 `````plaintext
 ```julia:ex2

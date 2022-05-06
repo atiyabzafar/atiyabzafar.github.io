@@ -33,7 +33,7 @@ body {
     min-height: 100vh;
     flex-direction: column
 }
-h1 { font-family: Perpetua, Baskerville, Big Caslon, Palatino Linotype, Palatino, URW Palladio L, Nimbus Roman No9 L, serif; 
+/*h1 { font-family: Perpetua, Baskerville, Big Caslon, Palatino Linotype, Palatino, URW Palladio L, Nimbus Roman No9 L, serif; 
     font-size: 23px; 
     font-style: normal; 
     font-variant: normal; 
@@ -45,8 +45,9 @@ p { font-family: Perpetua, Baskerville, Big Caslon, Palatino Linotype, Palatino,
     font-size: 14px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 23px; } 
 blockquote { font-family: Perpetua, Baskerville, Big Caslon, Palatino Linotype, Palatino, URW Palladio L, Nimbus Roman No9 L, serif; 
         font-size: 17px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 23px; } 
-/*pre { font-family: Perpetua, Baskerville, Big Caslon, Palatino Linotype, Palatino, URW Palladio L, Nimbus Roman No9 L, serif; 
+pre { font-family: Perpetua, Baskerville, Big Caslon, Palatino Linotype, Palatino, URW Palladio L, Nimbus Roman No9 L, serif; 
     font-size: 11px; font-style: normal; font-variant: normal; font-weight: 400; line-height: 23px; }
+*/
 h1,
 h2,
 h3,
@@ -59,7 +60,7 @@ pre,
 ul,
 ol,
 dl,
-figure,*/
+figure,
 .highlight {
     margin-bottom: 15px
 }
