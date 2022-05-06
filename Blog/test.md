@@ -19,8 +19,28 @@ fdplotly(json(plt)) # hide
 \textoutput{ex1}
 
 
-# Figure Added by calling a graph 
+### Using `\fig{...}` (recommended)
 
+
+Now you might use `\fig{...}` to insert graph [just like normal](/syntax/markdown/#inserting_a_figure). This also work fine with `Plots.jl` and `PlotlyBase.jl`.
+
+**Note**: `\fig{...}` will call the JavaScript function `PlotlyJS_json` defined [above](#pre-requisites). You might customize the behavior by modifying the JavaScript. Also make sure `@def hasplotly = true` is properly set.
+
+`````plaintext
+```julia:ex2
+using PlotlyJS
+p=plot(
+     scatter(x=1:10, y=rand(10), mode="markers"),
+     Layout(title="Responsive Plots")
+     )
+savejson(p, joinpath(@OUTPUT, "plotlyex.json"))  # savejson is an alternative to savefig # hide
+# PlotlyBase.json (also exported by PlotlyJS) often gives a smaller json compared to PlotlyJS.savefig # hide
+```
+
+\fig{plotlyex}
+`````
+
+This code block gives:
 
 ```julia:ex2
 using PlotlyJS
@@ -31,7 +51,8 @@ p=plot(
 savejson(p, joinpath(@OUTPUT, "plotlyex.json"))  # savejson is an alternative to savefig # hide
 # PlotlyBase.json (also exported by PlotlyJS) often gives a smaller json compared to PlotlyJS.savefig # hide
 ```
-I cam calling this here 
+ 
 \fig{plotlyex}
-\output{ex2}
-After plot
+
+
+**Note**: The plot will be automatically resized when the browser window size changes due to the JavaScript function provided above. This, however, will ignore the `layout.height` and the `layout.width` supplied in the json. It gives good output in most cases. But if you need fine control over the size of the figure, please modify the JavaScript.

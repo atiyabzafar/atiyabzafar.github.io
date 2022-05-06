@@ -20,3 +20,5 @@ I love performing simulations!
 
 * [`Agent Based Modelling for Covid 19`](/ABM/) : An agtent based model studying Disease Prevention Measures within Heterogeneous Communities and Studying Effect of Migration and lockdowns. 
 * [`Julia Test`](/Blog/test/)
+
+\note{Proceed with caution !}
