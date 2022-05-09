@@ -1,6 +1,7 @@
 @def hasplotly = true
 @def hascode = true
 
+`````plaintext
 ```julia:ex1
 using PlotlyJS
 z =  [10     10.625  12.5  15.625  20
@@ -16,7 +17,7 @@ plt    = plot(data, layout)
 fdplotly(json(plt)) # hide
 ```
 \textoutput{ex1}
-
+`````
 
 ### Using `\fig{...}` (recommended)
 
