@@ -1,6 +1,5 @@
-@def hascode = true
 @def hasplotly = true
-
+@def hascode = true
 
 ```julia:ex1
 using PlotlyJS
