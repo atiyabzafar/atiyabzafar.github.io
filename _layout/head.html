@@ -18,28 +18,7 @@
 
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/main.css">
-</head>
-<body>
-<!---{{insert nav.html}}--->
-{{insert header.html}}
-<main class="page-content" aria-label="Content">
-  <div class="wrapper">
-
-    {{ispage index.html}}
-    <div class="home">
-    {{end}}
-
-    <!-- {{isnotpage index.html}}
-    <article class="post">
-      <header class="post-header">
-        <h3 class="post-title">{{title}}</h3>
-      </header>
-      <div class="post-content">
-    {{end}}-->
-    
-<!-- Content appended here -->
-
-{{if hasplotly}}
+  {{if hasplotly}}
   <script src="/libs/plotly/plotly.min.js"></script> 
   <script>
     // This function is used when calling `\fig{...}` See # Using \fig{...} below
@@ -69,3 +48,25 @@
   </script>
   {{end}}
   
+
+</head>
+<body>
+<!---{{insert nav.html}}--->
+{{insert header.html}}
+<main class="page-content" aria-label="Content">
+  <div class="wrapper">
+
+    {{ispage index.html}}
+    <div class="home">
+    {{end}}
+
+    <!-- {{isnotpage index.html}}
+    <article class="post">
+      <header class="post-header">
+        <h3 class="post-title">{{title}}</h3>
+      </header>
+      <div class="post-content">
+    {{end}}-->
+    
+<!-- Content appended here -->
+
