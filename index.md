@@ -11,7 +11,8 @@ Physicsing – Singing the tune of the universe
 
 Here is my Personal Blog that I will update with things I learn as I go through my PhD and with my thoughts occasionally.
 
-* [`The Eightfold Way`](/Old_blog/Gell-Man/): A Post from the old blog
+* [`Network Science 101 Part 1`](/Blog/network/NetworkScience101/)
+* [`Archive from the old blog`](/Old_blog/old_archive/) Old posts archived from old Blog. Need Some refinement.
 
 # Simulations
 
@@ -19,6 +20,7 @@ I love performing simulations!
 
 
 * [`Agent Based Modelling for Covid 19`](/ABM/) : An agtent based model studying Disease Prevention Measures within Heterogeneous Communities and Studying Effect of Migration and lockdowns. 
-* [`Julia Test`](/Blog/test/)
+* Most of my simulations are on github in private repositories. Need to work on publicly making them available. They will be posted here.
+* [`Network Science 101 Part 1`](/Blog/network/NetworkScience101/)
 
 \note{Proceed with caution !}

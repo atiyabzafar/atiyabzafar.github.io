@@ -8,6 +8,8 @@ Add here global page variables to use throughout your website.
 @def mintoclevel = 2
 @def author = "Atiyab Zafar"
 @def hasplotly = false
+@def hascytoscape = false
+@def hasmathcalc = false
 
 +++
 author = "Atiyab Zafar"

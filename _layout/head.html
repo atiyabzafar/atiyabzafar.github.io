@@ -18,7 +18,9 @@
 
   <link rel="stylesheet" href="/css/normalize.css">
   <link rel="stylesheet" href="/css/main.css">
- 
+  {{if hascytoscape}}
+    {{insert head_cytoscape.html}}
+  {{end}}
   <!-- PLOTLY -->
   {{if hasplotly}}
   <script src="/libs/plotly/plotly.min.js"></script> 
