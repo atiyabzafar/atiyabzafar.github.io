@@ -69,7 +69,6 @@ var data = {
 };
 var options = {};
 var network = new vis.Network(container, data, options);
-console.log(nodes)
 network.on('click',function(params){
     if((params.nodes.length == 0) && (params.edges.length == 0)) {
         var updatedIds = nodes.add([{
@@ -80,7 +79,7 @@ network.on('click',function(params){
         network.selectNodes([updatedIds[0]]);
         network.editNode();
     }
-})
+});
 
 /*var cy = cytoscape({
   container: document.getElementById('cy2'),
@@ -220,88 +219,22 @@ But for a directed graph, the symmetric is in general a asymmetric matrix. So, t
 
 ~~~
 
-<table>
-  <tbody>
-    <tr>
-      <td>
-        <h2>Node</h2>
-        <table>
-          <tbody>
-            <tr>
-              <td></td>
-              <td><label for="node-id">Id</label></td>
-              <td><input id="node-id" type="text" value="6" /></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><label for="node-label">Label</label></td>
-              <td><input id="node-label" type="text" value="6" /></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Action</td>
-              <td>
-                <button id="node-add" onclick="addNode();">Add</button>
-                <button id="node-update" onclick="updateNode();">Update</button>
-                <button id="node-remove" onclick="removeNode();">Remove</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-      <td>
-        <h2>Edge</h2>
-        <table>
-          <tbody>
-            <tr>
-              <td></td>
-              <td><label for="edge-id">Id</label></td>
-              <td><input id="edge-id" type="text" value="3-4" /></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><label for="edge-from">From</label></td>
-              <td><input id="edge-from" type="text" value="3" /></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><label for="edge-to">To</label></td>
-              <td><input id="edge-to" type="text" value="4" /></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>Action</td>
-              <td>
-                <button id="edge-add" onclick="addEdge();">Add</button>
-                <button id="edge-update" onclick="updateEdge();">Update</button>
-                <button id="edge-remove" onclick="removeEdge();">Remove</button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<div id = "max_node", hidden = True></div>
 
 <h1>View</h1>
 <table class="view">
-  <rowgroup>
-    <row height = "50%"/>
-  </rowgroup>
   <colgroup>
-    <col width="50%" />
-    <col width="50%" />
+    <col width="25%" />
+    <col width="75%" />
   </colgroup>
   <tbody>
     <tr>
       <td>
-        <h2>Nodes</h2>
-        <pre id="nodes"></pre>
+        <h2>Matrix</h2>
+        <div id="matrix" class="matrix"></div>
       </td>
       <td>
         <h2>Network</h2>
-
         <div id="mynetwork"></div>
       </td>
     </tr>
@@ -309,6 +242,33 @@ But for a directed graph, the symmetric is in general a asymmetric matrix. So, t
 </table>
 
 <style>
+
+.matrix {
+    position: relative;
+}
+body {
+    padding: 20px;    
+}
+.matrix:before, .matrix:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    border: 1px solid #000;
+    width: 6px;
+    height: 100%;
+}
+.matrix:before {
+    left: -6px;
+    border-right: 0px;
+}
+.matrix:after {
+    right: -6px;
+    border-left: 0px;
+}
+.matrix td {
+    padding: 5px;    
+    text-align: center;
+}
 table.view {
   width: 100%;
 }
@@ -326,17 +286,6 @@ table table td {
   vertical-align: middle;
 }
 
-input[type="text"],
-pre {
-  border: 1px solid lightgray;
-}
-
-pre {
-  margin: 0;
-  padding: 5px;
-  font-size: 10pt;
-}
-
 #mynetwork {
   width: 100%;
   height: 400px;
@@ -349,80 +298,8 @@ pre {
 <script>
 var nodes, edges, network;
 
-// convenience method to stringify a JSON object
-function toJSON(obj) {
-  return JSON.stringify(obj, null, 4);
-}
-
-function addNode() {
-  try {
-    nodes.add({
-      id: document.getElementById("node-id").value,
-      label: document.getElementById("node-label").value,
-    });
-  } catch (err) {
-    alert(err);
-  }
-}
-
-function updateNode() {
-  try {
-    nodes.update({
-      id: document.getElementById("node-id").value,
-      label: document.getElementById("node-label").value,
-    });
-  } catch (err) {
-    alert(err);
-  }
-}
-function removeNode() {
-  try {
-    nodes.remove({ id: document.getElementById("node-id").value });
-  } catch (err) {
-    alert(err);
-  }
-}
-
-function addEdge() {
-  try {
-    edges.add({
-      id: document.getElementById("edge-id").value,
-      from: document.getElementById("edge-from").value,
-      to: document.getElementById("edge-to").value,
-    });
-  } catch (err) {
-    alert(err);
-  }
-}
-function updateEdge() {
-  try {
-    edges.update({
-      id: document.getElementById("edge-id").value,
-      from: document.getElementById("edge-from").value,
-      to: document.getElementById("edge-to").value,
-    });
-  } catch (err) {
-    alert(err);
-  }
-}
-function removeEdge() {
-  try {
-    edges.remove({ id: document.getElementById("edge-id").value });
-  } catch (err) {
-    alert(err);
-  }
-}
-
 function draw() {
-  // create an array with nodes
   nodes = new vis.DataSet();
-//  nodes.on("*", function () {
-//    document.getElementById("nodes").innerText = JSON.stringify(
-//      nodes.get(),
-//      null,
-//      4
-//    );
-// });
   nodes.add([
     { id: "1", label: "1" },
     { id: "2", label: "2" },
@@ -430,8 +307,6 @@ function draw() {
     { id: "4", label: "4" },
     { id: "5", label: "5" },
   ]);
-
-  // create an array with edges
   edges = new vis.DataSet();
   edges.add([
     { id: "1-2", from: "1", to: "2" },
@@ -439,33 +314,94 @@ function draw() {
     { id: "2-4", from: "2", to: "4" },
     { id: "2-5", from: "2", to: "5" },
   ]);
-
-  // create a network
   var container = document.getElementById("mynetwork");
   var data = {
     nodes: nodes,
     edges: edges,
   };
-  Nodes=nodes.get({fields:["id","label"]})
-  Edges=edges.get({fields:["from","to"]})
-  console.log(Edges)
-  var Adj=math.zeros(Nodes.length,Nodes.length)
-  for (let edge in Edges){
-    from=Edges[edge].from
-    to=Edges[edge].to
-    console.log(parseInt(to)-1,parseInt(from)-1)
-    Adj=math.subset(Adj,math.index(parseInt(to)-1,parseInt(from)-1),1)
-    Adj=math.subset(Adj,math.index(parseInt(from)-1,parseInt(to)-1),1)
+
+  var options = {
+    interaction:{
+        dragNodes:true,
+        dragView: true,
+        hideEdgesOnDrag: false,
+        hideEdgesOnZoom: false,
+        hideNodesOnDrag: false,
+        hover: false,
+        hoverConnectedEdges: true,
+        keyboard: {
+          enabled: false,
+          speed: {x: 10, y: 10, zoom: 0.02},
+          bindToWindow: true,
+          autoFocus: true,
+        },
+        multiselect: true,
+        navigationButtons: false,
+        selectable: true,
+        selectConnectedEdges: true,
+        tooltipDelay: 300,
+        zoomSpeed: 1,
+        zoomView: true
+      },
+      manipulation: {
+        addNode: false,
+        addEdge: function(edgeData,callback) {
+          if (edgeData.from === edgeData.to) {
+            var r = confirm("Do you want to connect the node to itself?");
+            if (r === true) {
+              callback(edgeData);
+            }
+          }
+          else {
+            callback(edgeData);
+          }
+        getAdj()
+        }
+      }
+  };
+  function getAdj(){
+    Nodes=nodes.get({fields:["id","label"]});
+    Edges=edges.get({fields:["from","to"]});
+    console.log(Edges);
+    
+    var Adj=math.zeros(Nodes.length,Nodes.length);
+    for (let edge in Edges){
+      from=Edges[edge].from;
+      to=Edges[edge].to;
+      console.log(parseInt(to)-1,parseInt(from)-1);
+      Adj=math.subset(Adj,math.index(parseInt(to)-1,parseInt(from)-1),1);
+      Adj=math.subset(Adj,math.index(parseInt(from)-1,parseInt(to)-1),1);
+    };
+    printmat(Adj)
   }
-  console.log(Adj.valueOf())
-  var options = {};
-  nodes.on("*", function () {
-  document.getElementById("nodes").innerText = JSON.stringify(
-    Adj.valueOf(),
-    null,4
-  );
-});
-  network = new vis.Network(container, data, options);
+  function printmat(Adj){
+    var  arrText='';
+    for (var i = 0; i < Adj.size()[0]; i++) {
+        for (var j = 0; j < Adj.size()[1]; j++) {
+            arrText+=Adj.valueOf()[i][j]+' ';
+        }
+        arrText+="\n"
+        document.getElementById("matrix").innerText = arrText
+    };
+  };
+  getAdj();
+    network = new vis.Network(container, data, options);
+    var max_node = document.getElementById("max_node")
+    max_node.innerText = 5
+    network.on('click',function(params){
+      if((params.nodes.length == 0) && (params.edges.length == 0)) {
+          var max_node = document.getElementById("max_node")
+          let new_id = parseInt(max_node.innerText)+1
+          var updatedIds = nodes.add([{
+              id :  String(new_id),
+              label: String(new_id),
+              x:params.pointer.canvas.x,
+              y:params.pointer.canvas.y
+          }]);
+          max_node.innerText = new_id
+          getAdj()
+      }
+  });
   
 }
 
