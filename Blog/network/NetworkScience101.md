@@ -30,8 +30,6 @@ var nodes = new vis.DataSet([
   { id: 4, label: "4" },
   { id: 5, label: "5" },
 ]);
-
-// create an array with edges
 var edges = new vis.DataSet([
   { from: 1, to: 3 },
   { from: 1, to: 2 },
@@ -39,8 +37,6 @@ var edges = new vis.DataSet([
   { from: 2, to: 5 },
   { from: 3, to: 3 },
 ]);
-
-// create a network
 var container = document.getElementById("cy1");
 var data = {
   nodes: nodes,
@@ -57,7 +53,6 @@ var nodes = new vis.DataSet([
   { id: 5, label: "5" },
 ]);
 
-// create an array with edges
 var edges = new vis.DataSet([
   { 'arrows':'to',from: 1, to: 3 },
   { 'arrows':'to',from: 1, to: 2 },
@@ -67,7 +62,6 @@ var edges = new vis.DataSet([
   { 'arrows':'to',from: 1, to: 4 }
 ]);
 
-// create a network
 var container = document.getElementById("cy2");
 var data = {
   nodes: nodes,
