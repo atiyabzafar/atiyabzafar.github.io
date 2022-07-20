@@ -65,6 +65,8 @@ figure,
     margin-bottom: 15px
 }
 
+
+
 main {
     display: block
 }
@@ -255,8 +257,8 @@ table td {
 }
 
 .site-nav {
-    /*background-image: url("/assets/images/plot_1.png");
-    background-position: center center;  */  
+ /*   background-image: url("/assets/images/plot_1.png");
+    background-position: center ;   */
     font-family: "Times New Roman", Times, serif;
     float: center;
     line-height: 54px
@@ -287,11 +289,11 @@ table td {
 
 @media screen and (max-width: 600px) {
     .site-nav {
-        position: absolute;
+       /* position: absolute;*/
         top: 9px;
         right: 15px;
-        background-color: #eba4a4;
-        border: 1px solid #e8e8e8;
+        background-color: #eba4a400;
+        border: 1px solid #e8e8e810;
         border-radius: 5px;
         text-align: right
     }
