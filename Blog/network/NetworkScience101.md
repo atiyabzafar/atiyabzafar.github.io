@@ -81,119 +81,6 @@ network.on('click',function(params){
     }
 });
 
-/*var cy = cytoscape({
-  container: document.getElementById('cy2'),
-  elements: [
-    { data: { id: 'a' } },
-    { data: { id: 'b' } },
-    { data: { id: 'c' } },
-    { data: { id: 'd' } },
-    {
-      data: {
-        id: 'ab',
-        source: 'a',
-        target: 'b'
-      }
-    },
-    {  
-      data: {
-        id: 'bc',
-        source: 'b',
-        target: 'c'
-      }
-    },
-    {
-    data: {
-        id: 'bd',
-        source: 'b',
-        target: 'd'
-      }
-    },
-    {
-    data: {
-        id: 'cd',
-        source: 'c',
-        target: 'd'
-      }
-    }
-    ],
-     style: [
-        {
-            selector: 'node',
-            style: {
-                shape: 'circle',
-                'background-color': 'blue',
-                label:'data(id)',
-            }
-        },
-        {
-            selector : 'edge',
-            style:{
-                'curve-style': 'bezier',
-                'target-arrow-shape': 'triangle'
-            }
-        }
-        
-        ] 
-        
-});
-
-var cy = cytoscape({
-  container: document.getElementById('cy1'),
-  elements: [
-{ data: { id: 'a' } },
-    { data: { id: 'b' } },
-    { data: { id: 'c' } },
-    { data: { id: 'd' } },
-    {
-      data: {
-        id: 'ab',
-        source: 'a',
-        target: 'b'
-      }
-    },
-    {  
-      data: {
-        id: 'bc',
-        source: 'b',
-        target: 'c'
-      }
-    },
-    {
-    data: {
-        id: 'bd',
-        source: 'b',
-        target: 'd'
-      }
-    },
-    {
-    data: {
-        id: 'cd',
-        source: 'c',
-        target: 'd'
-      }
-    }
-    ],
-     style: [
-        {
-            selector: 'node',
-            style: {
-                shape: 'circle',
-                'background-color': 'blue',
-                label:'data(id)',
-            }
-        },
-        {
-            selector : 'edge',
-            style:{
-                'curve-style': 'bezier',
-            }
-        }
-        
-        ] 
-        
-});
-*/
 </script>
 
 ~~~
@@ -355,14 +242,13 @@ function draw() {
           else {
             callback(edgeData);
           }
-        getAdj()
+        getAdj();
         }
       }
   };
   function getAdj(){
     Nodes=nodes.get({fields:["id","label"]});
     Edges=edges.get({fields:["from","to"]});
-    console.log(Edges);
     
     var Adj=math.zeros(Nodes.length,Nodes.length);
     for (let edge in Edges){
@@ -372,7 +258,7 @@ function draw() {
       Adj=math.subset(Adj,math.index(parseInt(to)-1,parseInt(from)-1),1);
       Adj=math.subset(Adj,math.index(parseInt(from)-1,parseInt(to)-1),1);
     };
-    printmat(Adj)
+    printmat(Adj);
   }
   function printmat(Adj){
     var  arrText='';
@@ -380,25 +266,25 @@ function draw() {
         for (var j = 0; j < Adj.size()[1]; j++) {
             arrText+=Adj.valueOf()[i][j]+' ';
         }
-        arrText+="\n"
-        document.getElementById("matrix").innerText = arrText
+        arrText+="\n";
+        document.getElementById("matrix").innerText = arrText;
     };
   };
   getAdj();
     network = new vis.Network(container, data, options);
-    var max_node = document.getElementById("max_node")
-    max_node.innerText = 5
+    var max_node = document.getElementById("max_node");
+    max_node.innerText = 5;
     network.on('click',function(params){
       if((params.nodes.length == 0) && (params.edges.length == 0)) {
-          var max_node = document.getElementById("max_node")
-          let new_id = parseInt(max_node.innerText)+1
+          var max_node = document.getElementById("max_node");
+          let new_id = parseInt(max_node.innerText)+1;
           var updatedIds = nodes.add([{
               id :  String(new_id),
               label: String(new_id),
               x:params.pointer.canvas.x,
               y:params.pointer.canvas.y
           }]);
-          max_node.innerText = new_id
+          max_node.innerText = new_id;
           getAdj()
       }
   });
