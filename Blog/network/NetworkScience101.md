@@ -428,8 +428,8 @@ function draw1() {
     let ds=0;
     cols=['#82EDFD','#62C5DA','#0492C2','#2732C2','#1620A6','#060D6A','#03073E','#010426','#000000'];
     for (let nid=1;nid<=max_id;nid++){
-      deg.push(network2.getConnectedEdges(nid).length)
-      ds=ds+deg[nid-1]
+      deg.push(network2.getConnectedEdges(nid).length);
+      ds=ds+deg[nid-1];
       nodes2.update({id:String(nid),label:String(deg[nid-1]),title:String(nid),
       color:{
         background:cols[deg[nid-1]]
