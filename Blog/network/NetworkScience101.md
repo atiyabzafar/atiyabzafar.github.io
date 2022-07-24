@@ -425,7 +425,7 @@ function draw1() {
     var max_node = document.getElementById("max_node");
     let max_id = parseInt(max_node.innerText);
     deg=[];
-    ds=0
+    let ds=0;
     cols=['#82EDFD','#62C5DA','#0492C2','#2732C2','#1620A6','#060D6A','#03073E','#010426','#000000']
     for (let nid=1;nid<=max_id;nid++){
       deg.push(network2.getConnectedEdges(nid).length)
