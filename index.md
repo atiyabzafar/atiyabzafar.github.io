@@ -12,7 +12,7 @@ Here is my Personal Blog that I will update with things I learn as I go through 
 ~~~
 <div class=bloglist>
 <p><a href="/Blog/network/NetworkScience101/">Network Science 101</a> July 24, 2022</p>
-<p><a href="/Old_blog/2021-03-14-pi/pi3/">Love Letters to Pi(III): Normality, Do you exist in Pi?</a> March 14, 2021</p>
+<p><a href="/Old_blog/2021-03-14-pi/pi3/">Love Letters to Pi(III): Normality, Do you exist in Pi? (My Personal Favourite Post)</a> March 14, 2021</p>
 <p><a href="/Old_blog/2020-03-15-understanding-the-dynamics-of-disease-spreading-part-1-basic-population-dynamics/disease/">Understanding Population Dynamics</a> March 15, 2020</p>
 <p><a href="/Old_blog/2020-03-14-love-letters-to-pi-surprising-places-where-pi-pops-up-celebrating-pi-day/pi2/">Love Letters to pi (II) Surprising places Where pi pops up</a> March 14, 2020</p>
 <p><a href="/Old_blog/2019-07-03-calculating-pi-recursively-love-letters-to-pi/2019-07-03-calculating-pi-recursively-love-letters-to-pi/">Calculating Pi Recursively- Love Letters to Pi (I)</a> July 03, 2019</p>
