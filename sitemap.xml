@@ -44,6 +44,12 @@
     <priority>0.5</priority>
 </url>
 <url>
+    <loc>https://atiyabzafar.github.io/Blog/latexpy/index.html</loc>
+    <lastmod>2022-10-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://atiyabzafar.github.io/Blog/test/index.html</loc>
     <lastmod>2022-10-22</lastmod>
     <changefreq>monthly</changefreq>
