@@ -76,6 +76,20 @@ The first version I developed, just from the experience of playing the game. Bac
 
 This problem made me learn a valuable lesson in game development : *Level design*
 
+My earliest attempt at planarity was few months back when I started with randomly placed nodes and connected them randomly using a simple algorithm (using probabilty of having an edge between a pair of nodes being *p*) to get the graph. This ofcourse as you can imagine would give you non planar graphs for high value of *p* and you can sit with it and keep moving the nodes around till eternity and never reach to the solution. So I had a problem at hand. 
+
+**The solution:** Solution to the said problem I foundout lied in the original game that I talked about above. The algorithm was available with open friendly copyrights and I decided to try to understand how the algorithm creates the said graphs.(Courtesy: John Tantalo)
+
+**The algorithm:**
+
+1. Draw set of random lines in a plane. Making sure no two of them are parallel.
+2. Calculate the intersections of every line pair.
+3. You have a graph with nodes/vertcies being the intersecting point and edge being each line segment connecting two intersections.
+
+Although, the pseudocode that John provides in is quite simple. I implemented my own version using the intuitive set of rules described above. Which gave me a way to create levels of the game maybe not the most efficient way but hey if it works it works.
+
+
+
 ## Sources and further reading:
 
 * Simon Tatham's Portable Puzzle Collection [Link](https://www.chiark.greenend.org.uk/~sgtatham/puzzles/)
