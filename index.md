@@ -22,7 +22,6 @@ Here is my Personal Blog that I will update with things I learn as I go through 
 </div>
 ~~~
 
-* [`Network Science 101`](/Blog/network/NetworkScience101/)
 * [`Archive from the old blog`](/Old_blog/old_archive/) Old posts archived from old Blog. Need Some refinement.
 
 
