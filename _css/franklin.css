@@ -107,9 +107,9 @@ html {
     TITLES
 ================================================================== */
 
-.franklin-content h1 { font-size: 24px; }
-.franklin-content h2 { font-size: 22px; }
-.franklin-content h3 { font-size: 20px; }
+.franklin-content h1 { font-size: 24px; font-weight: bold; }
+.franklin-content h2 { font-size: 22px; font-weight: bold;}
+.franklin-content h3 { font-size: 20px; font-weight: bold;}
 
 .franklin-content h1,
 h2,
@@ -338,4 +338,157 @@ code {
   margin-bottom: 5px;
   border-radius: 0 10px 10px 0;
   border-left: 5px solid #4c9cf1;
+}
+
+.franklin-content .colbox-green {
+  background-color: #eef3f5;
+  height: 600px;
+  padding-top: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-bottom: 5px;
+  margin-left: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  border-radius: 0 10px 10px 0;
+  border-left: 5px solid #4c9cf1;
+}
+
+.im-50 {text-align: center;}
+.im-50 img {
+    padding: 0;
+    width: 50%;
+}
+
+.im-25 {text-align: center;}
+.im-25 img {
+    padding: 0;
+    width: 25%;
+}
+
+/* ==================================================================
+    CONTENT FROM APP
+================================================================== */
+.franklin-content .app-wrapper{
+  display: block;
+  height: 30em;
+  width: 70%;
+}
+
+.app-wrapper #cy {
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 15em;
+}
+
+.app-wrapper .config {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 15em;
+  background: rgba(0, 0, 0, 0.456);
+  box-sizing: border-box;
+  padding: 1em;
+  color: #fff;
+  transition-property: opacity;
+  transition-duration: 250ms;
+  transition-timing-function: ease-out;
+  overflow: auto;
+  z-index: 1;
+}
+
+.app-wrapper .button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+
+.app-wrapper .button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+.app-wrapper .button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.app-wrapper .param {
+  margin-bottom: 1em;
+}
+
+.app-wrapper .preamble {
+  margin-bottom: 0em;
+}
+
+.app-wrapper p {
+  margin: 0.5em 0;
+  font-size: 0.8em;
+}
+
+.app-wrapper  .param button {
+  width: 3em;
+  margin-right: 0.25em;
+  text-align: center;
+}
+
+.app-wrapper  a,
+a:hover {
+  color: #8BB0D0;
+}
+
+.app-wrapper  .label {
+  display: block;
+}
+
+.app-wrapper  .slider {
+  display: block;
+  width: 100%;
+  margin: 0;
+}
+
+.app-wrapper  .config-toggle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding: 1em;
+  margin: 0.2em;
+  cursor: pointer;
+  color: #fff;
+  z-index: 9999999;
+}
+
+input::placeholder{
+  color: #f00;
+}
+
+.app-wrapper  .config-closed .config {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.app-wrapper  .config-closed #cy {
+  right: 0;
+}
+
+.app-wrapper  .tip-link {
+  display: block;
+}
+
+@media (max-width: 600px){
+  .app-wrapper #cy {
+    right: 0;
+  }
 }
