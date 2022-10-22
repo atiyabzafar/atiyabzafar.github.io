@@ -493,4 +493,4 @@ For a directed graph, The In-Degree can be defined as the sum of the row element
 $$k_{avg}^{in/out}=L/N$$
 For an undireccted graph, the things get a bit more complicated as we over count while taking the sum of the degrees which can be easily derived and left to the reader.}
 
-That is it from me for today. Hopefully next week we will be discussing a special kind of graph. Planar Graphs! And you will be able to play a famous game involving the concept of planarity of graph. 
+That is it from me for today. Hopefully next time we will be discussing a special kind of graph. Planar Graphs! And you will be able to play a famous game involving the concept of planarity of graph. 
