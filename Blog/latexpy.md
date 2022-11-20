@@ -36,7 +36,7 @@ This : $\xvar$  is a variable.$\varphi$. This:new should not be replaced.
 ```
 
 ## How to use the script
-In the python file (`script.py`) you can find the function replace() defined. It takes the tex file as the first input and a python dictionary as the second input.
+In the python file (`script.py`) ([Link for the github rep](https://github.com/atiyabzafar/latexpy)) you can find the function replace() defined. It takes the tex file as the first input and a python dictionary as the second input.
 
 **Sample:**
 ```Python
