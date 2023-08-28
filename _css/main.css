@@ -75,10 +75,11 @@ img {
     max-width: 100%;
     vertical-align: middle
 }
-
+/*
 figure>img {
     display: block
 }
+*/
 
 figcaption {
     font-size: 14px
@@ -204,6 +205,12 @@ pre>code {
 .im-50 img {
     padding: 0;
     width: 50%;
+}
+
+.im-25 {text-align: center;}
+.im-25 img {
+    padding: 0;
+    width: 25%;
 }
 
 
