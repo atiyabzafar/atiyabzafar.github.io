@@ -6,9 +6,9 @@ I have been reading Jurassic Park by Michael Crichton recently,I found an old ba
 
 I was introduced to Chaos Theory not by any book or a lecturer but by Ian Malcolm and his non-stop rambling about improbability and uncertainty in chaotic systems. I could never have predicted that after maybe a decade and a half since I watched the movie I would be diving in dynamical systems and chaotic systems as a research field. 
 
-
+@@im-50
 ![](https://upload.wikimedia.org/wikipedia/en/2/21/Jurassic_Park_%28book_cover%29.jpg)
-
+@@
 \figenv{Jeff Goldblum as Ian Malcolm in Jurassic Park}{/assets/images/JurassicPark.gif}{width:50%;border: 1px solid red;}
 
 
