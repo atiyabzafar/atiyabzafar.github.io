@@ -11,6 +11,7 @@ Here is my Personal Blog that I will update with things I learn as I go through 
 
 ~~~
 <div class=bloglist>
+<p><a href="/Blog/uncertainty/">Uncertainty</a> September 2, 2022</p>
 <p><a href="/Blog/latexpy/">Latexpy: scipt to generate multiple pdf with different variable values</a> September 2, 2022</p>
 <p><a href="/Blog/network/NetworkScience101/">Network Science 101</a> July 24, 2022</p>
 <p><a href="/Old_blog/2021-03-14-pi/pi3/">Love Letters to Pi(III): Normality, Do you exist in Pi? (My Personal Favourite Post)</a> March 14, 2021</p>
