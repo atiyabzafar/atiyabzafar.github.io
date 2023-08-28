@@ -4,9 +4,13 @@ This post won't be a detailed post about any concept. These are just my personal
 
 I have been reading Jurassic Park by Michael Crichton recently,I found an old battered copy of the book in the book fair which I visited recently. Jurassic Park is one of my all-time favourite movies. Not just because of the wonder that it successfully creates with Spielberg's amazing direction and John Williams's iconic score. But also because of the amazing character of Mathematician Ian Malcolm played by Jeff Goldblum. Ian Malcolm is a 'chaotician' a mathematician who indulges in Chaos Theory. 
 
-I was introduced to Chaos Theory not by any book or a lecturer but by Ian Malcolm and his non-stop rambling about improbability and uncertainty in chaotic systems. I could never have predicted that after maybe a decade and a half since I watched the movie I would be indulging in dynamical systems and chaotic systems as a research field. 
+I was introduced to Chaos Theory not by any book or a lecturer but by Ian Malcolm and his non-stop rambling about improbability and uncertainty in chaotic systems. I could never have predicted that after maybe a decade and a half since I watched the movie I would be diving in dynamical systems and chaotic systems as a research field. 
 
-![JeffGoldblum](/assets/images/JurassicPark.gif)
+
+![](https://upload.wikimedia.org/wikipedia/en/2/21/Jurassic_Park_%28book_cover%29.jpg)
+
+\figenv{Jeff Goldblum as Ian Malcolm in Jurassic Park}{/assets/images/JurassicPark.gif}{width:50%;border: 1px solid red;}
+
 
 While reading the book I came across a quote spoken by Ian Malcolm 
 
@@ -22,6 +26,6 @@ There are works in science and mathematics that cause what is known as paradigm 
 
 I remember when I first encountered Heisenberg's Uncertainty principle it was explained to us in our modern physics course as a fundamental principle of the world that the more accurately you try to 'measure' the position of the particle the less accurate your measurement of the particle's momentum becomes. As it turns out the 'measurement' does not play any role in the uncertainty. The Uncertainty principle is simply a consequence of fundamental physics where particles have wave-like behaviour. From the mathematics of waves and the fact that position and energy form conjugate variables the uncertainty principle emerges. An electron we were told evolves around a nucleus in schools in well predicted orbit whose orbital radius we could calculate. Then we were told to reject the idea of well-defined orbit and an 'electron cloud' came into the picture because of the probabilistic nature of quantum physics. 
 
-
+![](/assets/images/jurassic-park-chaos-theory.gif)
 
 Even though the unease is terrifying to experience. People who has the thirst to understand the reason behind the unease are the ones that are the ones that come up with novelty in research. 
