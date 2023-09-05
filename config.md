@@ -10,6 +10,7 @@ Add here global page variables to use throughout your website.
 @def hasplotly = false
 @def hascytoscape = false
 @def hasmathcalc = false
+@def hasmathjax = false
 
 +++
 author = "Atiyab Zafar"
