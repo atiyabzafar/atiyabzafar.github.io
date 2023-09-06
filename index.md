@@ -1,8 +1,6 @@
 @def title = "Physicsing"
 @def tags = ["Homepage", "Blog"]
 
-Physicsing – Singing the tune of the universe
-
 > Our minds are finite, and yet even in those circumstances of finitude, we are surrounded by possibilities that are infinite, and the purpose of human life is to grasp as much as we can out of that infinitude. _(Alfred North Whitehead)_
 
 # My Blog
