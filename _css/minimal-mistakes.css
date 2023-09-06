@@ -806,6 +806,17 @@ pre {
 pre {
   overflow-x: auto;
 }
+.im-50 {text-align: center;}
+.im-50 img {
+    padding: 0;
+    width: 50%;
+}
+
+.im-25 {text-align: center;}
+.im-25 img {
+    padding: 0;
+    width: 25%;
+}
 
 p > code,
 a > code,
@@ -921,6 +932,8 @@ figcaption a:hover {
 svg:not(:root) {
   overflow: hidden;
 }
+
+
 
 nav ul {
   margin: 0;
@@ -1918,6 +1931,14 @@ th {
 }
 
 .site-title {
+  backdrop-filter: grayscale(1) contrast(3) blur(4px);
+  font-family: "Garamond", Times, serif;
+  font-size: 40px;
+  font-weight: 400;
+  line-height: 54px;
+  letter-spacing: -1px;
+  margin-bottom: 0;
+  float: left;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -5103,3 +5124,60 @@ a.reversefootnote:hover {
     height: 1px !important;
   }
 }
+/*
+Bloglist
+*/
+
+  
+.bloglist {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1rem;
+}
+
+.bloglist > p {
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+  font-size: 0.9em;
+  font-family: Open Sans, sans-serif;
+  font-weight: 100;
+  line-height: 1.1rem;
+  border-radius: 5px;
+  border: 1px solid #BFBFBF;
+  background-color: #EEE;
+  background-color: rgba(238, 238, 238, 0.4);
+  box-shadow: 1px 1px 5px #aaaaaa;
+  text-align:left;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.bloglist > p a {
+  display: block;
+  font-weight: 600;
+  padding-bottom: 0.5em;
+}
+
+
+.note {
+  margin-top: 1.5em;
+  width: 95%;
+  margin-left:auto;
+  margin-right:auto;
+  background-color:  aliceblue;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+.note .content {
+  padding: 10px;
+  padding-left: 12px;
+}
+.note .title{
+  font-size: 105%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  padding-left: 7px;
+  padding-top: 2px;
+  color: white;
+  background: cornflowerblue;
+}
+
