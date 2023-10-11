@@ -682,6 +682,8 @@ body {
   color: #494e52;
   font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
   line-height: 1.5;
+  text-align: justify;
+  text-justify: inter-word;
 }
 
 body.overflow--hidden {
@@ -806,6 +808,14 @@ pre {
 pre {
   overflow-x: auto;
 }
+
+.im-90 {text-align: center;}
+.im-90 img {
+    padding: 0;
+    width: 90%;
+    height: 600px;
+}
+
 .im-50 {text-align: center;}
 .im-50 img {
     padding: 0;
@@ -1338,7 +1348,7 @@ select:focus {
 }
 
 table {
-  display: block;
+  /*display: block;*/
   margin-bottom: 1em;
   width: 100%;
   font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
@@ -1883,7 +1893,7 @@ th {
 
 .masthead {
   position: relative;
-  border-bottom: 1px solid #f2f3f3;
+  border-bottom: 1px solid #94caca;
   -webkit-animation: intro 0.3s both;
   animation: intro 0.3s both;
   -webkit-animation-delay: 0.15s;

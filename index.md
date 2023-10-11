@@ -9,6 +9,7 @@ Here is my Personal Blog that I will update with things I learn as I go through 
 
 ~~~
 <div class=bloglist>
+<p><a href="/Blog/ecology_relationships/eccology_relationship/">Ecological Interactions, Basic Lotka Volterra</a> September 10, 2023</p>
 <p><a href="/Blog/digitsum/sum_digits/">Playground with digit sum</a> September 5, 2023</p>
 <p><a href="/Blog/uncertainty/uncertainty/">Making Peace with Uncertainty (Ian Malcolm, Jurassic Park, Uncertainty and Science) </a> August 28, 2023</p>
 <p><a href="/Blog/latexpy/">Latexpy: scipt to generate multiple pdf with different variable values</a> September 2, 2022</p>
