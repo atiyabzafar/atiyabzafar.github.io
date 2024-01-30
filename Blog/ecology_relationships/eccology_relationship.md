@@ -137,7 +137,7 @@ J_B=\begin{bmatrix}
 \end{bmatrix}
 $$
 
-The eigenvalues are $\pm\left(\sqrt{\alpha \gamma}\right)i$ thus the fixed point B is a center and the system rotates around the fixed point depending on the initial conditions. Thus if we look at the solutiions as plots of population with time, the population of both the herbivore and the carnivore will oscilate with time.
+The eigenvalues are $\pm\left(\sqrt{\alpha \gamma}\right)i$ thus the fixed point B is a center and the system rotates around the fixed point depending on the initial conditions. Thus, if we look at the solutions as plots of population with time, the population of both the herbivore and the carnivore will oscilate with time.
 
 \figenv{Prey-Predator Time Series showing oscillatory solutions}{/Blog/ecology_relationships/images/prey-predator-time.svg}{width:70%;border: 1px solid red;}
 
