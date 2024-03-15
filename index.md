@@ -9,6 +9,10 @@ Here is my Personal Blog that I will update with things I learn as I go through 
 
 ~~~
 <div class=bloglist>
+<p><a href="/Blog/bookreviews/SleepingMurder/">Book Review (Sleeping Murder by Agatha Christie)</a> December 24, 2023</p>
+<p><a href="/Blog/bookreviews/EndlessNight/">Book Review (Endless Night by Agatha Christie)</a> December 4, 2023</p>
+<p><a href="/Blog/bookreviews/AThousandSplendidSuns/">Book Review (A Thousand Splendid Suns by Khaled Hosseini)</a> November 13, 2023</p>
+<p><a href="/Blog/bookreviews/ChristieAppointmentWithDeath/">Book Review (Appointment With Death by Agatha Christie)</a> October 1, 2023</p>
 <p><a href="/Blog/ecology_relationships/eccology_relationship/">Ecological Interactions, Basic Lotka Volterra</a> September 10, 2023</p>
 <p><a href="/Blog/digitsum/sum_digits/">Playground with digit sum</a> September 5, 2023</p>
 <p><a href="/Blog/uncertainty/uncertainty/">Making Peace with Uncertainty (Ian Malcolm, Jurassic Park, Uncertainty and Science) </a> August 28, 2023</p>
@@ -25,6 +29,10 @@ Here is my Personal Blog that I will update with things I learn as I go through 
 
 * [`Archive from the old blog`](/Old_blog/old_archive/) Old posts archived from old Blog. Need Some refinement.
 
+
+# Books
+
+Reading has always been a very important part of my life. I read while travelling, in my idle time, in between long simulations, when I need a break from research. I think I would not be able to survive my PhD without books. So this section is dedicated to my enjoyment of reading. As you can see the blog shows many posts about book reviews. A collection of few books I have read and enjoyed can be found using the following link: [Books](/Blog/bookreviews/books/)
 
 # Simulations
 
