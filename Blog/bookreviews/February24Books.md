@@ -1,6 +1,9 @@
 @def tags = ["Blog","WeeklyPost","BookReviews"]
+@def rss_description = "Books read in February 2024"
+@def rss_pubdate = Date(2024,04,04)
+@def rss_title = "February 2024 Books"
 
-# Book Reviews for February, 24
+# Book reviews for February, 24
 
 The year of reading continues as we move into 2024. I spent most of my last year reading Agatha Christie's Poirot series. And it was a great decision as it not only helped me continue with my reading hobby, but also gave me a challenge to look forward to with #readchristie23. This year I have decided to continue the challenge, but the plan is to mix up other books that have been lying on my bookshelf waiting to be read. 
 

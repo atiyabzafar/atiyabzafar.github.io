@@ -1,3 +1,7 @@
+@def tags = ["Blog","WeeklyPost"]
+
+@def rss_description = "latexpy: A script to automate LaTeX for generating multiple pdf outputs for changing variables."
+@def rss_pubdate = Date(2022,08,02)
 # Latexpy 
 
 **A script to automate $\LaTeX$ for generating multiple pdf outputs for changing variables.**

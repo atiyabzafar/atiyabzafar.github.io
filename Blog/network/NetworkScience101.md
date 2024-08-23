@@ -3,6 +3,11 @@
 @def hasmathcalc = true
 @def maxtoclevel=4
 
+@def tags = ["Blog","WeeklyPost"]
+
+@def rss_description = "Network Science 101"
+@def rss_pubdate = Date(2022,07,24)
+
 # Network Science 101 (Graph Theory)
 
 >July 24, 2022

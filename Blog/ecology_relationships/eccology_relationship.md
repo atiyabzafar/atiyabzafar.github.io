@@ -1,6 +1,7 @@
 @def tags = ["Blog","WeeklyPost"]
 @def hascytoscape = true
-
+@def rss_description = "Ecological Interactions, Basic Lotka Volterra Equations"
+@def rss_pubdate = Date(2023,09,10)
 # Theoretical Ecology and Interactions (Lotka Volterra)
 \toc
 Understanding interaction among different species is very important not just for people planning to study theoretical ecology and biology but also for policymakers and think tanks who wish to understand the world. 

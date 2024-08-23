@@ -1,3 +1,8 @@
+@def tags = ["Blog","WeeklyPost","BookReviews"]
+@def rss_description = "Book review: Sleeping Murder by Agatha Christie"
+@def rss_pubdate = Date(2023,12,24)
+@def rss_title = "Sleeping Murder Book Review"
+
 # Sleeping Murder by Agatha Christie
     December 24 ,2023
 I started this year just like last year with the theme of reading. I had found about the #readchristie2023 challenge and decided to take it up this year. It involved reading one Christie book every month of the year. I am proud that I not only stuck to it, but a couple of times I read two Christie Books in the month. To celebrate the last month of the challenge I read this gorgeous hard cover version of Sleeping Murder!

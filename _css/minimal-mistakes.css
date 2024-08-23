@@ -680,7 +680,8 @@ body {
   margin: 0;
   padding: 0;
   color: #494e52;
-  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
+/*  font-family: -apple-system, BlinkMacSystemFont, "Roboto", "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;*/
+  font-family:Georgia, 'Times New Roman', Times, serif ;
   line-height: 1.5;
   text-align: justify;
   text-justify: inter-word;
@@ -5203,7 +5204,7 @@ Bloglist
   --percent: calc(var(--rating) / 5 * 100%);
   
   display: inline-block;
-  font-size: var(--star-size);
+  /*font-size: var(--star-size);*/
   font-family: Times; // make sure ★ appears correctly
   line-height: 1;
   

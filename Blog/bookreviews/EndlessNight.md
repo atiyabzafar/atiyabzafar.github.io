@@ -1,3 +1,7 @@
+@def tags = ["Blog","WeeklyPost","BookReviews"]
+@def rss_description = "Book Review: Endless Night by Agatha Christie"
+@def rss_pubdate = Date(2023,12,04)
+
 # Endless Night by Agatha Christie
     December 4, 2023
 

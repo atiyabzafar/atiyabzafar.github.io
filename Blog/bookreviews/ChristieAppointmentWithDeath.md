@@ -1,3 +1,7 @@
+@def tags = ["Blog","WeeklyPost","BookReviews"]
+@def rss_description = "Book Review: Appointment With Death by Agatha Christie"
+@def rss_pubdate = Date(2023,10,01)
+@def rss_title = "Appointment with Death, Christie book review"
 # Appointment With Death by Agatha Christie
 
 This month's (September) theme for #readchristie2023 was "Hatred" of which I have none for this novel. Another gem of a novel from Christie, Appointment with Death follows a complicated family and their authoritarian matriarch. The Belgian detective Hercule Poirot hears from his hotel window "You do see, don't you, that she's got to be killed' in the prologue. Which later comes into the picture with the finesse of Christie's usual tricks.
