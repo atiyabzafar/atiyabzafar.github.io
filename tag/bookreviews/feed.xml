@@ -1,0 +1,376 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:media="http://search.yahoo.com/mrss/"
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:georss="http://www.georss.org/georss">
+
+  <channel>
+    <title>
+      <![CDATA[  Atiyab&#39;s Blog  ]]>
+    </title>
+    <link> https://atiyabzafar.github.io/ </link>
+    <description>
+      <![CDATA[  Atiyab&#39;s Blog on curiosities  ]]>
+    </description>
+    <atom:link
+      href="https://atiyabzafar.github.io/feed.xml"
+      rel="self"
+      type="application/rss+xml" />
+
+
+<item>
+  <title>
+    <![CDATA[  Updated chronological list of my reads  ]]>
+  </title>
+  <link> https://atiyabzafar.github.io/Blog/bookreviews/books/index.html </link>
+  <guid> https://atiyabzafar.github.io/Blog/bookreviews/books/index.html </guid>
+  <description>
+    <![CDATA[  Books I have read  ]]>
+  </description>  
+  
+  <content:encoded>
+    <![CDATA[  <h1 id="books_i_have_read">Books I have read</h1>
+<h2 id="2024">2024</h2>
+<table><tr><th align="center">Finished</th><th align="center">Book Title</th><th align="right">Author</th><th align="right">Rating</th><th align="right">Review</th></tr><tr><td align="center">6 February 2024</td><td align="center">The Secret Adversary</td><td align="right">Agatha Christie</td><td align="right">
+<div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/February24Books/">link</a></td></tr><tr><td align="center">20 February 2024</td><td align="center">Midnigth Library</td><td align="right">Matt Haig</td><td align="right">
+<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/February24Books/">link</a></td></tr><tr><td align="center">24 February 2024</td><td align="center">The Big Four</td><td align="right">Agatha Christie</td><td align="right">
+<div class="Stars" style="--rating: 2.75;" aria-label="Rating of this book is 2.75 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/February24Books/">link</a></td></tr><tr><td align="center">6 March 2024</td><td align="center">The Forever War</td><td align="right">Joe Haldeman</td><td align="right">
+<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">link</a></td></tr><tr><td align="center">14 March 2024</td><td align="center">The Seven Dials Mystery</td><td align="right">Agatha Christie</td><td align="right">
+<div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">link</a></td></tr><tr><td align="center">20 March 2024</td><td align="center">Before the Coffee Gets Cold</td><td align="right">Toshikazu Kawaguchi</td><td align="right">
+<div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">link</a></td></tr><tr><td align="center">6 April 2024</td><td align="center">Pride and Prejudice</td><td align="right">Jane Austen</td><td align="right">
+<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">link</a></td></tr><tr><td align="center">15 April 2024</td><td align="center">Tales from the cafe</td><td align="right">Toshikazu Kawaguchi</td><td align="right">
+<div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">link</a></td></tr><tr><td align="center">30 April 2024</td><td align="center">Before Your Memory Fades</td><td align="right">Toshikazu Kawaguchi</td><td align="right">
+<div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2.5 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">link</a></td></tr><tr><td align="center">4 July 2024</td><td align="center">Brazen: Rebel Ladies Who Rocked The World</td><td align="right">Pénélope Bagieu</td><td align="right">
+<div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">link</a></td></tr><tr><td align="center">5 July 2024</td><td align="center">Before We Say Goodbye</td><td align="right">Toshikazu Kawaguchi</td><td align="right">
+<div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2.5 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">link</a></td></tr><tr><td align="center">6 July 2024</td><td align="center">I Want to Eat Your Pancreas</td><td align="right">Yoru Sumino</td><td align="right">
+<div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">link</a></td></tr><tr><td align="center">17 July 2024</td><td align="center">White Nights</td><td align="right">Fyodor Dostoevsky</td><td align="right">
+<div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">link</a></td></tr><tr><td align="center">30 July 2024</td><td align="center">The Girl from the Other Side: Siúil, a Rún Vol. 1 &#40;Manga&#41;</td><td align="right">Nagabe</td><td align="right">
+<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">link</a></td></tr><tr><td align="center">31 July 2024</td><td align="center">Amygdalatropolis</td><td align="right">B.R. Yeager</td><td align="right">
+<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">link</a></td></tr><tr><td align="center">8 August 2024</td><td align="center">Kindred</td><td align="right">Octavia E. Butler</td><td align="right">
+<div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">link</a></td></tr><tr><td align="center">8 August 2024</td><td align="center">The Girl from the Other Side: Siúil, a Rún Vol. 2-3 &#40;Manga&#41;</td><td align="right">Nagabe</td><td align="right">
+<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">link</a></td></tr><tr><td align="center">15 August 2024</td><td align="center">Prey</td><td align="right">Michael Crichton</td><td align="right">
+<div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">link</a></td></tr><tr><td align="center">20 August 2024</td><td align="center">The Girl from the Other Side: Siúil, a Rún Vol. 4-5 &#40;Manga&#41;</td><td align="right">Nagabe</td><td align="right">
+<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">link</a></td></tr><tr><td align="center">––––</td><td align="center">–––-</td><td align="right">–––-</td><td align="right">–––-</td><td align="right">–––</td></tr></table>
+<h2 id="2023">2023</h2>
+<table><tr><th align="center">Finished</th><th align="center">Book Title</th><th align="right">Author</th><th align="right">Rating</th><th align="right">Review</th></tr><tr><td align="center">January,  2023</td><td align="center">Sad Cypress</td><td align="right">Agatha Christie</td><td align="right">
+<div class="Stars" style="--rating: 3;" aria-label="Rating of this product is 3 out of 5.">
+</td><td align="right">link</td></tr><tr><td align="center">February, 2023</td><td align="center">Murder in Mesopotamia</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3;" aria-label="Rating of this product is 3 out of 5."></td><td align="right">link</td></tr><tr><td align="center">March 26, 2023</td><td align="center">Analogia</td><td align="right">George Dyson</td><td align="right"><div class="Stars" style="--rating: 3.5;" aria-label="Rating of this product is 3.5 out of 5."></td><td align="right">link</td></tr><tr><td align="center">March, 2023</td><td align="center">Murder is Easy</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 5;" aria-label="Rating of this product is 5 out of 5."></td><td align="right">link</td></tr><tr><td align="center">April 2023</td><td align="center">The Mysterious Affair at Styles</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5."></td><td align="right">link</td></tr><tr><td align="center">April 2023</td><td align="center">Curtain, Poirot&#39;s Last Case</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5."></td><td align="right">link</td></tr><tr><td align="center">May 12, 2023</td><td align="center">Your Name &#40;Novelisation&#41;</td><td align="right">Makoto Shinkai</td><td align="right"><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right">link</td></tr><tr><td align="center">June, 2023</td><td align="center">Cards on the Table</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5."></td><td align="right">link</td></tr><tr><td align="center">July, 2023</td><td align="center">Evil Under the Sun</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">August, 2023</td><td align="center">Elephants Can Remember</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5."></td><td align="right"></td></tr><tr><td align="center">August 30, 2023</td><td align="center">Jurassic Park</td><td align="right">Michael Crichton</td><td align="right"><div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/uncertainty/uncertainty/">link</a></td></tr><tr><td align="center">September, 2023</td><td align="center">Appointment With Death</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5."></td><td align="right"></td></tr><tr><td align="center">October, 2023</td><td align="center">Muder on the Orient Express</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/ChristieAppointmentWithDeath/">link</a></td></tr><tr><td align="center">November 13, 2023</td><td align="center">A Thouand Splendid Suns</td><td align="right">Khaled Hosseini</td><td align="right"><div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/AThousandSplendidSuns/">link</a></td></tr><tr><td align="center">November, 2023</td><td align="center">Endless Night</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/EndlessNight/">link</a></td></tr><tr><td align="center">December 24, 2023</td><td align="center">Sleeping Murder</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/SleepingMurder/">link</a></td></tr><tr><td align="center">––––</td><td align="center">–––-</td><td align="right">–––-</td><td align="right">–––-</td><td align="right">–––</td></tr></table>
+<h2 id="2022">2022</h2>
+<table><tr><th align="center">Finished</th><th align="center">Book Title</th><th align="right">Author</th><th align="right">Rating</th><th align="right">Review</th></tr><tr><td align="center">2022/01/24</td><td align="center">進撃の巨人-Shingeki no Kyojin Attack on Titan &#40;Manga&#41;</td><td align="right">Hajime Isayama</td><td align="right">4</td><td align="right">NA</td></tr><tr><td align="center">2022/02/09</td><td align="center">Entangled Life: How Fungi Make Our Worlds, Change Our Minds &amp; Shape Our Futures</td><td align="right">Merlin Sheldrake</td><td align="right">5</td><td align="right">NA</td></tr><tr><td align="center">2022/03/16</td><td align="center">Azaadi: Freedom. Fascism. Fiction</td><td align="right">Arundhati Roy</td><td align="right">4</td><td align="right">NA</td></tr><tr><td align="center">2022/03/18</td><td align="center">Our Mathematical Universe: My Quest for the Ultimate Nature of Reality</td><td align="right">Max Tegmark</td><td align="right">4</td><td align="right">NA</td></tr><tr><td align="center">2022/04</td><td align="center">Phase Transitions &#40;Primers in Complex Systems, 3&#41;</td><td align="right">Ricard V. Solé</td><td align="right">0</td><td align="right">NA</td></tr><tr><td align="center">2022/05/28</td><td align="center">Midnight’s Children</td><td align="right">Salman Rushdie</td><td align="right">4</td><td align="right">NA</td></tr><tr><td align="center">2022/06/27</td><td align="center">The Uninhabitable Earth: A Story of the Future</td><td align="right">David Wallace-Wells</td><td align="right">4</td><td align="right">NA</td></tr><tr><td align="center">2022/07/20</td><td align="center">Never Let Me Go</td><td align="right">Kazuo Ishiguro</td><td align="right">4</td><td align="right">NA</td></tr><tr><td align="center">2022/08/08</td><td align="center">Humble Pi: A Comedy of Maths Errors</td><td align="right">Matt    Parker</td><td align="right">0</td><td align="right">NA</td></tr><tr><td align="center">2022/09/06</td><td align="center">Normal People</td><td align="right">Sally Rooney</td><td align="right">4</td><td align="right">NA</td></tr><tr><td align="center">2022/10/13</td><td align="center">Where the Crawdads Sing</td><td align="right">Delia Owens</td><td align="right">2</td><td align="right">N</td></tr></table>
+<h2 id="2021">2021</h2>
+<table><tr><th align="center">Finished</th><th align="center">Book Title</th><th align="right">Author</th><th align="right">Rating</th><th align="right">Review</th></tr><tr><td align="center">2020/10/01</td><td align="center">Chaos: Making a New Science</td><td align="right">James Gleick</td><td align="right">5</td><td align="right">NA</td></tr><tr><td align="center">2020/12/01</td><td align="center">What If? Serious Scientific Answers to Absurd Hypothetical Questions</td><td align="right">Randall Munroe</td><td align="right">0</td><td align="right">NA</td></tr><tr><td align="center">2021/01/03</td><td align="center">Chronicle of a Death Foretold</td><td align="right">Gabriel García Márquez</td><td align="right">4</td><td align="right">NA</td></tr><tr><td align="center">2021/01/10</td><td align="center">The Mysterious Affair at Styles &#40;Hercule Poirot, #1&#41;</td><td align="right">Agatha Christie</td><td align="right">4</td><td align="right">NA</td></tr><tr><td align="center">2021/05/01</td><td align="center">The God Delusion</td><td align="right">Richard Dawkins</td><td align="right">4</td><td align="right">NA</td></tr><tr><td align="center">2020/12/31</td><td align="center">His Dark Materials &#40;His Dark Materials #1-3&#41;</td><td align="right">Philip Pullman</td><td align="right">5</td><td align="right">NA</td></tr><tr><td align="center">2021/01/23</td><td align="center">Man’s Search for Meaning</td><td align="right">Viktor E. Frankl</td><td align="right">5</td><td align="right">NA</td></tr><tr><td align="center">2021/03/22</td><td align="center">The Order of Time</td><td align="right">Carlo Rovelli</td><td align="right">5</td><td align="right">NA</td></tr><tr><td align="center">2021/04/02</td><td align="center">Animal Farm: The Graphic Novel</td><td align="right">Odyr</td><td align="right">5</td><td align="right">NA</td></tr><tr><td align="center">2021/04/21</td><td align="center">The Grand Design</td><td align="right">Stephen Hawking</td><td align="right">0</td><td align="right">NA</td></tr><tr><td align="center">2021/05/02</td><td align="center">The Alchemist</td><td align="right">Paulo Coelho</td><td align="right">3</td><td align="right">NA</td></tr><tr><td align="center">2021/05/04</td><td align="center">Fahrenheit 451</td><td align="right">Ray Bradbury</td><td align="right">5</td><td align="right">NA</td></tr><tr><td align="center">2021/05/08</td><td align="center">Persepolis: The Story of a Childhood &#40;Persepolis, #1&#41;</td><td align="right">Marjane Satrapi</td><td align="right">5</td><td align="right">NA</td></tr><tr><td align="center">2021/05/14</td><td align="center">The Kite Runner</td><td align="right">Khaled Hosseini</td><td align="right">5</td><td align="right">NA</td></tr><tr><td align="center">2021/05/29</td><td align="center">Sapiens: A Brief History of Humankind</td><td align="right">Yuval Noah Harari</td><td align="right">4</td><td align="right">NA</td></tr><tr><td align="center">2021/07/08</td><td align="center">Jonathan Livingston Seagull</td><td align="right">Richard Bach</td><td align="right">3</td><td align="right">NA</td></tr><tr><td align="center">2021/09/06</td><td align="center">Homo Deus: A History of Tomorrow</td><td align="right">Yuval Noah Harari</td><td align="right">4</td><td align="right">NA</td></tr><tr><td align="center">2021/09/12</td><td align="center">When We Cease to Understand the World</td><td align="right">Benjamín Labatut</td><td align="right">5</td><td align="right">NA</td></tr></table>
+<h2 id="tbr">TBR</h2>
+<table><tr><th align="center">Book Title</th><th align="right">Author</th></tr><tr><td align="center">Chaos and Dynamical Systems &#40;Primers in Complex Systems, 7&#41;</td><td align="right">David P. Feldman</td></tr><tr><td align="center">A Life on Our Planet: My Witness Statement and a Vision for the Future</td><td align="right">David Attenborough</td></tr><tr><td align="center">The Immortal Life of Henrietta Lacks</td><td align="right">Rebecca Skloot</td></tr><tr><td align="center">Harlem Shuffle &#40;Ray Carney, #1&#41;</td><td align="right">Colson Whitehead</td></tr><tr><td align="center">Rock Paper Scissors</td><td align="right">Alice Feeney</td></tr><tr><td align="center">Beasts of a Little Land</td><td align="right">Juhea Kim</td></tr><tr><td align="center">Cloud Cuckoo Land</td><td align="right">Anthony Doerr</td></tr><tr><td align="center">Bewilderment</td><td align="right">Richard Powers</td></tr><tr><td align="center">Project Hail Mary</td><td align="right">Andy Weir</td></tr><tr><td align="center">Helgoland: Making Sense of the Quantum Revolution</td><td align="right">Carlo Rovelli</td></tr><tr><td align="center">Yellowface</td><td align="right">R.F. Kuang</td></tr><tr><td align="center">Homegoing</td><td align="right">Yaa Gyasi</td></tr><tr><td align="center">Otherlands</td><td align="right">Thomas Halliday</td></tr><tr><td align="center">Life As No One Knows It: The Physics of Life&#39;s Emergence</td><td align="right">Sara Imari Walker</td></tr><tr><td align="center">A Life on Our Planet: My Witness Statement and a Vision for the Future</td><td align="right">David Attenborough</td></tr><tr><td align="center">Gödel, Escher, Bach: an Eternal Golden Braid</td><td align="right">Douglas R. Hofstadter</td></tr><tr><td align="center">Bewilderment</td><td align="right">Richard Powers</td></tr><tr><td align="center">Tomorrow, and Tomorrow, and Tomorrow</td><td align="right">Gabrielle Zevin</td></tr><tr><td align="center">I Contain Multitudes: The Microbes Within Us and a Grander View of Life</td><td align="right">Ed Yong</td></tr></table>
+ ]]>
+  </content:encoded>
+    
+  <pubDate>Fri, 23 Aug 2024 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Atiyab Zafar</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
+    <![CDATA[  Books read in April 2024 to July 2024  ]]>
+  </title>
+  <link> https://atiyabzafar.github.io/Blog/bookreviews/April_July24Books/index.html </link>
+  <guid> https://atiyabzafar.github.io/Blog/bookreviews/April_July24Books/index.html </guid>
+  <description>
+    <![CDATA[  Books read from April to July 2024  ]]>
+  </description>  
+  
+  <content:encoded>
+    <![CDATA[  <h1 id="book_reviews_for_april_24">Book reviews for April, 24</h1>
+<p>For all books list see <a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">Books</a> with reading date.</p>
+<h2 id="pride_and_prejudice">Pride and Prejudice</h2>
+<blockquote>
+<p><strong>Jane Austen</strong> </p>
+</blockquote><div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5."></div><p>Pride and Prejudice is one of my all time favourite stories. I have perhaps watched the Edgar Wright movie 10 times and adore the BBC show. So, no wonder at some moment I was going to pick up this novel. When 2024 had started I had decided that I would mix up my reading genres and books. If last year was dedicated to Christie. This year I want to explore more classics and other genre like Horror.</p>
+<p>Pride and Prejudice was thus the first classic I read this year. Knowing the story by heart made it a very easy read. I was not expectin me to devour such an old novel in a few days but I was able to finish it in less than two weeks while travelling to and fro between home and campus. I love the character of Darcy and the way Jane Austen writes about his unflinching honour and pride is simply brilliant. It is amazing how you can feel for these characters separated by decades living in victorian england, strutting about in mansions and participating in social dances. No matter what the era is, fundamental human emotions remains the same. </p>
+<p>Mrs Bennet&#39;s character is so insufferable. I could not have belived her character would get worse from the big screen. And it does. That woman just cannot calm down. I loved this book a lot. And perhaps this could be a comfort read that I return to in the future. </p>
+<h2 id="tales_from_the_cafe">Tales from the Cafe</h2>
+<blockquote>
+<p><strong>Toshikazu Kawaguchi</strong></p>
+</blockquote><div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2 out of 5."></div><h2 id="before_your_memory_fades">Before your Memory Fades</h2>
+<blockquote>
+<p><strong>Toshikazu Kawaguchi</strong></p>
+</blockquote><div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2.5 out of 5."></div><h2 id="before_we_say_goodbye_read_in_july">Before We Say Goodbye &#40;read in July&#41;</h2>
+<blockquote>
+<p><strong>Toshikazu Kawaguchi</strong></p>
+</blockquote><div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2.5 out of 5."></div><p>I will talk about the whole series in a separate entry, but briefly Tales from the Cafe, Before Your Memory Fades and Before we say Goodbye are sequels to my March read, Before <a href="https://atiyabzafar.github.io/Blog/bookreviews/March24Books/">The Coffee Gets Cold</a>. One of them feature the same cafe that lets you travel back in time and the second sequel is in another cafe in northern Japan with similar quirk. </p>
+<p>The episodic nature of the books leads to a lot of repetition. The rules are explained in every chapter, the surroundings are described again and again. It gets exhausting a lot. The stories are quick read. You can read the whole book in a few hours with perhaps a cup of coffee getting cold. The stories are once again heart warming. Some of them connect really well. Others just didnt work for me. The third book was a bit better in handling the intertwining story thread. The new cafe and how it was connected with the older one is what drove me into finishing these books in one setting. The writer is trying to slowly craft a story of the cafe and the family that runs the cafe. And this is the only intriguin part of this series.</p>
+<h1 id="thougts_for_books_i_read_in_july_24">Thougts for books I read in July, 24</h1>
+<h2 id="brazen_rebel_ladies_who_rocked_the_world">Brazen: Rebel Ladies Who Rocked The World</h2>
+<blockquote>
+<p><strong>Pénélope Bagieu</strong></p>
+</blockquote><div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5."></div><p>This is a non-fiction graphic novel. Illustrated beautifully the book details accounts of many women who took chances, they were the rebels, they are women from across the world who showed the world that being a woman does not mean they cannot achieve anything achievable in the world.</p>
+<p>This is a book for all the people who say things like &quot;Do not enter this field, this is a field of Men&quot;. Some of them are pretty well known while others were really interesting women that perhaps should be well known. These are the women who were not afraid. They dared to achieve success, to do the right thing, to go against the society and made their name eternal. </p>
+<p>The book is a really quick read ofcourse being a graphic novel. The artstyle is really gorgeous, the use of colors in myriad of stories among these pages is so thoughtful and beautiful. The book is careful in collecting the stories of very diverse women. There are women across time, across the globe and across race. This is an important book. I think everyone should know about these women. A lot of these women I had not heard of before and many of them I had heard of but didn&#39;t know all the hardships they had crossed to reach success. I really hope to get back to this book once more and take my time with it admiring the artwork and the lives of these &quot;rebel ladies&quot;.</p>
+<h2 id="i_want_to_eat_your_pancreas_manga">I Want to Eat Your Pancreas &#40;Manga&#41;</h2>
+<blockquote>
+<p><strong>Yoru Sumino</strong></p>
+</blockquote><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></div><p>No, this book is not about some crazy canibal who wish to eat someone&#39;s pancreas. As crazy as the title of this book is sounds, the book infact is a gentle story about loss and love. A certain terajerker for the people who have a gentle heart, this Manga is a story of a boy who finds out by accidentally reading from a classmate&#39;s journal that the said classmate has pancreatic disease and the disease is fatal. </p>
+<p>The story then evolves around the fact that the boy is the only one in the girl&#39;s social life who knows about her disease and she can be herself around him. Weirdly similar to the famous anime Your Lie in April, I want to eat your pancreas is heartwarming tale that deals with life and death. It revolves around friendship and its importance in life. A really quick read, I really liked this Manga and later found out there are anime movies based on it. So I know what im streaming soon.</p>
+<h2 id="white_nights">White Nights</h2>
+<blockquote>
+<p><strong>Fyodor Dostoevsky</strong></p>
+</blockquote><div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5."></div><p>Disclaimer, this was not my first time reading Dostoevsky. I had read Crime and Punishment a few years back and still believe that to be the best novel I have ever read in my life. The understanding of the human condition of Dostoevsky is realy unmatched. First of all, this beautifully Clothbound hardcover is so pretty, I just felt really happy holding it in my hand. Comfortable to travel around with the small clothbound edition is just perfect.</p>
+<p>This book involved three short stories written by Dostoevsky, the first one called &#39;A Nasty Business&#39; is about a russian general who has been discussing some interesting ideas about how dealing with people below him with kindness can improve the state of the country, he leaves his fellow civil servants and tries out these new methods in a wedding function of his inferior officer that he accidentally finds is happening close by. What follows is a comedy of errors, where the general <em>Ivan</em> is unable to handle his liquor and just is unable to explain and use his new ideas. The class difference and its rigid structure in the russian society of that time is satirised really well in this story.</p>
+<p>The second story called &#39;The meek one&#39; was even more interesting. The story is a narrative account of a man who is beside his dead wife and is telling an account of how he, a pawnbroker met one of his customer and married her. And how this &#39;meek&#39; girl&#39;s life led to the point where she klled herself. Insert quotes:</p>
+<p>The third story is the titular one. White Nights is a really famous story by Dostoevsky and I had head that it was a love story. And that&#39;s all I had known about it. It is not just a love story. It is the love story. A story full of so many cliches that we see in romances that have been written or shown on the big screen. So many stories have been adapted around this story of a lonely man walking across the streets one winter night and encountering and helping a woman. The man then falls in love with this woman and it turns out that the woman is in love with someone else. And it eventually after many winter nights leads to a classic moment where the man can either sacrifice his love, or he could lie and get the woman for his life. It was so unexpected for me to find such a modern style of story in such an old short story. But I guess romance has not changed in the decades that has passed since White Nights was published.  But I thnk the story feels so modern because I have seen or read a lot of renditions of this story in modern time. The story is moving, heart breaking and the prose is so beautifullt crafted that I do not have more words. </p>
+<h2 id="the_girl_from_the_other_side_siúil_a_rún_vol_1_manga">The Girl from the Other Side: Siúil, a Rún Vol. 1 &#40;Manga&#41;</h2>
+<blockquote>
+<p><strong>Nagabe</strong></p>
+</blockquote><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></div>This one is different from other reads, I found out about it from a book club I have joined. The Girl from the other side is a 12 Volume long Manga illustrated and written by Nagabe. It tells a story of a girl, a very young kid who lives with a dark skinned inhuman looking creature that she calls Teacher. Teacher is what is known as an outsider. In this dystopian world, the world has been divided by walls, the inside is where the humans dwell and the outside lirks people who have been cursed by a deadly condition, this curse spreads by touch and turns humans to these scary creatures. The divide is made stronger by the mythological elements of origin of the curse from the gods.I loved the premise of the book and so decided to take part on this group read. We have been reading the whole series Volume by Volume and it has been interesting to say the least. The art style is very simlistic yet pretty. The artist is successful in capturing the innocense of the child and is able to manage to portray the teacher's innocence with the scary look he has. I cannot say more without going into spoiler category so I won't but being a manga with very interesting premise these are really quick and easy read. <h2 id="amygdalatropolis">Amygdalatropolis </h2>
+<blockquote>
+<p><strong>B.R. Yeager</strong></p>
+</blockquote><div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5."></div> ]]>
+  </content:encoded>
+    
+  <pubDate>Thu, 22 Aug 2024 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Atiyab Zafar</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
+    <![CDATA[  March Books  ]]>
+  </title>
+  <link> https://atiyabzafar.github.io/Blog/bookreviews/March24Books/index.html </link>
+  <guid> https://atiyabzafar.github.io/Blog/bookreviews/March24Books/index.html </guid>
+  <description>
+    <![CDATA[  Books read in March 2024  ]]>
+  </description>  
+  
+  <content:encoded>
+    <![CDATA[  <h1 id="thoughts_for_books_i_read_in_march_2024">Thoughts for books I read in March, 2024</h1>
+<p>I am cheating here, as I am writing this in August. But my mind would keep hurting me if I do not complete the monthly read blog posts. I am going back to organising my life. Or atleast trying to organise it. And that requires updated reading posts on the blog. </p>
+<p>So, here goes nothing.</p>
+<h2 id="the_forever_war">The Forever War</h2>
+<blockquote>
+<p><strong>written by Joe Haldeman</strong></p>
+</blockquote><div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5."></div><p>Now, this is a book that I will spend some time and write a separate post about. I bought this book from the bookfare in buy two get one free Sci-Fi Classic scheme. I had no idea what it was about. I had gone to buy some Asimov or Arthur C Clarke novels. But to complete the trio, I picked this book up knowing absolutely nothing except one glance at the blurb. The text in the back mentioned a war that goes on for centuries and time travelling and I was sold on it. </p>
+<p>Going in, I expected a Sci-Fi action book about a war against aliens, and yes I did get infact a book about war against an alien species. But this was a lot more than that. The Forever War is a war novel before being a Sci-Fi novel. This movie emerged out of personal experiences that Joe Haldeman went through in Vietnam War. And his experience of that gruesome war has been so incredibly, graphically and painfully redrawn as this war against alien in this book that it is palpable. The PTSD of the soldiers returning from the war is incredible. </p>
+<p>But then this book takes it one step further into trying to develop into a dystopian world &#40;utopian for many&#41;. A whole section of the story brings our action hero fighting the aliens back home, he returns to a different world, a world that has moved on without him. For our alien fighting gentle Army protagonist the time gap is super exaggerated because of all the near light travel and its effect on time. But for a soldier returning from Vietnam war or any other elongated war must be equally devastating. When the world seem to have evolved around the same sun you fought under without you. And you don&#39;t recognised the people, the world and feel out of the space. </p>
+<p>There are some incredibly on point predictions as many sci-fi stories have.  But this novel is terrifying how it predicts many things in the post vietnam world that is a reality for us. Joe Haldman has written a story that has stood the test of time and will keep that up for the time to come.</p>
+<h2 id="the_seven_dials_mystery">The Seven Dials Mystery</h2>
+<blockquote>
+<p><strong>written by Agatha Christie</strong></p>
+</blockquote><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></div><p>My mission to read all of christie continues with a book released almost 100 years ago &#40;1929&#41;. </p>
+<p>The Seven dials mystery does not have the Moustached belgian genius detective Hercule Poirot, or the witty Miss Marple to resolve the whodunit. But what it lacks in serious detective work, it wins back in super funny and charismatic protagonist as Bundle. Bundle is super enthusiastic, she wants to solve the mystery. She is amabitious. Among all the attempts to solve the mystery, she falls into an obvious trap. </p>
+<p>The twist is something that you can see from a mile. Yet the charm and with of the characters and the jokes make you forget the predictablity of the story. In the standalone outings of Agatha christie, this does not end up at the top for me. But the intrigue surrounding espionage, secret societies and who is number seven leaves you interested in the end. The twist reveal when it comes feel like it is not enough. </p>
+<h2 id="before_the_coffee_gets_cold">Before the Coffee Gets Cold</h2>
+<blockquote>
+<p><strong>written by Toshikazu Kawaguchi</strong></p>
+</blockquote><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></div><p>This book has been on my to read list for a long time. But I just never could get around to reading it untill in March 2024. This is a translated work from japanese about a coffee store located in a non descript alley down a busy street. This coffee shop has a few tables and three clocks each showing different times. But that is not the only quirk, in the coffee shop sits a chair at a particular table, oppposite the entrance. This chair is usually occupied by a person, maybe a customer? If they leave the seat and you sit on the vacated chair. You can go back in past. </p>
+<p>This time travel has its own rules however. You get to go to a certain time in the past, but you can only visit this coffee shop as you cannot vacate the chair. Nothing you do in the past can alter the future. And most importantly, to travel in the future a female employee of the cafe pours a cup of coffee from an ornate tea set and you have to drink the coffee to return to the present before the coffee gets cold-thus the title.</p>
+<p>Because of these rules not many people decide to go back into the past. This is where the novel stops being realistic for me. If there would be a place like this in real world, this place would be swarming with people trying to go back, scientists would begin experimenting on the temporal anomaly. But it is not the case. </p>
+<p>Each chapter in the novel revolves around a different customer who wish to go back in time to meet someone they once knew. The characters and their heartbreaking or warming tales is what guides this novel. The translation though isnt very promising. The text is very repetitive and often the phrases are weirdly worded. </p>
+<p>Overall I think if the stories were not so moving this novel would not have been worth reading ever. But I have committed now to read the whole series so that Mr Kawaguchi can play with my heartstrings.</p>
+ ]]>
+  </content:encoded>
+    
+  <pubDate>Wed, 21 Aug 2024 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Atiyab Zafar</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
+    <![CDATA[  February 2024 Books  ]]>
+  </title>
+  <link> https://atiyabzafar.github.io/Blog/bookreviews/February24Books/index.html </link>
+  <guid> https://atiyabzafar.github.io/Blog/bookreviews/February24Books/index.html </guid>
+  <description>
+    <![CDATA[  Books read in February 2024  ]]>
+  </description>  
+  
+  <content:encoded>
+    <![CDATA[  <h1 id="book_reviews_for_february_24">Book reviews for February, 24</h1>
+<p>The year of reading continues as we move into 2024. I spent most of my last year reading Agatha Christie&#39;s Poirot series. And it was a great decision as it not only helped me continue with my reading hobby, but also gave me a challenge to look forward to with #readchristie23. This year I have decided to continue the challenge, but the plan is to mix up other books that have been lying on my bookshelf waiting to be read. </p>
+<p>The first book I picked up in February 2024 was Agatha Christie&#39;s Secret Adversary. This year the folks at <a href="https://www.agathachristie.com">agathachristie.com</a> decided to divide the months by decades. Where the first quarter of the year is dedicated to the 20s. I skipped the January book&#40;The Mysterious affair at styles&#41; as I had already read it last year. See <a href="https://atiyabzafar.github.io/Blog/bookreviews/books/">books</a> for more details. </p>
+<h2 id="the_secret_adversary">The Secret Adversary</h2><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/bookreviews/images/SecretAdversary.jpg" style="padding:0; width:50%;border: 1px solid red;" alt=" The Secret Adversary"/>
+<figcaption> The Secret Adversary</figcaption>
+</figure><p>The Secret Adversary is Christie&#39;s second book, and it is different from all other books that I had previously read from her. Almost all her work is in the detective fiction genre where she has surpassed everyone else in the world. This novel is more of a thriller than a detective fiction. The lack of murder or even a moustached detective does not mean that this novel is any less entertaining or gripping. The secret Adversary follows the duo of Tommy and Tuppence as the unemployed, rich of energy and full of vigour T &amp; T tackle the world of espionage, secret identities and a man behind a mask only known as Mr. Brown who secretly controls everything in an underground secret society. Surprisingly funny and entertaining, this novel was a quick read once I went past the first 20 pages. The twist is actually very well written, infact too well. had workedhad worked</p>
+<p>The usual christie twist done right always overwhelms you and surprises you. But then when you go back and think of all the signs that were present which were pointing to the killer/villain and you just missed them you realise how masterfully she crafted it. Murder of Roger Ackroyd will always be the best example of this. But rereading Secret Adversary, I am sure would not give me any indication to the twist and that is why it was not as enjoyable and satisfying for me. </p>
+<h2 id="the_midnight_library">The Midnight Library</h2>
+<blockquote>
+<p>“The only way to learn is to live.”</p>
+</blockquote><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/bookreviews/images/MidnightLibrary.jpg" style="padding:0; width:50%;border: 1px solid red;" alt=" The Midnight Library"/>
+<figcaption> The Midnight Library</figcaption>
+</figure><p>The second book I read in February was a very popular one among the popular fiction reader. The Midnight Library apparently a NYT bestseller was everywhere a few years ago. I had bought this last year and I never got around to reading it. Matt Haig&#39;s novel is about regrets. For all the moviebuffs reading, think of the last few minutes of La La Land, when Mia walks into the Seb&#39;s and looks at Sebastian and the beautiful montage begins. They share a glance as Damien Chazelle re-imagines and lets viewer watch agonizingly what could have been. But it didn&#39;t. The Midnight Library is about those lives that you could have lived if things had worked out differently. The Midnight Library is that feeling multiplied by 100.</p>
+<p>In the novel you follow Nora Seed, a woman who is struggling to survive, she has lost her job, her cat has just died, she believes she need not exist in the world. That her existence adds nothing to the ongoings around her. She decides to die. And she wakes up in a library where time has stopped. It is always midnight here and each book in the library is one of the lives that she could have lived if she had made some decision differently. A librarian is there to guide her. </p>
+<p>The novel is really easy to read. The text flows well and the characters are interesting. There were moments though when the book slowly takes shape of a disguised self-help book and sounded a bit too preachy. Nora seems to excel at everything. In one of the lives she live she has to speak at a public platform and she aces it even though in her original life she had never done any such thing. When its needed Nora turns to be very smart and articulate and during other moments Nora has no character depth. Her choices do not make sense. She is a clueless woman. And that frustrated me reading this book. I really wanted to like this book. And I did. I just didn&#39;t love it to say it deserves a 5 star review &#40;say&#41;. </p>
+<p>Philosophically though, this book deals and explores ideas that are very profound. As a discussion of Suicide the book had to approach this subject very gently and the writer is successful in managing that. The book is not just about regrets of things that you could have done. But it tells the reader to celebrate the lives that you touched and changed. No matter the size of the regrets that you have, it is important to live fully and to rejoice. That is I believe an important message that the book was successful in instilling in the reader. The book starts in the middle in an awkward direction with discussion of quantum mechanics and then uses the everett&#39;s many world hypothesis for an explanation of what the midnight library is. This was a bit jarring for me as a physicist not because it was used in a wrong way, but because it was forgotten after being discussed once. Was it necessary to have that? it also introduces another character that is &quot;jumping&quot; like Nora and uses his character to show how she can be lost in living out the lives she couldn&#39;t and not accept her present life and the good things she did achieve in that life. I think this book would work well as a short limited series on HBO and the episodic nature of the stories will render it to be a good show. A show I would definitely watch.</p>
+<h2 id="the_big_four">The Big Four</h2><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/bookreviews/images/TheBigFour.jpg" style="padding:0; width:50%;border: 1px solid red;" alt=" The Big Four"/>
+<figcaption> The Big Four</figcaption>
+</figure><p>The third book of the month was The Big Four, another spy thriller from Agatha Christie. Although Big Four has her famous belgian moustached detective, Hercule Poirot, the novel follows a different structure than other Poirot works.The Big Four is structured as different chapters, each chapter serving as a different story, but involving same characters. Big Four involves a secret group. A group of four individuals who are so powerful that they dictate the runnings of the world. They are the ones deciding on things in the background while the world things it is the political leaders who make the decision. The Four includes a chinese mastermind as Number 1, a rich american as Number 2, a French woman as number 3 and finally the Number 4, the destroyer. He is a master of changing his appearance, he can blend into any environment and can be anyone anywhere. So begin the story of Hercule Poirot and his trusted friend and partner Arthur Hastings in a story that spans across years through each chapter being a short story more or less. Inspector Japp also returns much like Hastings from Christie&#39;s first novel, The Mysterious affair at styles.</p>
+<p>The Big Four is relentlessly thrilling, although the style can be jarring and some of the decisions made by our narrator/protagonist, Mr. Hastings may very well be silly and predictive. The story still holds intrigue. Especially for Indians, who grew up watching old classic bollywood thrillers, the pace of the novel reminded me a lot of of the pace of those movies. How in minutes the story would progress years and yet engrossed the audience. Not to mention so many action tropes that have been overused in bollywood happens in Big Four, from the villains using hero&#39;s wiwfe as damsel in distress to make the hero of our story go against his friend and do something he would never have done to an almost use of twin trope that we have seen a million times. Agatha christi&#39;s style has not furnished yet in The Big Four. </p>
+ ]]>
+  </content:encoded>
+    
+  <pubDate>Thu, 04 Apr 2024 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Atiyab Zafar</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
+    <![CDATA[  Sleeping Murder Book Review  ]]>
+  </title>
+  <link> https://atiyabzafar.github.io/Blog/bookreviews/SleepingMurder/index.html </link>
+  <guid> https://atiyabzafar.github.io/Blog/bookreviews/SleepingMurder/index.html </guid>
+  <description>
+    <![CDATA[  Book review: Sleeping Murder by Agatha Christie  ]]>
+  </description>  
+  
+  <content:encoded>
+    <![CDATA[  <h1 id="sleeping_murder_by_agatha_christie">Sleeping Murder by Agatha Christie</h1>
+<p>December 24 ,2023</p>
+<p>I started this year just like last year with the theme of reading. I had found about the #readchristie2023 challenge and decided to take it up this year. It involved reading one Christie book every month of the year. I am proud that I not only stuck to it, but a couple of times I read two Christie Books in the month. To celebrate the last month of the challenge I read this gorgeous hard cover version of Sleeping Murder&#33;</p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/bookreviews/images/SleepingMurder1.jpeg" style="padding:0; width:60%;border: 1px solid red;" alt=" Thie beautiful hardcover version of Sleeping Murder i found on a random visit to daryaganj"/>
+<figcaption> Thie beautiful hardcover version of Sleeping Murder i found on a random visit to daryaganj</figcaption>
+</figure><p>I found this book in Darya Ganj book market last month and knowing that December&#39;s book would be Sleeping Murder I bought it without any hesitation.</p>
+<p>This month&#39;s prompt/theme was Strangulation. And it is the vision of a pair of hands strangulating an unknown neck that spooks Gwenda in her new home.</p>
+<p>As one begins to read Sleeping Murder one feels like they are reading a gothic haunted house horror novel. Gwenda arrives in Britain looking for a house to buy on the east coast. She finds one house that just &quot;feels&quot; right. She starts imagining doors where there are none. And the workers find an old door painted over exactly where she imagined it. She pictures a small room at the end with a special wallpaper. And then she finds the same wallpaper in a locked dresser&#33;</p>
+<p>The dejavu peaks when visiting London to call her nerves she is in a show of The Duchess of Malfi and while hearing a dialogue &quot;Cover her face. Mine eyes dazzle, she died young...&quot; She screams as she has the aforementioned vision.</p>
+<p>Fortunately in the same show Miss Marple is present to take control of the situation and calm her down. And thus begins a mystery of a sleeping murder that should have kept sleeping. Once disturbed, it unravels an old mystery that Gwenda, her husband Giles and Miss Marple must figure out before the murderer gets to them as well.</p>
+<p>This was also my first Miss Marple book. She has a much quiet way of going around and solving mysteries compared to the loud and egoistic ways of M. Poirot. I thoroughly enjoyed this book.</p>
+<p>The story was very well crafted and unpredictable. The twists were convoluted enough to keep me invested and yet simple enough to be a quick read. I would definitely be checking out more of Miss Marple books in the coming future. P.S. the book had wonderful and creepy artwork that followed the story. I adore this antique hard cover. </p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/bookreviews/images/SleepingMurder2.jpeg" style="padding:0; width:60%;border: 1px solid red;" alt=" Artwork With the story"/>
+<figcaption> Artwork With the story</figcaption>
+</figure> ]]>
+  </content:encoded>
+    
+  <pubDate>Sun, 24 Dec 2023 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Atiyab Zafar</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
+    <![CDATA[  Atiyab&#39;s Blog  ]]>
+  </title>
+  <link> https://atiyabzafar.github.io/Blog/bookreviews/EndlessNight/index.html </link>
+  <guid> https://atiyabzafar.github.io/Blog/bookreviews/EndlessNight/index.html </guid>
+  <description>
+    <![CDATA[  Book Review: Endless Night by Agatha Christie  ]]>
+  </description>  
+  
+  <content:encoded>
+    <![CDATA[  <h1 id="endless_night_by_agatha_christie">Endless Night by Agatha Christie</h1>
+<p>December 4, 2023</p>
+<h3 id="novembers_read_christie_challenges_theme_was_on_greed">November&#39;s read Christie Challenge&#39;s theme was on Greed.</h3>
+<p>And greed is certainly the driving factor in Endless Night. This one is not a Poirot story. It&#39;s a standalone Christie book about a &quot;poor rich&quot; girl Ellie and a &quot;penniless&quot; Michael Rogers. Michael our protagonist of the story is the adventurous kind of guy. He never stays at one job. He is someone who cannot &#39;settle&#39; in his life.</p>
+<p>And yet on one fateful day when he meets Ellie outside an old mansion colloquially known as Gypsy&#39;s Acre. He decides that&#39;s where his future lies. He decides to build his dream house and settle with the love of his life Ellie. An old woman &#40;gypsy&#41; warns them of an ancient evil curse that is set upon the land. They ignore the lady and get married and move into the Gypsy Acre. What follows is a twisted tale of Greed with power hungry relatives sweeping in for Ellie&#39;s money and a lovely Greta.</p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/bookreviews/images/EndlessNight.jpeg" style="padding:0; width:60%;border: 1px solid red;" alt=" Endless Night by Agatha Christie"/>
+<figcaption> Endless Night by Agatha Christie</figcaption>
+</figure><p>This one has been a lesson in patience for me. Endless Night has been lying with me for years. I tried picking it up a few years ago and i was not able to get into it. Then I saw it as the book recommendation for November and i realised this is the time to read it. But then again I found it difficult to pick up. Not because the prose was difficult. But because of certain life events that troubled me. But when the story got picked up a hundred or so pages in. This gripped me. Took me to a tour of the human mind. A messed up mind.</p>
+<p>Endless Night truly has one of my favourite twists in a Christie book. Almost as good as the twist in The Murder of Roger Ackroyd&#33; And a seasoned Christie reader would know how perfect that was. I loved this book. As the year comes to an end. I am proud of myself having accomplished this challenge. And with only one book to go. I hope to end this year on a good note. :&#41;</p>
+<blockquote>
+<p>&quot;Some are born of sweet Delights Some are born of endless night&quot;</p>
+</blockquote>
+ ]]>
+  </content:encoded>
+    
+  <pubDate>Mon, 04 Dec 2023 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Atiyab Zafar</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
+    <![CDATA[  Atiyab&#39;s Blog  ]]>
+  </title>
+  <link> https://atiyabzafar.github.io/Blog/bookreviews/AThousandSplendidSuns/index.html </link>
+  <guid> https://atiyabzafar.github.io/Blog/bookreviews/AThousandSplendidSuns/index.html </guid>
+  <description>
+    <![CDATA[  Book Review: A Thousand Splendid Suns by Khaled Hosseini  ]]>
+  </description>  
+  
+  <content:encoded>
+    <![CDATA[  <h1 id="a_thousand_splendid_suns_by_khaled_hosseini">A Thousand Splendid Suns by Khaled Hosseini</h1>
+<blockquote>
+<p>“Of all the hardships a person had to face, none was more punishing than the simple act of waiting.”</p>
+</blockquote>
+<p>Reading this book broke me. Khaled Hosseini&#39;s harrowing words are so captivating that I just could not stop reading. Laila and Mariam&#39;s stories so emotionally devastating and yet written so masterfully that it flows smoothly.</p>
+<p>A Thousand Splendid Suns is a story of Two Afghanistani women. It is a story of survival, of love and of family. There are books out there that leaves you a different person. This is one such unforgettable book.</p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/bookreviews/images/AThousandSplendidSuns.jpg" style="padding:0; width:60%;border: 1px solid red;" alt=" My old battered copy of Hosseini's heartbreaking novel"/>
+<figcaption> My old battered copy of Hosseini's heartbreaking novel</figcaption>
+</figure><p>Khaled Hosseini weaves the story of Laila and Mariam with the fragile history of Afghanistan in the backdrop. The political upheavals and revolutions run in the background as a devastating story of Laila and Tariq&#39;s love and Mariam&#39;s life is told with incredible mastery. The words are poetic and often heartbreaking.</p>
+<p>As I read the description of the rockets travelling across the Kabul sky and destruction caused by different warlords and regimes it reminded me of the present situation of Palestine War. As many palestinian civilians die in the airstrikes, as many Jalils, Rasheeds and Tariqs fight in the streets and across the sky, many Lailas and Mariams are trying to survive each day in the streets of Ghaza. When all this ends, a lot of stories like this will be forgotten As we move on with our lives doom scrolling through Insta many women are living under the regimes of extremist/radical rulers. Many Mariams who need their Lailas, who are living under men dictating rules, under men forcing them to live by the scriptures and many who live being victimised and abused daily. In that sense the story of Mariam and Laila in A Thousand Splendid Suns is very real. It is the reality of many women in the world. In small or large scale many women can relate with Mariam and Laila and find hope among the pain and suffering.</p>
+<p>I will not speak more about it. There are no words that can describe how beautiful and haunting this book is.</p>
+<p>I wish everyone find their Tariqs and never meet their Rasheeds.</p>
+<p>#bookstagram #reading #books #khaledhosseini #athousandsplendidsuns #read #book #heartbreaking #freepalestine</p>
+ ]]>
+  </content:encoded>
+    
+  <pubDate>Mon, 13 Nov 2023 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Atiyab Zafar</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
+    <![CDATA[  Appointment with Death, Christie book review  ]]>
+  </title>
+  <link> https://atiyabzafar.github.io/Blog/bookreviews/ChristieAppointmentWithDeath/index.html </link>
+  <guid> https://atiyabzafar.github.io/Blog/bookreviews/ChristieAppointmentWithDeath/index.html </guid>
+  <description>
+    <![CDATA[  Book Review: Appointment With Death by Agatha Christie  ]]>
+  </description>  
+  
+  <content:encoded>
+    <![CDATA[  <h1 id="appointment_with_death_by_agatha_christie">Appointment With Death by Agatha Christie</h1>
+<p>This month&#39;s &#40;September&#41; theme for #readchristie2023 was &quot;Hatred&quot; of which I have none for this novel. Another gem of a novel from Christie, Appointment with Death follows a complicated family and their authoritarian matriarch. The Belgian detective Hercule Poirot hears from his hotel window &quot;You do see, don&#39;t you, that she&#39;s got to be killed&#39; in the prologue. Which later comes into the picture with the finesse of Christie&#39;s usual tricks.</p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/bookreviews/images/AppointmentWithDeath.jpeg" style="padding:0; width:70%;border: 1px solid red;" alt=" Appointment With Death in a gloomy location"/>
+<figcaption> Appointment With Death in a gloomy location</figcaption>
+</figure><p>The character of Mrs Boynton in this book presents a quite clever psychological study of the mind of a tyrant. A dictator who enjoys the suffering of others, Mrs Boynton&#39;s appointment with death was fixed from the very first chapter. And by the time the death occurs you learn to hate the character so much that you wish the end goes the Death on the Nile way. With many call backs from previous Christie stories, for a seasoned fan Appointment with Death is more than a simple whodunit.</p>
+<p>After reading so much Christie I was pretty much confident on who had committed the murder and yet one must never take her lightly. She brings about more twists and turns as the story progresses.</p>
+<p>This year has been good for reading for me. I started the year with a decision to read atleast 1 Christie book each month. And it has been going well. I hope I can keep it up for the last 2 months.</p>
+ ]]>
+  </content:encoded>
+    
+  <pubDate>Sun, 01 Oct 2023 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Atiyab Zafar</atom:name>
+  </atom:author>
+        
+</item>
+</channel></rss>
