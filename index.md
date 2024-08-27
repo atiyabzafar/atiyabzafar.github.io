@@ -9,6 +9,7 @@ Here is my Personal Blog that I will update with things I learn as I go through 
 
 ~~~
 <div class=bloglist>
+<p><a href="/Blog/bookreviews/Kindred/">Book Review: Kindred by Octavia Butler</a> 27 August, 2024</p>
 <p><a href="/Blog/bookreviews/April_July24Books/">Thoughts on books read from April to July 2024 (Pride and Prejudice, Brazen, White Nights, ...)</a> August, 2024</p>
 <p><a href="/Blog/bookreviews/March24Books/">Book Reviews for March, 24 (The Forever War, The Seven Dials Mystery and Before the Coffee Gets Cold)</a> August, 2024</p>
 <p><a href="/Blog/bookreviews/February24Books/">Book Reviews for February, 24 (The Secret Adversary, Midnight Library and The Big Four)</a> April 4, 2024</p>

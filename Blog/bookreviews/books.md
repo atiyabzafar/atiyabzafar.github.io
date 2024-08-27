@@ -37,9 +37,9 @@
 |30 July 2024|The Girl from the Other Side: Siúil, a Rún Vol. 1 (Manga)| Nagabe|~~~
 <div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
 |31 July 2024|Amygdalatropolis| B.R. Yeager|~~~
-<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
+<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~|[link](/Blog/bookreviews/Kindred/)|
 |8 August 2024|Kindred| Octavia E. Butler|~~~
-<div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
+<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
 |8 August 2024|The Girl from the Other Side: Siúil, a Rún Vol. 2-3 (Manga)| Nagabe|~~~
 <div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
 |15 August 2024|Prey| Michael Crichton|~~~
