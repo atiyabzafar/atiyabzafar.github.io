@@ -2,7 +2,7 @@
 @def rss_description = "Books I have read"
 @def rss_pubdate = Date(2024,08,23)
 @def rss_title = "Updated chronological list of my reads"
-# Books I have read
+# Books Read
 
 ## 2024
 
@@ -139,3 +139,14 @@
 |Tomorrow, and Tomorrow, and Tomorrow|Gabrielle Zevin|
 |I Contain Multitudes: The Microbes Within Us and a Grander View of Life|Ed Yong|
 
+
+~~~
+<div id="cusdis_thread"
+  data-host="https://cusdis.com"
+  data-app-id="3fbebddf-252b-4547-9c0f-cb1d9ba878aa"
+  data-page-id="{{ books }}"
+  data-page-url="{{ atiyabzafar.github.io/Blog/bookreviews/books/ }}"
+  data-page-title="{{ Books Read }}"
+></div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+~~~
