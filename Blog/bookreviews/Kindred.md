@@ -31,3 +31,4 @@ The toxic relationship between Dana and Rufus is predictable in some sense, but 
 
 
 I am quite surprised on how quickly I managed to finish this even though it dealt with such heavy and mature themes. That is a testament to the quality of writing from Octavia Butler. As a scifi fan, i would love to know more of her work. 
+
