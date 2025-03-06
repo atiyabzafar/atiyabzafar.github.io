@@ -4,6 +4,19 @@
 @def rss_title = "Updated chronological list of my reads"
 # Books Read
 
+## 2025
+
+|Finished|Book Title|Author|Rating|Review|
+|:-------------:|:------------:|-------|--------|------|
+|2025/01/30|Five Little Pigs|Agatha Christie|~~~<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~||
+|2025/02/05|Carrie Soto Is Back|Taylor Jenkins Reid|~~~<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~||
+|2025/02/05|Kowloon Generic Romance, Vol. 1 and 2|Jun Mayuzuki, 眉月じゅん|~~~<div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5.">~~~||
+|2025/02/16|Human Acts|Han Kang|~~~<div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5.">~~~||
+|2025/02/25|Mrs McGinty's Dead|Agatha Christie|~~~<div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5.">~~~||
+|2025/03/04|Markov Chains: From Theory to Implementation and Experimentation|Paul A. Gagniuc|------|Text Book|
+|------|------|------|------|------|
+
+
 ## 2024
 
 |Finished|Book Title|Author|Rating|Review|
@@ -15,38 +28,47 @@
 |24 February 2024|The Big Four| Agatha Christie|~~~
 <div class="Stars" style="--rating: 2.75;" aria-label="Rating of this book is 2.75 out of 5.">~~~|[link](/Blog/bookreviews/February24Books/)|
 |6 March 2024|The Forever War| Joe Haldeman|~~~
-<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
+<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~|------|
 |14 March 2024|The Seven Dials Mystery| Agatha Christie|~~~
-<div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
+<div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5.">~~~|------|
 |20 March 2024|Before the Coffee Gets Cold| Toshikazu Kawaguchi|~~~
-<div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
+<div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5.">~~~|------|
 |6 April 2024|Pride and Prejudice| Jane Austen|~~~
-<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
+<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~|------|
 |15 April 2024|Tales from the cafe| Toshikazu Kawaguchi|~~~
-<div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
+<div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2 out of 5.">~~~|------|
 |30 April 2024|Before Your Memory Fades| Toshikazu Kawaguchi|~~~
-<div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2.5 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
+<div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2.5 out of 5.">~~~|------|
 |4 July 2024|Brazen: Rebel Ladies Who Rocked The World| Pénélope Bagieu|~~~
-<div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
+<div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5.">~~~|------|
 |5 July 2024|Before We Say Goodbye| Toshikazu Kawaguchi|~~~
-<div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2.5 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
+<div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2.5 out of 5.">~~~|------|
 |6 July 2024| I Want to Eat Your Pancreas| Yoru Sumino|~~~
-<div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
+<div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5.">~~~|------|
 |17 July 2024|White Nights| Fyodor Dostoevsky|~~~
-<div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
+<div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5.">~~~|------|
 |30 July 2024|The Girl from the Other Side: Siúil, a Rún Vol. 1 (Manga)| Nagabe|~~~
-<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
+<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~|------|
 |31 July 2024|Amygdalatropolis| B.R. Yeager|~~~
-<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~|[link](/Blog/bookreviews/Kindred/)|
+<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~|------|
 |8 August 2024|Kindred| Octavia E. Butler|~~~
-<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
+<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~|[link](/Blog/bookreviews/Kindred/)|
 |8 August 2024|The Girl from the Other Side: Siúil, a Rún Vol. 2-3 (Manga)| Nagabe|~~~
-<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
+<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~|------|
 |15 August 2024|Prey| Michael Crichton|~~~
-<div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
+<div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5.">~~~|------------|
 |20 August 2024|The Girl from the Other Side: Siúil, a Rún Vol. 4-5 (Manga)| Nagabe|~~~
-<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~|[link](/Blog/bookreviews/books/)|
-|--------|-------|-------|-------|------|
+<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~|------|
+|2024/08/25|The Ballad of Songbirds and Snakes|Suzanne Collins|~~~<div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5.">~~~|[link](/Blog/bookreviews/BalladOfSongbirds/)|
+|2024/09/04|The Picture of Dorian Gray|Oscar Wilde|~~~<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~|------
+|2024/09/14|Solaris|Stanisław Lem|~~~<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~|------|
+|2024/09/23|The ABC Murders|Agatha Christie|~~~<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~|------|
+|2024/09/26|The Miraculous Journey of Edward Tulane|Kate DiCamillo|~~~<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~|------|
+|2024/10/21|Cursed Bunny|Bora Chung|~~~<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~|------|
+|2024/10/28|Rendezvous with Rama|Arthur C. Clarke|~~~<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~|------|
+|2024/11/06|Conversations with Friends|Sally Rooney|~~~<div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2.5 out of 5.">~~~|------|
+|2024/12|The Last Bookshop in London|Madeline Martin|~~~<div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is  3.5 out of 5.">~~~|------|
+|2024/12/26|The Mystery of the Blue Train|Agatha Christie|~~~<div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5.">~~~|Although the suspects were obvious. Christie still managed-in the classic Poirot fashion- to twist the method of the madness just enough to keep me engrossed.|
 
 
 ## 2023

@@ -8,7 +8,9 @@
 Here is my Personal Blog that I will update with things I learn as I go through my PhD and with my thoughts occasionally.
 
 ~~~
-<div class=bloglist>
+<div class="bloglist">
+<p><a href="/Blog/bookreviews/books/">Books read in first 4 months of 2025 and update to the books read at the end of 2024</a> 6 May, 2025</p>
+<p><a href="/Blog/bookreviews/BalladOfSongbirds/">Book Review: Ballad of Songbirds by Suzanne Collins</a> 9 September, 2024</p>
 <p><a href="/Blog/bookreviews/Kindred/">Book Review: Kindred by Octavia Butler</a> 27 August, 2024</p>
 <p><a href="/Blog/bookreviews/April_July24Books/">Thoughts on books read from April to July 2024 (Pride and Prejudice, Brazen, White Nights, ...)</a> August, 2024</p>
 <p><a href="/Blog/bookreviews/March24Books/">Book Reviews for March, 24 (The Forever War, The Seven Dials Mystery and Before the Coffee Gets Cold)</a> August, 2024</p>
@@ -20,7 +22,7 @@ Here is my Personal Blog that I will update with things I learn as I go through 
 <p><a href="/Blog/ecology_relationships/eccology_relationship/">Ecological Interactions, Basic Lotka Volterra</a> September 10, 2023</p>
 <p><a href="/Blog/digitsum/sum_digits/">Playground with digit sum</a> September 5, 2023</p>
 <p><a href="/Blog/uncertainty/uncertainty/">Making Peace with Uncertainty (Ian Malcolm, Jurassic Park, Uncertainty and Science) </a> August 28, 2023</p>
-<p><a href="/Blog/latexpy/">Latexpy: scipt to generate multiple pdf with different variable values</a> September 2, 2022</p>
+<p><a href="/Blog/latexpy/">Latexpy: script to generate multiple pdf with different variable values</a> September 2, 2022</p>
 <p><a href="/Blog/network/NetworkScience101/">Network Science 101</a> July 24, 2022</p>
 <p><a href="/Old_blog/2021-03-14-pi/pi3/">Love Letters to Pi(III): Normality, Do you exist in Pi? (My Personal Favourite Post)</a> March 14, 2021</p>
 <p><a href="/Old_blog/2020-03-15-understanding-the-dynamics-of-disease-spreading-part-1-basic-population-dynamics/disease/">Understanding Population Dynamics</a> March 15, 2020</p>
