@@ -82,12 +82,12 @@ Highest rated book :
     Pages_Books_Read=document.getElementById('pagesbookschart');
     Genres= document.getElementById('genrechart');
 
-    var months=["January","February","March","April","May","June","July","August","September","October","November","December"]
+    var months=["January","February","March","April","May","June","July","August","September","October","November","December"];
     var books_read = [0,3,3,3,0,3,6,6,4,2,1,2];
     var pages_read = [0,828,865,871,0,1267,1556,1954,1249,663,377,672];
     var moods = [0, 20, 13, 31, 31, 11, -3, -25, -28, -44, -43, -40];
-    var booksbygenre = [11,9,8,8,6]
-    var genres=["Classics","Literary","Fantasy","Mystery","Science Fiction"]
+    var booksbygenre = [11,9,8,8,6];
+    var genres=["Classics","Literary","Fantasy","Mystery","Science Fiction"];
     var moodnames=['emotional', 'mysterious', 'dark', 'reflective', 'adventurous', 'hopeful', 'tense', 'sad', 'lighthearted', 'inspiring', 'informative', 'funny', 'challenging'];
     var moodnums=[16,13,13,9,8,6,4,2,1,1,1,1,1];
     var ratinglabels=["3.0⭐️","3.25⭐️","3.5⭐️","4.0⭐️","4.25⭐️","4.5⭐️","5.0⭐️"];
@@ -130,7 +130,7 @@ Highest rated book :
             labels: moodnames,
             type: 'pie'
         }
-    ]
+    ];
     Plotly.newPlot('moodpiechart', Pie,);
 
 
