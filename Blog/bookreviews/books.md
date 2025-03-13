@@ -1,6 +1,6 @@
 @def tags= ["BookReviews"]
 @def rss_description = "Books I have read"
-@def rss_pubdate = Date(2024,08,23)
+@def rss_pubdate = Date(2025,03,3)
 @def rss_title = "Updated chronological list of my reads"
 # Books Read
 
@@ -60,7 +60,7 @@
 |20 August 2024|The Girl from the Other Side: Siúil, a Rún Vol. 4-5 (Manga)| Nagabe|~~~
 <div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~|------|
 |2024/08/25|The Ballad of Songbirds and Snakes|Suzanne Collins|~~~<div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5.">~~~|[link](/Blog/bookreviews/BalladOfSongbirds/)|
-|2024/09/04|The Picture of Dorian Gray|Oscar Wilde|~~~<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~|------
+|2024/09/04|The Picture of Dorian Gray|Oscar Wilde|~~~<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of link5.">~~~|------
 |2024/09/14|Solaris|Stanisław Lem|~~~<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~|------|
 |2024/09/23|The ABC Murders|Agatha Christie|~~~<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~|------|
 |2024/09/26|The Miraculous Journey of Edward Tulane|Kate DiCamillo|~~~<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~|------|
