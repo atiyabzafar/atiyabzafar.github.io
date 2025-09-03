@@ -14,6 +14,19 @@
 |2025/02/16|Human Acts|Han Kang|~~~<div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5.">~~~||
 |2025/02/25|Mrs McGinty's Dead|Agatha Christie|~~~<div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5.">~~~||
 |2025/03/04|Markov Chains: From Theory to Implementation and Experimentation|Paul A. Gagniuc|------|Text Book|
+|2025/03/17|The Maniac|Benjamin Lebatut|~~~<div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5.">~~~||
+|2025/04/05|The Mirror Crack'd from Side to Side|Agatha Christie|~~~<div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5.">~~~||
+|2025/04/24|Three Act Tragedy|Agatha Christie|~~~<div class="Stars" style="--rating: 4.25;" aria-label="Rating of this book is 4.25 out of 5.">~~~||
+|2025/05/05|Orbital|Samantha Harvey|~~~<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~||
+|2025/05/08|Sharp Objects|Gillian Flynn|~~~<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~||
+|2025/06/13|The Labours of Hercules|Agatha Christie|~~~<div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5.">~~~||
+|2025/06/27|A Murder is Announced|Agatha Christie|~~~<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~||
+|2025/07/11|Sunrise on the Reaping|Suzanne Collins|~~~<div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5.">~~~||
+|2025/07/12|Tender is the Flesh|Augustina Bazterrica|~~~<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~||
+|2025/07/22|Death in the Clouds|Agatha Christie|~~~<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~||
+|2025/08/11|Lord Edgeware Dies|Agatha Christie|~~~<div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5.">~~~||
+|2025/08/26|One Two Buckle My Shoe|Agatha Christie|~~~<div class="Stars" style="--rating: 4.25;" aria-label="Rating of this book is 4.25 out of 5.">~~~||
+|2025/08/28|Gabriel's Inferno|Sylvain REynard|~~~<div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2.5 out of 5.">~~~||
 |------|------|------|------|------|
 
 

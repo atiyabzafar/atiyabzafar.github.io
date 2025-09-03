@@ -9,6 +9,7 @@ Here is my Personal Blog that I will update with things I learn as I go through 
 
 ~~~
 <div class="bloglist">
+<p><a href="/Blog/2025/google"/>Interesting Finds: Google</a> 3 September, 2025</p>
 <p><a href="/Blog/bookreviews/2024WrapUp"/>Wrap up and analysis of my reading in 2024</a> 5 March, 2025</p>
 <p><a href="/Blog/bookreviews/books/">Books read in first 4 months of 2025 and update to the books read at the end of 2024</a> 3 March, 2025</p>
 <p><a href="/Blog/bookreviews/BalladOfSongbirds/">Book Review: Ballad of Songbirds by Suzanne Collins</a> 9 September, 2024</p>

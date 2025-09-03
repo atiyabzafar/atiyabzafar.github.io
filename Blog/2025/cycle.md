@@ -1,7 +1,7 @@
 @def tags = ["Blog","BlogPost"]
 @def rss_title = "Kondratieff Cycle: Interesting finds February 2025"
 @def rss_description = "Weekly finds: Kondrateiff Cycle. Learn with me an interesting economic cycle"
-@def rss_pubdate = Date(2025,03,05)
+@def rss_pubdate = Date(2025,03,12)
 
 
 # Kondratieff Cycle: Interesting finds February 2025
