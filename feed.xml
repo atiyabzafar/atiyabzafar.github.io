@@ -23,6 +23,256 @@
 
 <item>
   <title>
+    <![CDATA[  Google Matrix  ]]>
+  </title>
+  <link> https://atiyabzafar.github.io/Blog/2025/google/index.html </link>
+  <guid> https://atiyabzafar.github.io/Blog/2025/google/index.html </guid>
+  <description>
+    <![CDATA[  Interesting finds: Google Matrix. Learn with me an interesting mathematical/network topic  ]]>
+  </description>  
+  
+  <content:encoded>
+    <![CDATA[  <h1 id="interesting_finds_google_matrix">Interesting finds: Google Matrix</h1>
+<p>When you google something, how does google know which website to put on the first page. Which website that it has indexed among hunreds of billions &#40;yes apparently the number is that high if you were to believe google in <a href="https://googleblog.blogspot.com/2008/07/we-knew-web-was-big.html">2008</a>&#41; of websites. </p>
+<p>The answer is a very famous page rank algorithm &#40;it used to be atleast, they now use a more advanced algorithm&#41;. People who study network science usually read about it sometime or other during their studies or research. I thought it would be interesting to talk about it in the post while I read more about it. I had first learnt about this algorithm in my network science course but we did not go into the details of how that algorithm worked. Maybe I will do some of that in this post. But before that I wish to talk about what a google matrix is. And just write about some cool observations about the google matrices.</p>
+<h2 id="ranking_nodes_in_a_network">Ranking Nodes in a network</h2>
+<p>It is not a very unique question to the world wide web to ask for a ranking of nodes in a network. There can be various reasons to ask for a ranking in a network. Maybe you wish to know importance&#40;influence&#41; of people in an institution, maybe you wish to know what power stations are the most instrumental in a power grid, and perhaps one wishes to know what is the most significant neuron in a fly brain. </p>
+<p>To answer such questions, we use network centrality measures. There are various methods to study how &quot;central&quot; a node is in the network. These centrality measures catch different properties of the network. 
+<figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2025/images/Centrality.svg" style="padding:0; width:25%;border: 1px solid red;" alt=" Different types of centralities used to color nodes.  Examples of A) Degree centrality, B) Closeness centrality, C) Betweenness centrality, D) Eigenvector centrality, E) Katz centrality and F) Alpha centrality. Claudio Rocchini, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons"/>
+<figcaption> Different types of centralities used to color nodes.  Examples of A) Degree centrality, B) Closeness centrality, C) Betweenness centrality, D) Eigenvector centrality, E) Katz centrality and F) Alpha centrality. Claudio Rocchini, CC BY-SA 3.0 <https://creativecommons.org/licenses/by-sa/3.0>, via Wikimedia Commons</figcaption>
+</figure>
+</p>
+<p>Some measures are degree based, the degree of a node is simply the number of &quot;edges&quot; a node is connected to. It is the simplest measure that can be used to rank the nodes in a network. This measure is highly local as in it has information about the node itself and not its environment. </p>
+<p>There are other measures for example, the betweenness centrality and closeness centrality that incorporates shortest paths &#40;geodesics&#41; through a node which has information of the network and the node itself. The global properties of the network in a way gets carried into the property of the node itself.</p>
+<p>Eigenvector centrality is a centrality measure that talks about the node and its immediate neighbours. This is the centrality measure that we will be focusing on in the rest of the post. </p>
+<h3 id="eigenvector_centrality">Eigenvector Centrality</h3>
+<p>A node&#39;s eigenvector centrality is not a measure of how influence the node has, but a measure of how high influential neighbours does a node have. A very weir analogy perhaps could be a highly corrupt system where in a way there is an advantage to the people who know the most influential people. In this way it is good to be someone getting a lot of incoming &quot;power&quot;.</p>
+<p>The reason it is called eigenvector centrality is because it is the egenvector of the adjacency matrix itself. Suppose \(A\) is the adjacency matrix of the network &#40;\(A_{ij}=1\) if there is a link/edge from node \(j\) to node \(i\)&#41;, then from the characteristic equation we know </p>
+\[A\vec{x}=\lambda \vec{x},\]
+<p>where \(\vec{x}\) is the eigenvector corresponding to eigenvalue \(\lambda\). That is, we can write the eigenvector centrality of \(i\)th node as:</p>
+\[
+ x_i = \frac{1}{\lambda} \sum_{j=1} A_{ij}x_j
+\]<figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2025/images/got_book1_eig.png" style="padding:0; width:100%;border: 1px solid red;" alt=" A Game of thrones narrative network. Game of throne characters from the book 1 where a link implies they talked with each other. The size of the node is scaled by the eigenvector centrality. Created by me using Graphs.jl, dataset available at [GitHub](https://github.com/himanshubeniwal/A-Network-analysis-of-Game-of-Thrones/blob/master/datasets/book1.csv)"/>
+<figcaption> A Game of thrones narrative network. Game of throne characters from the book 1 where a link implies they talked with each other. The size of the node is scaled by the eigenvector centrality. Created by me using Graphs.jl, dataset available at [GitHub](https://github.com/himanshubeniwal/A-Network-analysis-of-Game-of-Thrones/blob/master/datasets/book1.csv)</figcaption>
+</figure><p>You can see from the above equation when you multiply \(A_{ij}\) with \(x_j\) you are adding the centrality of  neighbours of \(i\) or the nodes sending incoming link to \(i\). </p>
+<p>Eigenvector centrality is important in many fields, it is used to study importance of nodes in neural networks, it is important to study influenced economic entities. In social systems, one can use eigenvector centrality to identify people who are easily influenced. It is used to study how information spreads in a network and how influence can be used to spread network which has been a research curiosity of mine recently.</p>
+<h3 id="pagerank">PageRank</h3>
+<p>Now we come to google&#39;s page rank. PageRank is an algorithm co-designed by Larry Page &#40;hence the name&#41; to rank web pages &#40;yeah pun is appreciated&#41; in the world wide web. The idea behind pagerank is a random surfer who is surfing through the web. Say the person starts from one website, there are 5 links in that website, the surfer picks one of those links and goes to the linked page. The surfer does this untill they reach a sink, a page with no outgoing hyperlink, then the surfer goes to a random page in the world wide web. But the surfer has to end the search at some moment. So there is a damping factor \(\alpha\) which connects to the probability that a surfer will move along the link to another webpage. </p>
+<p>\(\alpha\) is the probability of following a hyperlink while \((1-\alpha)\) is the probability the random surfer will go to a random link anywhere else. As it turns out the algorithm once written out after following the mathematics is :</p>
+\[ PageRank(p_i) = \frac{(1-\alpha)}{N} + \alpha \sum_{j=1}^N A_{ij} \frac{PageRank(p_j)}{L(p_j)},\]
+<p>where \(L(p_j)\) is the number of outbout links on page \(p_j\) and \(p_1, p_2 , \cdots p_N\) are \(N\) web pages. I will not go into details, but it turns out this metric has a connection to eigenvector centrality.</p>
+<h2 id="google_matrix_and_connection_of_pagerank_to_eigenvector_centrality">Google Matrix and connection of PageRank to eigenvector centrality</h2>
+<p>It turns out that the equation above can be written as a characteristic equation for a modified matrix much like what we did for the adjacency matrix. The matrix is aptly known as Google Matrix in the literature.  It is a stochastic matrix &#40;for people who know markov chain theory it is also known as a markov matrix&#41;. Each entry of this matrix represents a probability of transition from one state to another. So, adding up sum of each row you get 1. </p>
+<p>Constructing a google matrix is simple enough, you start with the adjacency matix \(A\). You create a markov matrix \(S\) by dividing elements of a column \(i\) by total number of outgoing links from \(i\) to every other node.i.e. the outdegree of node \(i\).  If any column has no non zero values, i.e. their out-degree is zero. The whole column is just filled with \(1/N\) to make sure the column still sums upto one and S is a stochastic matrix.</p>
+<p>Finally, the google matrix \(G\) is defined as&#40;Brin and Page,1998&#41;:</p>
+\[ G_{ij}= \alpha S_{ij} + (1-\alpha) \frac{1}{N},\]
+<p>where, \(\alpha\) is once again the same damping factor we had defined above. The largest eigenvalue of this matrix &#40;like all other stochastic matrices&#41; is always \(1\). This allows us to find the eigenvector corresponding to the largest eigenvalue as </p>
+\[ X_i = P_i = \sum_j G_{ij} X_j\]
+<p>\(P_i\) is the PageRank of node \(i\). And the eigengap &#40;difference between largest and second largest eigenvalue&#41; for the google matrix is sufficiently big as it depends on \(\alpha\) that you can use power method to calculate the eigenvector. </p>
+<p>Therefore, PageRank is nothing but a glorified eigenvector centrality. For people who know the theory of markov chain and the perron frobenius theorem, there is a very nice result that the eigenvector for the largest eigenvalue is always positive and gives the stationary probability for the markov process, which is the random surfer for the page rank algorithm.</p>
+<h2 id="interesting_properties_of_google_matrix">Interesting properties of google matrix</h2>
+<h3 id="eigenvalues">Eigenvalues</h3>
+<p>The largest eigenvalue of google matrix is always 1. One can show this by just premultiplying the matrix with \([1,1,1 \cdots 1,1,1]^T\) to the matrix and you always get the ones vector back with \(\lambda_1=1\). The reason being google matrix being a stochastic matrix. </p>
+<p>It has been shown that the largest eigenvalue for \(\alpha<1\) is always unique and thus PageRank is always uniquely defined. The second largest eigenvalue&#39;s maximum bound is given by \(1-\alpha\). </p>
+<p>Here I have generated 500 random matrices of size \(N=100\) and the connecting probability \(p=0.01\). And then generated the google matrix using the method described above. See code below.</p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2025/images/100_01_500.png" style="padding:0; width:80%;border: 1px solid red;" alt=" Eigenvalues of Google Matrix for 500 erdos reniji random matrices with 100 nodes and 0.01 as connecting probability"/>
+<figcaption> Eigenvalues of Google Matrix for 500 erdos reniji random matrices with 100 nodes and 0.01 as connecting probability</figcaption>
+</figure><p>AS you can see there is a singular eigenvalue equal to 1. This is the principle eigenvalue &#40;the perron frobenius eigenvalue&#41; of our matrix coinciding with the unit circle drawn with real and imaginary part of the eigenvalues. The second largest eigenvalue is clearly bound by the parameter \(\alpha\) as discussed above. This big gap allows quick and accurate PageRank calculation. </p>
+<p>Interesting to note protrusions of &#39;more stable&#39; eigenvalues shown in star structure. There are some eigenvalues with higher magnitude that are at certain angles in the complex plane. Ermann et al,2015 while studying google matrix of empirical university network mentions these values:</p>
+<blockquote>
+<p>These structures are very similar to those seen in the spectra of random orthostochastic matrices of small size N &#61; 3, 4 shown in .... indicates that there are dominant triple and quadruple structures of nodes present in the University networks which are relatively weakly connected to other nodes.</p>
+</blockquote>
+<p>Further, these values do not appear if we increase the value of \(p\) significantly. </p>
+<h3 id="pagerank_and_eigenvector_centrality">PageRank and Eigenvector centrality</h3>
+<p>The fact that the google matrix is a matrix that one obtains from the adjacency matrix, and PageRank is essentially the principle eigenvector &#40;corresponding to largest eigenvalue&#41;, it intrigued me to identify how the eigenvector centrality is connected with PageRank of the network. </p>
+<p>Ofcourse, PageRank works better for directed networks and is a more advanced version of the eigenvector centrality. Eigenvector centrality does not work for nodes with no incoming link. PageRank is able to takes care of those nodes too. So it should provide different results. But it could be an interesting exercise to compare these results.</p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2025/images/ratio_50_500.png" style="padding:0; width:80%;border:1px solid red;" alt=" Average of ratio of Eigen Vector centrality to the Page Rank for 500 matrices for different values of p"/>
+<figcaption> Average of ratio of Eigen Vector centrality to the Page Rank for 500 matrices for different values of p</figcaption>
+</figure><p>In the plot above you can see that both centrality measures converge to same results for higher value of connecting probability. </p>
+<p>For lower values of probability, the ratio is higher than one, then once it dips below 1 it never gets back to 1. The reason why it is more than 1 is because in lower p values, the largest eigenvalue was often 1 and there is no unique eigenvector defined. And even if there is one, the eigenvector centrality is zero for many nodes which are not getting any incoming link, but page rank is non zero for such nodes. This forces the non zero values in the eigenvector centrality to be significantly bigger as the whole vector has to be normalised.</p>
+<p>The dip in the ratio seemed to be because of the giant component phase transition that occurs in erdos reni random networks at \(p=1/N\). The dip is around 0.025, while the giant component transition occurs at 0.02. But this does not seem to be the case. To verify this I did the same for \(N=100\):</p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2025/images/ratio_50_500_100_500.png" style="padding:0; width:80%;border:1px solid red;" alt=" Average of ratio of Eigen Vector centrality to the Page Rank for 500 matrices for different values of p for N=100 and N=50. Vertical lines represent Np=1"/>
+<figcaption> Average of ratio of Eigen Vector centrality to the Page Rank for 500 matrices for different values of p for N=100 and N=50. Vertical lines represent Np=1</figcaption>
+</figure><p>As we can clearly see, the \(N=100\) transition takes place at a higher \(p\). If the transition was happening because of the giant component phase transition, then the minimum would have shifted to the left by increasing \(N\).</p>
+<p>There is another transition seen in erdos renyi networks. Below \(p=p_c=ln(N)/N\) the graph contains disconnected components and beyond this \(p_c\) the graph becomes one connected entity. This threshold is for connectivity in the network. If we plot this as vertical lines with the ratio we get:</p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2025/images/ratio_50_500_100_500_transition.png" style="padding:0; width:80%;border:1px solid red;" alt=" Average of ratio of Eigen Vector centrality to the Page Rank for 500 matrices for different values of p for N=100 and N=50. Vertical solid lines represent Np=1 and vertical dashed line shows $p=p_c=ln(N)/N$"/>
+<figcaption> Average of ratio of Eigen Vector centrality to the Page Rank for 500 matrices for different values of p for N=100 and N=50. Vertical solid lines represent Np=1 and vertical dashed line shows $p=p_c=ln(N)/N$</figcaption>
+</figure><p>Although, the connectedness transition and the giant component transition does explain to a certain extent why the two centrality measures converge to same values. But the dip and its position is not exactly answered by the transitions. </p>
+<p>It seems to me that a combinatorial effect of both transitions causes this dip and the dip&#39;s translation.</p>
+<p>Since it is costlier to calculate PageRank compared to eigenvector centrality, it might be better to just use eigenvector centrality for more densely connected network. As we can see they on average give similar result. </p>
+<p>This is it from me on this topic. But if I understand more things about this observation and I learn what is going on here, I will update this post or add another blog post.</p>
+<h2 id="code_for_plots">Code for plots</h2>
+<pre><code class="language-Julia">#draw figure for eigenvalues with circles
+prods&#61;&#91;&#93;
+L1s&#61;&#91;&#93;
+p&#61;0.5
+f&#61;CairoMakie.Figure&#40;size&#61;&#40;800,800&#41;&#41;
+ax&#61;CairoMakie.Axis&#40;f&#91;1,1&#93;,xlabel&#61;L&quot;\mathcal&#123;Re&#125;\&#123;\lambda_1\&#125;&quot;,ylabel&#61;L&quot;\mathcal&#123;Im&#125;\&#123;\lambda_1\&#125;&quot;&#41;
+for itr in 1:500
+    N&#61;20
+    p&#61;1/N &#43; 0.1
+    A&#61;zeros&#40;Int8,N,N&#41;
+    for i in 1:N
+        for j in 1:N
+            if i&#33;&#61;j &amp;&amp; rand&#40;&#41;&lt;p
+                A&#91;i,j&#93;&#61;1
+            end
+        end
+    end
+    G&#61;google_matrix&#40;DiGraph&#40;A&#39;&#41;,α&#61;0.85,v &#61; fill&#40;1.0/N, N&#41;&#41;
+    vals,vecs&#61;eigen&#40;G&#41;
+    CairoMakie.scatter&#33;&#40;ax,real.&#40;vals&#41;,imag.&#40;vals&#41;,color&#61;&#40;:red,0.2&#41;&#41;
+end
+xx&#61;-1:0.001:1
+a&#61;0.85
+xx1&#61;-a:0.001:a
+yy&#61;sqrt.&#40;1.0.- xx.*xx&#41;
+yy1&#61;sqrt.&#40;a*a .-xx1.*xx1&#41;
+CairoMakie.lines&#33;&#40;ax,xx,yy,color&#61;:green,label&#61;L&quot;&#40;\mathcal&#123;Re&#125;\&#123;\lambda_1\&#125;&#41;^2 &#43; &#40;\mathcal&#123;Im&#125;\&#123;\lambda_1\&#125;&#41;^2 &#61; 1 &quot;&#41;
+CairoMakie.lines&#33;&#40;ax,xx,-yy,color&#61;:green&#41;
+CairoMakie.lines&#33;&#40;ax,xx1,yy1,color&#61;:blue,label&#61;L&quot;&#40;\mathcal&#123;Re&#125;\&#123;\lambda_1\&#125;&#41;^2 &#43; &#40;\mathcal&#123;Im&#125;\&#123;\lambda_1\&#125;&#41;^2 &#61; &#40;1-\alpha&#41;^2 &quot;&#41;
+CairoMakie.lines&#33;&#40;ax,xx1,-yy1,color&#61;:blue&#41;
+axislegend&#40;ax&#41;
+fprods&#61;&#91;&#93;
+PRODS&#61;&#91;&#93;
+L1s&#61;&#91;&#93;
+p&#61;0.5
+sds1&#61;&#91;&#93;
+means1&#61;&#91;&#93;
+parr&#61;&#91;0.002,0.005,0.01,0.1,0.2,0.3,0.5,0.7,0.9&#93;
+parrlow&#61;0.001:0.0005:0.05
+parrhigh&#61;0.05:0.005:0.1
+parr&#61;&#91;&#93;
+x&#61;vcat&#40;parr,parrlow&#41;
+parr&#61;vcat&#40;x,parrhigh&#41;
+for p in parr
+    f&#61;CairoMakie.Figure&#40;&#41;
+    ax&#61;CairoMakie.Axis&#40;f&#91;1,1&#93;&#41;
+    PRODS1&#61;&#91;&#93;
+    for itr in 1:500
+        N&#61;100
+        A&#61;zeros&#40;Int8,N,N&#41;
+        for i in 1:N
+            for j in 1:N
+                if i&#33;&#61;j &amp;&amp; rand&#40;&#41;&lt;p
+                    A&#91;i,j&#93;&#61;1
+#                    A&#91;j,i&#93;&#61;1
+                end
+            end
+        end
+        G&#61;google_matrix&#40;DiGraph&#40;A&#39;&#41;,α&#61;0.85,v &#61; fill&#40;1.0/N, N&#41;&#41;
+        vals,vecs&#61;eigen&#40;G&#41;
+        evals,evecs&#61;eigen&#40;A&#41;
+        x1&#61;abs.&#40;real.&#40;vecs&#91;:,N&#93;&#41;&#41;
+        x1&#61;x1./sum&#40;x1&#41;
+        x2&#61;abs.&#40;real.&#40;evecs&#91;:,N&#93;&#41;&#41;
+        x2&#61;x2./sum&#40;x2&#41;
+        L1&#61;maximum&#40;real.&#40;evals&#41;&#41;
+        append&#33;&#40;prods,&#40;x2./x1&#41;&#91;1&#93;&#41;
+        append&#33;&#40;L1s,L1&#41;
+        push&#33;&#40;PRODS,x2./x1&#41;
+        push&#33;&#40;PRODS1,x2./x1&#41;
+    #    CairoMakie.scatter&#33;&#40;ax,real.&#40;evals&#41;,imag.&#40;evals&#41;,color&#61;&#40;:blue,0.2&#41;&#41;
+    #    println&#40;&#40;x1./x2&#41;&#91;1&#93;,&quot;\t&quot;,L1,&quot;\t&quot;,var&#40;x1./x2&#41;,&quot;\t&quot;,L1*√2&#41;
+    end
+    append&#33;&#40;means1,mean&#40;mean.&#40;PRODS1&#41;&#41;&#41;
+    append&#33;&#40;sds1,sqrt&#40;var&#40;mean.&#40;PRODS1&#41;&#41;&#41;&#41;
+#    println&#40;mean&#40;prods&#41;,&quot;\t&quot;,sqrt&#40;var&#40;prods&#41;&#41;&#41;
+end
+CairoMakie.scatter&#33;&#40;ax,parr,means1,color&#61;&#40;:red,0.2&#41;&#41;
+fusing SparseArrays, Graphs, LinearAlgebra&quot;&quot;&quot;
+    google_matrix&#40;g::DiGraph; α&#61;0.85, v::AbstractVector &#61; nothing&#41;Construct the Google matrix G &#61; α S &#43; &#40;1-α&#41; v*1&#39; for a directed graph g.- S is the column-stochastic transition matrix built from the adjacency with dangling columns replaced by uniform 1/N.
+- α is the damping factor &#40;typical value 0.85&#41;.
+- v is a personalization &#40;teleportation&#41; distribution &#40;length N, nonnegative, sums to 1&#41;. If not provided, v &#61; fill&#40;1/N, N&#41;.Returns a SparseMatrixCSC&#123;Float64,Int&#125;.
+&quot;&quot;&quot;
+function google_matrix&#40;g::DiGraph; α&#61;0.85, v::AbstractVector &#61; nothing&#41;
+    N &#61; nv&#40;g&#41;
+    N &#61;&#61; 0 &amp;&amp; return spzeros&#40;0,0&#41;
+    v &#61;&#61;&#61; nothing &amp;&amp; &#40;v &#61; fill&#40;1.0/N, N&#41;&#41;
+    @assert length&#40;v&#41; &#61;&#61; N &amp;&amp; all&#40;&gt;&#61;&#40;0&#41;, v&#41; &amp;&amp; isapprox&#40;sum&#40;v&#41;, 1.0; atol&#61;1e-12&#41;    # Build column-stochastic S from adjacency A with columns normalized by out-degree &#40;dangling columns -&gt; 1/N&#41;
+    rows &#61; Int&#91;&#93;
+    cols &#61; Int&#91;&#93;
+    vals &#61; Float64&#91;&#93;
+    outdeg &#61; outdegree.&#40;Ref&#40;g&#41;, 1:N&#41;    # Fill columns by iterating over edges &#40;u -&gt; w means column u contributes to row w&#41;
+    for u in 1:N
+        if outdeg&#91;u&#93; &gt; 0
+            w &#61; 1.0 / outdeg&#91;u&#93;
+            for wv in outneighbors&#40;g, u&#41;
+                push&#33;&#40;rows, wv&#41;
+                push&#33;&#40;cols, u&#41;
+                push&#33;&#40;vals, w&#41;
+            end
+        else
+            # Dangling column: uniform distribution 1/N in column u
+            for i in 1:N
+                push&#33;&#40;rows, i&#41;
+                push&#33;&#40;cols, u&#41;
+                push&#33;&#40;vals, 1.0/N&#41;
+            end
+        end
+    end
+    S &#61; sparse&#40;rows, cols, vals, N, N&#41;    # Google matrix: G &#61; α S &#43; &#40;1-α&#41; v*1&#39;
+    # Implement efficiently as sparse plus low-rank term
+    oneT &#61; fill&#40;1.0, 1, N&#41;          # 1&#39; row vector
+    G &#61; α * S &#43; &#40;1-α&#41; * &#40;v * oneT&#41;  # Dense low-rank update; result is dense unless α≈1
+    return G
+end
+f&#61;CairoMakie.Figure&#40;&#41;
+ax&#61;CairoMakie.Axis&#40;f&#91;1,1&#93;,
+    #xscale&#61;log10,
+    xlabel&#61;L&quot;p&quot;,ylabel&#61;L&quot;mean&#40;EigenvectorCentrality_i/PageRank_i&#41;&quot;&#41;
+#CairoMakie.errorbars&#33;&#40;ax,parr,means,sds,color&#61;&#40;:pink,0.7&#41;&#41;
+N&#61;100
+CairoMakie.scatter&#33;&#40;ax,parr,means,color&#61;&#40;:red,0.9&#41;,label&#61;L&quot;N&#61;100&quot;&#41;
+CairoMakie.scatter&#33;&#40;ax,parr,means1,color&#61;&#40;:blue,0.9&#41;,label&#61;L&quot;N&#61;50&quot;&#41;CairoMakie.vlines&#33;&#40;ax,1/N,color&#61;:red&#41;
+CairoMakie.vlines&#33;&#40;ax,log&#40;N&#41;/N,color&#61;:red,linestyle&#61;:dash&#41;CairoMakie.vlines&#33;&#40;ax,1/50,color&#61;:blue&#41;
+CairoMakie.vlines&#33;&#40;ax,log&#40;50&#41;/50,color&#61;:blue,linestyle&#61;:dash&#41;axislegend&#40;ax,position&#61;:rb&#41;
+#CairoMakie.save&#40;&quot;/home/azafar/Desktop/GitHub/atiyabzafar.github.io/Blog/2025/images/ratio_50_500_100_500_transition.png&quot;,f&#41;
+f</code></pre>
+ ]]>
+  </content:encoded>
+    
+  <pubDate>Wed, 03 Sep 2025 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Atiyab Zafar</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
+    <![CDATA[  Kondratieff Cycle: Interesting finds February 2025  ]]>
+  </title>
+  <link> https://atiyabzafar.github.io/Blog/2025/cycle/index.html </link>
+  <guid> https://atiyabzafar.github.io/Blog/2025/cycle/index.html </guid>
+  <description>
+    <![CDATA[  Weekly finds: Kondrateiff Cycle. Learn with me an interesting economic cycle  ]]>
+  </description>  
+  
+  <content:encoded>
+    <![CDATA[  <h1 id="kondratieff_cycle_interesting_finds_february_2025">Kondratieff Cycle: Interesting finds February 2025</h1>
+<p>I recently came across this very interesting term in a research paper and I was very intrigued by this idea. </p>
+<p>Also called supercycles, great surges, long waves, K-waves or the long economic cycles &#40;wikipedia&#41; They are hypothesized cycle-like phenomena in the modern world economy .First cycle with steam engine, cotton in 1800s, second peak triggered by railway/steel in the middle of 19th century. Electrical engineering and chemistry triggered another peak in early 20th century. Mid 20th century had petrochemicals and automobiles, late 20th cnetury was triggered by IT? Computers?</p>
+<p>Are we in the next peak of Kondratieff Cycle? What is the driving factor of this wave? Is it AI? or Is it the information age? I recently was reading Harari&#39;s latest book, Nexus. In the book Harari argues that our world has evolved around what he called Information Networks. It started from the time when we were able to generate written documents. We were able to transfer information across generations and it provided a push for homo Sapiens. </p>
+<p>It then lead to bureaucracy, a very involved hellish information network that humans have somehow managed to create and which leads to the corrupt few taking advantage and leads to the &#39;Musaddilals&#39; struggle around. We are in a different age of information networks. With AI boom that we are currently in, the internet and digital age has transformed our world beyond any. Information is abound in excess, corporates like Meta, Microsoft, X among others own mountains of data. These binary digits stored in various data centers across the world include all the tweets you have made, all the cat memes people have ever created, every bank transfer you have made, all the links you have clicked, all the text you have typed on the internet and your friends and family. We are a commodity. Why am I talking about this on a post about this economic cycle?  </p>
+ ]]>
+  </content:encoded>
+    
+  <pubDate>Wed, 12 Mar 2025 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Atiyab Zafar</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
     <![CDATA[  2024 Reading Wrap Up  ]]>
   </title>
   <link> https://atiyabzafar.github.io/Blog/bookreviews/2024WrapUp/index.html </link>
@@ -214,34 +464,6 @@
 
 <item>
   <title>
-    <![CDATA[  Kondratieff Cycle: Interesting finds February 2025  ]]>
-  </title>
-  <link> https://atiyabzafar.github.io/Blog/2025/cycle/index.html </link>
-  <guid> https://atiyabzafar.github.io/Blog/2025/cycle/index.html </guid>
-  <description>
-    <![CDATA[  Weekly finds: Kondrateiff Cycle. Learn with me an interesting economic cycle  ]]>
-  </description>  
-  
-  <content:encoded>
-    <![CDATA[  <h1 id="kondratieff_cycle_interesting_finds_february_2025">Kondratieff Cycle: Interesting finds February 2025</h1>
-<p>I recently came across this very interesting term in a research paper and I was very intrigued by this idea. </p>
-<p>Also called supercycles, great surges, long waves, K-waves or the long economic cycles &#40;wikipedia&#41; They are hypothesized cycle-like phenomena in the modern world economy .First cycle with steam engine, cotton in 1800s, second peak triggered by railway/steel in the middle of 19th century. Electrical engineering and chemistry triggered another peak in early 20th century. Mid 20th century had petrochemicals and automobiles, late 20th cnetury was triggered by IT? Computers?</p>
-<p>Are we in the next peak of Kondratieff Cycle? What is the driving factor of this wave? Is it AI? or Is it the information age? I recently was reading Harari&#39;s latest book, Nexus. In the book Harari argues that our world has evolved around what he called Information Networks. It started from the time when we were able to generate written documents. We were able to transfer information across generations and it provided a push for homo Sapiens. </p>
-<p>It then lead to bureaucracy, a very involved hellish information network that humans have somehow managed to create and which leads to the corrupt few taking advantage and leads to the &#39;Musaddilals&#39; struggle around. We are in a different age of information networks. With AI boom that we are currently in, the internet and digital age has transformed our world beyond any. Information is abound in excess, corporates like Meta, Microsoft, X among others own mountains of data. These binary digits stored in various data centers across the world include all the tweets you have made, all the cat memes people have ever created, every bank transfer you have made, all the links you have clicked, all the text you have typed on the internet and your friends and family. We are a commodity. Why am I talking about this on a post about this economic cycle?  </p>
- ]]>
-  </content:encoded>
-    
-  <pubDate>Wed, 05 Mar 2025 00:00:00 +0000</pubDate>  
-  
-  
-  <atom:author>
-    <atom:name>Atiyab Zafar</atom:name>
-  </atom:author>
-        
-</item>
-
-<item>
-  <title>
     <![CDATA[  Updated chronological list of my reads  ]]>
   </title>
   <link> https://atiyabzafar.github.io/Blog/bookreviews/books/index.html </link>
@@ -253,7 +475,7 @@
   <content:encoded>
     <![CDATA[  <h1 id="books_read">Books Read</h1>
 <h2 id="2025">2025</h2>
-<table><tr><th align="center">Finished</th><th align="center">Book Title</th><th align="right">Author</th><th align="right">Rating</th><th align="right">Review</th></tr><tr><td align="center">2025/01/30</td><td align="center">Five Little Pigs</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/02/05</td><td align="center">Carrie Soto Is Back</td><td align="right">Taylor Jenkins Reid</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/02/05</td><td align="center">Kowloon Generic Romance, Vol. 1 and 2</td><td align="right">Jun Mayuzuki, 眉月じゅん</td><td align="right"><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/02/16</td><td align="center">Human Acts</td><td align="right">Han Kang</td><td align="right"><div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/02/25</td><td align="center">Mrs McGinty&#39;s Dead</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/03/04</td><td align="center">Markov Chains: From Theory to Implementation and Experimentation</td><td align="right">Paul A. Gagniuc</td><td align="right">–––</td><td align="right">Text Book</td></tr><tr><td align="center">–––</td><td align="center">–––</td><td align="right">–––</td><td align="right">–––</td><td align="right">–––</td></tr></table>
+<table><tr><th align="center">Finished</th><th align="center">Book Title</th><th align="right">Author</th><th align="right">Rating</th><th align="right">Review</th></tr><tr><td align="center">2025/01/30</td><td align="center">Five Little Pigs</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/02/05</td><td align="center">Carrie Soto Is Back</td><td align="right">Taylor Jenkins Reid</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/02/05</td><td align="center">Kowloon Generic Romance, Vol. 1 and 2</td><td align="right">Jun Mayuzuki, 眉月じゅん</td><td align="right"><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/02/16</td><td align="center">Human Acts</td><td align="right">Han Kang</td><td align="right"><div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/02/25</td><td align="center">Mrs McGinty&#39;s Dead</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/03/04</td><td align="center">Markov Chains: From Theory to Implementation and Experimentation</td><td align="right">Paul A. Gagniuc</td><td align="right">–––</td><td align="right">Text Book</td></tr><tr><td align="center">2025/03/17</td><td align="center">The Maniac</td><td align="right">Benjamin Lebatut</td><td align="right"><div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/04/05</td><td align="center">The Mirror Crack&#39;d from Side to Side</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/04/24</td><td align="center">Three Act Tragedy</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 4.25;" aria-label="Rating of this book is 4.25 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/05/05</td><td align="center">Orbital</td><td align="right">Samantha Harvey</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/05/08</td><td align="center">Sharp Objects</td><td align="right">Gillian Flynn</td><td align="right"><div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/06/13</td><td align="center">The Labours of Hercules</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/06/27</td><td align="center">A Murder is Announced</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/07/11</td><td align="center">Sunrise on the Reaping</td><td align="right">Suzanne Collins</td><td align="right"><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/07/12</td><td align="center">Tender is the Flesh</td><td align="right">Augustina Bazterrica</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/07/22</td><td align="center">Death in the Clouds</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/08/11</td><td align="center">Lord Edgeware Dies</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/08/26</td><td align="center">One Two Buckle My Shoe</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 4.25;" aria-label="Rating of this book is 4.25 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/08/28</td><td align="center">Gabriel&#39;s Inferno</td><td align="right">Sylvain REynard</td><td align="right"><div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2.5 out of 5."></td><td align="right"></td></tr><tr><td align="center">–––</td><td align="center">–––</td><td align="right">–––</td><td align="right">–––</td><td align="right">–––</td></tr></table>
 <h2 id="2024">2024</h2>
 <table><tr><th align="center">Finished</th><th align="center">Book Title</th><th align="right">Author</th><th align="right">Rating</th><th align="right">Review</th></tr><tr><td align="center">6 February 2024</td><td align="center">The Secret Adversary</td><td align="right">Agatha Christie</td><td align="right">
 <div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5."></td><td align="right"><a href="https://atiyabzafar.github.io/Blog/bookreviews/February24Books/">link</a></td></tr><tr><td align="center">20 February 2024</td><td align="center">Midnigth Library</td><td align="right">Matt Haig</td><td align="right">
