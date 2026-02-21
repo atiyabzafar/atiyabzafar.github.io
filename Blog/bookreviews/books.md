@@ -27,6 +27,24 @@
 |2025/08/11|Lord Edgeware Dies|Agatha Christie|~~~<div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5.">~~~||
 |2025/08/26|One Two Buckle My Shoe|Agatha Christie|~~~<div class="Stars" style="--rating: 4.25;" aria-label="Rating of this book is 4.25 out of 5.">~~~||
 |2025/08/28|Gabriel's Inferno|Sylvain REynard|~~~<div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2.5 out of 5.">~~~||
+|2025/09/13|Before We Forget Kindness|Toshikazu Kawaguchi|~~~<div class="Stars" style="--rating: 2;" aria-label="Rating of this book is 2 out of 5.">~~~||
+|2025/09/19|Your Utopia|Bora Chung|~~~<div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5.">~~~||
+|2025/09/30|At Bertram's Hotel|Agatha Christie|~~~<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~||
+|2025/10/14|Katabasis|R. F. Kuang|~~~<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~||
+|2025/10/17|Peril at End House|Agatha Christie|~~~<div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5.">~~~||
+|2025/10/26|The housemaid|Frieda Mcfadden|~~~<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~||
+|2025/11/3|Tamas|Bhisham Sahni|~~~<div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5.">~~~||
+|2025/11/21|Firestarter|Stephen King|~~~<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~||
+|2025/11/27|Cat Among the Pigeons|Agatha Christie|~~~<div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5.">~~~||
+|2025/12/08|The Hungry Tide|Amitav Ghosh|~~~<div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5.">~~~||
+|2025/12/18|The Sittaford Mystery|Agatha Christie|~~~<div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5.">~~~||
+|2025/12/31|Jungle Nama: A story of the Sunderban|Amitav Ghosh|~~~<div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5.">~~~||
+
+
+
+
+
+
 |------|------|------|------|------|
 
 
