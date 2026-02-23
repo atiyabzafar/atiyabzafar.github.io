@@ -2,9 +2,16 @@
 @def rss_description = "Books I have read"
 @def rss_pubdate = Date(2025,03,3)
 @def rss_title = "Updated chronological list of my reads"
+
+
 # Books Read
+A heatmap showing how often I read. Each cell correspond to a day and the number inside the cell shows how many pages were read that day. 
+
+\figenv{Reading Heatmap (Updated February 2026)}{/assets/images/Reading_heatmap.png}{width:50%;border: 1px solid red;}
 
 ## 2025
+Reading wrapup post: [Click here](/Blog/bookreviews/2025WrapUp/)
+
 
 |Finished|Book Title|Author|Rating|Review|
 |:-------------:|:------------:|-------|--------|------|

@@ -8,4 +8,4 @@ The following are old blog posts that have been imported from the old blog. Sinc
 * [`Love Letters to pi Two Surprising places Where pi pops up`](/Old_blog/2020-03-14-love-letters-to-pi-surprising-places-where-pi-pops-up-celebrating-pi-day/pi2/)
 * [`Understanding Population Dynamics`](/Old_blog/2020-03-15-understanding-the-dynamics-of-disease-spreading-part-1-basic-population-dynamics/disease/)
 * [`Love Letters to Pi Three Normality, Do you exist in Pi?`](/Old_blog/2021-03-14-pi/pi3/)
-* [`The Eightfold Way`](/Old_blog/Gell-Man/): A Post from the old blog
+* [`The Eightfold Way`](/Old_blog/Gell-Man/) 

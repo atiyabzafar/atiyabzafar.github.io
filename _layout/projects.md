@@ -1,6 +1,6 @@
+@def title = "Research & Projects"
+@def tags = ["Research","Blog"]
 # Projects
-
-
 
 ## Architectures of Problem Solving: How Network Structures Shape  Decision Making
 
