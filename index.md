@@ -8,7 +8,7 @@
 I am a PhD scholar in Physics, currently enrolled in Delhi University, Delhi India. I am working on the field of complex systems. Primarily my research deals with mathematical modeling of adaptive systems and I also study networks, and agent-based models of social and epidemiological dynamics.
 My research interests include statistical physics, dynamical systems, network science, graph theory, criticality and collapse dynamics in complex systems.
 
-You can find more details on the [About me](/AboutMe/) and [Projects](/projects/projects/) pages.
+You can find more details on the [About me](/AboutMe/) and [Projects](/projects/) pages.
 
 # Research & projects
 
