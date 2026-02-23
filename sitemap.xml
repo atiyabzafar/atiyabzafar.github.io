@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
+    <loc>https://atiyabzafar.github.io/projects/ABM/index.html</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
     <loc>https://atiyabzafar.github.io/Old_blog/2019-07-03-calculating-pi-recursively-love-letters-to-pi/2019-07-03-calculating-pi-recursively-love-letters-to-pi/index.html</loc>
     <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
@@ -164,13 +170,13 @@
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://atiyabzafar.github.io/Blog/latexpy/index.html</loc>
+    <loc>https://atiyabzafar.github.io/projects/index.html</loc>
     <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
 </url>
 <url>
-    <loc>https://atiyabzafar.github.io/Blog/test/index.html</loc>
+    <loc>https://atiyabzafar.github.io/Blog/latexpy/index.html</loc>
     <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -183,6 +189,12 @@
 </url>
 <url>
     <loc>https://atiyabzafar.github.io/index.html</loc>
+    <lastmod>2026-02-23</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+</url>
+<url>
+    <loc>https://atiyabzafar.github.io/Blog/test/index.html</loc>
     <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -213,12 +225,6 @@
 </url>
 <url>
     <loc>https://atiyabzafar.github.io/Old_blog/2020-03-15-understanding-the-dynamics-of-disease-spreading-part-1-basic-population-dynamics/disease/index.html</loc>
-    <lastmod>2026-02-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-</url>
-<url>
-    <loc>https://atiyabzafar.github.io/projects/ABM/index.html</loc>
     <lastmod>2026-02-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
