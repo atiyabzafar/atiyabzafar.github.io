@@ -29,7 +29,7 @@ Co-Authors:Matthew Bone, Paula Camargo Scoppetta, Jeanne Pais, Maria Camila Pati
 Interactive Web Application (developed by Francisco with additions from em): [Link](https://labmapp.streamlit.app/)
 
 ## Examining Disease Prevention Measures within Heterogeneous Communities and Studying Effect of Migration and lockdowns
-Click [here](/ABM/) to go to the project page
+Click [here](/projects/ABM/) to go to the project page
 
 \figenv{Disease propagation model}{/assets/images/Denver-Ring-optimized.gif}{width:50%;border: 1px solid red;}
 
