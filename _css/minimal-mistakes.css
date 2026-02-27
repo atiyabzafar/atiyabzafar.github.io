@@ -5175,9 +5175,14 @@ Bloglist
   text-decoration: none;
 }
 
+.bloglist > p:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-left: 3px solid #2a7ae2; /* add this */
+}
+
 .bloglist > p a:hover {
   text-decoration: underline;
-}ng-bottom: 0.5em;
 }
 
 
@@ -5227,6 +5232,25 @@ Bloglist
     -webkit-text-fill-color: transparent;
   }
 }
+
+.rss-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.25rem 0.6rem;
+  background: #fff3e0;
+  color: #e65100;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.78em;
+  border: 1px solid #ffcc80;
+  transition: background 0.2s;
+}
+.rss-button:hover {
+  background: #ffe0b2;
+}
+
+
 
 details {
 /*  font:
