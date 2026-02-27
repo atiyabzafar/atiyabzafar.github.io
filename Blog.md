@@ -4,6 +4,7 @@ Here is my Personal Blog that I will update with things I learn as I go through 
 
 ~~~
 <div class="bloglist">
+<p><a href="/projects/NetLogoEconomic"/>An agent based model for a catalysed economy: Documentation of NetLogo Model</a> 26 February, 2026</p>
 <p><a href="/Blog/bookreviews/2025WrapUp"/>Wrap up and analysis of my reading in 2025</a> 23 February, 2026</p>
 <p><a href="/Blog/2025/google"/>Interesting Finds: Google</a> 3 September, 2025</p>
 <p><a href="/Blog/bookreviews/2024WrapUp"/>Wrap up and analysis of my reading in 2024</a> 5 March, 2025</p>

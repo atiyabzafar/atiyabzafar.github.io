@@ -35,12 +35,26 @@ Click [here](/projects/ABM/) to go to the project page
 
 \abstract{The worldwide pandemic response to the SARS-CoV-2 coronavirus has varied greatly from region to region with many countries implementing stay-at-home restrictions and travel bans to curb human mobility in an attempt to limit vectors for disease transmission. We attempt to quantify the effectiveness of these policies within heterogeneous networks via stochastic agent-based modelling of human mobility and the emergent spatial effects within communities that follow. Examined in this work are movement patterns between home, work, public transit, and central marketplace locations under a spectrum of public lock-down and quarantine policies, simulated within the ABM and compared via case study to data from the current outbreak. We found diminishing returns in the effectiveness of these strategies as a function of their implementation time.}
 
+## An agent based model for an evolving economy
+
+> Research Project (July to August 2024)
+
+### An agent based model of an evolving economic system
+Project Undertaken as part of online school: Introduction to Agent-Based Modeling (Conducted by Santa Fe, USA)
+
+Click [here](/projects/NetLogoEconomic/) to go to the documentation of the NetLogo model.
+
+\abstract{A a model of an artificial economical system made up of firms/factories. This is an attempt to develop a simple enough model to capture some aspects of production in various firms. Each firm is an agent that can generate a unique product or goods. The economy evolves and we study emergent properties that the system end up showing. }
+
+
 ## Latexpy
 
 
 A script to automate LaTeX for generating multiple pdf outputs for changing variables.
 
 [Github URL](https://github.com/atiyabzafar/latexpy.git)
+
+
 
 
 ## Time series analysis for stationarity
