@@ -3,10 +3,7 @@
 # My Blog
 
 ~~~
-<a href="/feed.xml" class="rss-button">
-  &#128225;
-  RSS Feed
-</a>
+<a href="/feed.xml" class="rss-button">RSS Feed</a>
 ~~~
 
 

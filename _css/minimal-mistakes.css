@@ -5246,6 +5246,12 @@ Bloglist
   border: 1px solid #ffcc80;
   transition: background 0.2s;
 }
+
+.rss-button::before {
+  content: "📶";
+  margin-right: 0.35rem;
+}
+
 .rss-button:hover {
   background: #ffe0b2;
 }
