@@ -30,7 +30,7 @@ Here are a few (physics) posts from my blog:
   - [Part 1](/Old_blog/2019-07-03-calculating-pi-recursively-love-letters-to-pi/2019-07-03-calculating-pi-recursively-love-letters-to-pi/)
   - [Part 2](/Old_blog/2020-03-14-love-letters-to-pi-surprising-places-where-pi-pops-up-celebrating-pi-day/pi2/)
   - [Part 3](/Old_blog/2021-03-14-pi/pi3/)
-For more, see the [Blog](/Blog/).
+For all posts, see the [Blog Roll](/Blog/).
 
 # Books & reading
 
