@@ -1,4 +1,8 @@
 @def hasmath = true
+@def tags = ["Blog","Blog Post"]
+@def rss_title = "Understanding Entropy"
+@def rss_description = "Blog post exploring what is entropy and fun things about the concept of entropy. Discussing the statistical physics interpretation of the concept"
+@def rss_pubdate = Date(2019,03,28)
 
 # Understanding Entropy 
 
@@ -227,7 +231,7 @@ Peaked Distribution - Constrained at one point in space
 
 Now let us calculate the entropy for the system using Gibbs Entropy discussed below.
 
-As we can see since the probability is equal to zero for all tiles except tile number 12. Using normalization we know $p_{12} = 1$ I can write : $$p_i= \delta _{{i,12}} \delta _{{ij}}={\begin{cases}0&{\text{if }}i\neq j,\\1&{\text{if }}i=j.\end{cases}} $$
+As we can see since the probability is equal to zero for all tiles except tile number 12. Using normalization we know $p_{12} = 1$ I can write : $$p_i= \delta _{i,12} \delta _{ij}={\begin{cases}0&\text{if }i\neq j,\\1&\text{if }i=j.\end{cases}} $$
 
 $$
 \begin{align} S_G &= -k_B \sum_{i=1}^{30} p_i \ln p_i \\ &= 0+0+......+ \left\[-k_B \times 1 \times \ln\left(1 \right) \right\] \\ &= 0 \because \ln(1)=0 \end{align}

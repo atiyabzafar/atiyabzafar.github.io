@@ -45,10 +45,12 @@ function hfun_bloglist()
         ("/Old_blog/2020-03-15-understanding-the-dynamics-of-disease-spreading-part-1-basic-population-dynamics/disease/", "Understanding Population Dynamics", Date(2020, 3, 15)),
         ("/Old_blog/2020-03-14-love-letters-to-pi-surprising-places-where-pi-pops-up-celebrating-pi-day/pi2/", "Love Letters to Pi (II): Surprising places where Pi pops up", Date(2020, 3, 14)),
         ("/Old_blog/2019-07-03-calculating-pi-recursively-love-letters-to-pi/2019-07-03-calculating-pi-recursively-love-letters-to-pi/", "Calculating Pi Recursively — Love Letters to Pi (I)", Date(2019, 7, 3)),
+        ("/Old_blog/Gell-Man/",                  "Gell-Mann’s innovative thinking| The Eight Fold Way",            Date(2019,5,25)),
         ("/Old_blog/2019-03-28-understanding-entropy/2019-03-28-understanding-entropy/", "Understanding Entropy",   Date(2019, 3, 28)),
     ]
 
     io = IOBuffer()
+    write(io, "<a href=\"/feed.xml\" class=\"rss-button\">Subscribe to RSS Feed</a>\n")
     write(io, "<div class=\"bloglist\">\n")
     for (url, title, date) in posts
         datestr = Dates.format(date, "d U, yyyy")
@@ -56,4 +58,27 @@ function hfun_bloglist()
     end
     write(io, "</div>\n")
     return String(take!(io))
+end
+
+
+function hfun_cusdis()
+    page_id    = Franklin.locvar("cusdis_id")
+    page_url   = Franklin.locvar("cusdis_url")
+    page_title = Franklin.locvar("cusdis_title")
+
+    # Use defaults if not set in frontmatter
+    page_id    = isnothing(page_id)    ? "default"  : page_id
+    page_url   = isnothing(page_url)   ? ""          : page_url
+    page_title = isnothing(page_title) ? "Blog Post" : page_title
+
+    return """
+    <div id="cusdis_thread"
+      data-host="https://cusdis.com"
+      data-app-id="3fbebddf-252b-4547-9c0f-cb1d9ba878aa"
+      data-page-id="$page_id"
+      data-page-url="$page_url"
+      data-page-title="$page_title"
+    ></div>
+    <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+    """
 end

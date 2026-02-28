@@ -2,6 +2,9 @@
 @def rss_description = "Books I have read"
 @def rss_pubdate = Date(2025,03,3)
 @def rss_title = "Updated chronological list of my reads"
+@def cusdis_id    = "books"
+@def cusdis_url   = "https://atiyabzafar.github.io/Blog/bookreviews/books/"
+@def cusdis_title = "Books Read"
 
 
 # Books Read
@@ -199,14 +202,6 @@ Reading wrapup post: [Click here](/Blog/bookreviews/2025WrapUp/)
 |Tomorrow, and Tomorrow, and Tomorrow|Gabrielle Zevin|
 |I Contain Multitudes: The Microbes Within Us and a Grander View of Life|Ed Yong|
 
+## Comments
 
-~~~
-<div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="3fbebddf-252b-4547-9c0f-cb1d9ba878aa"
-  data-page-id="{{ books }}"
-  data-page-url="{{ atiyabzafar.github.io/Blog/bookreviews/books/ }}"
-  data-page-title="{{ Books Read }}"
-></div>
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
-~~~
+{{cusdis}}

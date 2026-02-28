@@ -1,7 +1,11 @@
-
 @def hasmath=true
+@def tags = ["Blog","BlogPost"]
+@def rss_title = "Understanding Population Dynamics"
+@def rss_description = "An exploration of dynamical systems and population growth models"
+@def rss_pubdate = Date(2020,03,15)
 
 > This post is meant to be a supplement to what's coming ahead in a few days. I made this blog to share my exploration and curiosities and Here's me doing exactly that. So let's see what i learned today.
+>Edit: The subsequent posts never came. 😞 Life got in the way and the blog stayed behind. It also moved domains and hosting.
 
 With the ongoing pandemic of COVID-19, the Coronavirus disease outbreak has spread over the whole world, with daily rise in the number of reported cases across the world. Now an important part of dealing with the disease is targeted by understanding how the world interacts as a social network, and Network Scientists are working day and night to understand this epidemic for future predictions. (There is a really wonderful New York Times article titled : "Mapping the Social Network of Coronavirus" I would recommend to read: Link in the end).
 

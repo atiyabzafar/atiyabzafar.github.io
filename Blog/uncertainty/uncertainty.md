@@ -1,5 +1,4 @@
-@def tags = ["Blog","WeeklyPost"]
-
+@def tags = ["Blog","BlogPost"]
 @def rss_description = "Making peace with uncertainty:(Ian Malcolm, Jurassic Park, Uncertainty and Science)"
 @def rss_pubdate = Date(2023,08,28)
 # Making Peace with Uncertainty (Ian Malcolm and Science)

@@ -1,3 +1,9 @@
+@def tags = ["Blog","BlogPost"]
+@def hasplotly = true
+@def rss_title = "Gell-Mann’s innovative thinking| The Eight Fold Way"
+@def rss_description = "This post is a tribute to Murray Gell-Mann a physicist who passed away yesterday-24th May 2019. A man who used innovative thinking and intuitiveness to tame the particle zoo that terrified physicists in 1950s"
+@def rss_pubdate = Date(2019,05,25)
+
 [Gell-Mann’s innovative thinking| The Eight Fold Way| – Physicsing](http://www.physicsing.xyz/2019/05/gell-manns-innovative-thinking-the-eight-fold-way/)  
   
 
@@ -56,15 +62,15 @@ In the academic year 1959-60, Gell-Mann took on the problem that was troubling t
 He identified the Symmetry present in the particles and then in January 1961 proposed the so called _Eight-fold_ way to arrange the particles. While the group representation of SU(3) holds complicated mathematics and lie algebra which is complicated. It is very simple to see how the eight-fold way works and arranges particles as their properties.
 
 Gell-Mann and Nee’man independently discovered the eight-fold way to arrange Baryons and Mesons in complex geometrical patters according to their properties.
-> 
-> ![](https://secureservercdn.net/166.62.108.196/o2c.b84.myftpupload.com/wp-content/uploads/2019/05/Meson_octet-1.png)
-> 
+
+![](https://upload.wikimedia.org/wikipedia/commons/3/3a/Meson_octet.png) 
 > Meson Octet  
 
 In this arrangement each property as you go from left to right (Strangeness) or top to bottom (Isospin) or diagonally (Charge). ( As we had groups in Mendeleev’s Periodic Table)  
 
 Eight particles are arranged in Hexagons called as Octets and ten particles are arranged in a triangle and is known as a decuplet.
-> ![](https://secureservercdn.net/166.62.108.196/o2c.b84.myftpupload.com/wp-content/uploads/2019/05/Baryon_octet-1.png)
+
+![](https://upload.wikimedia.org/wikipedia/commons/4/4b/Baryon_octet.png)
 > Baryon Octet
 
 Each octet and Decaplet had Spin and parity constant. As we go down an octet or a decuplet the mass of particles increase and the mass is almost constant horizontally.
@@ -80,7 +86,7 @@ Gell-Mann found that at the bottom of the figure there was a particle with -1 Ch
 
 Yes the Eight-fold way led to physically good looking geometrical arrangements of known particles. They arrived from symmetries that were shown by the particles. But why did they follow the symmetry in the first place.
 
-![](https://secureservercdn.net/166.62.108.196/o2c.b84.myftpupload.com/wp-content/uploads/2019/05/Capture-1.png)
+![](https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/Quark_structure_proton.svg/250px-Quark_structure_proton.svg.png)
 
 > Protons and Neutrons are made up of three quarks
 
@@ -96,7 +102,7 @@ Gell-Mann named the particles quark from a line in James Joyce’s book that we 
 
 In 1967 at Stanford Linear Accelerator (SLAC), in experiments of Deep Elastic scattering of an electron and a proton proved the existence of quarks and Gell-Mann’s hypothetical particles were accepted by the Scientific Community.
 > 
-> ![](https://secureservercdn.net/166.62.108.196/o2c.b84.myftpupload.com/wp-content/uploads/2019/05/GettyImages-106506227_master-1-1-1024x722.jpg)
+![](https://assets.mitmuseum.mit.edu/iiifimg3/63134811/full/800,/0/default.jpg)
 > 
 > SWEDEN – DECEMBER 12: King Gustaf VI Adolf of Sweden awarding the Nobel Prize for Physics to Dr. Murray Gell-Mann of the California Institute of Technology for his contributions and discoveries concerning the classification of elementary particles and their interactions. (Photo by Keystone-France/Gamma-Keystone via Getty Images)
 

@@ -2,6 +2,9 @@
 @def rss_title = "The Ballad of Songbirds and Snakes Bookreview"
 @def rss_description = "The Ballad of Songbirds and Snakes Bookreview"
 @def rss_pubdate = Date(2024,09,09)
+@def cusdis_id    = "BalladSongbirdsReview"
+@def cusdis_url   = "atiyabzafar.github.io/Blog/bookreviews/BalladOfSongbirds/"
+@def cusdis_title = "Books Review for Ballad of Songbirds and Snakes"
 
 # The Ballad of Songbirds and Snakes: Chaos, Control and Contract a book review
 
@@ -50,13 +53,6 @@ Double pendulum can have two stable positions. One in which both weights point d
 
 The story could have been decreased in word length. Suzanne added too much fan service and nudges to the original trilogy and the last part was just too slow. 
 
-~~~
-<div id="cusdis_thread"
-  data-host="https://cusdis.com"
-  data-app-id="3fbebddf-252b-4547-9c0f-cb1d9ba878aa"
-  data-page-id="{{ BalladSongbirdsREview }}"
-  data-page-url="{{ atiyabzafar.github.io/Blog/bookreviews/BalladOfSongbirds/ }}"
-  data-page-title="{{ Books Read }}"
-></div>
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
-~~~ 
+## Comments
+
+{{cusdis}}

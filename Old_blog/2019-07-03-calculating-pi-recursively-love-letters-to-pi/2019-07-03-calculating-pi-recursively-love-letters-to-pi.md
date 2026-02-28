@@ -1,5 +1,8 @@
 @def hasmath=true
-
+@def tags = ["Blog","BlogPost"]
+@def rss_title = "Love Letters to Pi 1"
+@def rss_description = "A blog post celebrating my favourite irrational number"
+@def rss_pubdate = Date(2019,07,03)
 
 ![](/Old_Blog/2019-07-03-calculating-pi-recursively-love-letters-to-pi/images/04-Fascinating-Facts-Behind-the-Mystery-of-Pi-760x506-1.jpg)
 

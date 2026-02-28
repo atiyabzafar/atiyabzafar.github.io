@@ -11,18 +11,18 @@ The reading theme continued into 2025. If last few years were about establishing
 
 \figenv{Wrap Up 2025 by Storygraph}{/Blog/bookreviews/images/storygraph-wrap-up-2025.png}{width:50%;border: 1px solid red;}
 
-This year, I also joined hand with a few book club fellows in starting a new book club. We meet once a month in a tight knit community and discuss the books we have been reading. It started with sucess and hopefully will continue to go strong as it allows me to explore uncharted territory.
+This year, I also joined hand with a few book club fellows in starting a new book club. We meet once a month in a tight knit community and discuss the books we have been reading. It started with success and hopefully will continue to go strong as it allows me to explore uncharted territory.
 
 By the end of 2025 I finished **33 books** across **10,059 pages**. A slight bump from 32 books in 2024, and consistent pacing given the circumstances. The first book of the year was *Five Little Pigs* by Agatha Christie and the last was *The Sittaford Mystery* — also Agatha Christie. Make of that what you will.
 
 ## Story Graph
 
-StoryGraph continues to be my tracker of choice. No Amazon, simple taps to log, ability to export data, small teacm, and gorgeous wrap-up stats at the end of the year. The full reading list is always available at the [books page](/Blog/bookreviews/books/).
+StoryGraph continues to be my tracker of choice. No Amazon, simple taps to log, ability to export data, small team, and gorgeous wrap-up stats at the end of the year. The full reading list is always available at the [books page](/Blog/bookreviews/books/).
 
 
 ### Pages and Books Read
 
-The year started slowly — just one book in January. February surprisingly had 5 books(helped by graphic novel, yes it is cheeky I know). After that, things settled into a remarkably stable rhythm of 2–3 books per month for the rest of the year. With last half of the year at 3 books per month.
+The year started slowly with just one book in January. February surprisingly had 5 books(helped by graphic novel, yes it is cheeky I know). After that, things settled into a remarkably stable rhythm of 2–3 books per month for the rest of the year. With last half of the year at 3 books per month.
 
 Only 3 books crossed the 500-page mark. I am a short-book person, it turns out — 59% of what I read was under 300 pages.
 
@@ -56,11 +56,11 @@ Storygraph also tracks how your reading mood evolves over the year:
 <div id="moodchart"></div>
 ~~~
 
-The mood chart for 2025 tells a different story from 2024 — but ends in the same place. In 2024, I started neutral and moved towards positive before a long decline into darkness. In 2025, I started already at -25 and never really escaped the negative half of the scale. February offered a brief positive change, the lightest point of the year, before settling back into the -25 range for most of the spring and summer. Then came a steady decline: July -33, August -38, September -40, October -44, November -50, December -49.
+The mood chart for 2025 tells a different story from 2024; but ends in the same place. In 2024, I started neutral and moved towards positive before a long decline into darkness. In 2025, I started already at -25 and never really escaped the negative half of the scale. February offered a brief positive change, the lightest point of the year, before settling back into the -25 range for most of the spring and summer. Then came a steady decline: July -33, August -38, September -40, October -44, November -50, December -49.
 
 > The y-axis runs from a value of -50 to 50, with -50 representing darker/sadder moods and 50 representing the lightest/happiest moods. The data of month against score are as follows: Jan - -25, Feb - -15, Mar - -25, Apr - -25, May - -25, Jun - -23, Jul - -33, Aug - -38, Sep - -40, Oct - -44, Nov - -50, Dec - -49.
 
-November at -50 is the absolute bottom of the scale. I was reading murder mysteries, dystopian fiction, and dark literary novels about violence, colonialism, and partition. I think reading *Tamas* in November and Stephen King's *Firestarter* brought it down and then the two books by Amitab Ghosh did not help.  It was not a planned descent. It never is. As I wrote in the 2024 wrap-up, perhaps we gravitate to similar content when deep in a genre, or maybbe the reading mood and the mind's mood are not entirely independent of each other.
+November at -50 is the absolute bottom of the scale. I was reading murder mysteries, dystopian fiction, and dark literary novels about violence, colonialism, and partition. I think reading *Tamas* in November and Stephen King's *Firestarter* brought it down and then the two books by Amitav Ghosh did not help.  It was not a planned descent. It never is. As I wrote in the 2024 wrap-up, perhaps we gravitate to similar content when deep in a genre, or maybe the reading mood and the mind's mood are not entirely independent of each other.
 
 ### Authors
 
@@ -68,7 +68,7 @@ November at -50 is the absolute bottom of the scale. I was reading murder myster
 <div id="authorchart"></div>
 ~~~
 
-The author chart is dominated by Agatha Christie at 13 books — nearly 40% of my entire year. This year I also discovered **Amitav Ghosh** (2 books), whose *The Hungry Tide* and *Jungle Nama* were among the more difficult reads of the year. R.F. Kuang (2 books) and Jun Mayuzuki (2 books) finishes the tally of the authors I read more than once.
+The author chart is dominated by Agatha Christie at 13 books, nearly 40% of my entire year. This year I also discovered **Amitav Ghosh** (2 books), whose *The Hungry Tide* and *Jungle Nama* were among the more difficult reads of the year. R.F. Kuang (2 books) and Jun Mayuzuki (2 books) finishes the tally of the authors I read more than once.
 
 ### Bonus: Rating Data
 
