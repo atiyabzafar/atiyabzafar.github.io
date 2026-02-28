@@ -50,7 +50,7 @@ Click [here](/projects/NetLogoEconomic/) to go to the documentation of the NetLo
 ## Latexpy
 
 
-A script to automate LaTeX for generating multiple pdf outputs for changing variables.
+A script to automate LaTeX for generating multiple pdf outputs for changing variables. [Blog post](/Blog/latexpy/) with more information.
 
 [Github URL](https://github.com/atiyabzafar/latexpy.git)
 
