@@ -8,19 +8,20 @@
 
 # A tutorial for solving Differential Equations in Julia
 
-My research involves solving high ordered highly coupled differential equations. And while working in last few years I have used many programming languages like C, Fortran, Python, Julia. I have also used softwares like Matlab and Mathematica for the purpose. 
+My research involves solving high ordered highly coupled differential equations. And while working in the last few years, I have used many programming languages like C, Fortran, Python, and Julia. I have also utilised softwares like Matlab and Mathematica for the same purpose thanks to the university wide license provided by my department. 
 
-I have realised that each had its own advantages. But among all of these I found Julia to be the most superior among the computational capacity, variety, speed and ease of use. There already exist benchmarks published on the internet that looks at various ODE solvers or interfaces and rank them for their speed and efficiency. I will not be doing that in this post. This post is intended as a tutorial for those who wish to use Julia for solving differential equations. For more I would link to more resources at the end.  
+I have realised that each had its own advantages. But among all of these, I found Julia to be the most superior among the computational capacity, variety, speed and ease of use. There already exist benchmarks published on the internet that looks at various ODE solvers or interfaces and rank them for their speed and efficiency. I will not be doing that in this post. **This post is intended as a tutorial for those who wish to use Julia for solving differential equations.** For more information on how Julia is the best at solving ODEs (ordinary differential equations), I will point you to benchmark link and resources at the end of the post. 
 
 \toc
+
 ## Julia?
 
-For people who are new to Julia, I will in this post go through some introductory element and some syntax that will be good for people working with Julia, people who want to go into further details, again see links at the end. For people who have used python which is common for science researchers, Julia looks very similar and is easy to grasp. I moved from python to julia myself and found a lot of common syntax ideas. For people who want a tiny introduction to the syntax of Julia, you can jump below to the [section below](/Blog/2026/juliatutorial/#short_introduction_to_julias_syntax) where I introduce some concepts. 
+For people who are new to Julia, I will go through some introductory element and  syntax in this post, which will be good for people starting with Julia, people who want to go into further details and want to spend more time learning it, see links at the end. For people who have used python which is common for science researchers, Julia looks very similar and is easy to grasp. I moved from python to julia myself and found a lot of common language rules and syntax. For people who want a tiny introduction to the syntax of Julia, you can jump below to the [section](/Blog/2026/juliatutorial/#short_introduction_to_julias_syntax) where I introduce some concepts that are used in this post and would be beneficial. 
 
 
 ## DifferentialEquations.jl
 
-We can write our own differential equations solver using the Euler or Runge Kutta methods, but the developers have created a brilliant scientific library [DifferentialEquations.jl](https://github.com/SciML/DifferentialEquations.jl) which provides industry standard differential equations solver. You can install it using
+We can write our own differential equations solver using the Euler or Runge Kutta methods, in pure Julia, but the developers have created a brilliant scientific library [DifferentialEquations.jl](https://github.com/SciML/DifferentialEquations.jl) which provides industry standard differential equations solver. In this post we will only be using this library exclusively for solving ODEs. You can install it using
 
 ```Julia
 julia>] add DifferentialEquations
@@ -29,11 +30,12 @@ julia>] add DifferentialEquations
 ### One dimensional ODE (Logistic Growth)
 
 Let us take an example to learn how to use DifferentualEquations.jl, we will start with a one dimensional ODE.
+
 Population growth with a carrying capacity (previously discussed in a blog post [here.](/Old_blog/2020-03-15-understanding-the-dynamics-of-disease-spreading-part-1-basic-population-dynamics/disease/))
 
 $$\frac{dN}{dt} =rN \cdot \left( 1- {\frac{N}{C}}\right) $$
 
-Here C is the carrying Capacity of the population. This equation is famously known as the Logistic growth dynamical equation and is important in various fields like physics, medicine, computers, networks, and ecology.
+Here, $N(t)$ is population at time $t$, C is the carrying Capacity of the population, and $r$ is the growth rate. This equation is famously known as the logistic growth dynamical equation and is important in various fields like physics, medicine, computers, networks, and ecology.
 
 Let us use DifferentialEquations to solve this linear differential equation.
 
@@ -51,26 +53,26 @@ sol = solve(prob, Tsit5(), reltol = 1e-8, abstol = 1e-8)
 ```Julia
 sol.u = [0.22, 0.2214624947856733, 0.22839406288432468, 0.2397665944624233, 0.25353691189172606, 0.2718027963182323, 0.29429750259628623, 0.3233955825445172, 0.39217810003773756, 0.4254078760000628, 0.47122980934119635, 0.5110669792190305, 0.5536344555821728, 0.5942082113800929, 0.6347729254986635, 0.6741582191045536, 0.7131345538896132, 0.7524902118492397, 0.7993766630870759, 0.8272052545288429, 0.854428424597453, 0.875866364292772, 0.894764782343281, 0.9105737408909818, 0.9242005455844378, 0.9357992086733474, 0.9457537584482427, 0.9542691501119392, 0.9615658394979313, 0.9678068498963645, 0.9731399616235411, 0.9766682882615482]
 ```
-And voila, we have the solution. But how did that work? Let us take it step by step.
+And voila, we have the solution. But wait? how did that work? Let us take it step by step.
 
-We always solve the system in two parts, we first define the problem: this involves defining (usually a function) the differential equations and then defining an `ODEProblem` object. The following line take care of first of these things
+We always solve the ODE system in two parts, we first define the problem: this involves defining (usually a function) the differential equations and then defining an `ODEProblem` object. The following line take care of the former:
 
 ```Julia
 f_logistic(u,p,t)=p[1] * u * (1 - u/p[2])
 ```
-Note the use of `u` is just arbitrary, I could just define it interms of `N` and it would still give me the right result. `p` is an array of parameters defined in the function and given to `ODEProblem` as an input. The function has three inputs, first is the variable itself, second is an array `p` that includes all the parameters, and last is time `t`. This particular ODE was not explicitly time dependent. But we can have systems with explicit time dependence, so we always keep it in the skeleton. 
+Note the use of `u` is just arbitrary, I could just define it in terms of `N` and it would still give me the right result. `p` is an array of parameters defined for the function and given to `ODEProblem` as an input. The function has three inputs, first is the variable itself, second is an array `p` that includes all the parameters, and last is time `t`. This particular ODE was not explicitly time dependent. But we can have systems with explicit time dependence, so we always keep it in the skeleton. 
 
-`tspan` is a tuple which tells the system the timescale upto which the solution needs to be solved. So the solution $N(t)$ will be from $N(0)$ to $N(10)$. And last but not the least `u0` tells us the initial value, as in essence what we are solving here is an initial value problem.
+`tspan` is a tuple which tells the system the timescale upto which the solution needs to be solved. So the solution $N(t)$ will be from $N(0)$ to $N(10)$. And last but not the least `u0` tells us the initial value, as in essence, the problem we are solving here is an initial value problem. Now, we get to the solution:
 
 ```Julia
 sol = solve(prob, Tsit5(), reltol = 1e-8, abstol = 1e-8)
 ```
 
-This line then solves the prob defined using `ODEProblem(f,u,t,p)`, the solve function takes the problem as an input, the solver we are using to solve the ODE (`Tsit5()`) here, and the tolerance values upto which we will be solving. 
+This line solves the problem defined using `ODEProblem(f,u,t,p)`, the solve function takes the problem (`prob` here) as an input, the solver we are using to solve the ODE (`Tsit5()`) here is also mentioned, and the tolerance values upto which we will be solving. 
 
 \note{abstol and reltol are different kind of tolerance values one can use for stopping the solver. They are absolute tolerance levels and relative tolerance levels. Absolute tolerance looks at successive values to check convergence, `x{t+1}-x{t}<abstol`, whereas the relative tolerance provides us with fractional convergence check.
 
-The solver is a 5th order solver much like RK4-5. For people who have used matlab, it is equivalent to `ode45` function there. Or for scipy users it is like the default solver of scipy's `solve_ivp`. `Tsit5` uses a different parameter table than the usual RK45 method that gives better accuracy. See [section below](/Blog/2026/juliatutorial/#about_solvers)
+The solver is a 5th order solver much like RK4-5. For people who have used matlab, it is equivalent to `ode45` function there. Or for scipy users it is like the default solver of scipy's `solve_ivp`. `Tsit5` uses a different parameter table than the usual RK45 method that gives better accuracy. See [section below](/Blog/2026/juliatutorial/#about_solvers) for more on the types of solvers available. There are dozens of solvers available..
 }
 
 This gives us an object `sol`, `sol.u` gives us $N(t)$, whereas `sol.t` gives us an array with time values at which $N(t)$ is evaluated. `sol.t` gives adaptive (non-uniform) time steps depending on the kind of solver.
@@ -89,7 +91,7 @@ Plots.savefig("ODE1d.png")
 
 \figenv{Solution of dN/dt with the solution aka the logistic function}{/Blog/2026/images/ODE1d.png}{width:75%;border: 1px solid red;}
 
-I prefer using `CairoMakie.jl` to do scientific plotting. It is more customisable and gives better quality plots (also personal choice it appears better to me). Feel free to check out documentation for cairomakie linked at the bottom of the post. 
+I prefer using `CairoMakie.jl` to do scientific plotting. It is more customisable and gives better quality plots (also as a personal choice, it looks better to me). Feel free to check out documentation for cairomakie linked at the bottom of the post. 
 
 ```Julia
 using CairoMakie,LaTeXStrings
@@ -105,7 +107,7 @@ CairoMakie.save("Blog/2026/images/MakieODE.png",fig)
 
 ### Higher dimensional ODE (Lorenz System, Chaos and strange attractor)
 
-The most famous example for a higher dimensional Ordinary differential equations system is the lorenz system. It has captured people's attention as the system that introduced the world to Chaos. We will try to solve the lorenz system using 
+The most famous example for a higher dimensional ordinary differential equations system is the lorenz system. It has captured people's attention as the system that introduced the world to Chaos. We will try to solve the lorenz system using the Differential Equations julia library. The system is defined as:
 
 $$
 \begin{aligned}
@@ -117,9 +119,9 @@ $$
 
 Unlike the previous system, this one is non-linear and coupled. These equations actually represent fluid dynamics, where $x$,$y$ and $z$ are different variables related to the rate of flow and the temperature profile of the fluid. It is not important what these physically mean for now. Parameters $a$,$b$ and $c$ are important for studying different kinds of behaviours for the lorenz system.
 
-We will take advantage of an important concept introduced in [the section below](/Blog/2026/juliatutorial/#short_introduction_to_julias_syntax). Mutable functions, or in-place updating functions, represented by the exclamation mark at the end of the name are used for better efficiency. This updates the variables that are inputs of the function. i.e. it updates already allocated variables. The compiler does not need to allocate the output of the function to another memory space and makes the solver much more efficient. It get important when working with large $N$ problems.
+We will take advantage of an important concept introduced in [the section below](/Blog/2026/juliatutorial/#short_introduction_to_julias_syntax). Mutable functions, or in-place updating functions, represented by the exclamation mark at the end of the name are used for better speed and memory efficiency. These functions updates the variables that are themselves inputs of the function. i.e. it updates already allocated variables. The compiler does not need to allocate the output of the function to another memory space and which in turn makes the solver much more efficient. The use of in-place updating functions get important when working with large $N$ problems.
 
-We can define the lorenz model by 
+We can define the lorenz model in julia by 
 
 ```Julia
 function lorenz_ODE!(du,u,p,t)
@@ -150,7 +152,7 @@ Now we can solve it just the way we did for the linear case. Defining the parame
 ```
 params=[10.0,15.0,5.0]
 tspan=(0.0,100.0)
-uo=[1.0,0.0,0.0]
+u0=[1.0,0.0,0.0]
 ```
 And the problem:
 ```Julia
@@ -170,6 +172,7 @@ Finally the solution, just using the default solver:
 ```Julia
 sol=solve(problem)
 ```
+\note{When we do not mention the solver, DifferentialEquations.jl tries to find what will be the most efficient solver for our problem. It is advisable though to identify which solver fits your system better and explicitly mention it.}
 
 Okay, now we have the solution, let us plot it, I am going to use my trusty CairoMakie for plotting. You can use any library. 
 ```Julia
@@ -197,11 +200,13 @@ fig
 
 
 
-We can see for the parameters `[10.0,15.0,5.0]`. we get a spiral attractor, i.e. all three values converge to a single point $(X,Y,Z)$.
+We can see for the parameters `[10.0,15.0,5.0]`, we get a spiral attractor, i.e. all three values converge to a single point $(X,Y,Z)$.
 
-We can change these parameters to get different results. With `params=[10.0,28.0,8/3]`, we get the famous buttterfly wing shaped lorenz attractor, also known as the strange attractor. 
+We can change these parameters to get different results. With `params=[10.0,28.0,8/3]`, we get the famous buttterfly wing shaped lorenz attractor, also known as the [strange attractor]. 
 
 \figenv{The Chaotic Lorenz attractor visualised in the phase space. }{/Blog/2026/images/lorenzchaos.png}{width:75%;border: 1px solid red;}
+
+\note{Fun Fact: Butterfly shaped attractor (the strange attractor) present in the lorenz system has no correlation with the butterfly effect, which is the cliched example for the chaotic dynamics. It is funny how two properties of the lorenz system have a character of "buterrflies" while being disconnected.}
 
 This chaotic strange attractor is present for a value of $b$ beyond a critical value $b_c$ for fixed $a$ and $c$ values. There are surprisingly a few interesting special values of $b$ that shows periodic behaviour in the middle of chaos, for example, the following image is for `params=[10.0,100.5,8/3]`. The phase portrait is now colored by time, notice the late time convergence to a periodic attractor shown with yellow colored trajectory. This parameter value is originally from Chapter 4 of The Lorenz Equations by Colin Sparrow (1992, Springer) where he recognised multiple stable attractors. 
 
@@ -235,7 +240,7 @@ $$
 \frac{dx_{i}}{dt}=x_{i} \cdot f_i, \quad f_i=\left(r_{i}+\sum _{j=1}^{n}A_{ij}x_{j}\right)
 $$
 
-And $\sum _{j=1}^{n}A_{ij}x_{j}$ is nothing but the $i^{th}$ element of the product between $A$ and $\vec{X}$. So we are going to use LinearAlgebra.jl library and its in-place multiplication function `mul!()` to get Ax first. Then we use the for loop to get `dx[i]`.
+And $\sum _{j=1}^{n}A_{ij}x_{j}$ is nothing but the $i^{th}$ element of the product between $A$ and $\vec{X}$. So, we can take advantage of the LinearAlgebra.jl library and its in-place multiplication function `mul!()` to get Ax first. Then we can use the for loop to get `dx[i]`.
 
 ```Julia
 ````
@@ -304,7 +309,7 @@ We can generalise it for a higher dimensional system making sure $A_{ij}> |A_{ii
 
 ### Case 2: Competitive Exclusion 
 
-Competitive exclusion is the idea in ecology which says that two species cannot coexist in one niche assuming resources are finite. either one or both species would eventually die. 
+Competitive exclusion is the idea in ecology which says that two species cannot coexist in one niche assuming resources are finite, either one or both species would eventually die. 
 
 We can model this behaviour by considering a toy model with 
 
@@ -314,11 +319,11 @@ A=\begin{pmatrix}
 \end{pmatrix} \text{ and } R=[1,1]
 $$
 
-Solving this model, we notice it is dependent on the initial condition, if we start with more of species 1, I get that species taking over in the ecosystem. 
+Solving this model, we notice it is dependent on the initial condition, if we start with more individuals of a species, we get that species taking over in the ecosystem. 
 
 \figenv{Competitive exclusion for two species}{/Blog/2026/images/competitiveexclusion.png}{width:75%;border:1px solid red}
 
-We can model it for higher species using our code, by considering the $A_{ij}$ to be higher than the diagonal but of similar values. And higher than their own intrinsic growth rate. Here I sample the off diagonal elements from normal distribution with $\mu =-1.3 \, \sigma = 0.1$ 
+We can model it for higher species using our code, by considering the $A_{ij}$ to be higher than the diagonal but of similar values. And higher than their own intrinsic growth rate. Here I sample the off diagonal elements from normal distribution with $\mu =-1.3 , \sigma = 0.1$ 
 
 \figenv{Competitive Exclusion principle for 10 species. Only species 7 survives , rest all die.}{/Blog/2026/images/Exclusion-10.png}{width:75%;border:1px solid red}
 
@@ -344,11 +349,11 @@ Plots.plot(
 
 \figenv{Plot for prey predator dynamics between two species showing oscillatory solution}{/Blog/2026/images/oscillation_2.png}{width:75%;border:1px solid red;}
 
-We can cleverly study oscillations and choatic behaviour in higher dimensional LV dynamics. But I will leave it for another day. This post is already too long. 
+We can cleverly study oscillations and choatic behaviour in higher dimensional LV dynamics. But I will leave it for another day. This post is already too long. Note, that here we have allowed fractional values, in a more concrete simulation, if we are simulating population growth, we would work with discrete numbers and we would solve a stochastic differential equation instead. This is a more general look at the GLV.
 
 ## Conclusion
 
-I hope this blog post would help someone who is starting out with solving Ordinary Differential Equations using Julia. I understand the learning curve could be a little difficult at first to climb, but it is smooth scaling once you get a hang of it. 
+I hope this blog post would help someone who is starting out with solving Ordinary Differential Equations using Julia. I understand the learning curve could be a little difficult at first to climb, but it is smooth scaling once you get a hang of it. We also looked at two very interesting dynamical systems and explored a few fun elements shown by the systems. Both individual systems can be explored a lot more thatn what has been done here. 
 
 
 ## Appendix 
