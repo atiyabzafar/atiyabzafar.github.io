@@ -1,0 +1,4 @@
+a = Any[1, 2, 3, 4]
+You can also remove elements from the array
+a = Any[1, 2, 3]
+a = Any[2, 3]

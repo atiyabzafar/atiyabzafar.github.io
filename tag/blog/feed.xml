@@ -23,6 +23,493 @@
 
 <item>
   <title>
+    <![CDATA[  Differential.jl: A tutorial with Lorenz system and Generalised Lotka Volterra  ]]>
+  </title>
+  <link> https://atiyabzafar.github.io/Blog/2026/juliatutorial/index.html </link>
+  <guid> https://atiyabzafar.github.io/Blog/2026/juliatutorial/index.html </guid>
+  <description>
+    <![CDATA[  A tutorial for solving dofferential equation susing Julia and a look at lorenz system with generalise lotka volterra  ]]>
+  </description>  
+  
+  <content:encoded>
+    <![CDATA[  <h1 id="a_tutorial_for_solving_differential_equations_in_julia">A tutorial for solving Differential Equations in Julia</h1>
+<p>My research involves solving high ordered highly coupled differential equations. And while working in last few years I have used many programming languages like C, Fortran, Python, Julia. I have also used softwares like Matlab and Mathematica for the purpose. </p>
+<p>I have realised that each had its own advantages. But among all of these I found Julia to be the most superior among the computational capacity, variety, speed and ease of use. There already exist benchmarks published on the internet that looks at various ODE solvers or interfaces and rank them for their speed and efficiency. I will not be doing that in this post. This post is intended as a tutorial for those who wish to use Julia for solving differential equations. For more I would link to more resources at the end.  </p>
+<div class="franklin-toc"><ol><li>Julia?</li><li>DifferentialEquations.jl<ol><li>One dimensional ODE &#40;Logistic Growth&#41;</li><li>Higher dimensional ODE &#40;Lorenz System, Chaos and strange attractor&#41;</li></ol></li><li>Generalised Lotka Volterra Model &#40;Ecological Predator-Prey Dynamics&#41;<ol><li>Case 1: Stable coexistence:</li><li>Case 2: Competitive Exclusion </li><li>Case 3: Limit Cycle &#40;oscillations&#41;</li></ol></li><li>Conclusion</li><li>Appendix <ol><li>Short introduction to Julia&#39;s syntax</li><li>About solvers</li><li>Important links<ol><li>DifferentialEquations.jl</li></ol></li><li>Julia Learning Resources</li><li>Plotting</li><li>Previous posts referenced in this article</li><li>Code for plots<ol><li>Competitive exclusion</li></ol></li><li>Coeexistence</li><li>Lorenz Sensitivity</li><li>Lorenz Periodic</li></ol></li></ol></div>
+<h2 id="julia">Julia?</h2>
+<p>For people who are new to Julia, I will in this post go through some introductory element and some syntax that will be good for people working with Julia, people who want to go into further details, again see links at the end. For people who have used python which is common for science researchers, Julia looks very similar and is easy to grasp. I moved from python to julia myself and found a lot of common syntax ideas. For people who want a tiny introduction to the syntax of Julia, you can jump below to the <a href="https://atiyabzafar.github.io/Blog/2026/juliatutorial/#short_introduction_to_julias_syntax">section below</a> where I introduce some concepts. </p>
+<h2 id="differentialequationsjl">DifferentialEquations.jl</h2>
+<p>We can write our own differential equations solver using the Euler or Runge Kutta methods, but the developers have created a brilliant scientific library <a href="https://github.com/SciML/DifferentialEquations.jl">DifferentialEquations.jl</a> which provides industry standard differential equations solver. You can install it using</p>
+<pre><code class="language-Julia">julia&gt;&#93; add DifferentialEquations</code></pre>
+<h3 id="one_dimensional_ode_logistic_growth">One dimensional ODE &#40;Logistic Growth&#41;</h3>
+<p>Let us take an example to learn how to use DifferentualEquations.jl, we will start with a one dimensional ODE. Population growth with a carrying capacity &#40;previously discussed in a blog post <a href="https://atiyabzafar.github.io/Old_blog/2020-03-15-understanding-the-dynamics-of-disease-spreading-part-1-basic-population-dynamics/disease/">here.</a>&#41;</p>
+\[\frac{dN}{dt} =rN \cdot \left( 1- {\frac{N}{C}}\right) \]
+<p>Here C is the carrying Capacity of the population. This equation is famously known as the Logistic growth dynamical equation and is important in various fields like physics, medicine, computers, networks, and ecology.</p>
+<p>Let us use DifferentialEquations to solve this linear differential equation.</p>
+<pre><code class="language-Julia">using DifferentialEquations
+f_logistic&#40;u,p,t&#41;&#61;p&#91;1&#93; * u * &#40;1 - u/p&#91;2&#93;&#41;
+u0 &#61; 0.25
+tspan &#61; &#40;0.0, 10.0&#41;
+params&#61;&#91;0.5,1.0&#93;
+prob &#61; ODEProblem&#40;f_logistic, u0, tspan,params&#41;
+sol &#61; solve&#40;prob, Tsit5&#40;&#41;, reltol &#61; 1e-8, abstol &#61; 1e-8&#41;
+@show sol.u</code></pre>
+<pre><code class="language-Julia">sol.u &#61; &#91;0.22, 0.2214624947856733, 0.22839406288432468, 0.2397665944624233, 0.25353691189172606, 0.2718027963182323, 0.29429750259628623, 0.3233955825445172, 0.39217810003773756, 0.4254078760000628, 0.47122980934119635, 0.5110669792190305, 0.5536344555821728, 0.5942082113800929, 0.6347729254986635, 0.6741582191045536, 0.7131345538896132, 0.7524902118492397, 0.7993766630870759, 0.8272052545288429, 0.854428424597453, 0.875866364292772, 0.894764782343281, 0.9105737408909818, 0.9242005455844378, 0.9357992086733474, 0.9457537584482427, 0.9542691501119392, 0.9615658394979313, 0.9678068498963645, 0.9731399616235411, 0.9766682882615482&#93;</code></pre>
+<p>And voila, we have the solution. But how did that work? Let us take it step by step.</p>
+<p>We always solve the system in two parts, we first define the problem: this involves defining &#40;usually a function&#41; the differential equations and then defining an <code>ODEProblem</code> object. The following line take care of first of these things</p>
+<pre><code class="language-Julia">f_logistic&#40;u,p,t&#41;&#61;p&#91;1&#93; * u * &#40;1 - u/p&#91;2&#93;&#41;</code></pre>
+<p>Note the use of <code>u</code> is just arbitrary, I could just define it interms of <code>N</code> and it would still give me the right result. <code>p</code> is an array of parameters defined in the function and given to <code>ODEProblem</code> as an input. The function has three inputs, first is the variable itself, second is an array <code>p</code> that includes all the parameters, and last is time <code>t</code>. This particular ODE was not explicitly time dependent. But we can have systems with explicit time dependence, so we always keep it in the skeleton. </p>
+<p><code>tspan</code> is a tuple which tells the system the timescale upto which the solution needs to be solved. So the solution \(N(t)\) will be from \(N(0)\) to \(N(10)\). And last but not the least <code>u0</code> tells us the initial value, as in essence what we are solving here is an initial value problem.</p>
+<pre><code class="language-Julia">sol &#61; solve&#40;prob, Tsit5&#40;&#41;, reltol &#61; 1e-8, abstol &#61; 1e-8&#41;</code></pre>
+<p>This line then solves the prob defined using <code>ODEProblem&#40;f,u,t,p&#41;</code>, the solve function takes the problem as an input, the solver we are using to solve the ODE &#40;<code>Tsit5&#40;&#41;</code>&#41; here, and the tolerance values upto which we will be solving. </p>
+<div class="note"><div class="title">⚠ Note</div>
+<div class="content"><p>abstol and reltol are different kind of tolerance values one can use for stopping the solver. They are absolute tolerance levels and relative tolerance levels. Absolute tolerance looks at successive values to check convergence, <code>x&#123;t&#43;1&#125;-x&#123;t&#125;&lt;abstol</code>, whereas the relative tolerance provides us with fractional convergence check.</p>
+<p>The solver is a 5th order solver much like RK4-5. For people who have used matlab, it is equivalent to <code>ode45</code> function there. Or for scipy users it is like the default solver of scipy&#39;s <code>solve_ivp</code>. <code>Tsit5</code> uses a different parameter table than the usual RK45 method that gives better accuracy. See <a href="https://atiyabzafar.github.io/Blog/2026/juliatutorial/#about_solvers">section below</a></p></div></div>
+<p>This gives us an object <code>sol</code>, <code>sol.u</code> gives us \(N(t)\), whereas <code>sol.t</code> gives us an array with time values at which \(N(t)\) is evaluated. <code>sol.t</code> gives adaptive &#40;non-uniform&#41; time steps depending on the kind of solver.</p>
+<p>The results we can then plot using any Plotting libraries in Julia. The most common is Plots.jl, the code to plot using Plots.jl is given below:</p>
+<pre><code class="language-Julia">using Plots
+function actual&#40;r,C,n0,t&#41;
+    return C/&#40;1&#43;&#40;&#40;C-n0&#41;/n0&#41;*exp&#40;-r*t&#41;&#41;
+end
+Plots.plot&#40;sol, linewidth &#61; 5, title &#61; &quot;Solution to the linear ODE and plotting with Plots.jl&quot;,xaxis &#61; &quot;Time &#40;t&#41;&quot;, yaxis &#61; &quot;N&#40;t&#41; &#40;population&#41;&quot;, label &#61; &quot;Numerical Solution &#40;N&#40;t&#41;&#41;&quot;&#41; 
+Plots.plot&#33;&#40;sol.t, t -&gt; actual.&#40;params&#91;1&#93;,params&#91;2&#93;,u0,t&#41;, lw &#61; 3, ls &#61; :dash, label &#61; &quot;Actual Solution&quot;&#41;
+Plots.savefig&#40;&quot;ODE1d.png&quot;&#41;</code></pre><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2026/images/ODE1d.png" style="padding:0; width:75%;border: 1px solid red;" alt=" Solution of dN/dt with the solution aka the logistic function"/>
+<figcaption> Solution of dN/dt with the solution aka the logistic function</figcaption>
+</figure><p>I prefer using <code>CairoMakie.jl</code> to do scientific plotting. It is more customisable and gives better quality plots &#40;also personal choice it appears better to me&#41;. Feel free to check out documentation for cairomakie linked at the bottom of the post. </p>
+<pre><code class="language-Julia">using CairoMakie,LaTeXStrings
+fig&#61;CairoMakie.Figure&#40;&#41;
+ax&#61;CairoMakie.Axis&#40;fig&#91;1,1&#93;,xlabel&#61;L&quot;\text&#123;Time &#125;&#40;t&#41;&quot;,ylabel&#61;L&quot;N&#40;t&#41;\text&#123; &#40;population&#41;&#125;&quot;,title&#61;&quot;Solution and plotting using Makie&quot;&#41;
+lines&#33;&#40;ax,sol.t,sol.u,label&#61;L&quot;\text&#123;Numerical Solution &#125;&#40;N&#40;t&#41;&#41;&quot;,color&#61;:black,linewidth&#61;5&#41;
+lines&#33;&#40;ax,sol.t,t -&gt; actual.&#40;params&#91;1&#93;,params&#91;2&#93;,u0,t&#41;,label&#61;L&quot;\text&#123;Actual Solution&#125;&quot;,linestyle&#61;:dash,color&#61;:red,linewidth&#61;3&#41;
+axislegend&#40;position&#61;:lt&#41;
+CairoMakie.save&#40;&quot;Blog/2026/images/MakieODE.png&quot;,fig&#41;</code></pre><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2026/images/MakieODE.png" style="padding:0; width:75%;border: 1px solid red;" alt=" Same Solution using CairoMakie"/>
+<figcaption> Same Solution using CairoMakie</figcaption>
+</figure><h3 id="higher_dimensional_ode_lorenz_system_chaos_and_strange_attractor">Higher dimensional ODE &#40;Lorenz System, Chaos and strange attractor&#41;</h3>
+<p>The most famous example for a higher dimensional Ordinary differential equations system is the lorenz system. It has captured people&#39;s attention as the system that introduced the world to Chaos. We will try to solve the lorenz system using </p>
+\[
+\begin{aligned}
+\frac{dx}{dt} &= a(y-x)\\
+\frac{dy}{dt} &= x(b-z)-y\\
+\frac{dz}{dt} &= xy-cz
+\end{aligned}
+\]
+<p>Unlike the previous system, this one is non-linear and coupled. These equations actually represent fluid dynamics, where \(x\),\(y\) and \(z\) are different variables related to the rate of flow and the temperature profile of the fluid. It is not important what these physically mean for now. Parameters \(a\),\(b\) and \(c\) are important for studying different kinds of behaviours for the lorenz system.</p>
+<p>We will take advantage of an important concept introduced in <a href="https://atiyabzafar.github.io/Blog/2026/juliatutorial/#short_introduction_to_julias_syntax">the section below</a>. Mutable functions, or in-place updating functions, represented by the exclamation mark at the end of the name are used for better efficiency. This updates the variables that are inputs of the function. i.e. it updates already allocated variables. The compiler does not need to allocate the output of the function to another memory space and makes the solver much more efficient. It get important when working with large \(N\) problems.</p>
+<p>We can define the lorenz model by </p>
+<pre><code class="language-Julia">function lorenz_ODE&#33;&#40;du,u,p,t&#41;
+    du&#91;1&#93;&#61;p&#91;1&#93;*&#40;u&#91;2&#93;-u&#91;1&#93;&#41;
+    du&#91;2&#93;&#61;u&#91;1&#93;*&#40;p&#91;2&#93;-u&#91;3&#93;&#41; - u&#91;2&#93;
+    du&#91;3&#93;&#61;u&#91;1&#93;*u&#91;2&#93; - p&#91;3&#93;*u&#91;3&#93;
+end</code></pre>
+<p>Note the extra <code>du</code> input to the function, this represents the du/dt values and it updates as the system solves for the solution.  I can write it like this to make it more clear:</p>
+<pre><code class="language-Julia">function lorenz_ODE&#33;&#40;du,u,p,t&#41;
+    dx,dy,dz&#61;du&#91;1&#93;,du&#91;2&#93;,du&#91;3&#93;
+    x,y,z&#61;u&#91;1&#93;,u&#91;2&#93;,u&#91;3&#93;
+    a,b,c&#61;p&#91;1&#93;,p&#91;2&#93;,p&#91;3&#93;
+    dx&#61;a*&#40;y-x&#41;
+    dy&#61;x*&#40;b-z&#41;-y
+    dz&#61;x*y-c*z
+end</code></pre>
+<p>It is better to write it in terms of arrays, instead of this with multiple variables for efficiency and it will be clear later why the former is better. </p>
+<p>Now we can solve it just the way we did for the linear case. Defining the parameters:</p>
+<pre><code class="language-julia">params&#61;&#91;10.0,15.0,5.0&#93;
+tspan&#61;&#40;0.0,100.0&#41;
+uo&#61;&#91;1.0,0.0,0.0&#93;</code></pre>
+<p>And the problem:</p>
+<pre><code class="language-Julia">problem&#61;ODEProblem&#40;lorenz_ODE&#33;,u0,tspan,params&#41;</code></pre>
+<pre><code class="language-Julia">ODEProblem with uType Vector&#123;Float64&#125; and tType Float64. In-place: true
+    Non-trivial mass matrix: false
+    timespan: &#40;0.0, 10.0&#41;
+    u0: 3-element Vector&#123;Float64&#125;:
+    1.0
+    0.0
+    0.0</code></pre>
+<p>Finally the solution, just using the default solver:</p>
+<pre><code class="language-Julia">sol&#61;solve&#40;problem&#41;</code></pre>
+<p>Okay, now we have the solution, let us plot it, I am going to use my trusty CairoMakie for plotting. You can use any library. </p>
+<pre><code class="language-Julia">fig&#61;CairoMakie.Figure&#40;&#41;ax1&#61;CairoMakie.Axis&#40;fig&#91;1,1&#93;,xlabel&#61;&quot;t&quot;,ylabel&#61;&quot;x&quot;&#41;
+ax2&#61;CairoMakie.Axis&#40;fig&#91;1,2&#93;,xlabel&#61;&quot;t&quot;,ylabel&#61;&quot;y&quot;&#41;
+ax3&#61;CairoMakie.Axis&#40;fig&#91;2,1&#93;,xlabel&#61;&quot;t&quot;,ylabel&#61;&quot;z&quot;&#41;
+ax4&#61;CairoMakie.Axis3&#40;fig&#91;2,2&#93;&#41;x&#61;&#91;sol.u&#91;i&#93;&#91;1&#93; for i in 1:length&#40;sol.u&#41;&#93;
+y&#61;&#91;sol.u&#91;i&#93;&#91;2&#93; for i in 1:length&#40;sol.u&#41;&#93;
+z&#61;&#91;sol.u&#91;i&#93;&#91;3&#93; for i in 1:length&#40;sol.u&#41;&#93;CairoMakie.lines&#33;&#40;ax1,sol.t,x&#41;
+CairoMakie.lines&#33;&#40;ax2,sol.t,y&#41;
+CairoMakie.lines&#33;&#40;ax3,sol.t,z&#41;
+CairoMakie.lines&#33;&#40;ax4,x,y,z&#41;
+fig</code></pre><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2026/images/lorenzspiral.png" style="padding:0; width:75%;border: 1px solid red;" alt=" Solution of the lorenz equations using DifferentialEquations.jl for parameters:[10.0,15.0,5.0]. The bottom right plot shows the `attractor` in the phase space. Other three plots are x,y and z with time."/>
+<figcaption> Solution of the lorenz equations using DifferentialEquations.jl for parameters:[10.0,15.0,5.0]. The bottom right plot shows the `attractor` in the phase space. Other three plots are x,y and z with time.</figcaption>
+</figure><p>We can see for the parameters <code>&#91;10.0,15.0,5.0&#93;</code>. we get a spiral attractor, i.e. all three values converge to a single point \((X,Y,Z)\).</p>
+<p>We can change these parameters to get different results. With <code>params&#61;&#91;10.0,28.0,8/3&#93;</code>, we get the famous buttterfly wing shaped lorenz attractor, also known as the strange attractor. </p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2026/images/lorenzchaos.png" style="padding:0; width:75%;border: 1px solid red;" alt=" The Chaotic Lorenz attractor visualised in the phase space."/>
+<figcaption> The Chaotic Lorenz attractor visualised in the phase space.</figcaption>
+</figure><p>This chaotic strange attractor is present for a value of \(b\) beyond a critical value \(b_c\) for fixed \(a\) and \(c\) values. There are surprisingly a few interesting special values of \(b\) that shows periodic behaviour in the middle of chaos, for example, the following image is for <code>params&#61;&#91;10.0,100.5,8/3&#93;</code>. The phase portrait is now colored by time, notice the late time convergence to a periodic attractor shown with yellow colored trajectory. This parameter value is originally from Chapter 4 of The Lorenz Equations by Colin Sparrow &#40;1992, Springer&#41; where he recognised multiple stable attractors. </p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2026/images/lorenzperiodic.png" style="padding:0; width:75%;border: 1px solid red;" alt=" Stable periodic orbit for b=100.5. The phase trajectory is colored by the time"/>
+<figcaption> Stable periodic orbit for b=100.5. The phase trajectory is colored by the time</figcaption>
+</figure><p>For fun, let us also show chaos, i.e. the sensitive dependence on initial conditions. I solve the ODEs for two intial conditions which are extremely close. <code>u0&#61;&#91;1.0,0.0,0.0&#93;</code> and <code>u01&#61;&#91;1.0,0.0,0.0&#43;1e-9&#93;</code>. The starting position of <code>z</code> is just different by \(10^{-9}\). This slight difference leads to very different final result. We plot the \(x\) v/s \(t\) plot for both cases and also the difference between them.</p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2026/images/lorenzsensitivity.png" style="padding:0; width:75%;border: 1px solid red;" alt=" Chaos visualised, sensitive dependence on initial conditions. Note the difference is as big as the amplitude after a while."/>
+<figcaption> Chaos visualised, sensitive dependence on initial conditions. Note the difference is as big as the amplitude after a while.</figcaption>
+</figure><h2 id="generalised_lotka_volterra_model_ecological_predator-prey_dynamics">Generalised Lotka Volterra Model &#40;Ecological Predator-Prey Dynamics&#41;</h2>
+<p>Alright, this is what we have been building upto, we are now going to be exploring a very high dimensional coupled ODE. Ecological systems like food webs can have hundreds of species interacting together and feeding in to each other. Solving such systems by explicitly writing the functions for each species could become, not impossible but a daunting task. What can we do?</p>
+<p>We use a clever technique and take advantage of repeating functional forms for various species. Before defining the function though, let me talk about the generalised lotka volterra model, I have already talked about the prey predator dynamics and the lotka voltterra model in a previous post <a href="https://atiyabzafar.github.io/Blog/ecology_relationships/ecology_relationship/">here</a>, curious few can check it out. Let us dive straight in to the more generalised lotka volterra dynamics. </p>
+<p>The GLV generalises ecological relationships between \(N\) species. The individual population \(x_i\) of \(i^{th}\) species evolves by the following set of ordinary differential equations:</p>
+\[
+\frac{dx_{i}}{dt}=x_{i}\left(r_{i}+\sum _{j=1}^{n}A_{ij}x_{j}\right),
+\]
+<p>Here, \(r_i\) are intrinsic growth rate of the species \(i\). It can be positive for birth , negative for death. This parameter combines both birth and death rate of the species. The value \(A_{ij}\) is the component of the interaction matrix, it gives us the effect of the species \(j\) has on to species \(i\). The diagonal terms, \(A_{ii}\) are taken to be negative, this provides a self-inhibition that stops exponential growth of individual population to infinity.</p>
+<p>Okay, now that we know what the parameters are, let us solve the system, starting with defining the function. We are going to use all the tools that we have learnt together. </p>
+<p>Note that we can distribute the equations in two parts:</p>
+\[
+\frac{dx_{i}}{dt}=x_{i} \cdot f_i, \quad f_i=\left(r_{i}+\sum _{j=1}^{n}A_{ij}x_{j}\right)
+\]
+<p>And \(\sum _{j=1}^{n}A_{ij}x_{j}\) is nothing but the \(i^{th}\) element of the product between \(A\) and \(\vec{X}\). So we are going to use LinearAlgebra.jl library and its in-place multiplication function <code>mul&#33;&#40;&#41;</code> to get Ax first. Then we use the for loop to get <code>dx&#91;i&#93;</code>.</p>
+<pre><code class="language-Julia">&#96;&#96;&#96;&#96;
+Function to generate the generalised lotka volterra model
+&#96;&#96;&#96;&#96;
+using LinearAlgebra
+function GLV&#33;&#40;dx,x,par,t&#41;
+    ###############################################
+    #par&#91;1&#93;&#61;A_ij  par&#91;2&#93;&#61;r&#40;s&#41;
+    ###############################################
+    Ax&#61;zeros&#40;eltype&#40;x&#41;,length&#40;x&#41;&#41;  # creating a zero matrix of x datatype and with N&#61;length&#40;x&#41; entries
+    mul&#33;&#40;Ax,par&#91;1&#93;,x&#41; # Ax&#61;A times X
+    for i in 1:length&#40;x&#41; 
+        fi&#61;par&#91;2&#93;&#91;i&#93; &#43; Ax&#91;i&#93;
+        dx&#91;i&#93;&#61;x&#91;i&#93;*&#40;fi&#41;
+    end
+end</code></pre>
+<p>Notice, how this generalizes for any \(N\), by using \(length(x)\) to determine \(N\). We can simplify this further by performing element wise operations that Julia allows.</p>
+<pre><code class="language-Julia">&#96;&#96;&#96;&#96;
+Simpler function to generate the generalised lotka volterra model
+&#96;&#96;&#96;&#96;
+using LinearAlgebra
+function GLV_simple&#33;&#40;dx,x,par,t&#41;
+    ###############################################
+    #par&#91;1&#93;&#61;A_ij  par&#91;2&#93;&#61;r&#40;s&#41;
+    ###############################################
+    Ax&#61;zeros&#40;eltype&#40;x&#41;,length&#40;x&#41;&#41;
+    mul&#33;&#40;Ax,par&#91;1&#93;,x&#41;
+    fi&#61;par&#91;2&#93; .&#43; Ax
+    dx .&#61; x.*&#40;fi&#41;
+end</code></pre>
+<p>The for loop vanishes helping computational speed and making it very simple. We could infact write the last two lines in just one <code>dx.&#61; x.*&#40;par&#91;2&#93; .&#43; Ax&#41;</code> for even better efficiency. But I choose to divide it for easier understanding. </p>
+<h3 id="case_1_stable_coexistence">Case 1: Stable coexistence:</h3>
+<p>If we have weak inter-species interaction and strong self regulation, we usually end up with coexistnece. Here is a 3-species manufactured example. Off diagonal elements are considerably smaller than the diagonal elements. We keep intrinsic growth rates as constant. </p>
+<pre><code class="language-Julia">N&#61;3
+A &#61; &#91;-1.0  -0.1  -0.05;
+     -0.1  -1.0  -0.1;
+     -0.05 -0.1  -1.0&#93;
+R &#61; &#91;1.0, 1.0, 1.0&#93;
+X0&#61;Random.rand&#40;N&#41;
+X0&#61;X0./sum&#40;X0&#41;
+params&#61;&#91;A,R&#93;
+prob&#61;ODEProblem&#40;GLV_simple&#33;,X0,&#40;0.0,100.0&#41;,params,reltol&#61;1e-14&#41;
+sol&#61;solve&#40;prob,
+        Tsit5&#40;&#41;,
+    save_everystep&#61;true&#41;
+vec&#61;abs.&#40;sol.u&#91;length&#40;sol.u&#41;&#93;&#41;
+println&#40;vec&#41;
+Plots.plot&#40;sol,title&#61;&quot;Species Population with time&quot;,xlabel&#61;&quot;t&quot;&#41;
+Plots.savefig&#40;&quot;3species_coexist.png&quot;&#41;</code></pre><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2026/images/3species_coexist.png" style="padding:0; width : 75% ; border : 1px solid red;" alt=" 3 Species coexisting"/>
+<figcaption> 3 Species coexisting</figcaption>
+</figure><p>We can generalise it for a higher dimensional system making sure \(A_{ij}> |A_{ii}|\). In the following image, we sample the interaction elements from a normal distribution with mean 0.3 and standard deviation 0.1. Keeping diagonal elements at \(-1\) and also sampling \(r_i\) from a normal distribution around 0.5 with standard deviaiton 0.1 &#40;Code below&#41;.</p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2026/images/10species_coexist_random.png" style="padding:0; width : 75% ; border : 1px solid red;" alt=" 10 species coexisting in a random ecological system generated by the rules stated above"/>
+<figcaption> 10 species coexisting in a random ecological system generated by the rules stated above</figcaption>
+</figure><h3 id="case_2_competitive_exclusion">Case 2: Competitive Exclusion </h3>
+<p>Competitive exclusion is the idea in ecology which says that two species cannot coexist in one niche assuming resources are finite. either one or both species would eventually die. </p>
+<p>We can model this behaviour by considering a toy model with </p>
+\[
+A=\begin{pmatrix}
+-1.0 & -1.5 \\ -1.5 & -1.0
+\end{pmatrix} \text{ and } R=[1,1]
+\]
+<p>Solving this model, we notice it is dependent on the initial condition, if we start with more of species 1, I get that species taking over in the ecosystem. </p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2026/images/competitiveexclusion.png" style="padding:0; width:75%;border:1px solid red" alt=" Competitive exclusion for two species"/>
+<figcaption> Competitive exclusion for two species</figcaption>
+</figure><p>We can model it for higher species using our code, by considering the \(A_{ij}\) to be higher than the diagonal but of similar values. And higher than their own intrinsic growth rate. Here I sample the off diagonal elements from normal distribution with \(\mu =-1.3 \, \sigma = 0.1\) </p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2026/images/Exclusion-10.png" style="padding:0; width:75%;border:1px solid red" alt=" Competitive Exclusion principle for 10 species. Only species 7 survives , rest all die."/>
+<figcaption> Competitive Exclusion principle for 10 species. Only species 7 survives , rest all die.</figcaption>
+</figure><h3 id="case_3_limit_cycle_oscillations">Case 3: Limit Cycle &#40;oscillations&#41;</h3>
+<p>If we take a pure predator-prey model, we usually see oscillatory patterns. A prey predator system have opposite signs in the symmetric values of the interaction matrix. \(A_{ij}=-A_{ji}\). We use small self regulation term to ensure species do not go extinct and can sustain oscilation. And we ensure predators have negative intrinsic growth rate because otherwise, preys would not be sufficient and it will not show cycles.</p>
+<pre><code class="language-Julia">A &#61; &#91;-0.01   -1.0;
+      0.5    -0.01&#93;
+R &#61; &#91;1.0, -1&#93;  # predator has negative intrinsic growth
+X0&#61;&#91;1/2,1/2&#93;
+params&#61;&#91;A,R&#93;
+prob&#61;ODEProblem&#40;GLV_simple&#33;,X0,&#40;0.0,50.0&#41;,params,reltol&#61;1e-14&#41;
+sol&#61;solve&#40;prob,
+        Tsit5&#40;&#41;,
+    save_everystep&#61;true&#41;
+Plots.plot&#40; 
+    Plots.plot&#40;sol,title&#61;&quot;Species Population with time&quot;,xlabel&#61;&quot;t&quot;&#41;,
+    Plots.plot&#40;sol,idxs&#61;&#40;1,2&#41;,title&#61;&quot;Phase Portrait&quot;&#41;&#41;</code></pre><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2026/images/oscillation_2.png" style="padding:0; width:75%;border:1px solid red;" alt=" Plot for prey predator dynamics between two species showing oscillatory solution"/>
+<figcaption> Plot for prey predator dynamics between two species showing oscillatory solution</figcaption>
+</figure><p>We can cleverly study oscillations and choatic behaviour in higher dimensional LV dynamics. But I will leave it for another day. This post is already too long. </p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I hope this blog post would help someone who is starting out with solving Ordinary Differential Equations using Julia. I understand the learning curve could be a little difficult at first to climb, but it is smooth scaling once you get a hang of it. </p>
+<h2 id="appendix">Appendix </h2>
+<h3 id="short_introduction_to_julias_syntax">Short introduction to Julia&#39;s syntax</h3>
+<p>You can use Julia in its REPL, or download the IJulia package to use Julia in your jupyter notebook. Also see Pluto.jl for Julia&#39;s own unique notebook environment for more advanced users. </p>
+<p>There are various datatypes much like python:</p>
+<pre><code class="language-julia">w&#61;5
+x&#61;1.0
+y&#61;true
+z&#61;2 &#43; 1im
+typeof&#40;w&#41;,typeof&#40;x&#41;, typeof&#40;y&#41;, typeof&#40;z&#41; # Diffenent Datatypes</code></pre><pre><code class="plaintext code-output">(Int64, Float64, Bool, Complex{Int64})</code></pre>
+<p>We can create for loops, while loops and perform all basic operations:</p>
+<pre><code class="language-julia">for x in &#91;1,10,4,5&#93;
+    println&#40;&quot;x&#61;&#36;x, x^2 &#61; &#36;&#40;x^2&#41;, x&#43;1&#61;&#36;&#40;x&#43;1&#41;, x/2&#61;&#36;&#40;x/2&#41;&quot;&#41; #&#36; can be used to print variables in string, println adds a newline at the end
+end</code></pre>
+<pre><code class="plaintext code-output">x=1, x^2 = 1, x+1=2, x/2=0.5
+x=10, x^2 = 100, x+1=11, x/2=5.0
+x=4, x^2 = 16, x+1=5, x/2=2.0
+x=5, x^2 = 25, x+1=6, x/2=2.5
+</code></pre>
+<p>We can use arrays, and push elements into arrays. A fun thing that julia offers is using Latex symbols in code, for example the use of \(\in\) instead of <code>in</code>:</p>
+<pre><code class="language-julia">a&#61;&#91;&#93;
+for x ∈ 1:4
+    push&#33;&#40;a,x&#41;
+end
+@show a
+println&#40;&quot;You can also remove elements from the array&quot;&#41;
+pop&#33;&#40;a&#41; # remove last element
+@show a
+popfirst&#33;&#40;a&#41; # or remove first
+@show a</code></pre>
+<pre><code class="plaintext code-output">a = Any[1, 2, 3, 4]
+You can also remove elements from the array
+a = Any[1, 2, 3]
+a = Any[2, 3]
+</code></pre>
+<p>You can also use other latex symbols like \(\neq\), \(\notin\), \(\ge\), etc for computation.</p>
+<pre><code class="language-julia">a &#61; &#91;4, 5, 6&#93;
+b &#61; Int8&#91;4, 5, 6&#93;
+@show a
+@show b
+println&#40;&quot;Arrays are typed — once defined, you cannot push an incompatible type:&quot;&#41;
+try
+    push&#33;&#40;b, 2.5&#41;   # Float64 into an Int8 array → error
+catch e
+    println&#40;&quot;Caught error: &quot;, e&#41;
+end
+println&#40;&quot;But this works fine:&quot;&#41;
+push&#33;&#40;b, Int8&#40;7&#41;&#41;
+@show b</code></pre>
+<pre><code class="plaintext code-output">a = [4, 5, 6]
+b = Int8[4, 5, 6]
+Arrays are typed — once defined, you cannot push an incompatible type:
+Caught error: InexactError(:Int8, Int8, 2.5)
+But this works fine:
+b = Int8[4, 5, 6, 7]
+</code></pre>
+<p>You can use inline for loop syntax for faster computation. </p>
+<pre><code class="language-julia">x&#61;&#91;1,2,3&#93;
+y&#61;&#91;var*4 for var in x&#93;
+@show y</code></pre>
+<pre><code class="plaintext code-output">y = [4, 8, 12]
+</code></pre>
+<p><em>A unique element of Julia</em> is the use of element wise operations. Much like Python&#39;s numpy arrays, you can perform elementwise operations on Julia arrays, but the difference is that you can do that for any julia object and perform any functions elementwise. </p>
+<pre><code class="language-julia">x&#61;range&#40;1,10&#41;
+y&#61;x.*2
+@show y
+z&#61;&#91;0.01,0.1,1,10,100,1000&#93;
+@show log10.&#40;z&#41;</code></pre>
+<pre><code class="plaintext code-output">y = 2:2:20
+log10.(z) = [-2.0, -1.0, 0.0, 1.0, 2.0, 3.0]
+</code></pre>
+<p>Any function can be broadcast elementwise with <code>.</code>, this is more general than numpy. We have used this feature in the <code>GLV_simple&#33;&#40;&#41;</code> function in the post.</p>
+<pre><code class="language-julia">f&#40;x, a&#41; &#61; exp&#40;-a * x&#41; * sin&#40;x&#41;
+t &#61; 0:0.1:10
+@show y &#61; f.&#40;t, 0.3&#41;   # broadcast over t, scalar a</code></pre>
+<p><pre><code class="plaintext code-output">y = f.(t, 0.3) = [0.0, 0.09688289328380166, 0.18709972965370564, 0.27008513274559637, 0.34538308622605984, 0.412645385178517, 0.4716290381244547, 0.5221927082502216, 0.5642922874073557, 0.5979757001718782, 0.6233770377206788, 0.640710122557378, 0.6502616052522163, 0.6523836934156877, 0.6474866111765241, 0.6360308845603287, 0.6185195444499075, 0.5954903343404111, 0.5675080049728184, 0.5351567722308355, 0.4990330085122907, 0.4597382312295467, 0.41787244524589484, 0.37402788900566825, 0.3287832269511704, 0.28269822362190966, 0.23630892767904832, 0.1901233870634137, 0.14461790964634494, 0.10023387713065636, 0.05737511365949082, 0.016405804642763814, -0.02235104424331126, -0.058614623052723865, -0.0921468283971277, -0.12275229312365146, -0.1502779625493469, -0.17461224813789056, -0.19568379217188714, -0.2134598791318406, -0.2279445311474595, -0.23917632605026343, -0.2472259772447618, -0.252193714849179, -0.2542065073598053, -0.2534151624927088, -0.24999134488260424, -0.2441245470031795, -0.2360190480499283, -0.2258908936306141, -0.213964926975803, -0.20047190004879267, -0.18564569043705717, -0.16972064728197822, -0.15292908678534597, -0.13549895505405088, -0.11765167324129497, -0.09960017714471167, -0.08154716065823255, -0.06368352977260994, -0.04618707120416317, -0.029221337225147054, -0.012934745892305753, 0.0025401063597654434, 0.017086924861838743, 0.030605996584895816, 0.043014278451087705, 0.05424530430318891, 0.06424892207637221, 0.07299087383860349, 0.080452232289178, 0.08662870803074772, 0.0915298424624241, 0.09517810148585773, 0.09760788537987573, 0.09886447019110424, 0.09900289581810379, 0.0980868156461157, 0.09618732213071121, 0.09338176214436016, 0.08975255520367502, 0.08538602690071788, 0.08037126898339726, 0.0747990365817965, 0.06876069207336287, 0.06234720403409254, 0.05564820864867913, 0.048751139863038584, 0.041740433470113664, 0.034696809236102924, 0.027696634110201256, 0.020811368526687513, 0.014107096812933094, 0.0076441417688952575, 0.001476762590162441, -0.004347065526096535, -0.00978579251958988, -0.01480435847344433, -0.01937418623529929, -0.02347310594634729, -0.027085216241410345]
+</code></pre> Packages or libraries can be imported using the <code>using</code> command. Or you can use import and as:</p>
+<pre><code class="language-julia">using LinearAlgebraA&#61;diagm&#40;&#91;1,2,3,4&#93;&#41; # Diagonal matrix
+@show A
+@show eigen&#40;A&#41;.values # eigenvaluesimport Statistics as st@show st.mean&#40;A&#41;</code></pre>
+<pre><code class="plaintext code-output">A = [1 0 0 0; 0 2 0 0; 0 0 3 0; 0 0 0 4]
+(eigen(A)).values = [1.0, 2.0, 3.0, 4.0]
+st.mean(A) = 0.625
+</code></pre>
+<p>Julia functions can return multiple values as a tuple natively — no need for a container:</p>
+<pre><code class="language-julia">function stats&#40;x&#41;
+    return minimum&#40;x&#41;, maximum&#40;x&#41;, sum&#40;x&#41;/length&#40;x&#41;
+end
+lo, hi, avg &#61; stats&#40;&#91;3, 1, 4, 1, 5, 9&#93;&#41;
+@show lo, hi, avg</code></pre>
+<pre><code class="plaintext code-output">(lo, hi, avg) = (1, 9, 3.8333333333333335)
+</code></pre>
+<h3 id="about_solvers">About solvers</h3>
+<p>DifferentialEquations.jl provides a large variety of solvers. The choice of solver  significantly affects speed and accuracy. Here are the some of the common ones:</p>
+<table><tr><th align="right">Solver</th><th align="right">Type</th><th align="right">When to use</th></tr><tr><td align="right"><code>Tsit5&#40;&#41;</code></td><td align="right">Explicit RK &#40;5th order&#41;</td><td align="right">Default for non-stiff ODEs. As I said above, it is equivalent to <code>ode45</code> in MATLAB</td></tr><tr><td align="right"><code>RK4&#40;&#41;</code></td><td align="right">Explicit RK &#40;4th order&#41;</td><td align="right">Simple fixed-step problems</td></tr><tr><td align="right"><code>Vern7&#40;&#41;</code> / <code>Vern9&#40;&#41;</code></td><td align="right">Explicit RK &#40;7th/9th order&#41;</td><td align="right">High accuracy non-stiff problems</td></tr><tr><td align="right"><code>Rodas5&#40;&#41;</code></td><td align="right">Implicit &#40;stiff&#41;</td><td align="right">Stiff systems</td></tr><tr><td align="right"><code>CVODE_BDF&#40;&#41;</code></td><td align="right">Implicit &#40;stiff&#41;</td><td align="right">Very large stiff systems , import <code>Sundials.jl</code> package to use it</td></tr><tr><td align="right"><code>lsoda&#40;&#41;</code></td><td align="right">Automatic stiffness switching</td><td align="right">best when you do not know if the system is stiff or not or it changes in between. Import LSODA.jl to use</td></tr><tr><td align="right"><code>KenCarp4&#40;&#41;</code></td><td align="right">IMEX</td><td align="right">Mixed stiff/non-stiff &#40;e.g. reaction-diffusion&#41;</td></tr></table>
+<p>A system is <strong>stiff</strong> when it contains dynamics at very different timescales  simultaneously. Like fast-slow timescale problems. Explicit solvers like <code>Tsit5</code> will take extremely small steps &#40;very slow&#41; on stiff systems. If your solver is slow or fails, try <code>Rodas5&#40;&#41;</code>.</p>
+<p>You can also let the package choose automatically:</p>
+<pre><code class="language-julia">sol &#61; solve&#40;prob&#41;   # auto-selects solver based on problem type</code></pre>
+<p><code>lsoda&#40;&#41;</code> is a julia wrapper for the classic Fortran LSODA solver. It is fast and robust for compisite problems. </p>
+<h3 id="important_links">Important links</h3>
+<h4 id="differentialequationsjl__2">DifferentialEquations.jl</h4>
+<ul>
+<li><p><a href="https://github.com/SciML/DifferentialEquations.jl">DifferentialEquations.jl GitHub</a> — Source and overview of the full SciML ecosystem</p>
+</li>
+<li><p><a href="https://docs.sciml.ai/DiffEqDocs/stable/">DifferentialEquations.jl Documentation</a> — Official documentation, solver listings, and tutorials</p>
+</li>
+<li><p><a href="https://github.com/SciML/SciMLBenchmarks.jl">SciML Solver Benchmarks</a> — Benchmarks comparing Julia ODE solvers against MATLAB, Python &#40;scipy&#41;, R, and Fortran implementations</p>
+</li>
+</ul>
+<h4 id="julia_learning_resources">Julia Learning Resources</h4>
+<ul>
+<li><p><a href="https://docs.julialang.org/en/v1/manual/getting-started/">Julia Official Documentation — Getting Started</a> — The official first-stop for new Julia users</p>
+</li>
+<li><p><a href="https://julialang.org/learning/">Julia Learning Page</a> — Curated list of tutorials, courses, and community resources maintained by the Julia organisation</p>
+</li>
+<li><p><a href="https://juliaacademy.com/">JuliaAcademy</a> — Free video courses prepared by core Julia developers, including beginner and domain-specific tracks</p>
+</li>
+<li><p><a href="https://learnxinyminutes.com/julia/">Julia Learn X in Y minutes</a></p>
+</li>
+</ul>
+<h4 id="plotting">Plotting</h4>
+<ul>
+<li><p><a href="https://docs.juliaplots.org/stable/">Plots.jl Documentation</a></p>
+</li>
+<li><p><a href="https://docs.makie.org/stable/documentation/backends/cairomakie/">CairoMakie Documentation</a> — CairoMakie backend reference, recommended for publication-quality static plots</p>
+</li>
+<li><p><a href="https://docs.makie.org">Makie.jl Full Documentation</a> — Complete Makie ecosystem docs covering CairoMakie, GLMakie, and WGLMakie</p>
+</li>
+<li><p><a href="https://juliadatascience.io/cairomakie">Julia Data Science — CairoMakie Chapter</a> — Practical CairoMakie tutorial with worked examples</p>
+</li>
+</ul>
+<h4 id="previous_posts_referenced_in_this_article">Previous posts referenced in this article</h4>
+<ul>
+<li><p><a href="https://atiyabzafar.github.io/Old_blog/2020-03-15-understanding-the-dynamics-of-disease-spreading-part-1-basic-population-dynamics/disease/">Basic Population Dynamics &#40;Logistic Growth&#41;</a> </p>
+</li>
+<li><p><a href="https://atiyabzafar.github.io/Blog/ecology_relationships/ecology_relationship/">Predator-Prey and Ecological Relationships</a></p>
+</li>
+</ul>
+<h3 id="code_for_plots">Code for plots</h3>
+<h4 id="competitive_exclusion">Competitive exclusion</h4>
+<p>Code for the figure for competitive exclusion for one species.</p>
+<pre><code class="language-Julia">N&#61;2
+A &#61; &#91;-1.0  -1.5;
+     -1.5  -1.0&#93;
+R &#61; &#91;1.0, 1.0&#93;
+X0&#61;&#91;1/2,1/2&#93;
+e&#61;0.01
+X01&#61;&#91;0.5&#43;e,0.5&#93;
+X02&#61;&#91;0.5,0.5&#43;e&#93;
+params&#61;&#91;A,R&#93;
+prob&#61;ODEProblem&#40;GLV_simple&#33;,X0,&#40;0.0,50.0&#41;,params,reltol&#61;1e-14&#41;
+sol&#61;solve&#40;prob,
+        Tsit5&#40;&#41;,
+    save_everystep&#61;true&#41;
+prob1&#61;ODEProblem&#40;GLV_simple&#33;,X01,&#40;0.0,50.0&#41;,params,reltol&#61;1e-14&#41;
+sol1&#61;solve&#40;prob1,
+        Tsit5&#40;&#41;,
+    save_everystep&#61;true&#41;
+prob2&#61;ODEProblem&#40;GLV_simple&#33;,X02,&#40;0.0,50.0&#41;,params,reltol&#61;1e-14&#41;
+sol2&#61;solve&#40;prob2,
+        Tsit5&#40;&#41;,
+    save_everystep&#61;true&#41;
+fig&#61;CairoMakie.Figure&#40;&#41;
+ax&#61;CairoMakie.Axis&#40;fig&#91;1,1&#93;,title&#61;L&quot;X_0&#61;&#91;0.5,0.5&#93;&quot;&#41;
+ax1&#61;CairoMakie.Axis&#40;fig&#91;2,1&#93;,title&#61;L&quot;X_0&#61;&#91;0.6,0.5&#93;&quot;&#41;
+ax2&#61;CairoMakie.Axis&#40;fig&#91;3,1&#93;,title&#61;L&quot;X_0&#61;&#91;0.5,0.6&#93;&quot;&#41;
+x&#61;&#91;sol.u&#91;i&#93;&#91;1&#93; for i in 1:length&#40;sol.u&#41;&#93;
+x1&#61;&#91;sol1.u&#91;i&#93;&#91;1&#93; for i in 1:length&#40;sol1.u&#41;&#93;
+x2&#61;&#91;sol2.u&#91;i&#93;&#91;1&#93; for i in 1:length&#40;sol2.u&#41;&#93;
+y&#61;&#91;sol.u&#91;i&#93;&#91;2&#93; for i in 1:length&#40;sol.u&#41;&#93;
+y1&#61;&#91;sol1.u&#91;i&#93;&#91;2&#93; for i in 1:length&#40;sol1.u&#41;&#93;
+y2&#61;&#91;sol2.u&#91;i&#93;&#91;2&#93; for i in 1:length&#40;sol2.u&#41;&#93;
+CairoMakie.lines&#33;&#40;ax,sol.t,x,label&#61;&quot;Species 1&quot;&#41;
+CairoMakie.lines&#33;&#40;ax,sol.t,y,label&#61;&quot;Species 2&quot;&#41;
+CairoMakie.lines&#33;&#40;ax1,sol1.t,x1&#41;
+CairoMakie.lines&#33;&#40;ax1,sol1.t,y1&#41;
+CairoMakie.lines&#33;&#40;ax2,sol2.t,x2&#41;
+CairoMakie.lines&#33;&#40;ax2,sol2.t,y2&#41;
+Legend&#40;fig&#91;4,1&#93;,ax,tellwidth&#61;false,nbanks&#61;2&#41;
+CairoMakie.save&#40;&quot;Blog/2026/images/competitiveexclusion.png&quot;,fig&#41;</code></pre>
+<h4 id="coeexistence">Coeexistence</h4>
+<p>Code for coexistince of multiple species:</p>
+<pre><code class="language-Julia">N&#61;10
+A&#61;zeros&#40;Float64,N,N&#41;
+for i in 1:N 
+    for j in 1:N
+        if i&#61;&#61;j
+            A&#91;i,j&#93;&#61;-1
+        else
+            A&#91;i,j&#93;&#61; -0.3 &#43; 0.1*randn&#40;&#41; #2*Random.rand&#40;&#41;-1#
+        end
+    end
+end
+X0&#61;Random.rand&#40;N&#41;
+X0&#61;X0./sum&#40;X0&#41;
+R&#61;&#40;1/2&#41;.&#43;0.1.*Random.randn&#40;N&#41;
+params&#61;&#91;A,R&#93;
+prob&#61;ODEProblem&#40;GLV_simple&#33;,X0,&#40;0.0,100.0&#41;,params,reltol&#61;1e-14&#41;
+sol&#61;solve&#40;prob,
+        Tsit5&#40;&#41;,
+    save_everystep&#61;true&#41;
+Plots.plot&#40;sol,xrange&#61;&#40;0,100&#41;&#41;</code></pre>
+<h4 id="lorenz_sensitivity">Lorenz Sensitivity</h4>
+<pre><code class="language-Julia">fig&#61;CairoMakie.Figure&#40;&#41;
+params&#61;&#91;10.0,28,8/3&#93;
+tspan&#61;&#40;0.0,100.0&#41;
+u0&#61;&#91;1.0,0.0,0.0&#93;
+u01&#61;&#91;1.0,0.0,0.0&#43;1e-9&#93;
+problem&#61;ODEProblem&#40;lorenz_ODE&#33;,u0,tspan,params&#41;
+sol&#61;solve&#40;problem,reltol&#61;1e-10&#41;
+problem1&#61;ODEProblem&#40;lorenz_ODE&#33;,u01,tspan,params&#41;
+sol1&#61;solve&#40;problem1,reltol&#61;1e-10&#41;
+#ax4&#61;CairoMakie.Axis3&#40;fig&#91;1,1&#93;,azimuth&#61;1.275pi&#43;pi/2&#41;
+ax1&#61;CairoMakie.Axis&#40;fig&#91;1,1&#93;,xlabel&#61;&quot;t&quot;,ylabel&#61;&quot;x&quot;&#41;
+ax2&#61;CairoMakie.Axis&#40;fig&#91;2,1&#93;,xlabel&#61;&quot;t&quot;,ylabel&#61;&quot;x1&quot;&#41;
+ax3&#61;CairoMakie.Axis&#40;fig&#91;3,1&#93;,xlabel&#61;&quot;t&quot;,ylabel&#61;&quot;x1-x&quot;&#41;
+x&#61;&#91;sol.u&#91;i&#93;&#91;1&#93; for i in 1:length&#40;sol.u&#41;&#93;
+y&#61;&#91;sol.u&#91;i&#93;&#91;2&#93; for i in 1:length&#40;sol.u&#41;&#93;
+z&#61;&#91;sol.u&#91;i&#93;&#91;3&#93; for i in 1:length&#40;sol.u&#41;&#93;
+x1&#61;&#91;sol1.u&#91;i&#93;&#91;1&#93; for i in 1:length&#40;sol1.u&#41;&#93;
+y1&#61;&#91;sol1.u&#91;i&#93;&#91;2&#93; for i in 1:length&#40;sol1.u&#41;&#93;
+z1&#61;&#91;sol1.u&#91;i&#93;&#91;3&#93; for i in 1:length&#40;sol1.u&#41;&#93;
+#CairoMakie.lines&#33;&#40;ax4,x,y,z,linewidth&#61;0.5,color&#61;&#40;:black,0.5&#41;&#41;
+#CairoMakie.lines&#33;&#40;ax4,x1,y1,z1,linewidth&#61;0.5,color&#61;&#40;:red,0.5&#41;&#41;
+CairoMakie.lines&#33;&#40;ax1,sol.t&#91;1:2000&#93;,x&#91;1:2000&#93;&#41;
+CairoMakie.lines&#33;&#40;ax2,sol.t&#91;1:2000&#93;,x1&#91;1:2000&#93;&#41;
+CairoMakie.lines&#33;&#40;ax3,sol.t&#91;1:2000&#93;,x&#91;1:2000&#93;-x1&#91;1:2000&#93;&#41;
+fig
+CairoMakie.save&#40;&quot;Blog/2026/images/lorenzsensitivity.png&quot;,fig&#41;</code></pre>
+<h4 id="lorenz_periodic">Lorenz Periodic</h4>
+<pre><code class="language-Julia">params&#61;&#91;10.0,100.5,8/3&#93;
+tspan&#61;&#40;0.0,100.0&#41;
+uo&#61;&#91;1.0,0.0,0.0&#93;
+problem&#61;ODEProblem&#40;lorenz_ODE&#33;,u0,tspan,params&#41;
+sol&#61;solve&#40;problem,reltol&#61;1e-10&#41;
+fig&#61;CairoMakie.Figure&#40;&#41;ax1&#61;CairoMakie.Axis&#40;fig&#91;1,1&#93;,xlabel&#61;&quot;t&quot;,ylabel&#61;&quot;x&quot;&#41;
+ax2&#61;CairoMakie.Axis&#40;fig&#91;1,2&#93;,xlabel&#61;&quot;t&quot;,ylabel&#61;&quot;y&quot;&#41;
+ax3&#61;CairoMakie.Axis&#40;fig&#91;2,1&#93;,xlabel&#61;&quot;t&quot;,ylabel&#61;&quot;z&quot;&#41;
+ax4&#61;CairoMakie.Axis3&#40;fig&#91;2,2&#93;,azimuth&#61;1.275pi&#43;pi/2&#41;x&#61;&#91;sol.u&#91;i&#93;&#91;1&#93; for i in 1:length&#40;sol.u&#41;&#93;
+y&#61;&#91;sol.u&#91;i&#93;&#91;2&#93; for i in 1:length&#40;sol.u&#41;&#93;
+z&#61;&#91;sol.u&#91;i&#93;&#91;3&#93; for i in 1:length&#40;sol.u&#41;&#93;CairoMakie.lines&#33;&#40;ax1,sol.t,x&#41;
+CairoMakie.lines&#33;&#40;ax2,sol.t,y&#41;
+CairoMakie.lines&#33;&#40;ax3,sol.t,z&#41;
+CairoMakie.lines&#33;&#40;ax4,x,y,z,linewidth&#61;0.5,color&#61;sol.t,colormap&#61;:viridis&#41;
+fig
+CairoMakie.save&#40;&quot;Blog/2026/images/lorenzperiodic.png&quot;,fig&#41;</code></pre>
+ ]]>
+  </content:encoded>
+    
+  <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Atiyab Zafar</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
     <![CDATA[  NetLogo Model of evolving economy  ]]>
   </title>
   <link> https://atiyabzafar.github.io/projects/NetLogoEconomic/index.html </link>
@@ -1175,8 +1662,8 @@ The toxic relationship between Dana and Rufus is predictable in some sense, but 
   <title>
     <![CDATA[  Atiyab&#39;s Blog  ]]>
   </title>
-  <link> https://atiyabzafar.github.io/Blog/ecology_relationships/eccology_relationship/index.html </link>
-  <guid> https://atiyabzafar.github.io/Blog/ecology_relationships/eccology_relationship/index.html </guid>
+  <link> https://atiyabzafar.github.io/Blog/ecology_relationships/ecology_relationship/index.html </link>
+  <guid> https://atiyabzafar.github.io/Blog/ecology_relationships/ecology_relationship/index.html </guid>
   <description>
     <![CDATA[  Ecological Interactions, Basic Lotka Volterra Equations  ]]>
   </description>  
@@ -1996,7 +2483,7 @@ var nodes2, edges2, network2;function draw1() {
   
   <content:encoded>
     <![CDATA[  <p>Continuing my tradition of writing a blog post every pi day &#40;14th March 3/14 , is celebrated as pi day every year&#41;. Today we will be discussing about the decimal expansion of pi and a class of numbers that are known as Normal Numbers. We will also be dealing with some minor biology and information theory. So sit back and enjoy.</p>
-<p>I am pretty sure you have heard of it before. It is one of the most famous number in the world. π is a ratio that we come across if we study mathematics even at an elementary Level. You must already know that it has an unending infinite decimal expansion &#40;Explored in previous post on <a href="http://www.physicsing.xyz/2019/07/calculating-pi-recursively-love-letters-to-pi/">how to calculate pi</a>&#41; . In this post we will talk about the beauty of pi in detail &#40;See <a href="http://www.physicsing.xyz/2020/03/love-letters-to-pi-surprising-places-where-pi-pops-up-celebrating-pi-day/">last year&#39;s pi day post</a> about surprising places pi appears in&#41;, discuss what are normal numbers and show &#40;not prove&#41; that π most probably is a normal number.</p>
+<p>I am pretty sure you have heard of it before. It is one of the most famous number in the world. π is a ratio that we come across if we study mathematics even at an elementary Level. You must already know that it has an unending infinite decimal expansion &#40;Explored in previous post on <a href="https://atiyabzafar.github.io/Old_blog/2019-07-03-calculating-pi-recursively-love-letters-to-pi/2019-07-03-calculating-pi-recursively-love-letters-to-pi/">how to calculate pi</a>&#41; . In this post we will talk about the beauty of pi in detail &#40;See <a href="https://atiyabzafar.github.io/Old_blog/2020-03-14-love-letters-to-pi-surprising-places-where-pi-pops-up-celebrating-pi-day/pi2/">last year&#39;s pi day post</a> about surprising places pi appears in&#41;, discuss what are normal numbers and show &#40;not prove&#41; that π most probably is a normal number.</p>
 <p>I have used python for analysing more than 100 Million Digits of Pi to show the Randomness and behaviour of pi and analysing the &quot;Normalness&quot;  of the Number.</p>
 <p>We will also talk about why I believe , you, me and everything in the universe can exist in the unending digits of π.</p>
 <h2 id="pi">\[ {\pi}\]</h2>
