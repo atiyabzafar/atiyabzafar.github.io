@@ -21,7 +21,7 @@ Here is my Personal Blog that I will update with things I learn as I go through 
 <p><a href="/Blog/bookreviews/EndlessNight/">Book Review (Endless Night by Agatha Christie)</a> December 4, 2023</p>
 <p><a href="/Blog/bookreviews/AThousandSplendidSuns/">Book Review (A Thousand Splendid Suns by Khaled Hosseini)</a> November 13, 2023</p>
 <p><a href="/Blog/bookreviews/ChristieAppointmentWithDeath/">Book Review (Appointment With Death by Agatha Christie)</a> October 1, 2023</p>
-<p><a href="/Blog/ecology_relationships/eccology_relationship/">Ecological Interactions, Basic Lotka Volterra</a> September 10, 2023</p>
+<p><a href="/Blog/ecology_relationships/ecology_relationship/">Ecological Interactions, Basic Lotka Volterra</a> September 10, 2023</p>
 <p><a href="/Blog/digitsum/sum_digits/">Playground with digit sum</a> September 5, 2023</p>
 <p><a href="/Blog/uncertainty/uncertainty/">Making Peace with Uncertainty (Ian Malcolm, Jurassic Park, Uncertainty and Science) </a> August 28, 2023</p>
 <p><a href="/Blog/latexpy/">Latexpy: script to generate multiple pdf with different variable values</a> September 2, 2022</p>

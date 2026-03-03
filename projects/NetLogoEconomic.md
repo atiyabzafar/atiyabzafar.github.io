@@ -1,5 +1,4 @@
 @def tags = ["Blog","BlogPost"]
-@def hasplotly = true
 @def rss_title = "NetLogo Model of evolving economy"
 @def rss_description = "Documentation of an old NetLogo model I created for an Agent Based Model of a catalysed economy"
 @def rss_pubdate = Date(2026,02,26)

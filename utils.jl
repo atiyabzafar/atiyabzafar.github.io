@@ -22,6 +22,7 @@ using Dates
 function hfun_bloglist()
     # Define posts here directly: (path, date) — newest first
     posts = [
+        ("/Blog/2026/juliatutorial/",           "Differential.jl: A tutorial with Lorenz system and Generalised Lotka Volterra", Date(2026,3,3)),
         ("/projects/NetLogoEconomic/",          "An agent based model for a catalysed economy",                     Date(2026, 2, 26)),
         ("/Blog/bookreviews/2025WrapUp/",        "Wrap up and analysis of my reading in 2025",                       Date(2026, 2, 23)),
         ("/Blog/2025/google/",                   "Interesting Finds: Google",                                        Date(2025, 9, 3)),
@@ -36,7 +37,7 @@ function hfun_bloglist()
         ("/Blog/bookreviews/EndlessNight/",      "Book Review: Endless Night by Agatha Christie",                    Date(2023, 12, 4)),
         ("/Blog/bookreviews/AThousandSplendidSuns/", "Book Review: A Thousand Splendid Suns by Khaled Hosseini",    Date(2023, 11, 13)),
         ("/Blog/bookreviews/ChristieAppointmentWithDeath/", "Book Review: Appointment With Death by Agatha Christie",Date(2023, 10, 1)),
-        ("/Blog/ecology_relationships/eccology_relationship/", "Ecological Interactions, Basic Lotka Volterra",      Date(2023, 9, 10)),
+        ("/Blog/ecology_relationships/ecology_relationship/", "Ecological Interactions, Basic Lotka Volterra",      Date(2023, 9, 10)),
         ("/Blog/digitsum/sum_digits/",           "Playground with digit sum",                                        Date(2023, 9, 5)),
         ("/Blog/uncertainty/uncertainty/",       "Making Peace with Uncertainty",                                    Date(2023, 8, 28)),
         ("/Blog/latexpy/",                       "Latexpy: script to generate multiple PDFs with different values",  Date(2022, 9, 2)),
@@ -80,5 +81,124 @@ function hfun_cusdis()
       data-page-title="$page_title"
     ></div>
     <script async defer src="https://cusdis.com/js/cusdis.es.js"></script>
+    """
+end
+# Here are a few (physics) posts from my blog:
+# - []()
+# - Love Letters to pi: A series of fascinating dive downs into my favorite irrational number
+#   - [Part 1](/Old_blog/2019-07-03-calculating-pi-recursively-love-letters-to-pi/2019-07-03-calculating-pi-recursively-love-letters-to-pi/)
+#   - [Part 2](/Old_blog/2020-03-14-love-letters-to-pi-surprising-places-where-pi-pops-up-celebrating-pi-day/pi2/)
+#   - [Part 3](/Old_blog/2021-03-14-pi/pi3/)
+# For all posts, see the [Blog Roll](/Blog/).
+
+function hfun_blogcarousel()
+    posts = [
+        ("/Blog/2026/juliatutorial/",       "Differential.jl: A tutorial with Lorenz system and Generalised Lotka Volterra","A tutorial for solving dofferential equation susing Julia and a look at lorenz system with generalise lotka volterr","/Blog/2026/images/lorenzchaos.png"),
+        ("/projects/NetLogoEconomic/",        "Agent Based Economic Model",         "Documentation of a catalysed economy model", "/assets/images/NetLogoScreenShot.png"),
+        ("/Blog/2025/google/","Interesting Finds: Google, a look at google's page rank algorithm and eigenvector centrality","Exploring the concept of page rank and eigenvector centrality with a look at how google does ranking. Random Networks with centrality","/Blog/2025/images/ratio_50_500_100_500.png"),
+        ("/Blog/ecology_relationships/ecology_relationship/","Ecological Interactions, Basic Lotka–Volterra","A look at basic ecological ecology_relationships through mathematical modeling","/Blog/ecology_relationships/images/prey-predator-phaseportrait.svg"),        
+        ("/Blog/uncertainty/uncertainty/",    "Making Peace with Uncertainty",       "Ian Malcolm, Jurassic Park, uncertainty",    "/assets/images/redditmemegodeltwitter.jpg"),
+        ("/Old_blog/2019-03-28-understanding-entropy/2019-03-28-understanding-entropy/",  "Understanding Entropy", "A study of one of the most interesting ideas in physics, entropy through the lens of statistical mechanics", "/Old_blog/2019-03-28-understanding-entropy/images/entropy-4-1024x683.jpg"),
+        ("/Old_blog/2020-03-15-understanding-the-dynamics-of-disease-spreading-part-1-basic-population-dynamics/disease/","Understanding Population Dynamics(From old Blog)","Studying population growth models from malthusian to logistic.","Old_blog/2020-03-15-understanding-the-dynamics-of-disease-spreading-part-1-basic-population-dynamics/images/population-dynamics-introduction-7-638-1.jpg"),
+        ("/Blog/network/NetworkScience101/",  "Network Science 101",                "An introduction to network science",         nothing),
+        ("/Old_blog/2021-03-14-pi/pi3/",    "Love Letters to Pi Part 3, normality of Pi", "A look at normality of my facourite irrational number and the magic hidden in the decimal expansion of it.","/Old_blog/2021-03-14-pi/images/PiNeverEnds2-1-1024x764.png")
+    ]
+
+    items = join([begin
+        img_html = isnothing(img) ? "" : """<img src="$img" class="carousel-img" alt="$title">"""
+        """
+        <div class="carousel-item">
+          <a href="$url" class="carousel-link">
+            $img_html
+            <div class="carousel-title">$title</div>
+            <div class="carousel-desc">$desc</div>
+          </a>
+        </div>"""
+    end for (url, title, desc, img) in posts], "\n")
+
+    return """
+    <div class="carousel-wrapper">
+      <button class="carousel-btn prev" onclick="moveCarousel(-1)">&#8592;</button>
+      <div class="carousel-track-outer">
+        <div class="carousel-track" id="carouselTrack">
+          $items
+        </div>
+      </div>
+      <button class="carousel-btn next" onclick="moveCarousel(1)">&#8594;</button>
+    </div>
+    <script>
+    (function() {
+      var track = document.getElementById('carouselTrack');
+      var idx = 0;
+      var visibleCount = Math.floor(track.parentElement.offsetWidth / 280) || 1;
+      function getMax() { return Math.max(0, track.children.length - visibleCount); }
+      window.moveCarousel = function(dir) {
+        visibleCount = Math.floor(track.parentElement.offsetWidth / 280) || 1;
+        idx = Math.min(Math.max(idx + dir, 0), getMax());
+        track.style.transform = 'translateX(-' + (idx * 280) + 'px)';
+      };
+      setInterval(function() {
+        idx = (idx >= getMax()) ? 0 : idx + 1;
+        track.style.transform = 'translateX(-' + (idx * 280) + 'px)';
+      }, 4000);
+    })();
+    </script>
+    """
+end
+
+function hfun_readingcarousel()
+    books = [
+        ("/Blog/bookreviews/2025WrapUp/",              "Reading Wrap Up 2025",                   "33 books, 10,059 pages across a busy PhD year",                    "/Blog/bookreviews/images/storygraph-wrap-up-2025.png"),
+        ("/Blog/bookreviews/2024WrapUp/",              "Reading Wrap Up 2024",                   "32 books and the year reading became a habit",                     nothing),
+        ("/Blog/bookreviews/Kindred/",                 "Kindred — Octavia Butler",               "A haunting masterpiece on slavery and time travel",                nothing),
+        ("/Blog/bookreviews/BalladOfSongbirds/",       "Ballad of Songbirds & Snakes",           "The Hunger Games prequel — a villain's origin story",             nothing),
+        ("/Blog/bookreviews/AThousandSplendidSuns/",   "A Thousand Splendid Suns",               "Khaled Hosseini's devastating story of two Afghan women",          nothing),
+        ("/Blog/bookreviews/SleepingMurder/",          "Sleeping Murder — Agatha Christie",      "Miss Marple's last case and one of Christie's finest",            nothing),
+        ("/Blog/bookreviews/EndlessNight/",            "Endless Night — Agatha Christie",        "Christie's darkest and most psychological thriller",              nothing),
+        ("/Blog/bookreviews/February24Books/",         "February 2024 Reviews",                  "The Secret Adversary, Midnight Library and The Big Four",         nothing),
+        ("/Blog/bookreviews/March24Books/",            "March 2024 Reviews",                     "The Forever War, Seven Dials Mystery, Before Coffee Gets Cold",   nothing),
+        ("/Blog/bookreviews/April_July24Books/",       "April–July 2024 Reviews",                "Pride and Prejudice, Brazen, White Nights and more",              nothing),
+        ("/Blog/bookreviews/books/",                   "All Books Read",                         "Full list of every book tracked since I started reading logs",    nothing),
+    ]
+
+    items = join([begin
+        img_html = isnothing(img) ? "" : """<img src="$img" class="carousel-img" alt="$title">"""
+        """
+        <div class="carousel-item">
+          <a href="$url" class="carousel-link">
+            $img_html
+            <div class="carousel-title">$title</div>
+            <div class="carousel-desc">$desc</div>
+          </a>
+        </div>"""
+    end for (url, title, desc, img) in books], "\n")
+
+    return """
+    <div class="carousel-wrapper">
+      <button class="carousel-btn prev" onclick="moveReadingCarousel(-1)">&#8592;</button>
+      <div class="carousel-track-outer">
+        <div class="carousel-track" id="readingCarouselTrack">
+          $items
+        </div>
+      </div>
+      <button class="carousel-btn next" onclick="moveReadingCarousel(1)">&#8594;</button>
+    </div>
+    <script>
+    (function() {
+      var track = document.getElementById('readingCarouselTrack');
+      var idx = 0;
+      var visibleCount = Math.floor(track.parentElement.offsetWidth / 280) || 1;
+      function getMax() { return Math.max(0, track.children.length - visibleCount); }
+      window.moveReadingCarousel = function(dir) {
+        visibleCount = Math.floor(track.parentElement.offsetWidth / 280) || 1;
+        idx = Math.min(Math.max(idx + dir, 0), getMax());
+        track.style.transform = 'translateX(-' + (idx * 280) + 'px)';
+      };
+      setInterval(function() {
+        idx = (idx >= getMax()) ? 0 : idx + 1;
+        track.style.transform = 'translateX(-' + (idx * 280) + 'px)';
+      }, 4500);
+    })();
+    </script>
     """
 end

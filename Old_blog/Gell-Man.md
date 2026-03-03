@@ -1,5 +1,4 @@
 @def tags = ["Blog","BlogPost"]
-@def hasplotly = true
 @def rss_title = "Gell-Mann’s innovative thinking| The Eight Fold Way"
 @def rss_description = "This post is a tribute to Murray Gell-Mann a physicist who passed away yesterday-24th May 2019. A man who used innovative thinking and intuitiveness to tame the particle zoo that terrified physicists in 1950s"
 @def rss_pubdate = Date(2019,05,25)
