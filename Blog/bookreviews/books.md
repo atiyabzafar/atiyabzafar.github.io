@@ -1,11 +1,13 @@
 @def tags= ["BookReviews"]
 @def rss_description = "Books I have read"
+@def description = "Books I have read"
 @def rss_pubdate = Date(2025,03,3)
 @def rss_title = "Updated chronological list of my reads"
+@def title = "Updated chronological list of my reads"
 @def cusdis_id    = "books"
 @def cusdis_url   = "https://atiyabzafar.github.io/Blog/bookreviews/books/"
 @def cusdis_title = "Books Read"
-
+@def og_image = "/assets/images/Reading_heatmap.png"
 
 # Books Read
 A heatmap showing how often I read. Each cell correspond to a day and the number inside the cell shows how many pages were read that day. 

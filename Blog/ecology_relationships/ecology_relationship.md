@@ -1,6 +1,9 @@
 @def tags = ["Blog","WeeklyPost"]
 @def hascytoscape = true
+@def title = "Theoretical Ecology and Interactions (Lotka Volterra)"
+@def rss_title = "Theoretical Ecology and Interactions (Lotka Volterra)"
 @def rss_description = "Ecological Interactions, Basic Lotka Volterra Equations"
+@def description = "Ecological Interactions, Basic Lotka Volterra Equations"
 @def rss_pubdate = Date(2023,09,10)
 # Theoretical Ecology and Interactions (Lotka Volterra)
 \toc

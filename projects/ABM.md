@@ -1,3 +1,10 @@
+@def title = "ABM of disease spreading, a project"
+@def rss_title = "ABM of disease spreading, a project"
+@def rss_description = "Examining Disease Prevention Measures within Heterogeneous Communities and Studying Effect of Migration and lockdowns"
+@def description = "Examining Disease Prevention Measures within Heterogeneous Communities and Studying Effect of Migration and lockdowns"
+@def og_image = "/assets/images/Ring.png"
+
+
 # Examining Disease Prevention Measures within Heterogeneous Communities and Studying Effect of Migration and lockdowns
 Table Of Contents:
 \toc

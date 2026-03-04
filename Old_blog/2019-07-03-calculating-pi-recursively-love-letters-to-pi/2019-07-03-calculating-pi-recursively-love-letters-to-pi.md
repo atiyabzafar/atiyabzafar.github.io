@@ -1,9 +1,11 @@
 @def hasmath=true
 @def tags = ["Blog","BlogPost"]
+@def title = "Love Letters to Pi 1"
+@def description = "A blog post celebrating my favourite irrational number"
 @def rss_title = "Love Letters to Pi 1"
 @def rss_description = "A blog post celebrating my favourite irrational number"
 @def rss_pubdate = Date(2019,07,03)
-
+@def og_image = "/Old_Blog/2019-07-03-calculating-pi-recursively-love-letters-to-pi/images/04-Fascinating-Facts-Behind-the-Mystery-of-Pi-760x506-1.jpg"
 ![](/Old_Blog/2019-07-03-calculating-pi-recursively-love-letters-to-pi/images/04-Fascinating-Facts-Behind-the-Mystery-of-Pi-760x506-1.jpg)
 
 This will be my first post of a series of love letters to the irrational number $\pi$. The ratio of circumference to the diameter of the circle.

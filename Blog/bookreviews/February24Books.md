@@ -2,6 +2,9 @@
 @def rss_description = "Books read in February 2024"
 @def rss_pubdate = Date(2024,04,04)
 @def rss_title = "February 2024 Books"
+@def description = "Books read in February 2024"
+@def title = "February 2024 Books"
+@def og_image = "/Blog/bookreviews/images/SecretAdversary.jpg"
 
 # Book reviews for February, 24
 

@@ -14,14 +14,23 @@
   {{insert style.html}}
 
   {{isdef title}} <title>{{fill title}}</title>  {{end}}
-  <!---title>Atiyab's Blog</title>--->
-  <meta property="og:title" content="Physicsing" />
   <meta property="og:locale" content="en_US" />
-  <meta property="og:description" content="{{description}}" />
   <meta property="og:site_name" content="Atiyab's Blog" />
+  <!-- Open Graph -->
+  <meta property="og:type"        content="article">
+  <meta property="og:url"         content="{{fill website_url}}{{fill slug}}">
+  <meta property="og:title"       content="{{fill title}}">
+  <meta property="og:description" content="{{fill description}}">
+  <meta property="og:image"       content="{{fill website_url}}{{fill og_image}}">
+  <!-- Twitter/X -->
+  <meta name="twitter:card"        content="summary_large_image">
+  <meta name="twitter:title"       content="{{fill title}}">
+  <meta name="twitter:description" content="{{fill description}}">
+  <meta name="twitter:image"       content="{{fill website_url}}{{fill og_image}}">
 
-  <!link rel="stylesheet" href="/css/normalize.css">
-  <!link rel="stylesheet" href="/css/main.css">
+
+  <!-- <link rel="stylesheet" href="/css/normalize.css"> -->
+  <!-- <link rel="stylesheet" href="/css/main.css"> -->
   {{if hascytoscape}}
     {{insert head_cytoscape.html}}
   {{end}}

@@ -1,9 +1,11 @@
 @def hasmath = true
 @def tags = ["Blog","Blog Post"]
+@def title = "Understanding Entropy"
+@def description = "Blog post exploring what is entropy and fun things about the concept of entropy. Discussing the statistical physics interpretation of the concept"
 @def rss_title = "Understanding Entropy"
 @def rss_description = "Blog post exploring what is entropy and fun things about the concept of entropy. Discussing the statistical physics interpretation of the concept"
 @def rss_pubdate = Date(2019,03,28)
-
+@og_image = "/Old_blog/2019-03-28-understanding-entropy/images/entropy-4-1024x683.jpg"
 # Understanding Entropy 
 
 Entropy is one of the most thought provoking and complicated concepts of physics. While being simple enough it hides a level of complexity that leaves people around the world scratching their heads.  

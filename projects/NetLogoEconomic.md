@@ -1,8 +1,10 @@
 @def tags = ["Blog","BlogPost"]
 @def rss_title = "NetLogo Model of evolving economy"
 @def rss_description = "Documentation of an old NetLogo model I created for an Agent Based Model of a catalysed economy"
+@def title = "NetLogo Model of evolving economy"
+@def description = "Documentation of an old NetLogo model I created for an Agent Based Model of a catalysed economy"
 @def rss_pubdate = Date(2026,02,26)
-
+@def og_image = "/assets/images/NetLogoScreenShot.png"
 
 # An agent based model for a catalysed economy
 >Adding documentation for the NetLogo model, from the .nlogo file submitted for final project of Agent Based Modeling course at Complexity Explorer in August 2024. 

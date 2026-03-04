@@ -2,7 +2,10 @@
 @def tags = ["Blog","BlogPost"]
 @def rss_title = "Love Letters to Pi(2): Surprising places where Pi shows up"
 @def rss_description = "Second part of my love letters to pi, where I talk about surprising appearances of pi, my favourite irrational number"
+@def title = "Love Letters to Pi(2): Surprising places where Pi shows up"
+@def description = "Second part of my love letters to pi, where I talk about surprising appearances of pi, my favourite irrational number"
 @def rss_pubdate = Date(2020,03,14)
+@def og_image = "/Old_blog/2020-03-14-love-letters-to-pi-surprising-places-where-pi-pops-up-celebrating-pi-day/images/PiNeverEnds2-1-1024x764.png"
 
 A Physicist and a mathematician loves pattern and you can see the rare twinkle in their eyes (when the dread has not set in) when they find the patterns in unexpected places. And so it was the case recently with me when i found pi, the universal constant that arise from geometry of a circle in an unexpected place (Although purely co-incidentally)
 

@@ -1,6 +1,10 @@
 @def tags = ["Blog","WeeklyPost","BookReviews"]
 @def rss_description = "Book Review: A Thousand Splendid Suns by Khaled Hosseini"
+@def description = "Book Review: A Thousand Splendid Suns by Khaled Hosseini"
+@def rss_title = "A Thousand Splendid Suns"
+@def title = "A Thousand Splendid Suns"
 @def rss_pubdate = Date(2023,11,13)
+@def og_image = "/Blog/bookreviews/images/AThousandSplendidSuns.jpg"
 # A Thousand Splendid Suns by Khaled Hosseini
 
 > “Of all the hardships a person had to face, none was more punishing than the simple act of waiting.”

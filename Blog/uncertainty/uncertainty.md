@@ -1,6 +1,10 @@
 @def tags = ["Blog","BlogPost"]
-@def rss_description = "Making peace with uncertainty:(Ian Malcolm, Jurassic Park, Uncertainty and Science)"
+@def rss_description = "Making peace with uncertainty:(Ian Malcolm, Jurassic Park, Uncertainty and Science), a blog post which acts as a review of Michael Crichton's Jurassic Park as well as my thoughts on uncertainty and probability."
+@def rss_title = "Making peace with uncertainty:(Ian Malcolm, Jurassic Park, Uncertainty and Science)"
+@def escription = "Making peace with uncertainty:(Ian Malcolm, Jurassic Park, Uncertainty and Science), a blog post which acts as a review of Michael Crichton's Jurassic Park as well as my thoughts on uncertainty and probability."
+@def title = "Making peace with uncertainty:(Ian Malcolm, Jurassic Park, Uncertainty and Science)"
 @def rss_pubdate = Date(2023,08,28)
+@def og_image = "/assets/images/JurassicPark.gif"
 # Making Peace with Uncertainty (Ian Malcolm and Science)
 
 

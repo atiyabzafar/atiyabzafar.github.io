@@ -2,6 +2,9 @@
 @def rss_description = "Books read in March 2024"
 @def rss_pubdate = Date(2024,08,21)
 @def rss_title = "March Books"
+@def description = "Books read in March 2024"
+@def title = "March Books"
+
 # Thoughts for books I read in March, 2024
 
 I am cheating here, as I am writing this in August. But my mind would keep hurting me if I do not complete the monthly read blog posts. I am going back to organising my life. Or atleast trying to organise it. And that requires updated reading posts on the blog. 

@@ -1,9 +1,11 @@
-@def title = "Reading Wrap Up 2025"
 @def tags = ["Blog","BlogPost"]
 @def hasplotly = true
+@def title = "Reading Wrap Up 2025"
 @def rss_title = "2025 Reading Wrap Up"
 @def rss_description = "Wrap up of my reading habit from 2025"
+@def description = "Wrap up of my reading habit from 2025"
 @def rss_pubdate = Date(2026, 02, 23)
+@def og_image = "/Blog/bookreviews/images/storygraph-wrap-up-2025.png"
 
 # Reading Wrap Up 2025
 

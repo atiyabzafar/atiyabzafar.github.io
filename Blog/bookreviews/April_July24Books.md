@@ -2,8 +2,8 @@
 @def rss_title = "April to July Books"
 @def rss_description = "Books read from April to July 2024"
 @def rss_pubdate = Date(2024,08,22)
-@def rss_title = "Books read in April 2024 to July 2024"
-
+@def title = "April to July Books"
+@def description = "Books read from April to July 2024"
 
 # Book reviews for April, 24
 

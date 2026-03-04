@@ -1,7 +1,12 @@
 @def tags = ["Blog","WeeklyPost"]
 @def hasmathjax = true
 @def hascode = true
-
+@def rss_title = "Playground of Digits Sum"
+@def title = "Playground of Digits Sum"
+@def rss_description = "This blog post is just me playing with digit sums and concept of digit root and identifying some cool number theoretic observations"
+@def description = "This blog post is just me playing with digit sums and concept of digit root and identifying some cool number theoretic observations"
+@def rss_pubdate = Date(2023,09,05)
+@def og_image = "/Blog/digitsum/UlamSpiral10e5.png"
 ~~~
 <!-- PlutoStaticHTML.Begin -->
 <!--

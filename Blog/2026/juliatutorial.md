@@ -4,7 +4,9 @@
 @def hasmath=true
 @def rss_title = "Differential.jl: A tutorial with Lorenz system and Generalised Lotka Volterra"
 @def rss_description = "A tutorial for solving dofferential equation susing Julia and a look at lorenz system with generalise lotka volterra"
+@def description = "A tutorial for solving dofferential equation susing Julia and a look at lorenz system with generalise lotka volterra"
 @def rss_pubdate = Date(2026, 03, 03)
+@def og_image = "/Blog/2026/images/lorenzchaos.png"
 
 # A tutorial for solving Differential Equations in Julia
 

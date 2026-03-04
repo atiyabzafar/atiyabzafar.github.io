@@ -137,10 +137,7 @@ function hfun_blogcarousel()
         idx = Math.min(Math.max(idx + dir, 0), getMax());
         track.style.transform = 'translateX(-' + (idx * 280) + 'px)';
       };
-      setInterval(function() {
-        idx = (idx >= getMax()) ? 0 : idx + 1;
-        track.style.transform = 'translateX(-' + (idx * 280) + 'px)';
-      }, 4000);
+      
     })();
     </script>
     """
@@ -197,7 +194,7 @@ function hfun_readingcarousel()
       setInterval(function() {
         idx = (idx >= getMax()) ? 0 : idx + 1;
         track.style.transform = 'translateX(-' + (idx * 280) + 'px)';
-      }, 4500);
+      }, 8500);
     })();
     </script>
     """

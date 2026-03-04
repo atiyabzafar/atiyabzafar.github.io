@@ -2,7 +2,9 @@
 @def rss_description = "Book Review: Kindred by Octavia E Butler"
 @def rss_pubdate = Date(2024,08,27)
 @def rss_title = "Book Review: Kindred by Octavia E Butler"
-
+@def title = "Book Review: Kindred by Octavia E Butler"
+@def description = "Book Review: Kindred by Octavia E Butler"
+@def og_image = "/Blog/bookreviews/images/Kindred.jpg"
 # Book Review : Kindred
 ## Kindred
 

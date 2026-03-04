@@ -1,6 +1,8 @@
 @def tags = ["Blog","BookReviews"]
 @def rss_title = "The Ballad of Songbirds and Snakes Bookreview"
+@def title = "The Ballad of Songbirds and Snakes Bookreview"
 @def rss_description = "The Ballad of Songbirds and Snakes Bookreview"
+@def description = "The Ballad of Songbirds and Snakes Bookreview"
 @def rss_pubdate = Date(2024,09,09)
 @def cusdis_id    = "BalladSongbirdsReview"
 @def cusdis_url   = "atiyabzafar.github.io/Blog/bookreviews/BalladOfSongbirds/"

@@ -1,8 +1,10 @@
 @def tags = ["Blog","BlogPost"]
 @def rss_title = "Google Matrix"
 @def rss_description = "Interesting finds: Google Matrix. Learn with me an interesting mathematical/network topic"
+@def title = "Google Matrix"
+@def description = "Interesting finds: Google Matrix. Learn with me an interesting mathematical/network topic"
 @def rss_pubdate = Date(2025,09,03)
-
+@def og_image = "/Blog/2025/images/Centrality.svg"
 # Interesting finds: Google Matrix
 
 When you google something, how does google know which website to put on the first page. Which website that it has indexed among hunreds of billions (yes apparently the number is that high if you were to believe google in [2008](https://googleblog.blogspot.com/2008/07/we-knew-web-was-big.html)) of websites. 

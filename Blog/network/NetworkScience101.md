@@ -4,8 +4,10 @@
 @def maxtoclevel=4
 
 @def tags = ["Blog","WeeklyPost"]
-
-@def rss_description = "Network Science 101"
+@def title = "Network Science 101"
+@def rss_title = "Network Science 101"
+@def description = "Network Science 101: An exploratory blog post discussing the very basics and fundamentals of Network Science"
+@def rss_description = "Network Science 101: An exploratory blog post discussing the very basics and fundamentals of Network Science"
 @def rss_pubdate = Date(2022,07,24)
 
 # Network Science 101 (Graph Theory)

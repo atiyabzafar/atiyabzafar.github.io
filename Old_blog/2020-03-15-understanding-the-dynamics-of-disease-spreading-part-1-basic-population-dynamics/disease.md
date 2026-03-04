@@ -2,7 +2,10 @@
 @def tags = ["Blog","BlogPost"]
 @def rss_title = "Understanding Population Dynamics"
 @def rss_description = "An exploration of dynamical systems and population growth models"
+@def title = "Understanding Population Dynamics"
+@def description = "An exploration of dynamical systems and population growth models"
 @def rss_pubdate = Date(2020,03,15)
+@def og_image = "/Old_blog/2020-03-15-understanding-the-dynamics-of-disease-spreading-part-1-basic-population-dynamics/images/population-dynamics-introduction-7-638-1.jpg"
 
 > This post is meant to be a supplement to what's coming ahead in a few days. I made this blog to share my exploration and curiosities and Here's me doing exactly that. So let's see what i learned today.
 >Edit: The subsequent posts never came. 😞 Life got in the way and the blog stayed behind. It also moved domains and hosting.

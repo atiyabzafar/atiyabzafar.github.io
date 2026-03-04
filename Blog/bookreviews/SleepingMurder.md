@@ -2,6 +2,9 @@
 @def rss_description = "Book review: Sleeping Murder by Agatha Christie"
 @def rss_pubdate = Date(2023,12,24)
 @def rss_title = "Sleeping Murder Book Review"
+@def description = "Book review: Sleeping Murder by Agatha Christie"
+@def title = "Sleeping Murder Book Review"
+@def og_image = "/Blog/bookreviews/images/SleepingMurder1.jpeg"
 
 # Sleeping Murder by Agatha Christie
     December 24 ,2023
