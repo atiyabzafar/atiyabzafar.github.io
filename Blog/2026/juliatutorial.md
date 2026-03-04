@@ -7,6 +7,11 @@
 @def description = "A tutorial for solving dofferential equation susing Julia and a look at lorenz system with generalise lotka volterra"
 @def rss_pubdate = Date(2026, 03, 03)
 @def og_image = "/Blog/2026/images/lorenzchaos.png"
+@def cusdis_id    = "juliatutorial"
+@def cusdis_url   = "atiyabzafar.github.io/Blog/2026/juliatutorial/"
+@def cusdis_title = "Differential.jl: A tutorial with Lorenz system and Generalised Lotka Volterra"
+
+
 
 # A tutorial for solving Differential Equations in Julia
 
@@ -653,3 +658,6 @@ fig
 CairoMakie.save("Blog/2026/images/lorenzperiodic.png",fig)
 ```
 
+## Comments
+
+{{cusdis}}
