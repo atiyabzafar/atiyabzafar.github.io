@@ -116,7 +116,7 @@
     <![CDATA[  <h1 id="a_tutorial_for_solving_differential_equations_in_julia">A tutorial for solving Differential Equations in Julia</h1>
 <p>My research involves solving high ordered highly coupled differential equations. And while working in the last few years, I have used many programming languages like C, Fortran, Python, and Julia. I have also utilised softwares like Matlab and Mathematica for the same purpose thanks to the university wide license provided by my department. </p>
 <p>I have realised that each had its own advantages. But among all of these, I found Julia to be the most superior among the computational capacity, variety, speed and ease of use. There already exist benchmarks published on the internet that looks at various ODE solvers or interfaces and rank them for their speed and efficiency. I will not be doing that in this post. <strong>This post is intended as a tutorial for those who wish to use Julia for solving differential equations.</strong> For more information on how Julia is the best at solving ODEs &#40;ordinary differential equations&#41;, I will point you to benchmark link and resources at the end of the post. </p>
-<div class="franklin-toc"><ol><li>Julia?</li><li>DifferentialEquations.jl<ol><li>One dimensional ODE &#40;Logistic Growth&#41;</li><li>Higher dimensional ODE &#40;Lorenz System, Chaos and strange attractor&#41;</li></ol></li><li>Generalised Lotka Volterra Model &#40;Ecological Predator-Prey Dynamics&#41;<ol><li>Case 1: Stable coexistence:</li><li>Case 2: Competitive Exclusion </li><li>Case 3: Limit Cycle &#40;oscillations&#41;</li></ol></li><li>Conclusion</li><li>Appendix <ol><li>Short introduction to Julia&#39;s syntax</li><li>About solvers</li><li>Important links<ol><li>DifferentialEquations.jl</li></ol></li><li>Julia Learning Resources</li><li>Plotting</li><li>Previous posts referenced in this article</li><li>Code for plots<ol><li>Competitive exclusion</li></ol></li><li>Coeexistence</li><li>Lorenz Sensitivity</li><li>Lorenz Periodic</li></ol></li></ol></div>
+<div class="franklin-toc"><ol><li>Julia?</li><li>DifferentialEquations.jl<ol><li>One dimensional ODE &#40;Logistic Growth&#41;</li><li>Higher dimensional ODE &#40;Lorenz System, Chaos and strange attractor&#41;</li></ol></li><li>Generalised Lotka Volterra Model &#40;Ecological Predator-Prey Dynamics&#41;<ol><li>Case 1: Stable coexistence:</li><li>Case 2: Competitive Exclusion </li><li>Case 3: Limit Cycle &#40;oscillations&#41;</li></ol></li><li>Conclusion</li><li>Appendix <ol><li>Short introduction to Julia&#39;s syntax</li><li>About solvers</li><li>Important links<ol><li>DifferentialEquations.jl</li></ol></li><li>Julia Learning Resources</li><li>Plotting</li><li>Previous posts referenced in this article</li><li>Code for plots<ol><li>Competitive exclusion</li></ol></li><li>Coeexistence</li><li>Lorenz Sensitivity</li><li>Lorenz Periodic</li></ol></li><li>Comments</li></ol></div>
 <h2 id="julia">Julia?</h2>
 <p>For people who are new to Julia, I will go through some introductory element and  syntax in this post, which will be good for people starting with Julia, people who want to go into further details and want to spend more time learning it, see links at the end. For people who have used python which is common for science researchers, Julia looks very similar and is easy to grasp. I moved from python to julia myself and found a lot of common language rules and syntax. For people who want a tiny introduction to the syntax of Julia, you can jump below to the <a href="https://atiyabzafar.github.io/Blog/2026/juliatutorial/#short_introduction_to_julias_syntax">section</a> where I introduce some concepts that are used in this post and would be beneficial. </p>
 <h2 id="differentialequationsjl">DifferentialEquations.jl</h2>
@@ -582,7 +582,15 @@ CairoMakie.lines&#33;&#40;ax3,sol.t,z&#41;
 CairoMakie.lines&#33;&#40;ax4,x,y,z,linewidth&#61;0.5,color&#61;sol.t,colormap&#61;:viridis&#41;
 fig
 CairoMakie.save&#40;&quot;Blog/2026/images/lorenzperiodic.png&quot;,fig&#41;</code></pre>
- ]]>
+<h2 id="comments">Comments</h2>
+<div id="cusdis_thread"
+  data-host="https://cusdis.com"
+  data-app-id="3fbebddf-252b-4547-9c0f-cb1d9ba878aa"
+  data-page-id="juliatutorial"
+  data-page-url="atiyabzafar.github.io/Blog/2026/juliatutorial/"
+  data-page-title="Differential.jl: A tutorial with Lorenz system and Generalised Lotka Volterra"
+></div>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script> ]]>
   </content:encoded>
     
   <pubDate>Tue, 03 Mar 2026 00:00:00 +0000</pubDate>  
