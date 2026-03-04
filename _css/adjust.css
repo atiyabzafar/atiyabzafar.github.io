@@ -140,3 +140,22 @@ h5 a:visited { color: #1c1c1c !important; }
   border-radius: 5px;
   margin-bottom: 0.6rem;
 }
+
+.bloglist-img {
+  width: 100%;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.bloglist-title {
+  display: block;
+  font-weight: 600;
+  color: #2a7ae2;
+  margin-bottom: 0.3rem;
+}
+
+/* Cards with images get slightly taller naturally — no change needed */
+/* Cards without images look exactly as before */

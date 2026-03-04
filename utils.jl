@@ -50,15 +50,20 @@ function hfun_bloglist()
         ("/Old_blog/2019-03-28-understanding-entropy/2019-03-28-understanding-entropy/", "Understanding Entropy",   Date(2019, 3, 28)),
     ]
 
-    io = IOBuffer()
-    write(io, "<a href=\"/feed.xml\" class=\"rss-button\">Subscribe to RSS Feed</a>\n")
-    write(io, "<div class=\"bloglist\">\n")
-    for (url, title, date) in posts
-        datestr = Dates.format(date, "d U, yyyy")
-        write(io, """<p><a href="$url">$title</a><span class="post-date">$datestr</span></p>\n""")
-    end
-    write(io, "</div>\n")
-    return String(take!(io))
+  io = IOBuffer()
+  write(io, "<a href=\"/feed.xml\" class=\"rss-button\">Subscribe to RSS Feed</a>\n")
+  write(io, "<div class=\"bloglist\">\n")
+  for (url, title, date) in posts
+      datestr = Dates.format(date, "d U, yyyy")
+
+      # Auto-read og_image from the page's own frontmatter
+      img = pagevar(url, "og_image")
+      img_html = isnothing(img) ? "" : """<img src="$img" class="bloglist-img" alt="$title">"""
+
+      write(io, """<p><a href="$url">$img_html<span class="bloglist-title">$title</span></a><span class="post-date">$datestr</span></p>\n""")
+  end
+  write(io, "</div>\n")
+  return String(take!(io))
 end
 
 
