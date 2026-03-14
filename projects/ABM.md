@@ -10,7 +10,7 @@ Table Of Contents:
 \toc
 ## Introduction
 
-[Link to the Presentation for the project](/_assets/Final-covidBUSTERS.pdf)
+[Link to the Presentation for the project](/assets/Final-covidBUSTERS.pdf)
 
 Our Agent based model consists of 
 * In our model agents move randomly 

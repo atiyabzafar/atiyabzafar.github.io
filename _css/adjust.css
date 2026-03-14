@@ -159,3 +159,12 @@ h5 a:visited { color: #1c1c1c !important; }
 
 /* Cards with images get slightly taller naturally — no change needed */
 /* Cards without images look exactly as before */
+
+
+.video-container {
+    display: flex;
+    justify-content: center; /* Centers horizontally */
+    align-items: center; /* Centers vertically */
+    /*height: 100vh; /* Example: Centers within the full viewport height */
+    /*border: 1px solid black; /* Optional: to visualize the container */
+}
