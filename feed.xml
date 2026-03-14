@@ -123,7 +123,8 @@
 <img src="https://atiyabzafar.github.io/Blog/2026/images/StencilSpirographEtsy.jpg" style="padding:0; width:50%;border:1px solid red;" alt=" Spirograph Stencil (Courtesy : etsy)"/>
 <figcaption> Spirograph Stencil (Courtesy : etsy)</figcaption>
 </figure><p>The most satisfying part using these stencils used to be the moment when the curve closed and I would start to retrace the already traced curve. This repeating pattern happens because of the speed of rotation, angular velocity. If the ratio of the two \(\theta\)&#40;s&#41; is a rational number, they will eventually become periodic. The least common multiple of the individual periods would give us the period of the resulting spirograph.</p>
-<p>I think I will keep more discussion about spirographs for another post. Let us get back to the illustration in hand. In fact, if we want to define these types of visualisations formally, these would be degree-2 complex fourier curve. They are also pretty close to epicyclic curve that Ptolemy used to model planetary motion in early Greco-Roman history.</p>
+<p>I think I will keep more discussion about spirographs for another post. Let us get back to the illustration in hand.</p>
+<p>In fact, if we want to define these types of visualisations formally, these would be degree-2 complex fourier curve. They are also pretty close to epicyclic curve that Ptolemy used to model planetary motion in early Greco-Roman history.</p>
 <p>Let us generalise the complex number sum, by taking the second parameter &#40;taken as \(\pi\) above&#41; as \(a\).</p>
 \[z(a,\theta)=e^{(\theta i)}+e^{(a \theta i)}\]
 <p>We can now replace \(a\) and see how the trace of the value of \(z\) will look like.&#40;Code to generate the plot in the appendix at the end of the post&#41;</p><figure style="text-align:center;">
@@ -186,8 +187,8 @@ z(a,\theta)= 2 \cos \left( \theta \left( \frac{a-1}{2} \right) \right) e^{i \the
 <p>This expression shows why for our case for \(a=1.5\) the period \([0,2 \pi]\) did not repeat. We had to go till \(4\pi\) to get repeating patterns.</p>
 <p>And finally, we can prove why \(\pi\) does not show any repeating pattern in this representation. \(\pi\) does have rational approximations, \(\pi \simeq 22/7\) is one of the most common ones that we learn in schools. There is a \(\sim 10^{-3}\) error bound in this depiction. Thus, when we look at \(T=2\pi \times 7 = 14 \pi\), we see that our trace crosses extremely close to the starting point, but not exactly at it. We get the next best rational approximation of \(\pi\) at \(333/106\). This suggests next close situation will occur at \(T=212 \pi\). And to actually see it in the visualisation, I would need to zoom more to see the smaller gap.</p>
 <p>So, for \(\pi\) the period blows up to \(\infty\). And it fills the whole volume without repeating, and same goes for other irrational numbers for the same reason.</p>
-<p><div class="note"><div class="title">⚠ Note</div>
-<div class="content">Interestingly, we can generalise these for sum of multiple exponentials, \(z=\sum_j b_j e^{a_j \theta i}\), which is the complex valued fourier series expansion. Famous math youtuber 3blue1brown has an amazing video that uses these complex fourier series to draw amazing animations. <a href="https://youtu.be/r6sGWTCMz2k">link here</a></div></div> Infact, if we want to define these types of visualisations formally, these would be degree-2 complex fourier curve. They are also pretty close to epicyclic curve that Ptolemy used to model planetary motion in early Greco-Roman history.</p>
+<div class="note"><div class="title">⚠ Note</div>
+<div class="content">Interestingly, we can generalise these for sum of multiple exponentials, \(z=\sum_j b_j e^{a_j \theta i}\), which is the complex valued fourier series expansion. Famous math youtuber 3blue1brown has an amazing video that uses these complex fourier series to draw amazing animations. <a href="https://youtu.be/r6sGWTCMz2k">link here</a></div></div>
 <h2 id="comments">Comments</h2>
 <div id="cusdis_thread"
   data-host="https://cusdis.com"
