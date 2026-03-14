@@ -22,6 +22,7 @@ using Dates
 function hfun_bloglist()
     # Define posts here directly: (path, date) — newest first
     posts = [
+        ("/Blog/2026/pi-day/",           "Fun with Pi, complex sums and symmetries, Pi Day 2026",             Date(2026,3,14),"/Blog/2026/images/5loop.gif"),
         ("/Blog/2026/juliatutorial/",           "Differential.jl: A tutorial with Lorenz system and Generalised Lotka Volterra", Date(2026,3,3),"/Blog/2026/images/lorenzchaos.png"),
         ("/projects/NetLogoEconomic/",          "An agent based model for a catalysed economy",                     Date(2026, 2, 26),"/assets/images/NetLogoScreenShot.png"),
         ("/Blog/bookreviews/2025WrapUp/",        "Wrap up and analysis of my reading in 2025",                       Date(2026, 2, 23),"/Blog/bookreviews/images/storygraph-wrap-up-2025.png"),
@@ -94,7 +95,8 @@ end
 
 function hfun_blogcarousel()
     posts = [
-        ("/Blog/2026/juliatutorial/",       "Differential.jl: A tutorial with Lorenz system and Generalised Lotka Volterra","A tutorial for solving dofferential equation susing Julia and a look at lorenz system with generalise lotka volterr","/Blog/2026/images/lorenzchaos.png"),
+        ("/Blog/2026/pi-day/",       "Fun with Pi, complex sums and symmetries, Pi Day 2026","Pi day 2026 post. This is a blog post about an interesting visualisation of sum of two complex numbers and how the irrational number pi has an interesting behavioral role to play.","/Blog/2026/images/5loop.gif"),
+        ("/Blog/2026/juliatutorial/",       "Differential.jl: A tutorial with Lorenz system and Generalised Lotka Volterra","A tutorial for solving dofferential equation susing Julia and a look at lorenz system with generalise lotka volterra","/Blog/2026/images/lorenzchaos.png"),
         ("/projects/NetLogoEconomic/",        "Agent Based Economic Model",         "Documentation of a catalysed economy model", "/assets/images/NetLogoScreenShot.png"),
         ("/Blog/2025/google/","Interesting Finds: Google, a look at google's page rank algorithm and eigenvector centrality","Exploring the concept of page rank and eigenvector centrality with a look at how google does ranking. Random Networks with centrality","/Blog/2025/images/ratio_50_500_100_500.png"),
         ("/Blog/ecology_relationships/ecology_relationship/","Ecological Interactions, Basic Lotka–Volterra","A look at basic ecological ecology_relationships through mathematical modeling","/Blog/ecology_relationships/images/prey-predator-phaseportrait.svg"),        

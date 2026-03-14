@@ -4,7 +4,7 @@
 @def rss_description = "Pi day 2026 post. This is a blog post about an interesting visualisation of sum of two complex numbers and how the irrational number pi has an interesting behavioral role to play."
 @def description = "Pi day 2026 post. This is a blog post about an interesting visualisation of sum of two complex numbers and how the irrational number pi has an interesting behavioral role to play."
 @def rss_pubdate = Date(2026, 03, 14)
-@def og_image = ""
+@def og_image = "/Blog/2026/images/5loop.gif"
 @def cusdis_id    = "piday2026"
 @def cusdis_url   = "atiyabzafar.github.io/Blog/2026/pi-day/"
 @def cusdis_title = "Pi Day 2026"
@@ -13,13 +13,13 @@
 
 # Fun with $\pi$, complex sums and symmetries, Pi Day 2026
 
-It is that time of the year again, $\pi$ day is celebrated every year on 14th March. I use the word celebrate, but there are no big parades down the roads, or midnight fireworks. A few enthusiasts on the internet celebrate their irrational affection to the irrational number. I have had a history of writing a letter on $\pi$ and have previously written a few posts about [calculating $\pi$](/Old_blog/2019-07-03-calculating-pi-recursively-love-letters-to-pi/2019-07-03-calculating-pi-recursively-love-letters-to-pi/), [surprising places where $\pi$ is found](/Old_blog/2020-03-14-love-letters-to-pi-surprising-places-where-pi-pops-up-celebrating-pi-day/pi2/), and [how we exist inside the expansion of $\pi$](/Old_blog/2021-03-14-pi/pi3/). This year, I will be talking about an interesting visualisation I found on the internet.
+It is that time of the year again, $\pi$ day is celebrated every year on 14th March. I use the word celebrate, but there are no big parades down the roads, or midnight fireworks. A few enthusiasts on the internet celebrate their irrational affection to the irrational number. I have had a history of writing a letter on $\pi$ and have previously written a few posts about [calculating $\pi$](/Old_blog/2019-07-03-calculating-pi-recursively-love-letters-to-pi/2019-07-03-calculating-pi-recursively-love-letters-to-pi/), [surprising places where $\pi$ is found](/Old_blog/2020-03-14-love-letters-to-pi-surprising-places-where-pi-pops-up-celebrating-pi-day/pi2/), and [how we exist inside the expansion of $\pi$](/Old_blog/2021-03-14-pi/pi3/). This year, I will be talking about an interesting visualisation I found on the internet a while back and how our favourite irrational number has a role to play in it. 
 
 ## Never intersecting spirograph?
 
-A few months ago, I had seen a post on the subreddit [r/oddlysatisfying](https://www.reddit.com/r/oddlysatisfying/s/cvdICSdeTE), it shows a plot of a complex number $z(\theta)=e^{(\theta i)}+e^{(\theta \pi i)}$, for people who know about complex numbers, any complex number can be written as $z=a+ib$ or equivalently $z=\alpha e^{(i \theta)}$.
+A few months ago, I had seen a post on the subreddit [r/oddlysatisfying](https://www.reddit.com/r/oddlysatisfying/s/cvdICSdeTE), it shows a plot of a complex number $z(\theta)=e^{(\theta i)}+e^{(\theta \pi i)}$, for people who do not know about complex numbers, any complex number can be written as $z=a+ib$ or equivalently $z=\alpha e^{(i \theta)}$, where $i$ is the imaginary number defined as $\sqrt{-1}$.
 
-The angle theta is the angle that the point makes in the complex plane with the real line and $\alpha$ is the distance from the center. This is the radial or polar representation of complex numbers. The polar representation with $\alpha=1$ is famously known as Euler's formula.
+The angle theta is the angle that the point makes in the complex plane with the real line and $\alpha$ is the distance from the center. This is the radial or polar representation of complex numbers. The polar expression with $\alpha=1$ is famously known as Euler's formula.
 
 Thus, in the visualisation, we are summing two complex numbers, which represent rotation around different points. This is represented as two arms with same length. In each instant, if the first arm rotates by the angle $\theta$, the second one rotates by an angle $\theta \pi$. $\pi$ thus is the orbital speed.
 
@@ -30,12 +30,13 @@ These visualisations remind me of **spirographs**. I remember, when I was in sch
 The most satisfying part using these stencils used to be the moment when the curve closed and I would start to retrace the already traced curve. This repeating pattern happens because of the speed of rotation, angular velocity. If the ratio of the two $\theta$(s) is a rational number, they will eventually become periodic. The least common multiple of the individual periods would give us the period of the resulting spirograph.
 
 I think I will keep more discussion about spirographs for another post. Let us get back to the illustration in hand.
+In fact, if we want to define these types of visualisations formally, these would be degree-2 complex fourier curve. They are also pretty close to epicyclic curve that Ptolemy used to model planetary motion in early Greco-Roman history.
 
 Let us generalise the complex number sum, by taking the second parameter (taken as $\pi$ above) as $a$.
 
 $$z(a,\theta)=e^{(\theta i)}+e^{(a \theta i)}$$
 
-We can now replace $a$ and see how the trace of the value of $z$ will look like.
+We can now replace $a$ and see how the trace of the value of $z$ will look like.(Code to generate the plot in the appendix at the end of the post)
 
 \figenv{Trace of z for a=5.}{/Blog/2026/images/5loop.gif}{width:75%;border:1px solid red;}
 
@@ -140,10 +141,83 @@ And finally, we can prove why $\pi$ does not show any repeating pattern in this 
 
 So, for $\pi$ the period blows up to $\infty$. And it fills the whole volume without repeating, and same goes for other irrational numbers for the same reason.
 
-Interestingly, we can generalise these for sum of multiple exponentials, $z=\sum_j b_j e^{a_j \theta i}$, which is the complex valued fourier series expansion. Famous math youtuber 3blue1brown has an amazing video that uses these complex fourier series to draw amazing animations. [link here](https://youtu.be/r6sGWTCMz2k)
-
+\note{Interestingly, we can generalise these for sum of multiple exponentials, $z=\sum_j b_j e^{a_j \theta i}$, which is the complex valued fourier series expansion. Famous math youtuber 3blue1brown has an amazing video that uses these complex fourier series to draw amazing animations. [link here](https://youtu.be/r6sGWTCMz2k)
+}
 Infact, if we want to define these types of visualisations formally, these would be degree-2 complex fourier curve. They are also pretty close to epicyclic curve that Ptolemy used to model planetary motion in early Greco-Roman history.
 
 ## Comments
 
 {{cusdis}}
+
+## Appendix: Code for visualisation
+
+Following code was used to generate animation in Julia
+
+```Julia
+using GLMakie
+a=3.15
+# ── Figure Setup ────────────────────────────────────────────────────────────
+fig = Figure(resolution = (900, 950), backgroundcolor = :black)
+ax  = Axis(fig[1, 1],
+    aspect          = DataAspect(),
+    backgroundcolor = :black,
+    xgridvisible    = false,
+    ygridvisible    = false)
+hidedecorations!(ax)
+hidespines!(ax)
+
+r1, r2   = 1.0, 1.0              # inner and outer rod lengths
+θ_circle = LinRange(0, 2π, 300)
+
+# Faint circle guides
+lines!(ax, r1 .* cos.(θ_circle), r1 .* sin.(θ_circle),
+       color = (:white, 0.12), linewidth = 1)
+lines!(ax, 2r1 .* cos.(θ_circle), 2r1 .* sin.(θ_circle),
+       color = (:white, 0.07), linewidth = 0.8)
+
+# ── Observables ─────────────────────────────────────────────────────────────
+t_obs  = Observable(0.0)
+trail  = Observable(Point2f[Point2f(r1 + r2, 0)])  # accumulates every frame
+
+arm1_seg = @lift [Point2f(0, 0),
+                  Point2f(r1 * cos($t_obs), r1 * sin($t_obs))]
+
+arm1_tip = @lift Point2f(r1 * cos($t_obs), r1 * sin($t_obs))
+
+arm2_seg = @lift begin
+    p = $arm1_tip
+    [p, Point2f(p[1] + r2 * cos(a * $t_obs),
+                p[2] + r2 * sin(a * $t_obs))]
+end
+
+tip_pt = @lift begin
+    p = $arm1_tip
+    Point2f(p[1] + r2 * cos(a * $t_obs),
+            p[2] + r2 * sin(a * $t_obs))
+end
+
+# ── Drawing (trail first so arms render on top) ──────────────────────────────
+lines!(ax,  trail,    color = :cyan,           linewidth = 0.8)
+lines!(ax,  arm1_seg, color = (:white, 0.9),   linewidth = 2.5)
+lines!(ax,  arm2_seg, color = (:orange, 0.9),  linewidth = 2.0)
+scatter!(ax, [Point2f(0, 0)], color = :white,  markersize = 10)
+scatter!(ax, arm1_tip,        color = :white,  markersize = 7)
+scatter!(ax, tip_pt,          color = :yellow, markersize = 10)
+
+# Formula label at the bottom
+Label(fig[2, 1],
+    L"z(θ) = e^{i\theta} + e^{i %$(a) \theta}  \text{—  inner: speed 1,  outer: speed %$(a)}",
+    color = (:white, 0.65), fontsize = 14, tellwidth = false)
+
+limits!(ax, -2.3, 2.3, -2.3, 2.3)
+rowsize!(fig.layout, 2, 35)
+
+# ── Record Video ─────────────────────────────────────────────────────────────
+record(fig, "$(a)loop.gif",
+       LinRange(0, 50π, 2000); framerate = 24) do θ
+    t_obs[] = θ
+    push!(trail[], tip_pt[])   # append new tip position to trail
+    notify(trail)
+end
+
+```
