@@ -33,19 +33,19 @@
   
   <content:encoded>
     <![CDATA[  <h1 id="fun_with_pi_complex_sums_and_symmetries_pi_day_2026">Fun with \(\pi\), complex sums and symmetries, Pi Day 2026</h1>
-<p>It is that time of the year again, \(\pi\) day is celebrated every year on 14th March. I use the word celebrate, but there are no big parades down the roads, or midnight fireworks. A few enthusiasts on the internet celebrate their irrational affection to the irrational number. I have had a history of writing a letter on \(\pi\) and have previously written a few posts about <a href="https://atiyabzafar.github.io/Old_blog/2019-07-03-calculating-pi-recursively-love-letters-to-pi/2019-07-03-calculating-pi-recursively-love-letters-to-pi/">calculating \(\pi\)</a>, <a href="https://atiyabzafar.github.io/Old_blog/2020-03-14-love-letters-to-pi-surprising-places-where-pi-pops-up-celebrating-pi-day/pi2/">surprising places where \(\pi\) is found</a>, and <a href="https://atiyabzafar.github.io/Old_blog/2021-03-14-pi/pi3/">how we exist inside the expansion of \(\pi\)</a>. This year, I will be talking about an interesting visualisation I found on the internet.</p>
+<p>It is that time of the year again, \(\pi\) day is celebrated every year on 14th March. I use the word celebrate, but there are no big parades down the roads, or midnight fireworks. A few enthusiasts on the internet celebrate their irrational affection to the irrational number. I have had a history of writing a letter on \(\pi\) and have previously written a few posts about <a href="https://atiyabzafar.github.io/Old_blog/2019-07-03-calculating-pi-recursively-love-letters-to-pi/2019-07-03-calculating-pi-recursively-love-letters-to-pi/">calculating \(\pi\)</a>, <a href="https://atiyabzafar.github.io/Old_blog/2020-03-14-love-letters-to-pi-surprising-places-where-pi-pops-up-celebrating-pi-day/pi2/">surprising places where \(\pi\) is found</a>, and <a href="https://atiyabzafar.github.io/Old_blog/2021-03-14-pi/pi3/">how we exist inside the expansion of \(\pi\)</a>. This year, I will be talking about an interesting visualisation I found on the internet a while back and how our favourite irrational number has a role to play in it. </p>
 <h2 id="never_intersecting_spirograph">Never intersecting spirograph?</h2>
-<p>A few months ago, I had seen a post on the subreddit <a href="https://www.reddit.com/r/oddlysatisfying/s/cvdICSdeTE">r/oddlysatisfying</a>, it shows a plot of a complex number \(z(\theta)=e^{(\theta i)}+e^{(\theta \pi i)}\), for people who know about complex numbers, any complex number can be written as \(z=a+ib\) or equivalently \(z=\alpha e^{(i \theta)}\).</p>
-<p>The angle theta is the angle that the point makes in the complex plane with the real line and \(\alpha\) is the distance from the center. This is the radial or polar representation of complex numbers. The polar representation with \(\alpha=1\) is famously known as Euler&#39;s formula.</p>
+<p>A few months ago, I had seen a post on the subreddit <a href="https://www.reddit.com/r/oddlysatisfying/s/cvdICSdeTE">r/oddlysatisfying</a>, it shows a plot of a complex number \(z(\theta)=e^{(\theta i)}+e^{(\theta \pi i)}\), for people who do not know about complex numbers, any complex number can be written as \(z=a+ib\) or equivalently \(z=\alpha e^{(i \theta)}\), where \(i\) is the imaginary number defined as \(\sqrt{-1}\).</p>
+<p>The angle theta is the angle that the point makes in the complex plane with the real line and \(\alpha\) is the distance from the center. This is the radial or polar representation of complex numbers. The polar expression with \(\alpha=1\) is famously known as Euler&#39;s formula.</p>
 <p>Thus, in the visualisation, we are summing two complex numbers, which represent rotation around different points. This is represented as two arms with same length. In each instant, if the first arm rotates by the angle \(\theta\), the second one rotates by an angle \(\theta \pi\). \(\pi\) thus is the orbital speed.</p>
 <p>These visualisations remind me of <strong>spirographs</strong>. I remember, when I was in school, I used to have stencils with a circle with jagged edges that could rotate inside  a bigger stencil cut out with gears/teeth on the inside, these would glide on each other and I would use a pencil to trace one point of the circle. This is similar to what is happening in the visualisation, the only difference is that in the reddit post the two rotations occur in the same direction, whereas in a spirograph the rotation is in opposite direction.</p><figure style="text-align:center;">
 <img src="https://atiyabzafar.github.io/Blog/2026/images/StencilSpirographEtsy.jpg" style="padding:0; width:50%;border:1px solid red;" alt=" Spirograph Stencil (Courtesy : etsy)"/>
 <figcaption> Spirograph Stencil (Courtesy : etsy)</figcaption>
 </figure><p>The most satisfying part using these stencils used to be the moment when the curve closed and I would start to retrace the already traced curve. This repeating pattern happens because of the speed of rotation, angular velocity. If the ratio of the two \(\theta\)&#40;s&#41; is a rational number, they will eventually become periodic. The least common multiple of the individual periods would give us the period of the resulting spirograph.</p>
-<p>I think I will keep more discussion about spirographs for another post. Let us get back to the illustration in hand.</p>
+<p>I think I will keep more discussion about spirographs for another post. Let us get back to the illustration in hand. In fact, if we want to define these types of visualisations formally, these would be degree-2 complex fourier curve. They are also pretty close to epicyclic curve that Ptolemy used to model planetary motion in early Greco-Roman history.</p>
 <p>Let us generalise the complex number sum, by taking the second parameter &#40;taken as \(\pi\) above&#41; as \(a\).</p>
 \[z(a,\theta)=e^{(\theta i)}+e^{(a \theta i)}\]
-<p>We can now replace \(a\) and see how the trace of the value of \(z\) will look like.</p><figure style="text-align:center;">
+<p>We can now replace \(a\) and see how the trace of the value of \(z\) will look like.&#40;Code to generate the plot in the appendix at the end of the post&#41;</p><figure style="text-align:center;">
 <img src="https://atiyabzafar.github.io/Blog/2026/images/5loop.gif" style="padding:0; width:75%;border:1px solid red;" alt=" Trace of z for a=5."/>
 <figcaption> Trace of z for a=5.</figcaption>
 </figure><p>We see a very pretty, symmetric four leaf structure for \(a=5\). Notice, that after a \(2 \pi\) radians rotation around origin, we trace back the original path, much like our spirographs. This will be true for any rational ratio.</p>
@@ -105,8 +105,8 @@ z(a,\theta)= 2 \cos \left( \theta \left( \frac{a-1}{2} \right) \right) e^{i \the
 <p>This expression shows why for our case for \(a=1.5\) the period \([0,2 \pi]\) did not repeat. We had to go till \(4\pi\) to get repeating patterns.</p>
 <p>And finally, we can prove why \(\pi\) does not show any repeating pattern in this representation. \(\pi\) does have rational approximations, \(\pi \simeq 22/7\) is one of the most common ones that we learn in schools. There is a \(\sim 10^{-3}\) error bound in this depiction. Thus, when we look at \(T=2\pi \times 7 = 14 \pi\), we see that our trace crosses extremely close to the starting point, but not exactly at it. We get the next best rational approximation of \(\pi\) at \(333/106\). This suggests next close situation will occur at \(T=212 \pi\). And to actually see it in the visualisation, I would need to zoom more to see the smaller gap.</p>
 <p>So, for \(\pi\) the period blows up to \(\infty\). And it fills the whole volume without repeating, and same goes for other irrational numbers for the same reason.</p>
-<p>Interestingly, we can generalise these for sum of multiple exponentials, \(z=\sum_j b_j e^{a_j \theta i}\), which is the complex valued fourier series expansion. Famous math youtuber 3blue1brown has an amazing video that uses these complex fourier series to draw amazing animations. <a href="https://youtu.be/r6sGWTCMz2k">link here</a></p>
-<p>Infact, if we want to define these types of visualisations formally, these would be degree-2 complex fourier curve. They are also pretty close to epicyclic curve that Ptolemy used to model planetary motion in early Greco-Roman history.</p>
+<p><div class="note"><div class="title">⚠ Note</div>
+<div class="content">Interestingly, we can generalise these for sum of multiple exponentials, \(z=\sum_j b_j e^{a_j \theta i}\), which is the complex valued fourier series expansion. Famous math youtuber 3blue1brown has an amazing video that uses these complex fourier series to draw amazing animations. <a href="https://youtu.be/r6sGWTCMz2k">link here</a></div></div> Infact, if we want to define these types of visualisations formally, these would be degree-2 complex fourier curve. They are also pretty close to epicyclic curve that Ptolemy used to model planetary motion in early Greco-Roman history.</p>
 <h2 id="comments">Comments</h2>
 <div id="cusdis_thread"
   data-host="https://cusdis.com"
@@ -115,7 +115,52 @@ z(a,\theta)= 2 \cos \left( \theta \left( \frac{a-1}{2} \right) \right) e^{i \the
   data-page-url="atiyabzafar.github.io/Blog/2026/pi-day/"
   data-page-title="Pi Day 2026"
 ></div>
-<script async defer src="https://cusdis.com/js/cusdis.es.js"></script> ]]>
+<script async defer src="https://cusdis.com/js/cusdis.es.js"></script><h2 id="appendix_code_for_visualisation">Appendix: Code for visualisation</h2>
+<p>Following code was used to generate animation in Julia</p>
+<pre><code class="language-Julia">using GLMakie
+a&#61;3.15
+# ── Figure Setup ────────────────────────────────────────────────────────────
+fig &#61; Figure&#40;resolution &#61; &#40;900, 950&#41;, backgroundcolor &#61; :black&#41;
+ax  &#61; Axis&#40;fig&#91;1, 1&#93;,
+    aspect          &#61; DataAspect&#40;&#41;,
+    backgroundcolor &#61; :black,
+    xgridvisible    &#61; false,
+    ygridvisible    &#61; false&#41;
+hidedecorations&#33;&#40;ax&#41;
+hidespines&#33;&#40;ax&#41;r1, r2   &#61; 1.0, 1.0              # inner and outer rod lengths
+θ_circle &#61; LinRange&#40;0, 2π, 300&#41;# Faint circle guides
+lines&#33;&#40;ax, r1 .* cos.&#40;θ_circle&#41;, r1 .* sin.&#40;θ_circle&#41;,
+       color &#61; &#40;:white, 0.12&#41;, linewidth &#61; 1&#41;
+lines&#33;&#40;ax, 2r1 .* cos.&#40;θ_circle&#41;, 2r1 .* sin.&#40;θ_circle&#41;,
+       color &#61; &#40;:white, 0.07&#41;, linewidth &#61; 0.8&#41;# ── Observables ─────────────────────────────────────────────────────────────
+t_obs  &#61; Observable&#40;0.0&#41;
+trail  &#61; Observable&#40;Point2f&#91;Point2f&#40;r1 &#43; r2, 0&#41;&#93;&#41;  # accumulates every framearm1_seg &#61; @lift &#91;Point2f&#40;0, 0&#41;,
+                  Point2f&#40;r1 * cos&#40;&#36;t_obs&#41;, r1 * sin&#40;&#36;t_obs&#41;&#41;&#93;arm1_tip &#61; @lift Point2f&#40;r1 * cos&#40;&#36;t_obs&#41;, r1 * sin&#40;&#36;t_obs&#41;&#41;arm2_seg &#61; @lift begin
+    p &#61; &#36;arm1_tip
+    &#91;p, Point2f&#40;p&#91;1&#93; &#43; r2 * cos&#40;a * &#36;t_obs&#41;,
+                p&#91;2&#93; &#43; r2 * sin&#40;a * &#36;t_obs&#41;&#41;&#93;
+endtip_pt &#61; @lift begin
+    p &#61; &#36;arm1_tip
+    Point2f&#40;p&#91;1&#93; &#43; r2 * cos&#40;a * &#36;t_obs&#41;,
+            p&#91;2&#93; &#43; r2 * sin&#40;a * &#36;t_obs&#41;&#41;
+end# ── Drawing &#40;trail first so arms render on top&#41; ──────────────────────────────
+lines&#33;&#40;ax,  trail,    color &#61; :cyan,           linewidth &#61; 0.8&#41;
+lines&#33;&#40;ax,  arm1_seg, color &#61; &#40;:white, 0.9&#41;,   linewidth &#61; 2.5&#41;
+lines&#33;&#40;ax,  arm2_seg, color &#61; &#40;:orange, 0.9&#41;,  linewidth &#61; 2.0&#41;
+scatter&#33;&#40;ax, &#91;Point2f&#40;0, 0&#41;&#93;, color &#61; :white,  markersize &#61; 10&#41;
+scatter&#33;&#40;ax, arm1_tip,        color &#61; :white,  markersize &#61; 7&#41;
+scatter&#33;&#40;ax, tip_pt,          color &#61; :yellow, markersize &#61; 10&#41;# Formula label at the bottom
+Label&#40;fig&#91;2, 1&#93;,
+    L&quot;z&#40;θ&#41; &#61; e^&#123;i\theta&#125; &#43; e^&#123;i &#37;&#36;&#40;a&#41; \theta&#125;  \text&#123;—  inner: speed 1,  outer: speed &#37;&#36;&#40;a&#41;&#125;&quot;,
+    color &#61; &#40;:white, 0.65&#41;, fontsize &#61; 14, tellwidth &#61; false&#41;limits&#33;&#40;ax, -2.3, 2.3, -2.3, 2.3&#41;
+rowsize&#33;&#40;fig.layout, 2, 35&#41;# ── Record Video ─────────────────────────────────────────────────────────────
+record&#40;fig, &quot;&#36;&#40;a&#41;loop.gif&quot;,
+       LinRange&#40;0, 50π, 2000&#41;; framerate &#61; 24&#41; do θ
+    t_obs&#91;&#93; &#61; θ
+    push&#33;&#40;trail&#91;&#93;, tip_pt&#91;&#93;&#41;   # append new tip position to trail
+    notify&#40;trail&#41;
+end</code></pre>
+ ]]>
   </content:encoded>
     
   <pubDate>Sat, 14 Mar 2026 00:00:00 +0000</pubDate>  
