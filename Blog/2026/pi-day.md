@@ -30,6 +30,7 @@ These visualisations remind me of **spirographs**. I remember, when I was in sch
 The most satisfying part using these stencils used to be the moment when the curve closed and I would start to retrace the already traced curve. This repeating pattern happens because of the speed of rotation, angular velocity. If the ratio of the two $\theta$(s) is a rational number, they will eventually become periodic. The least common multiple of the individual periods would give us the period of the resulting spirograph.
 
 I think I will keep more discussion about spirographs for another post. Let us get back to the illustration in hand.
+
 In fact, if we want to define these types of visualisations formally, these would be degree-2 complex fourier curve. They are also pretty close to epicyclic curve that Ptolemy used to model planetary motion in early Greco-Roman history.
 
 Let us generalise the complex number sum, by taking the second parameter (taken as $\pi$ above) as $a$.
@@ -143,7 +144,6 @@ So, for $\pi$ the period blows up to $\infty$. And it fills the whole volume wit
 
 \note{Interestingly, we can generalise these for sum of multiple exponentials, $z=\sum_j b_j e^{a_j \theta i}$, which is the complex valued fourier series expansion. Famous math youtuber 3blue1brown has an amazing video that uses these complex fourier series to draw amazing animations. [link here](https://youtu.be/r6sGWTCMz2k)
 }
-Infact, if we want to define these types of visualisations formally, these would be degree-2 complex fourier curve. They are also pretty close to epicyclic curve that Ptolemy used to model planetary motion in early Greco-Roman history.
 
 ## Comments
 
