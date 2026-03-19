@@ -4,7 +4,7 @@
 @def rss_description = "When stars get sick, astro-epidemiological model: Project Hail Mary a Sci-Fi book review","Exploring the idea of astro-epidemiology, exploring an agent based model of disease spread among stars, inspired from the book Project Hail Mary by Andy Weir"
 @def description = "When stars get sick, astro-epidemiological model: Project Hail Mary a Sci-Fi book review","Exploring the idea of astro-epidemiology, exploring an agent based model of disease spread among stars, inspired from the book Project Hail Mary by Andy Weir"
 @def rss_pubdate = Date(2026, 03, 19)
-@def og_image = "/Blog/2026/images/PHM.png"
+@def og_image = "/Blog/2026/images/PHM_optim.png"
 @def cusdis_id    = "hailmary"
 @def cusdis_url   = "atiyabzafar.github.io/Blog/2026/hailmary/"
 @def cusdis_title = "Project Hail Mary A book review"
