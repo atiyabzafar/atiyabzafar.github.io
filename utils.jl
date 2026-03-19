@@ -22,6 +22,7 @@ using Dates
 function hfun_bloglist()
     # Define posts here directly: (path, date) — newest first
     posts = [
+        ("/Blog/2026/hailmary/",           "When stars get sick, astro-epidemiological model: Project Hail Mary a Sci-Fi book review",             Date(2026,3,19),"/Blog/2026/images/PHM.png"),
         ("/Blog/2026/pi-day/",           "Fun with Pi, complex sums and symmetries, Pi Day 2026",             Date(2026,3,14),"/Blog/2026/images/5loop.gif"),
         ("/Blog/2026/juliatutorial/",           "Differential.jl: A tutorial with Lorenz system and Generalised Lotka Volterra", Date(2026,3,3),"/Blog/2026/images/lorenzchaos.png"),
         ("/projects/NetLogoEconomic/",          "An agent based model for a catalysed economy",                     Date(2026, 2, 26),"/assets/images/NetLogoScreenShot.png"),
@@ -95,6 +96,7 @@ end
 
 function hfun_blogcarousel()
     posts = [
+        ("/Blog/2026/hailmary/",       "When stars get sick, astro-epidemiological model: Project Hail Mary a Sci-Fi book review","Exploring the idea of astro-epidemiology, exploring an agent based model of disease spread among stars, inspired from the book Project Hail Mary by Andy Weir","/Blog/2026/images/PHM.png"),
         ("/Blog/2026/pi-day/",       "Fun with Pi, complex sums and symmetries, Pi Day 2026","Pi day 2026 post. This is a blog post about an interesting visualisation of sum of two complex numbers and how the irrational number pi has an interesting behavioral role to play.","/Blog/2026/images/5loop.gif"),
         ("/Blog/2026/juliatutorial/",       "Differential.jl: A tutorial with Lorenz system and Generalised Lotka Volterra","A tutorial for solving dofferential equation susing Julia and a look at lorenz system with generalise lotka volterra","/Blog/2026/images/lorenzchaos.png"),
         ("/projects/NetLogoEconomic/",        "Agent Based Economic Model",         "Documentation of a catalysed economy model", "/assets/images/NetLogoScreenShot.png"),
@@ -149,6 +151,7 @@ end
 
 function hfun_readingcarousel()
     books = [
+        ("/Blog/2026/hailmary/",                       "Project Hail Mary",                     "When stars get sick, astro-epidemiological model: Project Hail Mary a Sci-Fi book review",                    "/Blog/2026/images/PHM.png"),
         ("/Blog/bookreviews/2025WrapUp/",              "Reading Wrap Up 2025",                   "33 books, 10,059 pages across a busy PhD year",                    "/Blog/bookreviews/images/storygraph-wrap-up-2025.png"),
         ("/Blog/bookreviews/2024WrapUp/",              "Reading Wrap Up 2024",                   "32 books and the year reading became a habit",                     nothing),
         ("/Blog/bookreviews/Kindred/",                 "Kindred — Octavia Butler",               "A haunting masterpiece on slavery and time travel",                nothing),
