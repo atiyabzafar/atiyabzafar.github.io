@@ -93,7 +93,7 @@
  ]]>
   </content:encoded>
     
-  <pubDate>Thu, 19 Mar 2026 00:00:00 +0000</pubDate>  
+  <pubDate>Fri, 20 Mar 2026 00:00:00 +0000</pubDate>  
   
   
   <atom:author>
@@ -1526,7 +1526,310 @@ f</code></pre>
 <p>A heatmap showing how often I read. Each cell correspond to a day and the number inside the cell shows how many pages were read that day. </p><figure style="text-align:center;">
 <img src="https://atiyabzafar.github.io/assets/images/Reading_heatmap.png" style="padding:0; width:50%;border: 1px solid red;" alt=" Reading Heatmap (Updated February 2026)"/>
 <figcaption> Reading Heatmap (Updated February 2026)</figcaption>
-</figure><h2 id="2025">2025</h2>
+</figure><p>In the following section, you can scroll through the books I have read and tracked using StoryGraph 
+<style>
+  /* --- App Container & Tabs --- */
+  #books-app {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 2rem 0;
+  }  .books-tabs {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid #eaeaea;
+    padding-bottom: 0px;
+  }  .book-tab {
+    background: none;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #666;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -2px; /* Overlaps the container border */
+    transition: all 0.2s ease;
+  }  .book-tab:hover {
+    color: #111;
+  }  .book-tab.active {
+    color: #3b82f6;
+    border-bottom-color: #3b82f6;
+  }  /* --- Grid Layout (From Previous Step) --- */
+  .books-grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 1.2rem;
+  }  .book-card {
+    background: #fff;
+    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    container-type: inline-size; 
+  }  .book-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.15);
+  }  .book-cover-wrapper {
+    position: relative;
+    width: 100%;
+    height: 180px;
+    background: #f4f4f5;
+    border-bottom: 1px solid #eaeaea;
+    overflow: hidden;
+  }  .book-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform 0.3s ease;
+  }  .book-card:hover .book-cover {
+    transform: scale(1.05);
+  }  .book-genres-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    padding: 1rem;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+  }  .book-card:hover .book-genres-overlay { opacity: 1; }  .genre-tag {
+    background: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    font-size: 0.7rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }  .book-info {
+    padding: 0.8rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }  .book-title {
+    font-size: clamp(0.85rem, 6.5cqi, 1.1rem);
+    font-weight: 600;
+    color: #111;
+    margin: 0 0 0.2rem 0;
+    line-height: 1.2;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }  .book-author {
+    font-size: clamp(0.75rem, 5.5cqi, 0.9rem);
+    color: #666;
+    margin: 0 0 0.6rem 0;
+  }  .book-date {
+    margin-top: auto;
+    border-top: 1px solid #eaeaea;
+    padding-top: 0.5rem;
+    font-size: clamp(0.65rem, 4.5cqi, 0.8rem);
+    color: #888;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }  /* --- Table Layout --- */
+  .books-table-layout {
+    width: 100%;
+    overflow-x: auto; /* Allows horizontal scrolling on small phones */
+  }  .books-table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 600px;
+  }  .books-table th, .books-table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #eaeaea;
+    font-size: 0.9rem;
+  }  .books-table th {
+    background: #f8f9fa;
+    font-weight: 600;
+    color: #333;
+  }  .table-cover-img {
+    width: 40px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 4px;
+    background: #f4f4f5;
+  }  .table-genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+  }  .table-genre-tag {
+    background: #f3f4f6;
+    color: #374151;
+    font-size: 0.7rem;
+    padding: 0.1rem 0.4rem;
+    border-radius: 8px;
+  }  /* Dark Mode Support */
+  @media (prefers-color-scheme: dark) {
+    .books-tabs { border-color: #333; }
+    .book-tab { color: #aaa; }
+    .book-tab:hover { color: #eee; }
+    .book-tab.active { color: #60a5fa; border-bottom-color: #60a5fa; }
+    
+    .book-card { background: #1e1e1e; border-color: #333; }
+    .book-cover-wrapper { background: #2a2a2a; border-color: #333; }
+    .book-title { color: #f5f5f5; }
+    .book-author { color: #aaa; }
+    .book-date { border-color: #333; color: #aaa; }
+    
+    .books-table th { background: #222; color: #ddd; border-color: #333; }
+    .books-table td { border-color: #333; color: #ccc; }
+    .table-genre-tag { background: #333; color: #ddd; }
+  }
+</style><script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script><div id="books-app">
+  <div class="books-tabs" id="books-tabs" style="display: none;">
+    <button class="book-tab active" data-view="all">All Books</button>
+    <button class="book-tab" data-view="year">Read This Year</button>
+    <button class="book-tab" data-view="table">Table View</button>
+  </div>
+  
+  <div id="books-loading" style="text-align: center; padding: 2rem; color: #666;">Loading Library...</div>
+  <div id="books-content"></div>
+</div><script>
+  (function() {
+    // ⚠️ UPDATE THIS URL to point to your CSV
+    const csvUrl = "/assets/CardView for export.csv";    const contentDiv = document.getElementById('books-content');
+    const loadingDiv = document.getElementById('books-loading');
+    const tabsContainer = document.getElementById('books-tabs');
+    const tabs = document.querySelectorAll('.book-tab');    let globalBooksData = [];    // 1. Fetch Data Once
+    Papa.parse(csvUrl, {
+      download: true,
+      header: true,
+      skipEmptyLines: true,
+      complete: function(results) {
+        loadingDiv.style.display = 'none';
+        tabsContainer.style.display = 'flex'; // Reveal tabs
+        
+        // Clean and process data once
+        globalBooksData = results.data.map(processBook);
+        
+        // Render initial view (All Books)
+        renderView('all');
+      },
+      error: function(err) {
+        loadingDiv.innerText = "Error loading books.";
+      }
+    });    // 2. Data Cleaning Function
+    function processBook(book) {
+      let title = book["file name"] || "Unknown Title";
+      const author = book["author"] || "Unknown Author";
+      const rawGenre = book["genre"] || "";
+      const dateRead = book["last_date_read"] || "";
+      
+      const suffix = " by " + author;
+      if (title.endsWith(suffix)) {
+        title = title.substring(0, title.length - suffix.length);
+      }      const genreParts = rawGenre.split(",").map(g => g.trim()).filter(g => g);
+      const uniqueGenres = [...new Set(genreParts)];      let parsedDate = null;
+      let formattedDate = "-";
+      if (dateRead) {
+        parsedDate = new Date(dateRead);
+        formattedDate = parsedDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+      }      return {
+        title: title,
+        author: author,
+        cover: book["cover"] || "",
+        genres: uniqueGenres,
+        rawDate: dateRead,
+        parsedDate: parsedDate,
+        formattedDate: formattedDate
+      };
+    }    // 3. Tab Click Listeners
+    tabs.forEach(tab => {
+      tab.addEventListener('click', (e) => {
+        // Update active tab styling
+        tabs.forEach(t => t.classList.remove('active'));
+        e.target.classList.add('active');
+        
+        // Render the chosen view
+        const view = e.target.getAttribute('data-view');
+        renderView(view);
+      });
+    });    // 4. View Router
+    function renderView(viewType) {
+      if (viewType === 'all') {
+        renderGrid(globalBooksData);
+      } 
+      else if (viewType === 'year') {
+        const currentYear = new Date().getFullYear();
+        const thisYearBooks = globalBooksData.filter(b => b.parsedDate && b.parsedDate.getFullYear() === currentYear);
+        renderGrid(thisYearBooks);
+      } 
+      else if (viewType === 'table') {
+        renderTable(globalBooksData);
+      }
+    }    // 5. Render Grid (Used by 'all' and 'year')
+    function renderGrid(data) {
+      if (data.length === 0) {
+        contentDiv.innerHTML = `<div style="padding: 2rem; text-align: center; color: #888;">No books found for this selection.</div>`;
+        return;
+      }      let html = `<div class="books-grid-layout">`;
+      data.forEach(book => {
+        const topGenres = book.genres.slice(0, 4);
+        const genreHtml = topGenres.map(g => `<span class="genre-tag">${g}</span>`).join("");        html += `
+          <div class="book-card">
+            <div class="book-cover-wrapper">
+              ${book.cover ? `<img src="${book.cover}" class="book-cover" loading="lazy">` : `<div class="book-cover" style="display:flex;align-items:center;justify-content:center;color:#999;">No Cover</div>`}
+              <div class="book-genres-overlay">${genreHtml}</div>
+            </div>
+            <div class="book-info">
+              <div class="book-title" title="${book.title}">${book.title}</div>
+              <div class="book-author">${book.author}</div>
+              <div class="book-date">
+                <svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                ${book.formattedDate}
+              </div>
+            </div>
+          </div>
+        `;
+      });
+      html += `</div>`;
+      contentDiv.innerHTML = html;
+    }    // 6. Render Table
+    function renderTable(data) {
+      let html = `
+        <div class="books-table-layout">
+          <table class="books-table">
+            <thead>
+              <tr>
+                <th style="width: 50px;">Cover</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Genres</th>
+                <th style="width: 120px;">Date Read</th>
+              </tr>
+            </thead>
+            <tbody>
+      `;      data.forEach(book => {
+        const topGenres = book.genres.slice(0, 3);
+        const genreHtml = topGenres.map(g => `<span class="table-genre-tag">${g}</span>`).join("");        html += `
+          <tr>
+            <td>
+              ${book.cover ? `<img src="${book.cover}" class="table-cover-img" loading="lazy">` : `<div class="table-cover-img" style="display:flex;align-items:center;justify-content:center;font-size:0.6rem;color:#999;">None</div>`}
+            </td>
+            <td><strong>${book.title}</strong></td>
+            <td>${book.author}</td>
+            <td><div class="table-genres">${genreHtml}</div></td>
+            <td style="color: #666;">${book.formattedDate}</td>
+          </tr>
+        `;
+      });      html += `</tbody></table></div>`;
+      contentDiv.innerHTML = html;
+    }
+  })();
+</script>
+</p>
+<h2 id="2025">2025</h2>
 <p>Reading wrapup post: <a href="https://atiyabzafar.github.io/Blog/bookreviews/2025WrapUp/">Click here</a></p>
 <table><tr><th align="center">Finished</th><th align="center">Book Title</th><th align="right">Author</th><th align="right">Rating</th><th align="right">Review</th></tr><tr><td align="center">2025/01/30</td><td align="center">Five Little Pigs</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/02/05</td><td align="center">Carrie Soto Is Back</td><td align="right">Taylor Jenkins Reid</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/02/05</td><td align="center">Kowloon Generic Romance, Vol. 1 and 2</td><td align="right">Jun Mayuzuki, 眉月じゅん</td><td align="right"><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/02/16</td><td align="center">Human Acts</td><td align="right">Han Kang</td><td align="right"><div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/02/25</td><td align="center">Mrs McGinty&#39;s Dead</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/03/04</td><td align="center">Markov Chains: From Theory to Implementation and Experimentation</td><td align="right">Paul A. Gagniuc</td><td align="right">–––</td><td align="right">Text Book</td></tr><tr><td align="center">2025/03/17</td><td align="center">The Maniac</td><td align="right">Benjamin Lebatut</td><td align="right"><div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/04/05</td><td align="center">The Mirror Crack&#39;d from Side to Side</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/04/24</td><td align="center">Three Act Tragedy</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 4.25;" aria-label="Rating of this book is 4.25 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/05/05</td><td align="center">Orbital</td><td align="right">Samantha Harvey</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/05/08</td><td align="center">Sharp Objects</td><td align="right">Gillian Flynn</td><td align="right"><div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/06/13</td><td align="center">The Labours of Hercules</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/06/27</td><td align="center">A Murder is Announced</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/07/11</td><td align="center">Sunrise on the Reaping</td><td align="right">Suzanne Collins</td><td align="right"><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/07/12</td><td align="center">Tender is the Flesh</td><td align="right">Augustina Bazterrica</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/07/22</td><td align="center">Death in the Clouds</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/08/11</td><td align="center">Lord Edgeware Dies</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/08/26</td><td align="center">One Two Buckle My Shoe</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 4.25;" aria-label="Rating of this book is 4.25 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/08/28</td><td align="center">Gabriel&#39;s Inferno</td><td align="right">Sylvain REynard</td><td align="right"><div class="Stars" style="--rating: 2.5;" aria-label="Rating of this book is 2.5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/09/13</td><td align="center">Before We Forget Kindness</td><td align="right">Toshikazu Kawaguchi</td><td align="right"><div class="Stars" style="--rating: 2;" aria-label="Rating of this book is 2 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/09/19</td><td align="center">Your Utopia</td><td align="right">Bora Chung</td><td align="right"><div class="Stars" style="--rating: 3;" aria-label="Rating of this book is 3 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/09/30</td><td align="center">At Bertram&#39;s Hotel</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/10/14</td><td align="center">Katabasis</td><td align="right">R. F. Kuang</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/10/17</td><td align="center">Peril at End House</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/10/26</td><td align="center">The housemaid</td><td align="right">Frieda Mcfadden</td><td align="right"><div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/11/3</td><td align="center">Tamas</td><td align="right">Bhisham Sahni</td><td align="right"><div class="Stars" style="--rating: 5;" aria-label="Rating of this book is 5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/11/21</td><td align="center">Firestarter</td><td align="right">Stephen King</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/11/27</td><td align="center">Cat Among the Pigeons</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/12/08</td><td align="center">The Hungry Tide</td><td align="right">Amitav Ghosh</td><td align="right"><div class="Stars" style="--rating: 4.5;" aria-label="Rating of this book is 4.5 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/12/18</td><td align="center">The Sittaford Mystery</td><td align="right">Agatha Christie</td><td align="right"><div class="Stars" style="--rating: 4;" aria-label="Rating of this book is 4 out of 5."></td><td align="right"></td></tr><tr><td align="center">2025/12/31</td><td align="center">Jungle Nama: A story of the Sunderban</td><td align="right">Amitav Ghosh</td><td align="right"><div class="Stars" style="--rating: 3.5;" aria-label="Rating of this book is 3.5 out of 5."></td><td align="right"></td></tr></table>
 <p>|–––|–––|–––|–––|–––|</p>
