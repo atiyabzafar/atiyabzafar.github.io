@@ -1,8 +1,8 @@
 @def tags = ["Blog","BlogPost"]
 @def title = "When stars get sick, astro-epidemiological model: Project Hail Mary a Sci-Fi book review"
 @def rss_title = "When stars get sick, astro-epidemiological model: Project Hail Mary a Sci-Fi book review"
-@def rss_description = "When stars get sick, astro-epidemiological model: Project Hail Mary a Sci-Fi book review","Exploring the idea of astro-epidemiology, exploring an agent based model of disease spread among stars, inspired from the book Project Hail Mary by Andy Weir"
-@def description = "When stars get sick, astro-epidemiological model: Project Hail Mary a Sci-Fi book review","Exploring the idea of astro-epidemiology, exploring an agent based model of disease spread among stars, inspired from the book Project Hail Mary by Andy Weir"
+@def rss_description = "Exploring the idea of astro-epidemiology, exploring an agent based model of disease spread among stars, inspired from the book Project Hail Mary by Andy Weir"
+@def description = "Exploring the idea of astro-epidemiology, exploring an agent based model of disease spread among stars, inspired from the book Project Hail Mary by Andy Weir"
 @def rss_pubdate = Date(2026, 03, 19)
 @def og_image = "/Blog/2026/images/PHM_optim.png"
 @def cusdis_id    = "hailmary"

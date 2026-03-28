@@ -206,3 +206,13 @@ function hfun_readingcarousel()
     </script>
     """
 end
+
+
+function hfun_embed_html(params)
+    path = params[1]
+    if isfile(path)
+        return read(path, String) 
+    else
+        return "<b>Error: File not found at $path</b>"
+    end
+end
