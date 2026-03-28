@@ -17,7 +17,7 @@ A heatmap showing how often I read. Each cell correspond to a day and the number
 
 In the following section, you can scroll through the books I have read and tracked using StoryGraph
 
-{{embed_html _assets/scripts/books-widget.html}}
+{{embed_html _assets/books/books-widget.html}}
 
 
 ## 2025
