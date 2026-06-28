@@ -31,33 +31,40 @@
     transition: all 0.2s ease;
   }
 
-  .video-tab:hover {
-    background: #e4e4e4;
-    color: #111;
-  }
+  .video-tab:hover { background: #e4e4e4; color: #111; }
+  .video-tab.active { background: #3b82f6; color: white; box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3); }
 
-  .video-tab.active {
-    background: #3b82f6; /* Blue active state */
-    color: white;
-    box-shadow: 0 2px 4px rgba(59, 130, 246, 0.3);
+  /* Instructions Box */
+  .video-instructions {
+    background: #f8f9fa;
+    border-left: 4px solid #3b82f6;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1.5rem;
+    border-radius: 0 8px 8px 0;
+    width: 100%;
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
   }
+  .video-instructions p { margin: 0 0 0.5rem 0; }
+  .video-instructions p:last-child { margin: 0; }
+  .video-instructions strong { color: #222; }
 
-/* Video Player Container */
+  /* Video Player Container */
   .video-player-container {
     width: 100%;
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
     background: #000; 
-    /* Removed aspect-ratio so the box adapts to the video */
   }
 
   #sim-player {
     width: 100%;
-    height: auto; /* Lets the video dictate its own height */
-    max-height: 80vh; /* Prevents ultra-tall videos from taking up the whole screen */
+    height: auto; 
+    max-height: 80vh; 
     display: block;
-    /* Removed object-fit: cover */
+    transition: opacity 0.3s ease; /* Smooth transition for loading state */
   }
 
   /* Dark Mode Support */
@@ -65,19 +72,26 @@
     .video-tab { background: #333; color: #ddd; }
     .video-tab:hover { background: #444; color: #fff; }
     .video-tab.active { background: #60a5fa; color: #111; }
+    .video-instructions { background: #1e1e1e; border-left-color: #60a5fa; color: #ccc; }
+    .video-instructions strong { color: #fff; }
   }
 </style>
 
 <div class="video-showcase">
   <div class="video-tabs" id="sim-tabs">
-    <button class="video-tab active" data-src="/assets/simulations/SandeepCollapseVersion5.mp4">Collapse 1</button>
-    <button class="video-tab" data-src="/assets/simulations/FullCollapseVersion5.mp4">Collapse 2</button>
-    <button class="video-tab" data-src="/assets/simulations/Animation_100_25.mp4">Average Power Shift</button>
+    <button class="video-tab active" data-src="/assets/simulations/SandeepCollapseVersion5.webm">Collapse 1</button>
+    <button class="video-tab" data-src="/assets/simulations/FullCollapseVersion5.webm">Collapse 2</button>
+    <button class="video-tab" data-src="/assets/simulations/Animation_100_25.webm">Average Power Shift</button>
+  </div>
+
+  <div class="video-instructions">
+    <p>Select <strong>Collapse 1</strong> and <strong>Collapse 2</strong> to see individual collapses and how the system evolves to reach collapse.</p>
+    <p>Select <strong>Average Power Shift</strong> to see the average behaviour across multiple collapses.</p>
   </div>
 
   <div class="video-player-container">
-    <video id="sim-player" controls autoplay muted loop playsinline>
-      <source src="/assets/simulations/FullCollapseVersion5.mp4" type="video/mp4">
+    <video id="sim-player" controls autoplay muted loop playsinline preload="metadata">
+      <source src="/assets/simulations/SandeepCollapseVersion5.mp4" type="video/mp4">
       Your browser does not support the video tag.
     </video>
   </div>
@@ -97,14 +111,22 @@
         /* 2. Add active state to the clicked tab */
         this.classList.add('active');
         
-        /* 3. Get the new video URL and update the player */
+        /* 3. Get the new video URL */
         const newSrc = this.getAttribute('data-src');
         
         /* Only reload if clicking a different video */
         if (!player.src.endsWith(newSrc)) {
+          /* Dim video to indicate loading */
+          player.style.opacity = '0.5';
+          
           player.src = newSrc;
           player.load();
-          player.play();
+          
+          /* Restore brightness and play once loaded */
+          player.addEventListener('canplay', function() {
+             player.style.opacity = '1';
+             player.play();
+          }, { once: true });
         }
       });
     });
