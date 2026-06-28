@@ -91,7 +91,7 @@
 
   <div class="video-player-container">
     <video id="sim-player" controls autoplay muted loop playsinline preload="metadata">
-      <source src="/assets/simulations/SandeepCollapseVersion5.mp4" type="video/mp4">
+      <source src="/assets/simulations/SandeepCollapseVersion5.webm" type="video/webm">
       Your browser does not support the video tag.
     </video>
   </div>
