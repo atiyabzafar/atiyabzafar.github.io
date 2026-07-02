@@ -10,14 +10,14 @@
 @def og_image = "/assets/images/Reading_heatmap.png"
 
 # Books Read
+In the following section, you can scroll through the books I have read recently and tracked using StoryGraph. Select Table view tab for all the books and the date read. 
 
+{{embed_html _assets/books/books-widget.html}}
+
+## Reading heatmap
 A heatmap showing how often I read. Each cell correspond to a day and the number inside the cell shows how many pages were read that day. 
 
 \figenv{Reading Heatmap (Updated February 2026)}{/assets/images/Reading_heatmap.png}{width:50%;border: 1px solid red;}
-
-In the following section, you can scroll through the books I have read and tracked using StoryGraph
-
-{{embed_html _assets/books/books-widget.html}}
 
 
 ## 2025
