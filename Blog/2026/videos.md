@@ -1,3 +1,4 @@
+@def hasmath = true
 ~~~
 <style>
   /* Centers the entire showcase on the page */
@@ -67,6 +68,20 @@
     transition: opacity 0.3s ease; /* Smooth transition for loading state */
   }
 
+  .video-model-text {
+    width: 100%;
+    margin-top: 1.25rem;
+    padding: 1rem 1.2rem;
+    background: #f8f9fa;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    color: #444;
+    line-height: 1.6;
+  }
+
+  .video-model-text p { margin: 0 0 0.6rem 0; }
+  .video-model-text p:last-child { margin-bottom: 0; }
+
   /* Dark Mode Support */
   @media (prefers-color-scheme: dark) {
     .video-tab { background: #333; color: #ddd; }
@@ -74,6 +89,7 @@
     .video-tab.active { background: #60a5fa; color: #111; }
     .video-instructions { background: #1e1e1e; border-left-color: #60a5fa; color: #ccc; }
     .video-instructions strong { color: #fff; }
+    .video-model-text { background: #1e1e1e; color: #ccc; border-color: #333; }
   }
 </style>
 
@@ -94,6 +110,19 @@
       <source src="/assets/simulations/SandeepCollapseVersion5.webm" type="video/webm">
       Your browser does not support the video tag.
     </video>
+  </div>
+
+  <div class="video-model-text">
+    <strong> The model dynamics</strong>
+    <p>This is a little section designed to explain the model dynamics in detail. And discuss the underlying dynamical system for historical reason. Originally, the model was introduced as a model to study the origin of life. We imagine a prebiotic pond in an early earth. Say the pond has S chemical species. Say each specie can catalyse any other species by probability p. And the catalysis can be represented by a graph edge. An edge from chemical i to chemical j implies j catalyses creation of i.</p>
+    <p>Let x_i be the relative population of ith chemical species. The system evolves by the following dynamical system/p>
+    <p>$$\dot{x_i}= \sum_{j=1}^S C_{ij}x_j-x_i \sum_{j,k=1}^S C_{jk}x_k$$</p>
+    <p>where C is the adjacency matrix of the system. We can show the following:</p>
+    <p>$$ \vec{x}(t) \xrightarrow{ t \rightarrow \infty } \vec{X}$$</p>
+    <p>Here, X is the eigenvector of the adjacency matrix C with the largest eigenvalue</p>
+    <p>$$CX=\lambda_1 X$$</p>
+    <p>Thus, the dynamics of the catalytic model is actually a non linear model whose solution is simply the perron frobenius eigenvector of the adjacency matrix. </p>
+     <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.81.5684">Source: PRL 1998</a> 
   </div>
 </div>
 
