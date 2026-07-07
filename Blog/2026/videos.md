@@ -114,7 +114,7 @@
 
   <div class="video-model-text">
     <strong> The model dynamics</strong>
-    <p>This is a little section designed to explain the model dynamics in detail. And discuss the underlying dynamical system for historical reason. Originally, the model was introduced as a model to study the origin of life. We imagine a prebiotic pond in an early earth. Say the pond has S chemical species. Say each specie can catalyse any other species by probability p. And the catalysis can be represented by a graph edge. An edge from chemical i to chemical j implies j catalyses creation of i.</p>
+    <p>This is a little section designed to explain the model dynamics in detail, and discuss the underlying dynamical system for historical reason. Originally, the model was introduced as a model to study the origin of life. We imagine a prebiotic pond in early earth. Say the pond has S chemical species. Each species can catalyse any other species by probability p. And the catalysis can be represented by a graph edge. An edge from chemical i to chemical j implies j catalyses creation of i. We assume that this pond is a well contained pond where the system is allowed to reach equilibrium of the catalytic reactions involved with all species. </p>
     <p>Let x_i be the relative population of ith chemical species. The system evolves by the following dynamical system/p>
     <p>$$\dot{x_i}= \sum_{j=1}^S C_{ij}x_j-x_i \sum_{j,k=1}^S C_{jk}x_k$$</p>
     <p>where C is the adjacency matrix of the system. We can show the following:</p>
