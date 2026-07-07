@@ -1,4 +1,5 @@
 @def hasmath = true
+@def hasmathjax = true
 ~~~
 <style>
   /* Centers the entire showcase on the page */
