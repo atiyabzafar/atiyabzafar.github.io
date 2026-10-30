@@ -22,7 +22,7 @@ using Dates
 function hfun_bloglist()
     # Define posts here directly: (path, date) — newest first
     posts = [
-        ("/Blog/2026/stochasticfixedpoint/",           "Learn with me: Stochastic dynamics, fixed points and focker planck equations",             Date(2026,10,30),"/Blog/2026/images/StochasticResonance.png"),
+        ("/Blog/2026/stochasticfixedpoint/",           "Learn with me: Stochastic dynamics, fixed points and fokker planck equations",             Date(2026,10,30),"/Blog/2026/images/StochasticResonance.png"),
         ("/Blog/2026/hailmary/",           "When stars get sick, astro-epidemiological model: Project Hail Mary a Sci-Fi book review",             Date(2026,3,19),"/Blog/2026/images/PHM_optim.png"),
         ("/Blog/2026/pi-day/",           "Fun with Pi, complex sums and symmetries, Pi Day 2026",             Date(2026,3,14),"/Blog/2026/images/5loop.gif"),
         ("/Blog/2026/juliatutorial/",           "Differential.jl: A tutorial with Lorenz system and Generalised Lotka Volterra", Date(2026,3,3),"/Blog/2026/images/lorenzchaos.png"),
@@ -97,7 +97,7 @@ end
 
 function hfun_blogcarousel()
     posts = [
-        ("/Blog/2026/stochasticfixedpoint/",       "Learn with me: Stochastic dynamics, fixed points and focker planck equations","Learning stochastic dynamical systems with me, exploring focker planck equation and stochastic fixed points","/Blog/2026/images/StochasticResonance.png"),
+        ("/Blog/2026/stochasticfixedpoint/",       "Learn with me: Stochastic dynamics, fixed points and fokker planck equations","Learning stochastic dynamical systems with me, exploring fokker planck equation and stochastic fixed points","/Blog/2026/images/StochasticResonance.png"),
         ("/Blog/2026/hailmary/",       "When stars get sick, astro-epidemiological model: Project Hail Mary a Sci-Fi book review","Exploring the idea of astro-epidemiology, exploring an agent based model of disease spread among stars, inspired from the book Project Hail Mary by Andy Weir","/Blog/2026/images/PHM_optim.png"),
         ("/Blog/2026/pi-day/",       "Fun with Pi, complex sums and symmetries, Pi Day 2026","Pi day 2026 post. This is a blog post about an interesting visualisation of sum of two complex numbers and how the irrational number pi has an interesting behavioral role to play.","/Blog/2026/images/5loop.gif"),
         ("/Blog/2026/juliatutorial/",       "Differential.jl: A tutorial with Lorenz system and Generalised Lotka Volterra","A tutorial for solving dofferential equation susing Julia and a look at lorenz system with generalise lotka volterra","/Blog/2026/images/lorenzchaos.png"),

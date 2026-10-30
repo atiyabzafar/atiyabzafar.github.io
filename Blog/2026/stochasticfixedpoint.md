@@ -1,15 +1,15 @@
 @def tags = ["Blog","BlogPost"]
-@def title = "Learn with me: Stochastic dynamics, fixed points and focker planck equations"
-@def rss_title = "Learn with me: Stochastic dynamics, fixed points and focker planck equations"
-@def rss_description = "Learning stochastic dynamical systems with me, exploring focker planck equation and stochastic fixed points"
-@def description = "Learning stochastic dynamical systems with me, exploring focker planck equation and stochastic fixed points"
+@def title = "Learn with me: Stochastic dynamics, fixed points and fokker planck equations"
+@def rss_title = "Learn with me: Stochastic dynamics, fixed points and fokker planck equations"
+@def rss_description = "Learning stochastic dynamical systems with me, exploring fokker planck equation and stochastic fixed points"
+@def description = "Learning stochastic dynamical systems with me, exploring fokker planck equation and stochastic fixed points"
 @def rss_pubdate = Date(2026, 10, 30)
 @def og_image = "/Blog/2026/images/StochasticResonance.png"
 @def hasmath = true
 @def hasmathjax = true
 
 
-# Learn with me: Stochastic dynamics, fixed points and focker planck equations
+# Learn with me: Stochastic dynamics, fixed points and fokker planck equations
 
 I have studied non linear dynamics, both continuous and discrete systems in detail before. In my journey through the masters degree I encountered stochastic systems a lot but never sat down explicitly to learn actual stochastic systems and solving dynamical stochastic systems in detail. This post is supposed to be a self teaching guide I am writing up as I learn stochastic dynamics. In no manner should this post be considered a good introductory session to the models and solving non linear stochastic differential equations, I am sure both you and me can find better textbooks that will do a much better job at it.
 
@@ -132,7 +132,7 @@ $$\dot{x} = f(x) + \sigma \xi(t)$$
 where $\xi(t)$ is Gaussian white noise, the evolution of the probability density function $P(x,t)$ is governed by the **Fokker-Planck Equation** (forward Kolmogorov equation):
 $$\frac{\partial P(x,t)}{\partial t} = -\frac{\partial}{\partial x} \big[ f(x) P(x) \big] + \frac{\sigma^2}{2} \frac{\partial^2}{\partial x^2} \big[ P(x) \big]$$
 
-To understand the origin of this equation, we can start by understanding a stochastic dynamical system in general. Let us say, we have a particle moving through space. We solve $dx/dt$ to get the position of the particle and get its trajectory. Focker-Planck equation tracks how the entire cloud of probability distribution $P(x,t)$ evolves over time.
+To understand the origin of this equation, we can start by understanding a stochastic dynamical system in general. Let us say, we have a particle moving through space. We solve $dx/dt$ to get the position of the particle and get its trajectory. fokker-Planck equation tracks how the entire cloud of probability distribution $P(x,t)$ evolves over time.
 
 At any moment, there are typically two forces that are evolving a stochastic dynamical system.
 
@@ -196,7 +196,7 @@ Because of the negative sign in the exponent of $P(x)$, the potential's "W" shap
 \figenv{P(x) for various values of $p$ showing stochastic pitchfork bifurcation}{/Blog/2026/images/PitchforkStochastic.png}{width:75%;border: 1px solid red;}
 
 >  Note: 
-> We use a method known as Euler Maruyama method to numerically integrate the focker planck equation.
+> We use a method known as Euler Maruyama method to numerically integrate the fokker planck equation.
 > `x[i+1] = x[i] + drift * dt + diffusion`
 
 ---
