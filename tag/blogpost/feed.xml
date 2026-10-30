@@ -23,6 +23,310 @@
 
 <item>
   <title>
+    <![CDATA[  Learn with me: Stochastic dynamics, fixed points and focker planck equations  ]]>
+  </title>
+  <link> https://atiyabzafar.github.io/Blog/2026/stochasticfixedpoint/index.html </link>
+  <guid> https://atiyabzafar.github.io/Blog/2026/stochasticfixedpoint/index.html </guid>
+  <description>
+    <![CDATA[  Learning stochastic dynamical systems with me, exploring focker planck equation and stochastic fixed points  ]]>
+  </description>  
+  
+  <content:encoded>
+    <![CDATA[  <h1 id="learn_with_me_stochastic_dynamics_fixed_points_and_focker_planck_equations">Learn with me: Stochastic dynamics, fixed points and focker planck equations</h1>
+<p>I have studied non linear dynamics, both continuous and discrete systems in detail before. In my journey through the masters degree I encountered stochastic systems a lot but never sat down explicitly to learn actual stochastic systems and solving dynamical stochastic systems in detail. This post is supposed to be a self teaching guide I am writing up as I learn stochastic dynamics. In no manner should this post be considered a good introductory session to the models and solving non linear stochastic differential equations, I am sure both you and me can find better textbooks that will do a much better job at it.</p>
+<p>Recently, I was trying to write a mean field version of a stochastic dynamical system and in the process of writing some discrete map which were probabilistic in nature, I realised I do not know what it means to have a stable fixed point in a stochastic system. I had a rough idea what it would imply. But I decided I think it will be worth it to just go through a small crash course. So, let us embark on this journey and learn some basics of stochastic dynamics.</p>
+<h2 id="from_determinism_to_stochasticity">From determinism to stochasticity</h2>
+<p>Classical dynamical systems rely on deterministic ordinary differential equations. Recently I had written a <a href="https://atiyabzafar.github.io/Blog/2026/juliatutorial/">blog post</a> for solving ordinary differential equations, all the systems we explored in that post were classical dynamical systems where the evolution of the system was dependent on either an ODE \(\dot{x} =f(x)\) or a deterministic map like \(x_{n+1}= f(x_n)\). In these systems, the long term behaviour is determined by the fixed points \(x^*\) where \(f(x^*)=0\). They are called fixed point because once they reach that point, they stay there, since the flow is zero.</p>
+<p>What would happen if our differential equation has a noise term. In the sense that there are fluctuations that does not allow the system stay at the exact fixed point. Now, we know that if the fixed point is stable, if we perturb it the system will move back to the fixed point. Sometimes the story is not that straight forward. </p>
+<p>Real-world systems, are constantly subjected to microscopic fluctuations, environmental uncertainty, and unknown forces collectively termed noise. In stochastic dynamical systems, noise fundamentally alters the topological landscape:</p>
+<ul>
+<li><p>Static fixed points dissolve into probability distributions \(P(x)\), representing the relative likelihood of finding the system in a given state over time. We expect that \(P(x)\) will be peaked around the deterministic fixed point. </p>
+</li>
+<li><p>Point attractors become random attractors, defining statistically stationary wandering regimes rather than static convergence.</p>
+</li>
+</ul>
+<h2 id="discrete_stochastic_map">Discrete stochastic map</h2>
+<p>Let us consider the most simple example for a stochastic discrete system. This is a simple 1-D linear stochastic map defined by the following difference equation:</p>
+\[x_{n+1} = a x_n + \eta_n\]
+<p>where \(a\) is a constant parameter &#40;\(\vert{}a\vert{} < 1\) for linear stability&#41; and \(\eta_n\) is independent and identically distributed &#40;i.i.d.&#41; Gaussian white noise with mean zero and variance \(\text{Var}(\eta) = \sigma^2\).</p>
+<p>This noise is a standard noise used in mathematical modeling. We can take other noise functions, but for this post I will consider this as our noise function.</p>
+<p>If there was no noise, the system would have a stable fixed point at \(x^*=0\), as \(a<1\). But with the noise, there will be a cloud with its own variation that we can calculate.</p>
+<p>To find the stationary variance \(\text{Var}(x)\) of this process, we take the variance of both sides at steady state:</p>
+\[\text{Var}(x_{n+1}) = \text{Var}(a x_n + \eta_n)\]
+\[\text{Var}(x) = a^2 \text{Var}(x) + \sigma^2\]
+<p>Solving algebraically for \(\text{Var}(x)\):</p>
+\[\text{Var}(x)(1 - a^2) = \sigma^2 \implies \text{Var}(x) = \frac{\sigma^2}{1 - a^2}\]
+<p>Interpretation: When \(a\) approaches \(1\) , the denominator shrinks, causing the variance to explode.</p>
+<p>We can simulate this stochastic map using Julia to visualise the time series.</p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2026/images/TimeSeries_1dmap.png" style="padding:0; width:50%;border: 1px solid red;" alt=" Time series showing stochastic and deterministic fixed point for sigma=0.5 and a=0.9"/>
+<figcaption> Time series showing stochastic and deterministic fixed point for sigma=0.5 and a=0.9</figcaption>
+</figure><p>We note that the stochastic time series move to the deterministic fixed point and fluctuates around it with the variance dependent on \(\sigma\) and \(a\).</p>
+<p>The size of the probability cloud is a balance between the noise &#40;\(\sigma^2\)&#41; and the deterministic stability &#40;\(a\)&#41;. If \(a\) is close to 0 &#40;very stable&#41;, the system tightly clusters near 0. If \(a\) approaches 1 &#40;barely stable&#41;, the denominator shrinks and the variance explodes. The code is available at the end for those who wish to visualise this themselves.</p>
+<h2 id="moving_to_two_dimensions">Moving to two dimensions</h2>
+<p>In higher dimensional systems, we can have slow and fast modes depending on the spectral properties of the dynamical system. I will not be going into detail what it means and what the jacobian and its modes are defined as. But I will be now trying to understand what happens when there is stochastic noise in a 2d system.</p>
+<p>Imagine a 2D system where we have linearized around a fixed point. For simplicity, let&#39;s assume the system is decoupled so the \(x\) and \(y\) axes act like two independent 1D maps, but with different eigenvalues &#40;stabilities&#41;:</p>
+<ul>
+<li><p>x-axis : \(x_{n+1} = \lambda_1 x_n + \eta_{x,n}\), where \(\lambda_1 = 0.1\)</p>
+</li>
+<li><p>y-axis : \(y_{n+1} = \lambda_2 y_n + \eta_{y,n}\), where \(\lambda_2 = 0.95\)</p>
+</li>
+</ul>
+<p>The slow mode, \(y\)-axis will have much larger variance while the fast mode, \(x\)-axis will quickly converge towards \((0,0)\). This means the noise accumulates heavily along the y-axis before the system can pull it back to zero.</p>
+<p>We can visualise the stationary distribution for this 2D map by plotting scatter. Note, the variance along different axis and how they scale. We used same \(\sigma\) for each independent noise. </p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2026/images/2dStationaryDistribution.png" style="padding:0; width:50%;border: 1px solid red;" alt=" 2D stationary distribution"/>
+<figcaption> 2D stationary distribution</figcaption>
+</figure><p>In our simple example, the two modes are independent of each other as there were no coupling terms between \(x\) and \(y\), but we can have more complex dynamics. In that case we do linearisations and calculate the eigenvector corresponding to the largest eigenvalue.</p>
+<p>This is exactly why we use linearization around fixed points in nonlinear stochastic systems. We find the deterministic fixed point, compute the Jacobian matrix there, and those local eigenvectors tell us exactly how the noise will tilt and stretch the stationary distribution in that specific region. And from that we can visualise and plot \(P(x,y)\).</p>
+<hr />
+<h2 id="stochastic_lyapunov_exponents">Stochastic Lyapunov Exponents</h2>
+<p>The Lyapunov exponent \(\lambda\) measures the average exponential rate of divergence &#40;or convergence&#41; of nearby trajectories, serving as the definitive test for stability and chaos:</p>
+\[\lambda = \lim_{t \to \infty} \frac{1}{t} \ln \left| \frac{\delta x(t)}{\delta x(0)} \right|\]
+<p>To understand this in detail, let us derive very simple yet interesting results about this exponent.</p>
+<p>We define the distance between two trajectories as \(d_n = x_n - y_n\).</p>
+<p>For a nonlinear random map: \(x_{n+1} = f(x_n) + \eta_n\). If our two trajectories are infinitesimally close, the noise cancels out, and we can use a Taylor expansion &#40;linearization&#41; to see how the distance evolves:\(d_{n+1} \approx f'(x_n) \cdot d_n\) To find the overall stability, we calculate the Lyapunov exponent &#40;\(\lambda\)&#41;, which is the long-term average of the exponential growth or decay rate of that distance:</p>
+\(\lambda = \lim_{N \to \infty} \frac{1}{N} \sum_{n=1}^N \ln \vert{}f'(x_n)\vert{}\)
+<p>If we know the mathematical shape of that probability cloud—let&#39;s call its probability density function \(P(x)\), how could we use \(P(x)\) to calculate the Lyapunov exponent \(\lambda\) without having to run a massive time series simulation?</p>
+<p>We simply calculate the expectation value of the lyapunov function:</p>
+\[\lambda = \int_{-\infty}^{\infty} \ln\vert{}f'(x)\vert{} \cdot P(x) \, dx\]
+<h2 id="logistic_map_lyapunov_constant_and_chaos">Logistic Map, lyapunov constant and chaos</h2>
+<p>Logistic map is a famous discrete dynamical system which is simple in its form but shows incredibly complex behaviour ranging from stable fixed points, to period doubling and chaos.</p>
+<p>The deterministic map is \(f(x) = r x (1 - x)\).</p>
+<p>And our stochastic map is \(x_{n+1} = r x_n (1 - x_n) + \eta_n\)</p>
+<p>The integral for the stochastic Lyapunov exponent of the Logistic Map becomes:</p>
+\[\lambda = \int_0^1 \ln\vert{}r(1-2x)\vert{} \cdot P(x) \, dx\]
+<p>We first evaluate \(P(x)\) for the stochastic logistic map.</p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2026/images/LogisticMapDistribution.png" style="padding:0; width:50%;border: 1px solid red;" alt=" P(x) histogram for r=2.8"/>
+<figcaption> P(x) histogram for r=2.8</figcaption>
+</figure><p>Once, we have \(P(x)\), we can evaluate the lyapunov integral. </p>
+<pre><code class="language-Julia">x_star &#61; 1 - 1/r  # Analytical fixed point
+lyap_det &#61; log&#40;abs&#40;r * &#40;1 - 2 * x_star&#41;&#41;&#41;
+#We approximate the integral over P&#40;x&#41; using the time-average of the trajectory
+lyap_stoch &#61; mean&#40;log.&#40;abs.&#40;r .* &#40;1 .- 2 .* x_stoch&#91;1000:end&#93;&#41;&#41;&#41;&#41;
+Output:
+Deterministic Fixed Point: x* &#61; 0.6429
+Deterministic Lyapunov Exponent: -0.2231
+Stochastic Lyapunov Exponent: -0.4602</code></pre>
+<p>The negative \(\lambda\) tells us that for both deterministic and stochastic systems, the fixed point is stable. </p>
+<p>If we consider \(r=4\), the logistic map is known to be chaotic. The lyapunov exponent is calculated as 0.6965. The positive value tells us that close curves diverge exponentially with postive exponent and thus they are choatic. </p>
+<hr />
+<h2 id="the_fokker-planck_equation_potential_landscapes">The Fokker-Planck Equation &amp; Potential Landscapes</h2>
+<p>For continuous systems governed by a Stochastic Differential Equation &#40;SDE&#41;:</p>
+\[\dot{x} = f(x) + \sigma \xi(t)\]
+<p>where \(\xi(t)\) is Gaussian white noise, the evolution of the probability density function \(P(x,t)\) is governed by the <strong>Fokker-Planck Equation</strong> &#40;forward Kolmogorov equation&#41;:</p>
+\[\frac{\partial P(x,t)}{\partial t} = -\frac{\partial}{\partial x} \big[ f(x) P(x) \big] + \frac{\sigma^2}{2} \frac{\partial^2}{\partial x^2} \big[ P(x) \big]\]
+<p>To understand the origin of this equation, we can start by understanding a stochastic dynamical system in general. Let us say, we have a particle moving through space. We solve \(dx/dt\) to get the position of the particle and get its trajectory. Focker-Planck equation tracks how the entire cloud of probability distribution \(P(x,t)\) evolves over time.</p>
+<p>At any moment, there are typically two forces that are evolving a stochastic dynamical system.</p>
+<ol>
+<li><p>Drift: The deterministic part of the system, \(f(x)\), acts like a fluid current, sweeping the probability mass toward the stable fixed points.</p>
+</li>
+<li><p>Diffusion: The random noise acts like a stirrer, constantly spreading the probability mass outward, depending on the type of noise.</p>
+</li>
+</ol>
+<p>We can write the effect of the first process by deriving the expectation value of the fitness \(f(x)\), i.e. \(\frac{d}{dx}\left[ f(x)P(x) \right]\).</p>
+<p>We write the effect of diffision as a flux: \(\frac{\sigma^2}{2} \frac{d^2}{dx^2} \big[ P(x) \big]\).</p>
+<h3 id="deriving_the_stationary_distribution">Deriving the Stationary Distribution</h3>
+<p>At steady state, the probability distribution ceases to evolve &#40;\(\frac{\partial P}{\partial t} = 0\)&#41;, meaning drift flux and diffusion flux balance out:</p>
+\[0 = -\frac{d}{dx} \left[ f(x) P(x) \right] + \frac{\sigma^2}{2} \frac{d^2}{dx^2} P(x)\]
+<p>Integrating once with respect to \(x\) :</p>
+\[f(x) P(x) = \frac{\sigma^2}{2} \frac{d}{dx} P(x)\]
+<p>Rearranging terms:</p>
+\[\frac{P'(x)}{P(x)} = \frac{2f(x)}{\sigma^2} \implies \frac{d}{dx} \ln P(x) = \frac{2f(x)}{\sigma^2}\]
+<p>Integrating both sides with respect to \(x\):</p>
+\[\ln P(x) = \frac{2}{\sigma^2} \int f(x) \, dx + C\]
+<p>Exponentiating both sides introduces a normalization constant \(N = e^C\):</p>
+\[P(x) = N \exp\left( \frac{2}{\sigma^2} \int f(x) \, dx \right)\]
+<h3 id="the_potential_function">The Potential Function</h3>
+<p>We define the <strong>potential function</strong> \(U(x)\) such that the deterministic drift is the negative gradient of the potential &#40;\(f(x) = -U'(x)\) or \(U(x) = -\int f(x) \, dx\)&#41;:</p>
+\[P(x) = N \exp\left( -\frac{2 U(x)}{\sigma^2} \right)\]
+<ul>
+<li><p><strong>Analogy:</strong> This is mathematically identical to the Boltzmann distribution in statistical mechanics. The system acts like a particle rolling through a potential landscape \(U(x)\) while being thermally agitated by noise \(\sigma^2\).</p>
+</li>
+</ul>
+<p>An example can be \(f(x) = -kx\), what is the potential function \(U(x)\)? The potential becomes the simple harmonic potential and the probability distribution becomes the neat gaussian distribution:</p>
+\[ P(x)= N e^{-\frac{k x^2}{\sigma^2}}\]
+<p>If we compare our result \(P(x) = N e^{-\frac{k x^2}{\sigma^2}}\) to the standard Gaussian formula \(e^{-\frac{x^2}{2\text{Var}(x)}}\), we can see that the variance of this continuous cloud is \(\text{Var}(x) = \frac{\sigma^2}{2k}\).</p>
+<p>Just like the formula we derived for the discrete map &#40;\(\frac{\sigma^2}{1-a^2}\)&#41;, the size of this continuous probability cloud is a direct ratio of the noise &#40;\(\sigma^2\)&#41; fighting against the deterministic stability &#40;\(k\)&#41;.</p>
+<hr />
+<h2 id="ol_start5_stochastic_bifurcations_p-bifurcations"><a href="#ol_start5_stochastic_bifurcations_p-bifurcations" class="header-anchor"><ol start="5">
+<li><p>Stochastic Bifurcations &#40;P-Bifurcations&#41;</p>
+</li>
+</ol>
+</a></h2>
+<p>A <strong>Phenomenological Bifurcation &#40;P-bifurcation&#41;</strong> occurs when a parameter variation triggers a qualitative change in the stationary probability distribution \(P(x)\) .</p>
+<h3 id="the_supercritical_pitchfork_potential">The Supercritical Pitchfork Potential</h3>
+<p>Consider the deterministic normal form for the pitchfork bifurcation.:</p>
+\[f(x) = r x - x^3\]
+<p>Integrating to find the potential \(U(x) = -\int (rx - x^3)dx\):</p>
+\[U(x) = -\frac{r}{2}x^2 + \frac{1}{4}x^4\]
+<ul>
+<li><p><strong>When \(r < 0\):</strong> The potential features a single minimum at \(x = 0\). The distribution \(P(x) = N \exp(-\frac{2U(x)}{\sigma^2})\) exhibits a single central peak centered around the origin.</p>
+</li>
+<li><p><strong>When \(r > 0\):</strong> The origin becomes a local maximum &#40;unstable hill&#41;, and two symmetric minima emerge at the stable fixed points:</p>
+</li>
+</ul>
+\[x = \pm\sqrt{r}\]
+<p>Because of the negative sign in the exponent of \(P(x)\), the potential&#39;s &quot;W&quot; shape is inverted into probability density: the two deep potential wells become <strong>twin probability peaks</strong> at \(x = \pm\sqrt{r}\), separated by a trough of low probability at \(x = 0\).</p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2026/images/PitchforkStochastic.png" style="padding:0; width:75%;border: 1px solid red;" alt=" P(x) for various values of $p$ showing stochastic pitchfork bifurcation"/>
+<figcaption> P(x) for various values of $p$ showing stochastic pitchfork bifurcation</figcaption>
+</figure><blockquote>
+<p>Note:  We use a method known as Euler Maruyama method to numerically integrate the focker planck equation. <code>x&#91;i&#43;1&#93; &#61; x&#91;i&#93; &#43; drift * dt &#43; diffusion</code></p>
+</blockquote>
+<hr />
+<h2 id="climate_application_stochastic_resonance_the_benzi_model_1981">Climate Application: Stochastic Resonance &amp; the Benzi Model &#40;1981&#41;</h2>
+<p>To explain how Earth transitions between glacial ice ages and warm interglacial periods despite weak orbital variations, Benzi et al. introduced a stochastic double-well model driven by periodic forcing <a href="https://tellusjournal.org/articles/10.3402/tellusa.v34i1.10782">link to main paper</a>, we adapt that model into a simpler version:</p>
+\[\dot{x} = rx - x^3 + A\sin(\omega t) + \eta(\sigma)\]
+<ul>
+<li><p><strong>\(x\):</strong> Global temperature.</p>
+</li>
+<li><p><strong>\(rx - x^3\):</strong> Climate feedback inspired from the double well potential</p>
+</li>
+<li><p><strong>\(A\sin(\omega t)\):</strong> Weak periodic orbital variation &#40;astronomical wobble of the earth&#41;.</p>
+</li>
+<li><p><strong>\(\eta(\sigma)=\sigma \xi(t)\):</strong> Short-term stochastic weather fluctuations.</p>
+</li>
+</ul>
+<p>The idea behind this is to match the period of oscilations \(2\pi/\omega\) to the time of escape from the double well potential. The feedback between \(sin(\omega t)\) and double well forcing ensures that the potential landscape wobbles between one minima to other. Just as the barrier reaches its minimum, stochastic weather noise provides the necessary energy kick to push the system across the barrier to the other minima.</p><figure style="text-align:center;">
+<img src="https://atiyabzafar.github.io/Blog/2026/images/StochasticResonance.png" style="padding:0; width:75%;border: 1px solid red;" alt=" Stochastic resonance for r=1.5, omega=0.01"/>
+<figcaption> Stochastic resonance for r=1.5, omega=0.01</figcaption>
+</figure><h2 id="code">Code</h2>
+<h3 id="figure_1">Figure 1</h3>
+<pre><code class="language-Julia">using Random, Statistics, Plotsfunction simulate_maps&#40;a, sigma, steps&#41;
+    x_det &#61; zeros&#40;steps&#41;
+    x_stoch &#61; zeros&#40;steps&#41;
+    
+    # Start both far from the origin
+    x_det&#91;1&#93; &#61; 10.0 
+    x_stoch&#91;1&#93; &#61; 10.0
+    
+    for n in 1:&#40;steps-1&#41;
+        # Deterministic: strict fixed point
+        x_det&#91;n&#43;1&#93; &#61; a * x_det&#91;n&#93;
+        
+        # Stochastic: kicked by random noise
+        x_stoch&#91;n&#43;1&#93; &#61; a * x_stoch&#91;n&#93; &#43; sigma * randn&#40;&#41;
+    end
+    
+    return x_det, x_stoch
+end# Set parameters for a stable system
+a &#61; 0.99
+sigma &#61; 0.5
+steps &#61; 1000x_det, x_stoch &#61; simulate_maps&#40;a, sigma, steps&#41;# Visualizing the time series
+p&#61;plot&#40;x_det&#91;1:500&#93;, label&#61;&quot;Deterministic&quot;, linewidth&#61;2, xlabel&#61;&quot;Time step &#40;n&#41;&quot;, ylabel&#61;&quot;x&quot;&#41;
+plot&#33;&#40;p,x_stoch&#91;1:500&#93;, label&#61;&quot;Stochastic&quot;, alpha&#61;0.6&#41;p1&#61;histogram&#40;x_stoch&#91;100:end&#93;, normalize&#61;:pdf, bins&#61;30, 
+          label&#61;&quot;Stochastic Distribution&quot;, 
+          xlabel&#61;&quot;State &#40;x&#41;&quot;, ylabel&#61;&quot;Probability Density&quot;, 
+          alpha&#61;0.6, color&#61;:blue, legend&#61;:topright&#41;
+p&#61;plot&#40;p, p1, layout&#61;&#40;1,2&#41;, size&#61;&#40;1200,600&#41;, title&#61;&quot;Stochastic Stability in a Stable System&quot;&#41;</code></pre>
+<h3 id="figure_2">Figure 2</h3>
+<pre><code class="language-Julia">using Random, Plotsfunction simulate_2d_stochastic&#40;lambda_x, lambda_y, sigma, steps&#41;
+    x &#61; zeros&#40;steps&#41;
+    y &#61; zeros&#40;steps&#41;
+    
+    # Start at the origin
+    x&#91;1&#93; &#61; 0.0
+    y&#91;1&#93; &#61; 0.0
+    
+    for n in 1:&#40;steps-1&#41;
+        # Fast mode
+        x&#91;n&#43;1&#93; &#61; lambda_x * x&#91;n&#93; &#43; sigma * randn&#40;&#41;
+        # Slow mode
+        y&#91;n&#43;1&#93; &#61; lambda_y * y&#91;n&#93; &#43; sigma * randn&#40;&#41;
+    end
+    
+    return x, y
+end# Parameters
+lambda_1 &#61; 0.1   # Fast mode &#40;tightly bound&#41;
+lambda_2 &#61; 0.95  # Slow mode &#40;loose, high variance&#41;
+sigma &#61; 1.0
+steps &#61; 10000    # More steps give a better picture of the distributionx_vals, y_vals &#61; simulate_2d_stochastic&#40;lambda_1, lambda_2, sigma, steps&#41;# Visualizing the cloud
+scatter&#40;x_vals, y_vals, 
+        title&#61;&quot;2D Stationary Distribution&quot;, 
+        xlabel&#61;&quot;x &#40;Fast Mode, λ&#61;0.1&#41;&quot;, 
+        ylabel&#61;&quot;y &#40;Slow Mode, λ&#61;0.95&#41;&quot;, 
+        legend&#61;false, 
+        markersize&#61;1.5, 
+        markerstrokewidth&#61;0, 
+        alpha&#61;0.4, 
+        aspect_ratio&#61;:equal&#41; # Equal aspect ratio shows the true stretching</code></pre>
+<h3 id="figure_3">Figure 3</h3>
+<pre><code class="language-Julia">using Random, Statistics, Plotsfunction simulate_logistic&#40;r, sigma, steps&#41;
+    x_det &#61; zeros&#40;steps&#41;
+    x_stoch &#61; zeros&#40;steps&#41;
+    
+    x_det&#91;1&#93; &#61; 0.5
+    x_stoch&#91;1&#93; &#61; 0.5
+    
+    for n in 1:&#40;steps-1&#41;
+        # Deterministic map
+        x_det&#91;n&#43;1&#93; &#61; r * x_det&#91;n&#93; * &#40;1 - x_det&#91;n&#93;&#41;
+        
+        # Stochastic map &#40;clamped to keep the state within the &#91;0,1&#93; domain&#41;
+        noise &#61; sigma * randn&#40;&#41;
+        x_stoch&#91;n&#43;1&#93; &#61; clamp&#40;r * x_stoch&#91;n&#93; * &#40;1 - x_stoch&#91;n&#93;&#41; &#43; noise, 0.001, 0.999&#41;
+    end
+    
+    return x_det, x_stoch
+end# Set parameters
+r &#61; 2.8       # Stable regime for the deterministic map
+sigma &#61; 0.05  # Noise intensity
+steps &#61; 50000x_det, x_stoch &#61; simulate_logistic&#40;r, sigma, steps&#41;# --- 1. Deterministic Fixed Point and Stability ---
+x_star &#61; 1 - 1/r  # Analytical fixed point
+lyap_det &#61; log&#40;abs&#40;r * &#40;1 - 2 * x_star&#41;&#41;&#41;# --- 2. Stochastic Stability ---
+# We approximate the integral over P&#40;x&#41; using the time-average of the trajectory
+lyap_stoch &#61; mean&#40;log.&#40;abs.&#40;r .* &#40;1 .- 2 .* x_stoch&#91;1000:end&#93;&#41;&#41;&#41;&#41;println&#40;&quot;Deterministic Fixed Point: x* &#61; &quot;, round&#40;x_star, digits&#61;4&#41;&#41;
+println&#40;&quot;Deterministic Lyapunov Exponent: &quot;, round&#40;lyap_det, digits&#61;4&#41;&#41;
+println&#40;&quot;Stochastic Lyapunov Exponent: &quot;, round&#40;lyap_stoch, digits&#61;4&#41;&#41;# --- 3. Visualizing P&#40;x&#41; ---
+histogram&#40;x_stoch, normalize&#61;:pdf, bins&#61;100, 
+          label&#61;&quot;Stationary Distribution P&#40;x&#41;&quot;, 
+          xlabel&#61;&quot;State &#40;x&#41;&quot;, ylabel&#61;&quot;Probability Density&quot;, 
+          alpha&#61;0.6, color&#61;:blue, legend&#61;:topleft&#41;
+vline&#33;&#40;&#91;x_star&#93;, label&#61;&quot;Deterministic Fixed Point x*&quot;, color&#61;:red, linewidth&#61;3&#41;</code></pre>
+<h3 id="figure_4">Figure 4</h3>
+<pre><code class="language-Julia">using Random, Plotsfunction simulate_climate&#40;r, A, omega, sigma, dt, steps&#41;
+    x &#61; zeros&#40;steps&#41;
+    x&#91;1&#93; &#61; -sqrt&#40;r&#41; # Start in the cold glacial state &#40;left well&#41;
+    
+    for i in 1:&#40;steps-1&#41;
+        t &#61; i * dt
+        # Deterministic drift &#43; weak orbital wave
+        drift &#61; r * x&#91;i&#93; - x&#91;i&#93;^3 &#43; A * sin&#40;omega * t&#41;
+        
+        # Stochastic diffusion &#40;weather noise&#41;
+        diffusion &#61; sigma * randn&#40;&#41; * sqrt&#40;dt&#41;
+        
+        # Euler-Maruyama step
+        x&#91;i&#43;1&#93; &#61; x&#91;i&#93; &#43; drift * dt &#43; diffusion
+    end
+    
+    return x
+end# Parameters
+r &#61; 1.5         # Double-well shape
+A &#61; 0.25        # Weak orbital wobble
+omega &#61; 0.01    # Slow orbital frequency
+sigma &#61; 0.45    # Short-term weather noise
+dt &#61; 0.1
+steps &#61; 50000x_climate &#61; simulate_climate&#40;r, A, omega, sigma, dt, steps&#41;
+time_array &#61; &#40;1:steps&#41; .* dt# Plot the climate history over time
+plot&#40;time_array, x_climate, label&#61;&quot;Global Temperature&quot;, 
+     xlabel&#61;&quot;Time&quot;, ylabel&#61;&quot;Climate State &#40;x&#41;&quot;, 
+     title&#61;&quot;Stochastic Resonance in Earth&#39;s Climate&quot;, 
+     color&#61;:teal, linewidth&#61;1.5, alpha&#61;0.8, legend&#61;:bottomright&#41;
+hline&#33;&#40;&#91;sqrt&#40;r&#41;, -sqrt&#40;r&#41;&#93;, color&#61;:red, linestyle&#61;:dash, 
+       label&#61;&quot;Stable States &#40;Warm / Ice Age&#41;&quot;&#41;</code></pre>
+ ]]>
+  </content:encoded>
+    
+  <pubDate>Fri, 30 Oct 2026 00:00:00 +0000</pubDate>  
+  
+  
+  <atom:author>
+    <atom:name>Atiyab Zafar</atom:name>
+  </atom:author>
+        
+</item>
+
+<item>
+  <title>
     <![CDATA[  When stars get sick, astro-epidemiological model: Project Hail Mary a Sci-Fi book review  ]]>
   </title>
   <link> https://atiyabzafar.github.io/Blog/2026/hailmary/index.html </link>
