@@ -23,16 +23,16 @@
 
 <item>
   <title>
-    <![CDATA[  Learn with me: Stochastic dynamics, fixed points and focker planck equations  ]]>
+    <![CDATA[  Learn with me: Stochastic dynamics, fixed points and fokker planck equations  ]]>
   </title>
   <link> https://atiyabzafar.github.io/Blog/2026/stochasticfixedpoint/index.html </link>
   <guid> https://atiyabzafar.github.io/Blog/2026/stochasticfixedpoint/index.html </guid>
   <description>
-    <![CDATA[  Learning stochastic dynamical systems with me, exploring focker planck equation and stochastic fixed points  ]]>
+    <![CDATA[  Learning stochastic dynamical systems with me, exploring fokker planck equation and stochastic fixed points  ]]>
   </description>  
   
   <content:encoded>
-    <![CDATA[  <h1 id="learn_with_me_stochastic_dynamics_fixed_points_and_focker_planck_equations">Learn with me: Stochastic dynamics, fixed points and focker planck equations</h1>
+    <![CDATA[  <h1 id="learn_with_me_stochastic_dynamics_fixed_points_and_fokker_planck_equations">Learn with me: Stochastic dynamics, fixed points and fokker planck equations</h1>
 <p>I have studied non linear dynamics, both continuous and discrete systems in detail before. In my journey through the masters degree I encountered stochastic systems a lot but never sat down explicitly to learn actual stochastic systems and solving dynamical stochastic systems in detail. This post is supposed to be a self teaching guide I am writing up as I learn stochastic dynamics. In no manner should this post be considered a good introductory session to the models and solving non linear stochastic differential equations, I am sure both you and me can find better textbooks that will do a much better job at it.</p>
 <p>Recently, I was trying to write a mean field version of a stochastic dynamical system and in the process of writing some discrete map which were probabilistic in nature, I realised I do not know what it means to have a stable fixed point in a stochastic system. I had a rough idea what it would imply. But I decided I think it will be worth it to just go through a small crash course. So, let us embark on this journey and learn some basics of stochastic dynamics.</p>
 <h2 id="from_determinism_to_stochasticity">From determinism to stochasticity</h2>
@@ -114,7 +114,7 @@ Stochastic Lyapunov Exponent: -0.4602</code></pre>
 \[\dot{x} = f(x) + \sigma \xi(t)\]
 <p>where \(\xi(t)\) is Gaussian white noise, the evolution of the probability density function \(P(x,t)\) is governed by the <strong>Fokker-Planck Equation</strong> &#40;forward Kolmogorov equation&#41;:</p>
 \[\frac{\partial P(x,t)}{\partial t} = -\frac{\partial}{\partial x} \big[ f(x) P(x) \big] + \frac{\sigma^2}{2} \frac{\partial^2}{\partial x^2} \big[ P(x) \big]\]
-<p>To understand the origin of this equation, we can start by understanding a stochastic dynamical system in general. Let us say, we have a particle moving through space. We solve \(dx/dt\) to get the position of the particle and get its trajectory. Focker-Planck equation tracks how the entire cloud of probability distribution \(P(x,t)\) evolves over time.</p>
+<p>To understand the origin of this equation, we can start by understanding a stochastic dynamical system in general. Let us say, we have a particle moving through space. We solve \(dx/dt\) to get the position of the particle and get its trajectory. fokker-Planck equation tracks how the entire cloud of probability distribution \(P(x,t)\) evolves over time.</p>
 <p>At any moment, there are typically two forces that are evolving a stochastic dynamical system.</p>
 <ol>
 <li><p>Drift: The deterministic part of the system, \(f(x)\), acts like a fluid current, sweeping the probability mass toward the stable fixed points.</p>
@@ -169,7 +169,7 @@ Stochastic Lyapunov Exponent: -0.4602</code></pre>
 <img src="https://atiyabzafar.github.io/Blog/2026/images/PitchforkStochastic.png" style="padding:0; width:75%;border: 1px solid red;" alt=" P(x) for various values of $p$ showing stochastic pitchfork bifurcation"/>
 <figcaption> P(x) for various values of $p$ showing stochastic pitchfork bifurcation</figcaption>
 </figure><blockquote>
-<p>Note:  We use a method known as Euler Maruyama method to numerically integrate the focker planck equation. <code>x&#91;i&#43;1&#93; &#61; x&#91;i&#93; &#43; drift * dt &#43; diffusion</code></p>
+<p>Note:  We use a method known as Euler Maruyama method to numerically integrate the fokker planck equation. <code>x&#91;i&#43;1&#93; &#61; x&#91;i&#93; &#43; drift * dt &#43; diffusion</code></p>
 </blockquote>
 <hr />
 <h2 id="climate_application_stochastic_resonance_the_benzi_model_1981">Climate Application: Stochastic Resonance &amp; the Benzi Model &#40;1981&#41;</h2>
